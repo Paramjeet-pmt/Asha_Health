@@ -1,8 +1,19 @@
 
 (function () {
   const root = document.createElement('div');
-  root.className = 'asha-back-wrap';
-  root.innerHTML = '<button class="asha-back-btn" type="button" aria-label="Go back"><span aria-hidden="true">←</span><span>Back</span></button>';
+  root.className = 'asha-nav-wrap';
+  
+  // Create navigation container with Home and Back buttons
+  root.innerHTML = `
+    <a href="/" class="asha-nav-btn asha-home-btn" aria-label="Go to Home">
+      <span aria-hidden="true">🏠</span>
+      <span>Home</span>
+    </a>
+    <button class="asha-nav-btn asha-back-btn" type="button" aria-label="Go back">
+      <span aria-hidden="true">←</span>
+      <span>Back</span>
+    </button>
+  `;
   document.body.appendChild(root);
 
   const path = location.pathname.split('/').filter(Boolean);
@@ -15,17 +26,25 @@
     'welcome_to_rural_health_connect',
     'patient_login_1',
     'patient_login_2',
-    'admin_secure_login_mobile'
+    'patient_login_variant_1',
+    'patient_login_variant_2',
+    'admin_secure_login_mobile',
+    'admin_login',
+    'loading_screen'
   ]);
 
-  if (noBack.has(current)) root.style.display = 'none';
+  // Hide back button on splash/login pages, but keep home button visible
+  if (noBack.has(current)) {
+    document.querySelector('.asha-back-btn').style.display = 'none';
+  }
 
-  root.querySelector('button').addEventListener('click', function () {
+  // Back button functionality
+  document.querySelector('.asha-back-btn').addEventListener('click', function () {
     if (history.length > 1 && document.referrer && new URL(document.referrer).origin === location.origin) {
       history.back();
     } else {
-      const fallback = document.referrer ? document.referrer : '../';
-      location.href = fallback;
+      // Fallback: go to home
+      location.href = '/';
     }
   });
 
