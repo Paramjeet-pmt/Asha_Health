@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+      <meta charset="utf-8">
+      <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+            name="viewport">
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Geist:wght@500;600;700&amp;display=swap"
+            rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+            rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+            rel="stylesheet">
+      <script src="https://cdn.tailwindcss.com"></script>
+      <script
+            id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-secondary-container": "#0b6f63", "surface": "#f9f9fd", "background": "#f9f9fd", "secondary-container": "#9cefdf", "emergency-red": "#BA1A1A", "on-tertiary": "#ffffff", "on-primary-fixed": "#001c37", "on-surface": "#1a1c1f", "surface-container-lowest": "#ffffff", "primary-fixed-dim": "#a3c9fc", "surface-container": "#eeedf2", "error": "#ba1a1a", "on-primary": "#ffffff", "error-container": "#ffdad6", "on-tertiary-container": "#d38b5c", "sync-offline": "#727780", "primary": "#001f3c", "ai-purple": "#3F0099", "on-primary-container": "#799fcf", "surface-variant": "#e2e2e6", "on-secondary": "#ffffff", "primary-container": "#00355f", "admin-amber": "#B45309", "tertiary-fixed": "#ffdbc7", "outline-variant": "#c3c6d0", "surface-container-highest": "#e2e2e6", "surface-container-high": "#e8e8ec", "secondary-fixed-dim": "#83d5c6", "secondary-fixed": "#9ff2e2", "surface-bright": "#f9f9fd", "tertiary-container": "#562600", "on-secondary-fixed": "#00201c", "tertiary": "#361500", "inverse-primary": "#a3c9fc", "primary-fixed": "#d2e4ff", "on-error-container": "#93000a", "on-surface-variant": "#42474f", "tertiary-fixed-dim": "#ffb689", "on-secondary-fixed-variant": "#005047", "outline": "#73777f", "on-background": "#1a1c1f", "on-primary-fixed-variant": "#1e4973", "surface-tint": "#39608d", "inverse-on-surface": "#f1f0f4", "on-error": "#ffffff", "surface-dim": "#dadade", "surface-container-low": "#f4f3f7", "on-tertiary-fixed": "#311300", "secondary": "#006b5f", "on-tertiary-fixed-variant": "#6e3910", "inverse-surface": "#2f3034" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "touch-target": "48px", "margin-desktop": "40px", "gutter-md": "20px", "margin-mobile": "16px", "gutter-sm": "12px", "unit": "4px" }, "fontFamily": { "body-lg": ["Inter"], "label-sm": ["Geist"], "headline-lg": ["Geist"], "headline-md": ["Geist"], "headline-lg-mobile": ["Geist"], "display-lg": ["Geist"], "label-md": ["Geist"], "body-md": ["Inter"] }, "fontSize": { "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }], "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }], "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }], "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }], "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600" }], "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }] } } } }</script>
+      <link rel="stylesheet" href="styles.css">
+      <link rel="stylesheet" href="../../asha-navigation.css">
+</head>
+
+<body class="bg-background font-body-md text-on-background">
+      <header
+            class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] pt-safe">
+            <div class="h-16 px-margin-mobile flex items-center justify-between"><button
+                        class="-ml-2 flex items-center justify-center text-primary hover:bg-surface-variant rounded-full transition-colors active:scale-95 h-12 w-12"
+                        aria-label="Go back" onclick="window.history.back()"><span
+                              class="material-symbols-outlined text-[24px]">arrow_back</span></button>
+                  <div class="flex items-center gap-gutter-sm"><img alt="Rural Health Connect Logo"
+                              class="h-8 w-auto object-contain"
+                              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQq3FM4h5Q618ZJ3i_dhXVXAPSBusU6BTZrSxwzQGQpHmYHzA5CMz3DJTrqcNfIfre2uuvK1g-irrv24ReyDIpGTd2o8XEMzn_tBCUWsyH9FqnZpmm8MTusC-fqtaIK2nK1s6FBx04j894BIc7NCkSW7Gc9JiYkDrFDTFYqMfsFXZA3SnK9E1k3nXxXc1ZyAkM3VVWEZy3FN_leJWNebEUIterfS8BtZApN6N93M5Dhk29n4IT_LBO">
+                        <div class="flex flex-col"><span
+                                    class="font-headline-md text-body-md text-primary leading-tight tracking-tight">Risk
+                                    Assessment</span>
+                              <div class="flex items-center gap-1"><span
+                                          class="w-2 h-2 rounded-full bg-on-secondary-container"></span><span
+                                          class="font-label-sm text-on-secondary-container uppercase tracking-widest text-[10px]">Online</span>
+                              </div>
+                        </div>
+                  </div>
+                  <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span
+                              class="material-symbols-outlined text-on-primary text-[18px]">person</span></div>
+            </div>
+      </header>
+      <main class="relative w-full pt-16 pb-24 bg-background min-h-screen">
+            <div class="flex flex-col w-full h-full relative font-body-md bg-surface text-on-surface">
+                  <!-- AI Greeting & Context -->
+                  <section
+                        class="px-margin-mobile pt-gutter-md pb-gutter-sm flex flex-col gap-gutter-sm animate-fade-in">
+                        <div class="flex items-start gap-gutter-sm">
+                              <div
+                                    class="w-12 h-12 rounded-full bg-surface-variant flex items-center justify-center shrink-0 relative overflow-hidden shadow-sm">
+                                    <div class="absolute inset-0 bg-ai-purple opacity-10 animate-pulse"></div>
+                                    <span class="material-symbols-outlined text-ai-purple"
+                                          style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+                              </div>
+                              <div
+                                    class="bg-surface-container-lowest rounded-2xl rounded-tl-sm p-margin-mobile shadow-sm relative">
+                                    <p class="text-body-lg text-on-surface">Namaste, I am your Health Assistant.</p>
+                                    <p class="text-body-md text-on-surface-variant mt-1">What symptoms are you
+                                          experiencing today?</p>
+                              </div>
+                        </div>
+                  </section>
+                  <!-- Symptom Chips (Quick Select) -->
+                  <section class="px-margin-mobile py-gutter-sm">
+                        <p class="text-label-sm text-on-surface-variant mb-gutter-sm uppercase tracking-wider">Common
+                              Symptoms</p>
+                        <div class="flex flex-wrap gap-unit">
+                              <button
+                                    class="px-4 py-2 rounded-full bg-surface-container text-on-surface text-label-md hover:bg-surface-variant transition-colors shadow-sm flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-[18px]">coronavirus</span> Cough
+                              </button>
+                              <button
+                                    class="px-4 py-2 rounded-full bg-surface-container text-on-surface text-label-md hover:bg-surface-variant transition-colors shadow-sm flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-[18px]">device_thermostat</span> Fever
+                              </button>
+                              <button
+                                    class="px-4 py-2 rounded-full bg-surface-container text-on-surface text-label-md hover:bg-surface-variant transition-colors shadow-sm flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-[18px]">sick</span> Headache
+                              </button>
+                              <button
+                                    class="px-4 py-2 rounded-full bg-surface-container text-on-surface text-label-md hover:bg-surface-variant transition-colors shadow-sm flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-[18px]">water_drop</span> Nausea
+                              </button>
+                        </div>
+                  </section>
+                  <!-- Interactive Input Area -->
+                  <section class="px-margin-mobile py-gutter-sm mt-auto">
+                        <div class="relative w-full shadow-sm rounded-xl overflow-hidden bg-surface-container-lowest">
+                              <textarea
+                                    class="w-full min-h-[80px] p-margin-mobile pr-16 bg-transparent text-body-md text-on-surface placeholder:text-outline outline-none resize-none"
+                                    placeholder="Describe how you feel..."></textarea>
+                              <div class="absolute bottom-2 right-2 flex items-center gap-2">
+                                    <button
+                                          class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface hover:bg-surface-variant transition-colors">
+                                          <span class="material-symbols-outlined text-[20px]">mic</span>
+                                    </button>
+                                    <button
+                                          class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-on-primary hover:bg-primary/90 transition-colors shadow-md">
+                                          <span class="material-symbols-outlined text-[20px]"
+                                                style="font-variation-settings: 'FILL' 1;">send</span>
+                                    </button>
+                              </div>
+                        </div>
+                  </section>
+                  <!-- Risk Assessment (Mocked State - would be dynamic) -->
+                  <section class="px-margin-mobile py-gutter-md">
+                        <div
+                              class="bg-surface-variant/50 backdrop-blur-md rounded-xl p-margin-mobile relative overflow-hidden border border-ai-purple/20">
+                              <div class="absolute top-0 right-0 p-4 opacity-10 pointer-events-none">
+                                    <span class="material-symbols-outlined text-[100px] text-ai-purple"
+                                          style="font-variation-settings: 'FILL' 1;">health_and_safety</span>
+                              </div>
+                              <div class="flex items-center gap-2 mb-3">
+                                    <span class="w-2 h-2 rounded-full bg-admin-amber animate-pulse"></span>
+                                    <span class="text-label-sm font-label-sm text-admin-amber uppercase tracking-wider">Moderate
+                                          Risk Detected</span>
+                              </div>
+                              <p class="text-body-md text-on-surface-variant mb-4 relative z-10">Based on "fever" and
+                                    "cough", an evaluation is recommended to rule out common respiratory infections.</p>
+                              <div class="flex flex-col gap-unit">
+                                    <button
+                                          class="w-full h-touch-target rounded-lg bg-primary text-on-primary text-label-md font-label-md flex items-center justify-center gap-2 shadow-sm">
+                                          <span class="material-symbols-outlined text-[20px]">video_camera_front</span>
+                                          Book Teleconsultation
+                                    </button>
+                                    <button
+                                          class="w-full h-touch-target rounded-lg bg-surface-container-lowest text-primary text-label-md font-label-md flex items-center justify-center gap-2 shadow-sm">
+                                          <span class="material-symbols-outlined text-[20px]">local_hospital</span> Find
+                                          Facility
+                                    </button>
+                                    <button
+                                          class="w-full h-touch-target rounded-lg bg-error-container text-on-error-container text-label-md font-label-md flex items-center justify-center gap-2 mt-2 shadow-sm">
+                                          <span class="material-symbols-outlined text-[20px]">call</span> Call 108
+                                          Emergency
+                                    </button>
+                              </div>
+                        </div>
+                  </section>
+                  <div class="px-margin-mobile pb-gutter-md text-center">
+                        <p
+                              class="text-[10px] text-on-surface-variant flex items-center justify-center gap-1 opacity-70">
+                              <span class="material-symbols-outlined text-[12px]">info</span>
+                              AI-assisted risk assessment. Not a final diagnosis.
+                        </p>
+                  </div>
+            </div>
+            <script>
+                  // Simple interaction for textarea auto-resize
+                  const textarea = document.querySelector('textarea');
+                  if (textarea) {
+                        textarea.addEventListener('input', function () {
+                              this.style.height = '80px';
+                              this.style.height = (this.scrollHeight) + 'px';
+                        });
+                  }
+            </script>
+      </main>
+      <nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/80 backdrop-blur-xl shadow-[0_-1px_8px_rgba(0,0,0,0.04)]"
+            data-active-classes="text-primary font-semibold">
+            <div class="flex justify-around items-center h-16 px-2"><a
+                        class="flex flex-col items-center justify-center w-full h-full text-on-surface-variant transition-colors"
+                        data-path="home" href="#"><span class="material-symbols-outlined">home</span><span
+                              class="text-label-sm font-label-sm mt-1">Home</span></a><a
+                        class="flex flex-col items-center justify-center w-full h-full text-on-surface-variant transition-colors"
+                        data-path="visits" href="#"><span class="material-symbols-outlined">event_repeat</span><span
+                              class="text-label-sm font-label-sm mt-1">Visits</span></a><a
+                        class="flex flex-col items-center justify-center w-full h-full text-on-surface-variant transition-colors"
+                        data-path="risk" href="#"><span class="material-symbols-outlined">clinical_notes</span><span
+                              class="text-label-sm font-label-sm mt-1">Risk</span></a><a
+                        class="flex flex-col items-center justify-center w-full h-full text-on-surface-variant transition-colors"
+                        data-path="sync" href="#"><span class="material-symbols-outlined">sync</span><span
+                              class="text-label-sm font-label-sm mt-1">Sync</span></a></div>
+      </nav>
+
+
+
+      <script src="../../asha-navigation.js"></script>
+</body>
+
+</html>
+
+
+
+
+

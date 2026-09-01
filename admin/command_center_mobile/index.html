@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script id="tailwind-config">
+                tailwind.config = {
+                        darkMode: "class",
+                        theme: {
+                                extend: {
+                                        "colors": {
+                                                "secondary-fixed-dim": "#c0c6db",
+                                                "on-primary-fixed": "#3f0300",
+                                                "state-critical": "#ef4444",
+                                                "nexus-warm-surface": "#fff1e6",
+                                                "primary-fixed-dim": "#ffb4a6",
+                                                "state-warning": "#f59e0b",
+                                                "on-secondary": "#ffffff",
+                                                "on-secondary-container": "#5c6274",
+                                                "on-surface": "#231917",
+                                                "surface-bright": "#fff8f6",
+                                                "on-primary-container": "#752215",
+                                                "on-tertiary-container": "#00493a",
+                                                "state-online": "#22c55e",
+                                                "primary-container": "#ff8a75",
+                                                "inverse-on-surface": "#ffede9",
+                                                "tertiary-fixed": "#72f9d5",
+                                                "surface-container-high": "#f7e4e0",
+                                                "surface-tint": "#9f4030",
+                                                "primary": "#9f4030",
+                                                "nexus-pro-accent": "#0d9488",
+                                                "nexus-pro-bg": "#f8fafc",
+                                                "on-primary": "#ffffff",
+                                                "primary-fixed": "#ffdad4",
+                                                "error-container": "#ffdad6",
+                                                "surface-dim": "#e9d6d3",
+                                                "state-offline": "#64748b",
+                                                "surface-container-highest": "#f1dedb",
+                                                "on-error-container": "#93000a",
+                                                "secondary-container": "#d9dff5",
+                                                "error": "#ba1a1a",
+                                                "tertiary-container": "#29c09f",
+                                                "on-secondary-fixed-variant": "#404758",
+                                                "on-background": "#231917",
+                                                "secondary-fixed": "#dce2f7",
+                                                "on-error": "#ffffff",
+                                                "on-tertiary": "#ffffff",
+                                                "on-surface-variant": "#56423e",
+                                                "on-secondary-fixed": "#141b2b",
+                                                "on-primary-fixed-variant": "#7f291c",
+                                                "surface-container": "#fdeae6",
+                                                "on-tertiary-fixed": "#002019",
+                                                "on-tertiary-fixed-variant": "#005141",
+                                                "surface-container-lowest": "#ffffff",
+                                                "outline": "#89726d",
+                                                "secondary": "#575e70",
+                                                "background": "#fff8f6",
+                                                "surface-container-low": "#fff0ee",
+                                                "inverse-primary": "#ffb4a6",
+                                                "tertiary-fixed-dim": "#51dcba",
+                                                "inverse-surface": "#392e2c",
+                                                "outline-variant": "#dcc0bb",
+                                                "tertiary": "#006b57",
+                                                "nexus-warm-bg": "#fffaf5",
+                                                "surface-variant": "#f1dedb",
+                                                "surface": "#fff8f6"
+                                        },
+                                        "borderRadius": {
+                                                "DEFAULT": "0.5rem",
+                                                "lg": "0.5rem",
+                                                "xl": "0.75rem",
+                                                "full": "9999px"
+                                        },
+                                        "spacing": {
+                                                "margin-mobile": "16px",
+                                                "gutter-md": "20px",
+                                                "gutter-sm": "12px",
+                                                "unit": "4px",
+                                                "margin-desktop": "40px",
+                                                "touch-target": "48px"
+                                        },
+                                        "fontFamily": {
+                                                "label-md": [
+                                                        "Geist"
+                                                ],
+                                                "label-sm": [
+                                                        "Geist"
+                                                ],
+                                                "body-md": [
+                                                        "Geist"
+                                                ],
+                                                "body-lg": [
+                                                        "Geist"
+                                                ],
+                                                "headline-md": [
+                                                        "Geist"
+                                                ],
+                                                "headline-lg": [
+                                                        "Geist"
+                                                ],
+                                                "headline-lg-mobile": [
+                                                        "Geist"
+                                                ],
+                                                "display-lg": [
+                                                        "Geist"
+                                                ]
+                                        },
+                                        "fontSize": {
+                                                "label-md": [
+                                                        "14px",
+                                                        {
+                                                                "lineHeight": "20px",
+                                                                "letterSpacing": "0.02em",
+                                                                "fontWeight": "600"
+                                                        }
+                                                ],
+                                                "label-sm": [
+                                                        "12px",
+                                                        {
+                                                                "lineHeight": "16px",
+                                                                "fontWeight": "500"
+                                                        }
+                                                ],
+                                                "body-md": [
+                                                        "16px",
+                                                        {
+                                                                "lineHeight": "24px",
+                                                                "fontWeight": "400"
+                                                        }
+                                                ],
+                                                "body-lg": [
+                                                        "18px",
+                                                        {
+                                                                "lineHeight": "28px",
+                                                                "fontWeight": "400"
+                                                        }
+                                                ],
+                                                "headline-md": [
+                                                        "24px",
+                                                        {
+                                                                "lineHeight": "32px",
+                                                                "fontWeight": "600"
+                                                        }
+                                                ],
+                                                "headline-lg": [
+                                                        "32px",
+                                                        {
+                                                                "lineHeight": "40px",
+                                                                "letterSpacing": "-0.01em",
+                                                                "fontWeight": "600"
+                                                        }
+                                                ],
+                                                "headline-lg-mobile": [
+                                                        "24px",
+                                                        {
+                                                                "lineHeight": "32px",
+                                                                "fontWeight": "600"
+                                                        }
+                                                ],
+                                                "display-lg": [
+                                                        "48px",
+                                                        {
+                                                                "lineHeight": "56px",
+                                                                "letterSpacing": "-0.02em",
+                                                                "fontWeight": "700"
+                                                        }
+                                                ]
+                                        }
+                                },
+                        },
+                }
+        </script>
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+                rel="stylesheet">
+        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="../../asha-navigation.css">
+</head>
+
+<body class="bg-background font-body-md text-on-surface">
+        <main class="min-h-screen flex items-center justify-center p-0 md:p-margin-mobile">
+                <div
+                        class="flex flex-col w-full h-full max-w-md mx-auto bg-nexus-pro-bg text-on-background font-body-md overflow-x-hidden shadow-xl md:rounded-xl">
+                        <!-- Connectivity Bar -->
+                        <div class="h-1 w-full bg-state-online flex-shrink-0 relative z-50"></div>
+                        <!-- Header -->
+                        <header
+                                class="flex items-center justify-between p-margin-mobile bg-surface-container-lowest sticky top-0 z-40 shadow-sm border-b border-surface-variant">
+                                <button aria-label="Go back"
+                                        class="flex items-center justify-center rounded hover:bg-surface-container transition-colors -ml-2 h-touch-target w-touch-target active:scale-[0.98]"
+                                        onclick="window.history.back()"><span
+                                                class="material-symbols-outlined text-on-surface">arrow_back</span></button>
+                                <div class="flex items-center gap-2">
+                                        <img alt="ASHA Logo" class="h-8 w-8 object-contain rounded"
+                                                src="https://lh3.googleusercontent.com/aida/AEtjO1XgbqEh1JkhGZ3iCubOa52-_5A9bMLgRfG5W6bLEzTnlT_yYzTAn4lt8v_FWYmmtxuFsOPVCi3zpLsFRRKwrdpqJQ05Aue4xKJCw6pHQGXg1ggAxGQvlNJfDJVb2T0eZw7dwfT4zlL8q4QTtVb-TG4yOczmhcBwPg1uTdoQV16Ypjtvkoy1ApahDcffi93EMHejugi-wY59REsYAkmzwWqoZYNwxbr5LDthaBnlDtxZsfdlwuer128VUSU">
+                                        <span class="font-headline-md text-on-surface tracking-tight text-lg">ASHA
+                                                Health</span>
+                                </div>
+                                <div
+                                        class="flex items-center gap-1.5 px-3 py-1 bg-surface-container rounded-full border border-outline-variant">
+                                        <div class="w-2 h-2 rounded-full bg-state-online animate-pulse"></div>
+                                        <span
+                                                class="font-label-sm text-on-surface-variant uppercase tracking-widest">Synced</span>
+                                </div>
+                        </header>
+                        <!-- Hero Section with Background Visualization -->
+                        <section
+                                class="relative px-margin-mobile pt-8 pb-10 flex flex-col gap-6 border-b border-surface-variant bg-gradient-to-b from-surface-container-lowest to-surface-container-low">
+                                <div class="absolute inset-0 z-0 opacity-10 mix-blend-multiply"
+                                        style="background-image: url('https://lh3.googleusercontent.com/aida/AEtjO1UfmCmGohjga1D7EqM4BAuSDn5N9TAyfseuJxhFzb-9Xbz9jmdWao57lLpz5oxmSg8lcHzBwUL2toIe0_f8-tDWI-8_fIIW2OzP1L31N4L8IQ1D3hR0UST-y7qo2OYYy2PzHY5ZX2SAN0FbTfSS__GpYKsixmJPmoX-KlCoqogexTZSrKoyD13zypF4lph7fgIjQK3APBdEz_E5kWhCZ9XqtXZxc-Yix1hnkxvVQIdMD9sPft6UQFgxdKg'); background-size: cover; background-position: center;">
+                                </div>
+                                <div class="relative z-10 flex flex-col gap-4">
+                                        <div
+                                                class="inline-flex items-center gap-2 px-3 py-1.5 bg-surface-container rounded w-fit">
+                                                <span class="material-symbols-outlined text-nexus-pro-accent text-sm"
+                                                        style="font-variation-settings: 'FILL' 1;">admin_panel_settings</span>
+                                                <span
+                                                        class="font-label-sm text-on-surface uppercase tracking-wider text-xs">Admin
+                                                        View</span>
+                                        </div>
+                                        <h1
+                                                class="font-headline-lg text-4xl text-on-surface leading-tight tracking-tighter">
+                                                District Command Center
+                                        </h1>
+                                        <p class="font-body-md text-on-surface-variant leading-relaxed">
+                                                Real-time visibility into facility flow, health trends, and referral
+                                                tracking.
+                                        </p>
+                                        <button
+                                                class="mt-4 h-touch-target bg-on-secondary-fixed text-on-primary w-full rounded font-label-md flex items-center justify-center gap-2 shadow-md hover:opacity-90 active:scale-[0.98] transition-all">
+                                                Admin Login
+                                                <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                                        </button>
+                                </div>
+                        </section>
+                        <!-- Dashboard Preview (Live Metrics Grid) -->
+                        <section class="px-margin-mobile py-8 relative z-20 bg-nexus-pro-bg">
+                                <div class="grid grid-cols-2 gap-4">
+                                        <!-- Active Patients -->
+                                        <div
+                                                class="bg-surface-container-lowest p-5 rounded-lg shadow-sm border border-surface-variant flex flex-col gap-3">
+                                                <div class="flex items-center justify-between">
+                                                        <span class="material-symbols-outlined text-primary text-2xl"
+                                                                style="font-variation-settings: 'FILL' 1;">groups</span>
+                                                        <div class="w-2.5 h-2.5 rounded-full bg-state-online"></div>
+                                                </div>
+                                                <div class="flex flex-col">
+                                                        <span
+                                                                class="font-headline-lg-mobile text-on-surface">1,284</span>
+                                                        <span class="font-body-md text-sm text-on-surface-variant">Active
+                                                                Patients</span>
+                                                </div>
+                                                <!-- Sparkline SVG -->
+                                                <svg class="w-full h-8 mt-2" fill="none" viewBox="0 0 100 24"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path class="text-state-online"
+                                                                d="M0 20 L20 16 L40 18 L60 8 L80 12 L100 4"
+                                                                stroke="currentColor" stroke-linecap="round"
+                                                                stroke-linejoin="round" stroke-width="2.5"></path>
+                                                </svg>
+                                        </div>
+                                        <!-- Referral Sync -->
+                                        <div
+                                                class="bg-surface-container-lowest p-5 rounded-lg shadow-sm border border-surface-variant flex flex-col gap-3">
+                                                <div class="flex items-center justify-between">
+                                                        <span class="material-symbols-outlined text-nexus-pro-accent text-2xl"
+                                                                style="font-variation-settings: 'FILL' 1;">sync</span>
+                                                        <span
+                                                                class="font-label-sm text-state-online font-bold bg-state-online/10 px-2 py-1 rounded">↑
+                                                                2%</span>
+                                                </div>
+                                                <div class="flex flex-col">
+                                                        <span class="font-headline-lg-mobile text-on-surface">94%</span>
+                                                        <span class="font-body-md text-sm text-on-surface-variant">Referral
+                                                                Sync</span>
+                                                </div>
+                                                <!-- Progress Ring SVG (Inline) -->
+                                                <div class="relative w-10 h-10 self-end mt-auto -mb-1 -mr-1">
+                                                        <svg class="w-full h-full transform -rotate-90"
+                                                                viewBox="0 0 36 36">
+                                                                <path class="text-surface-variant"
+                                                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                                                                        fill="none" stroke="currentColor"
+                                                                        stroke-width="4"></path>
+                                                                <path class="text-nexus-pro-accent"
+                                                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                                                                        fill="none" stroke="currentColor"
+                                                                        stroke-dasharray="94, 100"
+                                                                        stroke-linecap="round" stroke-width="4"></path>
+                                                        </svg>
+                                                </div>
+                                        </div>
+                                        <!-- Facilities -->
+                                        <div
+                                                class="bg-surface-container-lowest p-5 rounded-lg shadow-sm border border-surface-variant flex flex-col gap-3">
+                                                <span class="material-symbols-outlined text-tertiary text-2xl"
+                                                        style="font-variation-settings: 'FILL' 1;">local_hospital</span>
+                                                <div class="flex flex-col mt-2">
+                                                        <span class="font-headline-lg-mobile text-on-surface">48</span>
+                                                        <span
+                                                                class="font-body-md text-sm text-on-surface-variant">Facilities</span>
+                                                </div>
+                                        </div>
+                                        <!-- Referrals -->
+                                        <div
+                                                class="bg-surface-container-lowest p-5 rounded-lg shadow-sm border border-surface-variant flex flex-col gap-3">
+                                                <span class="material-symbols-outlined text-state-warning text-2xl"
+                                                        style="font-variation-settings: 'FILL' 1;">clinical_notes</span>
+                                                <div class="flex flex-col mt-2">
+                                                        <span class="font-headline-lg-mobile text-on-surface">37</span>
+                                                        <span class="font-body-md text-sm text-on-surface-variant">Pending
+                                                                Referrals</span>
+                                                </div>
+                                        </div>
+                                </div>
+                        </section>
+                        <!-- Monitoring Capabilities -->
+                        <section class="px-margin-mobile py-8 bg-surface-container flex flex-col gap-6">
+                                <h2 class="font-headline-md text-on-surface text-lg">Network Capabilities</h2>
+                                <div class="flex flex-col gap-4">
+                                        <!-- Item 1 -->
+                                        <div
+                                                class="flex items-start gap-4 p-5 rounded-lg bg-surface-container-lowest shadow-sm border border-surface-variant">
+                                                <div
+                                                        class="w-12 h-12 rounded bg-primary-container text-on-primary-container flex items-center justify-center flex-shrink-0">
+                                                        <span class="material-symbols-outlined"
+                                                                style="font-variation-settings: 'FILL' 1;">monitor_heart</span>
+                                                </div>
+                                                <div class="flex flex-col gap-1.5">
+                                                        <h3 class="font-label-md text-on-surface text-base">Patient Care
+                                                                Tracking</h3>
+                                                        <p
+                                                                class="font-body-md text-on-surface-variant text-sm leading-relaxed">
+                                                                Monitor patient triage levels and vitals across all
+                                                                sub-centers in real-time.</p>
+                                                </div>
+                                        </div>
+                                        <!-- Item 2 -->
+                                        <div
+                                                class="flex items-start gap-4 p-5 rounded-lg bg-surface-container-lowest shadow-sm border border-surface-variant">
+                                                <div
+                                                        class="w-12 h-12 rounded bg-secondary-container text-on-secondary-container flex items-center justify-center flex-shrink-0">
+                                                        <span class="material-symbols-outlined"
+                                                                style="font-variation-settings: 'FILL' 1;">route</span>
+                                                </div>
+                                                <div class="flex flex-col gap-1.5">
+                                                        <h3 class="font-label-md text-on-surface text-base">Referral
+                                                                Logistics</h3>
+                                                        <p
+                                                                class="font-body-md text-on-surface-variant text-sm leading-relaxed">
+                                                                Track patient movement from PHCs to district hospitals,
+                                                                ensuring continuum of care.</p>
+                                                </div>
+                                        </div>
+                                        <!-- Item 3 -->
+                                        <div
+                                                class="flex items-start gap-4 p-5 rounded-lg bg-surface-container-lowest shadow-sm border border-surface-variant">
+                                                <div
+                                                        class="w-12 h-12 rounded bg-error-container text-on-error-container flex items-center justify-center flex-shrink-0">
+                                                        <span class="material-symbols-outlined"
+                                                                style="font-variation-settings: 'FILL' 1;">warning</span>
+                                                </div>
+                                                <div class="flex flex-col gap-1.5">
+                                                        <h3 class="font-label-md text-on-surface text-base">High-Risk
+                                                                Escalations</h3>
+                                                        <p
+                                                                class="font-body-md text-on-surface-variant text-sm leading-relaxed">
+                                                                Automated alerts for critical vitals and urgent maternal
+                                                                care interventions.</p>
+                                                </div>
+                                        </div>
+                                        <!-- Item 4 -->
+                                        <div
+                                                class="flex items-start gap-4 p-5 rounded-lg bg-surface-container-lowest shadow-sm border border-surface-variant">
+                                                <div
+                                                        class="w-12 h-12 rounded bg-tertiary-container text-on-tertiary-container flex items-center justify-center flex-shrink-0">
+                                                        <span class="material-symbols-outlined"
+                                                                style="font-variation-settings: 'FILL' 1;">inventory_2</span>
+                                                </div>
+                                                <div class="flex flex-col gap-1.5">
+                                                        <h3 class="font-label-md text-on-surface text-base">Supply
+                                                                Inventory</h3>
+                                                        <p
+                                                                class="font-body-md text-on-surface-variant text-sm leading-relaxed">
+                                                                Predictive modeling for essential medicine stockouts at
+                                                                rural facilities.</p>
+                                                </div>
+                                        </div>
+                                </div>
+                        </section>
+                        <!-- Resilient Architecture -->
+                        <section
+                                class="px-margin-mobile py-12 bg-on-secondary-fixed text-on-primary flex flex-col gap-8 relative overflow-hidden">
+                                <!-- Abstract Tech Background elements -->
+                                <div
+                                        class="absolute -top-24 -right-24 w-64 h-64 bg-nexus-pro-accent rounded-full opacity-20 blur-3xl">
+                                </div>
+                                <div
+                                        class="absolute -bottom-12 -left-12 w-48 h-48 bg-secondary-container rounded-full opacity-10 blur-2xl">
+                                </div>
+                                <div class="relative z-10 flex flex-col gap-3">
+                                        <span
+                                                class="font-label-sm text-nexus-pro-accent uppercase tracking-widest font-bold">Offline-First</span>
+                                        <h2 class="font-headline-md text-on-primary text-2xl">Visibility with Low
+                                                Connectivity</h2>
+                                        <p class="font-body-md text-secondary-fixed-dim mt-1 leading-relaxed">Designed
+                                                for rural environments where data connections fluctuate.</p>
+                                </div>
+                                <ul class="relative z-10 flex flex-col gap-6 mt-2">
+                                        <li class="flex items-start gap-4">
+                                                <span class="material-symbols-outlined text-state-online mt-0.5 text-2xl"
+                                                        style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                                <div class="flex flex-col gap-1">
+                                                        <span class="font-label-md text-on-primary text-base">Local Data
+                                                                Capture</span>
+                                                        <span
+                                                                class="font-body-md text-sm text-secondary-fixed-dim leading-relaxed">Apps
+                                                                function 100% offline at the point of care.</span>
+                                                </div>
+                                        </li>
+                                        <li class="flex items-start gap-4">
+                                                <span class="material-symbols-outlined text-state-online mt-0.5 text-2xl"
+                                                        style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                                <div class="flex flex-col gap-1">
+                                                        <span class="font-label-md text-on-primary text-base">Background
+                                                                Syncing</span>
+                                                        <span
+                                                                class="font-body-md text-sm text-secondary-fixed-dim leading-relaxed">Data
+                                                                silently syncs when a connection is detected.</span>
+                                                </div>
+                                        </li>
+                                        <li class="flex items-start gap-4">
+                                                <span class="material-symbols-outlined text-state-online mt-0.5 text-2xl"
+                                                        style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                                <div class="flex flex-col gap-1">
+                                                        <span class="font-label-md text-on-primary text-base">Guaranteed
+                                                                Delivery</span>
+                                                        <span
+                                                                class="font-body-md text-sm text-secondary-fixed-dim leading-relaxed">Zero
+                                                                data loss architecture ensures all records reach the
+                                                                central DB.</span>
+                                                </div>
+                                        </li>
+                                </ul>
+                        </section>
+                        <!-- Final CTA -->
+                        <section
+                                class="px-margin-mobile py-16 flex flex-col items-center justify-center gap-6 bg-surface-container-lowest text-center border-t border-surface-variant">
+                                <div class="flex flex-col gap-2 items-center">
+                                        <h2 class="font-headline-md text-on-surface text-xl">Ready to access the
+                                                network?</h2>
+                                        <p class="font-body-md text-on-surface-variant max-w-[280px] leading-relaxed">
+                                                Authorized personnel only. Use your district credentials to log in.</p>
+                                </div>
+                                <button
+                                        class="mt-2 h-touch-target bg-on-secondary-fixed text-on-primary w-full max-w-sm rounded font-label-md flex items-center justify-center gap-2 shadow-lg hover:bg-on-surface transition-colors active:scale-[0.98]">
+                                        <span class="material-symbols-outlined text-sm">lock</span>
+                                        Secure Admin Login
+                                </button>
+                        </section>
+                </div>
+        </main>
+
+
+        <script src="../../asha-navigation.js"></script>
+</body>
+
+</html>
+
+
+
+
+

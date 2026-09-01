@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+        name="viewport">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Geist:wght@500;600;700&amp;display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+        id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-secondary-container": "#0b6f63", "surface": "#f9f9fd", "background": "#f9f9fd", "secondary-container": "#9cefdf", "emergency-red": "#BA1A1A", "on-tertiary": "#ffffff", "on-primary-fixed": "#001c37", "on-surface": "#1a1c1f", "surface-container-lowest": "#ffffff", "primary-fixed-dim": "#a3c9fc", "surface-container": "#eeedf2", "error": "#ba1a1a", "on-primary": "#ffffff", "error-container": "#ffdad6", "on-tertiary-container": "#d38b5c", "sync-offline": "#727780", "primary": "#001f3c", "ai-purple": "#3F0099", "on-primary-container": "#799fcf", "surface-variant": "#e2e2e6", "on-secondary": "#ffffff", "primary-container": "#00355f", "admin-amber": "#B45309", "tertiary-fixed": "#ffdbc7", "outline-variant": "#c3c6d0", "surface-container-highest": "#e2e2e6", "surface-container-high": "#e8e8ec", "secondary-fixed-dim": "#83d5c6", "secondary-fixed": "#9ff2e2", "surface-bright": "#f9f9fd", "tertiary-container": "#562600", "on-secondary-fixed": "#00201c", "tertiary": "#361500", "inverse-primary": "#a3c9fc", "primary-fixed": "#d2e4ff", "on-error-container": "#93000a", "on-surface-variant": "#42474f", "tertiary-fixed-dim": "#ffb689", "on-secondary-fixed-variant": "#005047", "outline": "#73777f", "on-background": "#1a1c1f", "on-primary-fixed-variant": "#1e4973", "surface-tint": "#39608d", "inverse-on-surface": "#f1f0f4", "on-error": "#ffffff", "surface-dim": "#dadade", "surface-container-low": "#f4f3f7", "on-tertiary-fixed": "#311300", "secondary": "#006b5f", "on-tertiary-fixed-variant": "#6e3910", "inverse-surface": "#2f3034" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "touch-target": "48px", "margin-desktop": "40px", "gutter-md": "20px", "margin-mobile": "16px", "gutter-sm": "12px", "unit": "4px" }, "fontFamily": { "body-lg": ["Inter"], "label-sm": ["Geist"], "headline-lg": ["Geist"], "headline-md": ["Geist"], "headline-lg-mobile": ["Geist"], "display-lg": ["Geist"], "label-md": ["Geist"], "body-md": ["Inter"] }, "fontSize": { "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }], "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }], "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }], "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }], "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600" }], "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }] } } } }</script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../../asha-navigation.css">
+</head>
+
+<body class="bg-background font-body-md text-on-background">
+    <header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] pt-safe">
+        <div class="h-16 px-margin-mobile flex items-center justify-between gap-2"><button
+                onclick="window.history.back()"
+                class="w-11 h-11 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-variant active:scale-95 transition-all shrink-0 cursor-pointer"
+                aria-label="Go back"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button>
+            <div class="flex items-center"><img alt="Rural Health Connect Logo" class="h-8 w-auto object-contain"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQq3FM4h5Q618ZJ3i_dhXVXAPSBusU6BTZrSxwzQGQpHmYHzA5CMz3DJTrqcNfIfre2uuvK1g-irrv24ReyDIpGTd2o8XEMzn_tBCUWsyH9FqnZpmm8MTusC-fqtaIK2nK1s6FBx04j894BIc7NCkSW7Gc9JiYkDrFDTFYqMfsFXZA3SnK9E1k3nXxXc1ZyAkM3VVWEZy3FN_leJWNebEUIterfS8BtZApN6N93M5Dhk29n4IT_LBO">
+                <div class="flex flex-col"><span
+                        class="font-headline-md text-body-md text-primary leading-tight tracking-tight">Visits</span>
+                    <div class="flex items-center gap-1"><span
+                            class="w-2 h-2 rounded-full bg-on-secondary-container"></span><span
+                            class="font-label-sm text-on-secondary-container uppercase tracking-widest text-[10px]">Online</span>
+                    </div>
+                </div>
+            </div>
+            <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span
+                    class="material-symbols-outlined text-on-primary text-[18px]">person</span></div>
+        </div>
+    </header>
+    <main class="relative w-full pt-16 pb-24 bg-background min-h-screen">
+        <div class="flex flex-col w-full gap-margin-mobile px-margin-mobile">
+            <!-- Patient Brief Card -->
+            <div
+                class="flex flex-col bg-surface-container rounded-xl p-margin-mobile shadow-sm relative overflow-hidden">
+                <div class="absolute left-0 top-0 bottom-0 w-1 bg-emergency-red"></div>
+                <div class="flex justify-between items-start mb-gutter-sm">
+                    <div>
+                        <h2 class="font-headline-md text-headline-lg-mobile text-on-surface">Ravi Kumar</h2>
+                        <p class="font-body-md text-body-md text-on-surface-variant">Referred for Specialist Cardiology
+                            Review</p>
+                    </div>
+                    <div
+                        class="bg-error-container text-on-error-container px-3 py-1 rounded-full font-label-sm text-label-sm uppercase tracking-widest flex items-center gap-1">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emergency-red animate-pulse"></span>
+                        Critical
+                    </div>
+                </div>
+                <div class="flex gap-gutter-md">
+                    <div class="flex flex-col">
+                        <span class="font-label-sm text-label-sm text-on-surface-variant">Age / Sex</span>
+                        <span class="font-label-md text-label-md text-on-surface">54 / M</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-label-sm text-label-sm text-on-surface-variant">Vitals Sync</span>
+                        <span
+                            class="font-label-md text-label-md text-on-surface text-secondary flex items-center gap-1">
+                            <span class="material-symbols-outlined text-[16px]">sync</span>
+                            2m ago
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <!-- AI Logistics Insight -->
+            <div class="relative flex flex-col bg-surface/60 backdrop-blur-md rounded-xl p-margin-mobile shadow-md">
+                <!-- Thin purple border substitute (since no border class allowed, using a pseudo element hack or just shadow/background shifts, wait, "no borders" rule says: Do NOT use border, border-2, border-t, border-b, ring, ring-1, or divide-y. Use background color shifts. So I'll use a wrapper with padding for the border effect) -->
+                <div class="absolute inset-0 rounded-xl bg-gradient-to-r from-ai-purple to-transparent opacity-10">
+                </div>
+                <div class="flex items-start gap-gutter-sm relative z-10">
+                    <div class="w-8 h-8 rounded-full bg-ai-purple/10 flex items-center justify-center shrink-0">
+                        <span
+                            class="material-symbols-outlined text-ai-purple text-[18px]">temp_preferences_custom</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <h3 class="font-label-md text-label-md text-ai-purple flex items-center gap-1">
+                            Logistics Intelligence
+                        </h3>
+                        <p class="font-body-md text-body-md text-on-surface mt-1 leading-snug">
+                            Recommend bypass PHC North due to overcrowding; redirect to <span
+                                class="font-semibold text-primary">PHC West</span> for faster stabilization.
+                        </p>
+                        <button
+                            class="mt-gutter-sm self-start bg-primary/10 text-primary px-4 py-2 rounded-lg font-label-md text-label-md flex items-center gap-2">
+                            <span class="material-symbols-outlined text-[18px]">route</span>
+                            Approve Reroute
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Live Tracking / Journey Map -->
+            <div class="flex flex-col bg-surface-container rounded-xl p-margin-mobile shadow-sm">
+                <div class="flex justify-between items-center mb-gutter-md">
+                    <h3 class="font-headline-md text-headline-lg-mobile text-on-surface">108 Dispatch</h3>
+                    <span class="font-label-sm text-label-sm text-secondary bg-secondary/10 px-2 py-1 rounded-md">En
+                        Route</span>
+                </div>
+                <div class="relative w-full h-32 rounded-lg overflow-hidden mb-gutter-md"
+                    data-location="Rural Hospital Route, India"
+                    style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCwdylPxb56kMYXZJN4qFPd-k7CldM4J1pUHCNC67aiOUi8uYLHxar4IayWSXNxelifNR0qZIBHfh-dxd_kod3LbXtwc2G-iaLSVmd0-__cwUIhodTyveyn9aDxR3Rk4HFPop1vsctVlVSQoe0Y7w9L5hP8aQFOTS7ryvKfekY21rBo_ic_HIlg7UtPiB40UAxpxpca2rKGjj-mRS5z3YmW6oQJyz25ev6foltgbvZBUPV-1_2KOOEG')">
+                    <div class="absolute inset-0 bg-gradient-to-t from-surface-container to-transparent"></div>
+                    <div class="absolute bottom-2 left-2 right-2 flex justify-between items-end">
+                        <div class="bg-surface px-3 py-1.5 rounded-lg shadow-sm flex items-center gap-2">
+                            <span class="material-symbols-outlined text-primary text-[18px]">ambulance</span>
+                            <span class="font-label-md text-label-md text-on-surface">ETA: 14 mins</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col gap-0 relative">
+                    <!-- Journey Track Line -->
+                    <div class="absolute left-[11px] top-3 bottom-3 w-0.5 bg-outline-variant"></div>
+                    <!-- Step 1: Sub-centre (Completed) -->
+                    <div class="flex items-start gap-gutter-md relative z-10 py-2">
+                        <div class="w-6 h-6 rounded-full bg-secondary flex items-center justify-center shrink-0 mt-0.5">
+                            <span class="material-symbols-outlined text-on-secondary text-[14px]">check</span>
+                        </div>
+                        <div class="flex flex-col pb-2">
+                            <span class="font-label-md text-label-md text-on-surface">Sub-centre</span>
+                            <span class="font-label-sm text-label-sm text-on-surface-variant">Departed 10:42 AM</span>
+                        </div>
+                    </div>
+                    <!-- Step 2: PHC (Bypassed/Rerouted) -->
+                    <div class="flex items-start gap-gutter-md relative z-10 py-2">
+                        <div
+                            class="w-6 h-6 rounded-full bg-surface-variant flex items-center justify-center shrink-0 mt-0.5 relative">
+                            <div class="absolute inset-0 rounded-full bg-ai-purple/20 animate-ping"></div>
+                            <span
+                                class="material-symbols-outlined text-on-surface-variant text-[14px]">turn_slight_right</span>
+                        </div>
+                        <div class="flex flex-col pb-2">
+                            <span class="font-label-md text-label-md text-on-surface flex items-center gap-2">
+                                PHC West
+                                <span
+                                    class="font-label-sm text-label-sm text-ai-purple bg-ai-purple/10 px-1.5 py-0.5 rounded">Rerouted</span>
+                            </span>
+                            <span class="font-label-sm text-label-sm text-on-surface-variant">Skipping PHC North</span>
+                        </div>
+                    </div>
+                    <!-- Step 3: Rural Hospital (Current Destination) -->
+                    <div class="flex items-start gap-gutter-md relative z-10 py-2">
+                        <div
+                            class="w-6 h-6 rounded-full bg-primary flex items-center justify-center shrink-0 mt-0.5 shadow-[0_0_0_4px_rgba(0,31,60,0.1)]">
+                            <span class="w-2 h-2 rounded-full bg-on-primary"></span>
+                        </div>
+                        <div class="flex flex-col pb-2">
+                            <span class="font-label-md text-label-md text-primary">Rural Hospital</span>
+                            <span class="font-label-sm text-label-sm text-on-surface-variant">Expected 11:15 AM</span>
+                        </div>
+                    </div>
+                    <!-- Step 4: District Hospital (Final) -->
+                    <div class="flex items-start gap-gutter-md relative z-10 py-2">
+                        <div
+                            class="w-6 h-6 rounded-full bg-surface flex items-center justify-center shrink-0 mt-0.5 shadow-inner">
+                            <span class="w-1.5 h-1.5 rounded-full bg-outline-variant"></span>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="font-label-md text-label-md text-on-surface-variant">District Hospital</span>
+                            <span class="font-label-sm text-label-sm text-outline">Pending cardiology admission</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Quick Actions -->
+            <div class="flex gap-gutter-sm mt-2">
+                <button
+                    class="flex-1 bg-primary text-on-primary h-touch-target rounded-lg font-label-md text-label-md flex items-center justify-center gap-2 shadow-sm">
+                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">call</span>
+                    Call Ambulance
+                </button>
+                <button
+                    class="flex-1 bg-surface-container text-on-surface h-touch-target rounded-lg font-label-md text-label-md flex items-center justify-center gap-2 shadow-sm">
+                    <span class="material-symbols-outlined">clinical_notes</span>
+                    View Vitals
+                </button>
+            </div>
+        </div>
+    </main>
+    <nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/80 backdrop-blur-xl shadow-[0_-1px_8px_rgba(0,0,0,0.04)]"
+        data-active-classes="text-primary font-semibold">
+        <div class="flex justify-around items-center h-16 px-2"><a
+                class="flex flex-col items-center justify-center w-full h-full text-on-surface-variant transition-colors"
+                data-path="home" href="#"><span class="material-symbols-outlined">home</span><span
+                    class="text-label-sm font-label-sm mt-1">Home</span></a><a aria-current="page"
+                class="flex flex-col items-center justify-center w-full h-full transition-colors text-primary font-semibold"
+                data-path="visits" href="#"><span class="material-symbols-outlined">event_repeat</span><span
+                    class="text-label-sm font-label-sm mt-1">Visits</span></a><a
+                class="flex flex-col items-center justify-center w-full h-full text-on-surface-variant transition-colors"
+                data-path="risk" href="#"><span class="material-symbols-outlined">clinical_notes</span><span
+                    class="text-label-sm font-label-sm mt-1">Risk</span></a><a
+                class="flex flex-col items-center justify-center w-full h-full text-on-surface-variant transition-colors"
+                data-path="sync" href="#"><span class="material-symbols-outlined">sync</span><span
+                    class="text-label-sm font-label-sm mt-1">Sync</span></a></div>
+    </nav>
+
+
+
+    <script src="../../asha-navigation.js"></script>
+</body>
+
+</html>
+
+
+
+
+

@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>ASHA Healthcare Platform</title>
+  <style>
+    * {
+      box-sizing: border-box
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, sans-serif;
+      background: linear-gradient(135deg, #fff7ed, #fef2f2 48%, #fefce8);
+      color: #0f172a
+    }
+
+    .wrap {
+      max-width: 1100px;
+      margin: auto;
+      padding: 48px 22px
+    }
+
+    .hero {
+      padding: 20px 0 28px
+    }
+
+    h1 {
+      font-size: clamp(32px, 5vw, 54px);
+      margin: 0 0 10px
+    }
+
+    .hero p {
+      color: #64748b;
+      font-size: 17px;
+      max-width: 700px
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 16px
+    }
+
+    .page-card {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      text-decoration: none;
+      color: inherit;
+      background: rgba(255, 255, 255, .8);
+      border: 1px solid rgba(148, 163, 184, .22);
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: 0 8px 30px rgba(15, 23, 42, .07);
+      transition: .18s
+    }
+
+    .page-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 38px rgba(15, 23, 42, .12);
+      background: #fff
+    }
+
+    .page-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 15px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #2563eb, #7c3aed);
+      color: #fff;
+      font-weight: 800;
+      font-size: 11px;
+      letter-spacing: .7px
+    }
+
+    h2 {
+      font-size: 16px;
+      margin: 0 0 5px
+    }
+
+    .page-card p {
+      margin: 0;
+      color: #64748b;
+      font-size: 13px
+    }
+  </style>
+</head>
+
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <h1>ASHA Healthcare Platform</h1>
+      <p>Unified prototype launcher. Open any existing Stitch page below. Use the built-in Back button on inner pages to
+        return to the previous page.</p>
+    </section>
+    <section class="grid">
+      <!-- Authentication & Onboarding -->
+      <a class="page-card" href="auth/welcome_patient_portal/index.html">
+        <div class="page-icon">ASHA</div>
+        <div>
+          <h2>Welcome Patient Portal</h2>
+          <p>Open page</p>
+        </div>
+      </a>
+      <a class="page-card" href="auth/welcome_rural_connect/index.html">
+        <div class="page-icon">ASHA</div>
+        <div>
+          <h2>Welcome Rural Connect</h2>
+          <p>Open page</p>
+        </div>
+      </a>
+      <a class="page-card" href="auth/patient_login_variant_1/index.html">
+        <div class="page-icon">ASHA</div>
+        <div>
+          <h2>Patient Login Variant 1</h2>
+          <p>Open page</p>
+        </div>
+      </a>
+      <a class="page-card" href="auth/patient_login_variant_2/index.html">
+        <div class="page-icon">ASHA</div>
+        <div>
+          <h2>Patient Login Variant 2</h2>
+          <p>Open page</p>
+        </div>
+      </a>
+      <a class="page-card" href="auth/admin_login/index.html">
+        <div class="page-icon">ASHA</div>
+        <div>
+          <h2>Admin Login</h2>
+          <p>Open page</p>
+        </div>
+      </a>
+      <a class="page-card" href="auth/loading_screen/index.html">
+        <div class="page-icon">ASHA</div>
+        <div>
+          <h2>Loading Screen</h2>
+          <p>Open page</p>
+        </div>
+      </a>
+
+      <!-- Patient Features -->
+      <a class="page-card" href="patient/dashboard/index.html">
+        <div class="page-icon">ASHA</div>
+        <div>
+          <h2>Patient Dashboard</h2>
+          <p>Open page</p>
+        </div>
+      </a>
+      <a class="page-card" href="patient/health_records/index.html">
+        <div class="page-icon">ASHA</div>
+        <div>
+          <h2>Health Records</h2>
+          <p>Open page</p>
+        </div>
+      </a>
+      <a class="page-card" href="patient/doctor_queue/index.html">
+        <div class="page-icon">ASHA</div>
+        <div>
+          <h2>Doctor Queue</h2>
+          <p>Open page</p>
+        </div>
+      </a>
+      <a class="page-card" href="patient/health_assistant/index.html">
+        <div class="page-icon">ASHA</div>
+        <div>
+          <h2>Health Assistant (AI)</h2>
+          <p>Open page</p>
+        </div>
+      </a>
+      <a class="page-card" href="patient/referral_journey/index.html">
+        <div class="page-icon">ASHA</div>
+        <div>
+          <h2>Referral Journey</h2>
+          <p>Open page</p>
+        </div>
+      </a>
+
+      <!-- Administration -->
+      <a class="page-card" href="admin/command_center_desktop/index.html">
+        <div class="page-icon">ASHA</div>
+        <div>
+          <h2>Command Center (Desktop)</h2>
+          <p>Open page</p>
+        </div>
+      </a>
+      <a class="page-card" href="admin/command_center_mobile/index.html">
+        <div class="page-icon">ASHA</div>
+        <div>
+          <h2>Command Center (Mobile)</h2>
+          <p>Open page</p>
+        </div>
+      </a>
+
+      <!-- Worker Tools -->
+      <a class="page-card" href="workers/frontline_hub/index.html">
+        <div class="page-icon">ASHA</div>
+        <div>
+          <h2>Frontline Worker Hub</h2>
+          <p>Open page</p>
+        </div>
+      </a>
+      <a class="page-card" href="workers/sync_offline/index.html">
+        <div class="page-icon">ASHA</div>
+        <div>
+          <h2>Sync Center (Offline)</h2>
+          <p>Open page</p>
+        </div>
+      </a>
+    </section>
+  </main>
+</body>
+
+</html>
