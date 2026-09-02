@@ -187,11 +187,10 @@
 
 <!-- CINEMATIC 7-SECOND LOADING SCREEN OVERLAY -->
 <div id="asha-loading-screen" class="fixed inset-0 w-full h-full z-[99999] bg-[#f9f9fe] flex flex-col items-center justify-center transition-opacity duration-700 select-none overflow-hidden">
-  <button id="skip-loading-btn" class="absolute top-6 right-6 z-30 px-4 py-1.5 rounded-full bg-white/80 border border-gray-300 text-[#00355f] text-xs font-semibold hover:bg-white hover:shadow-md transition-all flex items-center gap-1 cursor-pointer">
-    Skip Intro <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
-  </button>
-  
-  <div class="relative z-10 flex flex-col items-center justify-center space-y-8 w-full max-w-md px-6 text-center">
+  <div class="relative z-10 flex flex-col items-center justify-center space-y-10 w-full max-w-md px-6 text-center">
+    <div class="absolute w-48 h-48 rounded-full border border-[#00355f]/20 opacity-0 ripple pointer-events-none top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+    <div class="absolute w-64 h-64 rounded-full border border-[#00355f]/10 opacity-0 ripple pointer-events-none top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" style="animation-delay: 1.8s;"></div>
+
     <!-- Animated A-S-H-A Letters -->
     <div class="flex flex-row items-center justify-center space-x-3 relative z-20">
       <div class="glass-box box-a1 w-[64px] h-[64px] flex items-center justify-center shadow-lg">
@@ -208,25 +207,14 @@
       </div>
     </div>
 
-    <!-- Slogan & Pulsing Indicators -->
-    <div class="flex flex-col items-center space-y-4 fade-in-delayed">
-      <h2 class="text-xs tracking-[0.35em] text-[#00355f]/80 uppercase font-semibold">Care • Connect • Heal</h2>
+    <!-- Slogan & Pulsing Dots (The actual loading animation) -->
+    <div class="flex flex-col items-center space-y-6 fade-in-delayed">
+      <h2 class="text-xs tracking-[0.35em] text-[#00355f]/70 uppercase font-semibold">Care • Connect • Heal</h2>
       <div class="flex items-center space-x-2">
         <div class="w-2 h-2 rounded-full bg-[#00355f] animate-[glowPulse_1.4s_ease-in-out_infinite_0s]"></div>
         <div class="w-2 h-2 rounded-full bg-[#00355f] animate-[glowPulse_1.4s_ease-in-out_infinite_0.2s]"></div>
         <div class="w-2 h-2 rounded-full bg-[#ff8a75] animate-[glowPulse_1.4s_ease-in-out_infinite_0.4s]"></div>
         <div class="w-2 h-2 rounded-full bg-[#ff8a75] animate-[glowPulse_1.4s_ease-in-out_infinite_0.6s]"></div>
-      </div>
-    </div>
-
-    <!-- 7-Second Progress Indicator -->
-    <div class="w-64 flex flex-col items-center gap-2 mt-4 fade-in-delayed">
-      <div class="flex justify-between w-full text-[11px] text-gray-500 font-medium">
-        <span id="loading-status-text">Connecting Rural Health Grid...</span>
-        <span id="loading-countdown-text">7s</span>
-      </div>
-      <div class="w-full h-1.5 bg-gray-200 rounded-full overflow-hidden">
-        <div id="loading-progress-bar" class="h-full bg-gradient-to-r from-[#00355f] to-[#ff8a75] w-0 rounded-full transition-all duration-100 ease-linear"></div>
       </div>
     </div>
   </div>
@@ -621,44 +609,18 @@ void main() {
     if (modal) modal.classList.add('hidden');
   }
 
-  // 7-Second Cinematic Loading Timer
+  // 7-Second Clean Loading Screen (Auto-transitions to main page)
   (function() {
     const splash = document.getElementById('asha-loading-screen');
-    const bar = document.getElementById('loading-progress-bar');
-    const countdown = document.getElementById('loading-countdown-text');
-    const skipBtn = document.getElementById('skip-loading-btn');
     if (!splash) return;
 
-    const totalDuration = 7000; // 7 seconds
-    const interval = 50;
-    let elapsed = 0;
-
-    const timer = setInterval(() => {
-      elapsed += interval;
-      const progress = Math.min(100, (elapsed / totalDuration) * 100);
-      if (bar) bar.style.width = progress + '%';
-
-      const remainingSeconds = Math.max(0, Math.ceil((totalDuration - elapsed) / 1000));
-      if (countdown) countdown.textContent = remainingSeconds + 's';
-
-      if (elapsed >= totalDuration) {
-        clearInterval(timer);
-        dismissSplash();
-      }
-    }, interval);
-
-    function dismissSplash() {
-      clearInterval(timer);
+    setTimeout(() => {
       splash.style.opacity = '0';
       splash.style.pointerEvents = 'none';
       setTimeout(() => {
         splash.style.display = 'none';
       }, 700);
-    }
-
-    if (skipBtn) {
-      skipBtn.addEventListener('click', dismissSplash);
-    }
+    }, 7000);
   })();
 </script>
 </body></html>
