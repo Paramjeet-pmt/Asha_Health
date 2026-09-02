@@ -185,7 +185,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
 </head><body class="bg-[#fff8f6] font-body-md text-gray-800 min-h-screen relative overflow-x-hidden">
 
-<!-- CINEMATIC 7-SECOND LOADING SCREEN OVERLAY -->
+<!-- CINEMATIC 5-SECOND LOADING SCREEN OVERLAY -->
 <div id="asha-loading-screen" class="fixed inset-0 w-full h-full z-[99999] bg-[#f9f9fe] flex flex-col items-center justify-center transition-opacity duration-700 select-none overflow-hidden">
   <div class="relative z-10 flex flex-col items-center justify-center space-y-10 w-full max-w-md px-6 text-center">
     <div class="absolute w-48 h-48 rounded-full border border-[#00355f]/20 opacity-0 ripple pointer-events-none top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
@@ -609,7 +609,7 @@ void main() {
     if (modal) modal.classList.add('hidden');
   }
 
-  // 7-Second Clean Loading Screen (Auto-transitions to main page)
+  // 5-Second Clean Loading Screen (Auto-transitions to main page)
   (function() {
     const splash = document.getElementById('asha-loading-screen');
     if (!splash) return;
@@ -620,7 +620,7 @@ void main() {
       setTimeout(() => {
         splash.style.display = 'none';
       }, 700);
-    }, 7000);
+    }, 5000);
   })();
 </script>
 </body></html>
