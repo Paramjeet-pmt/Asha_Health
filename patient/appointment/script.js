@@ -1,5 +1,5 @@
 /* =========================================================
-   PULSECARE APPOINTMENT SYSTEM
+   Asha CARE APPOINTMENT SYSTEM
 ========================================================= */
 
 
@@ -607,7 +607,7 @@ function updateSummary() {
                 ${
                     appointment.consultation.type === "clinic"
                         ? "CityCare Super Specialty Hospital"
-                        : "PulseCare Health"
+                        : "Asha HealthCare"
                 }
             </small>
         `;

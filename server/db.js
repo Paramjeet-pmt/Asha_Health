@@ -46,7 +46,7 @@ db.exec(`
     priority TEXT CHECK(priority IN ('ROUTINE', 'URGENT', 'EMERGENCY')) DEFAULT 'ROUTINE',
     symptoms TEXT,
     vitals_bp TEXT,
-    vitals_pulse INTEGER,
+    vitals_Asha  INTEGER,
     vitals_spo2 INTEGER,
     status TEXT CHECK(status IN ('WAITING', 'IN_CONSULTATION', 'COMPLETED')) DEFAULT 'WAITING',
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
@@ -117,7 +117,7 @@ if (userCount === 0) {
 
   // Seed Doctor Queue (Priority Triage Cases ⑪ ⑫)
   const insertQueue = db.prepare(`
-    INSERT INTO doctor_queue (patient_id, priority, symptoms, vitals_bp, vitals_pulse, vitals_spo2, status)
+    INSERT INTO doctor_queue (patient_id, priority, symptoms, vitals_bp, vitals_Asha , vitals_spo2, status)
     VALUES (?, ?, ?, ?, ?, ?, ?)
   `);
 

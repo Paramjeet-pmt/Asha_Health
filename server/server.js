@@ -263,7 +263,7 @@ app.get('/api/doctor/queue', (req, res) => {
         q.priority,
         q.symptoms,
         q.vitals_bp,
-        q.vitals_pulse,
+        q.vitals_Asha ,
         q.vitals_spo2,
         q.status,
         q.created_at,

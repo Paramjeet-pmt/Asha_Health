@@ -193,8 +193,9 @@ fieldset {
 
     border-radius: 7px;
 
-    background: var(--primary);
+    /* background: transparent; */
     color: white;
+    filter: invert(1);
 
     font-size: 18px;
     font-weight: 700;
