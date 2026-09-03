@@ -1,626 +1,505 @@
-<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><style>
-@layer base{html,body{margin:0;padding:0;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}
-@keyframes slideDown { 0% { transform: translateY(-100px); opacity: 0; } 60% { transform: translateY(10px); opacity: 1; } 100% { transform: translateY(0); opacity: 1; } }
-@keyframes slideRight { 0% { transform: translateX(-100px); opacity: 0; } 60% { transform: translateX(10px); opacity: 1; } 100% { transform: translateX(0); opacity: 1; } }
-@keyframes slideLeft { 0% { transform: translateX(100px); opacity: 0; } 60% { transform: translateX(-10px); opacity: 1; } 100% { transform: translateX(0); opacity: 1; } }
-@keyframes slideUp { 0% { transform: translateY(100px); opacity: 0; } 60% { transform: translateY(-10px); opacity: 1; } 100% { transform: translateY(0); opacity: 1; } }
-@keyframes glowPulse { 0%, 100% { box-shadow: 0 0 10px rgba(9, 76, 178, 0.2), inset 0 0 5px rgba(255, 255, 255, 0.5); } 50% { box-shadow: 0 0 25px rgba(9, 76, 178, 0.6), inset 0 0 15px rgba(255, 255, 255, 0.8); } }
-@keyframes letterGlow { 0%, 100% { filter: drop-shadow(0 0 2px rgba(9, 76, 178, 0.3)); } 50% { filter: drop-shadow(0 0 8px rgba(9, 76, 178, 0.8)); } }
-@keyframes breathingScale { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.02); } }
-@keyframes rippleExpand { 0% { transform: scale(0.5); opacity: 0.8; } 100% { transform: scale(3); opacity: 0; } }
-@keyframes fadeIn { 0% { opacity: 0; } 100% { opacity: 1; } }
-.box-a1 { animation: slideDown 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.3s both, glowPulse 3s ease-in-out 1.6s infinite, breathingScale 4s ease-in-out 2s infinite; }
-.box-s { animation: slideRight 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s both, glowPulse 3s ease-in-out 1.6s infinite, breathingScale 4s ease-in-out 2s infinite; }
-.box-h { animation: slideLeft 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.7s both, glowPulse 3s ease-in-out 1.6s infinite, breathingScale 4s ease-in-out 2s infinite; }
-.box-a2 { animation: slideUp 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.9s both, glowPulse 3s ease-in-out 1.6s infinite, breathingScale 4s ease-in-out 2s infinite; }
-.ripple { animation: rippleExpand 1.5s cubic-bezier(0.165, 0.84, 0.44, 1) 1.6s both; }
-.fade-in-delayed { animation: fadeIn 1s ease-out 1.6s both; }
-.letter-gradient { background: linear-gradient(135deg, #094cb2, #4fdbc8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: letterGlow 3s ease-in-out 1.6s infinite; }
-.glass-box { position: relative; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-radius: 18px; border: 1px solid rgba(255,255,255,0.6); }
-</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">
-  tailwind.config = {
-    darkMode: "class",
-    theme: {
-      extend: {
-        "colors": {
-                "surface-container-low": "#0d1d2a",
-                "secondary-fixed": "#ffdad4",
-                "surface-container-high": "#1c2b39",
-                "inverse-primary": "#006495",
-                "tertiary-fixed-dim": "#e9c349",
-                "secondary-container": "#7f291c",
-                "inverse-surface": "#d4e4f7",
-                "on-error-container": "#ffdad6",
-                "surface-container": "#11212f",
-                "surface-container-lowest": "#010f1c",
-                "background": "#000d1a",
-                "primary-fixed": "#cbe6ff",
-                "tertiary": "#eec74d",
-                "on-surface-variant": "#bec7d2",
-                "on-secondary-container": "#ff9a88",
-                "on-tertiary-fixed": "#241a00",
-                "error": "#ffb4ab",
-                "surface-container-highest": "#273645",
-                "surface": "#051522",
-                "tertiary-fixed": "#ffe088",
-                "on-secondary-fixed-variant": "#7f291c",
-                "outline": "#89929b",
-                "on-primary-fixed-variant": "#004b71",
-                "on-primary": "#003450",
-                "secondary-fixed-dim": "#ffb4a6",
-                "primary-fixed-dim": "#8fcdff",
-                "surface-bright": "#2c3b49",
-                "on-secondary": "#601308",
-                "error-container": "#93000a",
-                "on-tertiary-fixed-variant": "#574500",
-                "surface-tint": "#8fcdff",
-                "secondary": "#ffb4a6",
-                "on-tertiary": "#3c2f00",
-                "on-secondary-fixed": "#3f0300",
-                "inverse-on-surface": "#233240",
-                "tertiary-container": "#d1ac34",
-                "on-background": "#d4e4f7",
-                "surface-variant": "#273645",
-                "on-primary-fixed": "#001e30",
-                "primary-container": "#4db8ff",
-                "on-error": "#690005",
-                "on-primary-container": "#00476b",
-                "primary": "#4db8ff",
-                "outline-variant": "#3f4850",
-                "on-surface": "#ffffff",
-                "surface-dim": "#051522",
-                "on-tertiary-container": "#524100"
-        },
-        "borderRadius": {
-                "DEFAULT": "0.75rem",
-                "lg": "0.75rem",
-                "xl": "0.75rem",
-                "full": "9999px"
-        },
-        "spacing": {
-                "lg": "24px",
-                "xs": "4px",
-                "sm": "8px",
-                "md": "16px",
-                "margin-desktop": "64px",
-                "xl": "48px",
-                "base": "4px",
-                "gutter": "24px",
-                "margin-mobile": "16px"
-        },
-        "fontFamily": {
-                "display-lg-mobile": [
-                        "Geist"
-                ],
-                "label-sm": [
-                        "Geist"
-                ],
-                "body-md": [
-                        "Geist"
-                ],
-                "label-md": [
-                        "Geist"
-                ],
-                "headline-md": [
-                        "Geist"
-                ],
-                "display-lg": [
-                        "Geist"
-                ],
-                "headline-lg": [
-                        "Geist"
-                ],
-                "body-lg": [
-                        "Geist"
-                ]
-        },
-        "fontSize": {
-                "display-lg-mobile": [
-                        "32px",
-                        {
-                                "lineHeight": "40px",
-                                "letterSpacing": "-0.02em",
-                                "fontWeight": "700"
-                        }
-                ],
-                "label-sm": [
-                        "12px",
-                        {
-                                "lineHeight": "16px",
-                                "letterSpacing": "0.05em",
-                                "fontWeight": "500"
-                        }
-                ],
-                "body-md": [
-                        "16px",
-                        {
-                                "lineHeight": "24px",
-                                "fontWeight": "400"
-                        }
-                ],
-                "label-md": [
-                        "14px",
-                        {
-                                "lineHeight": "20px",
-                                "letterSpacing": "0.02em",
-                                "fontWeight": "500"
-                        }
-                ],
-                "headline-md": [
-                        "24px",
-                        {
-                                "lineHeight": "32px",
-                                "fontWeight": "600"
-                        }
-                ],
-                "display-lg": [
-                        "48px",
-                        {
-                                "lineHeight": "56px",
-                                "letterSpacing": "-0.02em",
-                                "fontWeight": "700"
-                        }
-                ],
-                "headline-lg": [
-                        "32px",
-                        {
-                                "lineHeight": "40px",
-                                "letterSpacing": "-0.01em",
-                                "fontWeight": "600"
-                        }
-                ],
-                "body-lg": [
-                        "18px",
-                        {
-                                "lineHeight": "28px",
-                                "fontWeight": "400"
-                        }
-                ]
-        }
-},
-    },
-  }
-</script>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
-</head><body class="bg-[#fff8f6] font-body-md text-gray-800 min-h-screen relative overflow-x-hidden">
+<html lang="en">
 
-<!-- CINEMATIC 5-SECOND LOADING SCREEN OVERLAY -->
-<div id="asha-loading-screen" class="fixed inset-0 w-full h-full z-[99999] bg-[#f9f9fe] flex flex-col items-center justify-center transition-opacity duration-700 select-none overflow-hidden">
-  <div class="relative z-10 flex flex-col items-center justify-center space-y-10 w-full max-w-md px-6 text-center">
-    <div class="absolute w-48 h-48 rounded-full border border-[#00355f]/20 opacity-0 ripple pointer-events-none top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
-    <div class="absolute w-64 h-64 rounded-full border border-[#00355f]/10 opacity-0 ripple pointer-events-none top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" style="animation-delay: 1.8s;"></div>
-
-    <!-- Animated A-S-H-A Letters -->
-    <div class="flex flex-row items-center justify-center space-x-3 relative z-20">
-      <div class="glass-box box-a1 w-[64px] h-[64px] flex items-center justify-center shadow-lg">
-        <span class="font-bold text-3xl letter-gradient leading-none">A</span>
-      </div>
-      <div class="glass-box box-s w-[64px] h-[64px] flex items-center justify-center shadow-lg">
-        <span class="font-bold text-3xl letter-gradient leading-none">S</span>
-      </div>
-      <div class="glass-box box-h w-[64px] h-[64px] flex items-center justify-center shadow-lg">
-        <span class="font-bold text-3xl letter-gradient leading-none">H</span>
-      </div>
-      <div class="glass-box box-a2 w-[64px] h-[64px] flex items-center justify-center shadow-lg">
-        <span class="font-bold text-3xl letter-gradient leading-none">A</span>
-      </div>
-    </div>
-
-    <!-- Slogan & Pulsing Dots (The actual loading animation) -->
-    <div class="flex flex-col items-center space-y-6 fade-in-delayed">
-      <h2 class="text-xs tracking-[0.35em] text-[#00355f]/70 uppercase font-semibold">Care • Connect • Heal</h2>
-      <div class="flex items-center space-x-2">
-        <div class="w-2 h-2 rounded-full bg-[#00355f] animate-[glowPulse_1.4s_ease-in-out_infinite_0s]"></div>
-        <div class="w-2 h-2 rounded-full bg-[#00355f] animate-[glowPulse_1.4s_ease-in-out_infinite_0.2s]"></div>
-        <div class="w-2 h-2 rounded-full bg-[#ff8a75] animate-[glowPulse_1.4s_ease-in-out_infinite_0.4s]"></div>
-        <div class="w-2 h-2 rounded-full bg-[#ff8a75] animate-[glowPulse_1.4s_ease-in-out_infinite_0.6s]"></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- WebGL Background -->
-<div class="fixed inset-0 w-full h-full -z-50 pointer-events-none" style="display:block;">
-<canvas id="shader-canvas-WARM_HEALTH" style="display:block;width:100%;height:100%"></canvas>
-<script>
-(function() {
-  const canvas = document.getElementById('shader-canvas-WARM_HEALTH');
-  function syncSize() {
-    const w = canvas.clientWidth  || 1280;
-    const h = canvas.clientHeight || 720;
-    if (canvas.width !== w || canvas.height !== h) {
-      canvas.width  = w;
-      canvas.height = h;
-    }
-  }
-  if (typeof ResizeObserver !== 'undefined') {
-    new ResizeObserver(syncSize).observe(canvas);
-  }
-  syncSize();
-  const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
-  if (!gl) return;
-  const vs = `attribute vec2 a_position;
-varying vec2 v_texCoord;
-void main() {
-  v_texCoord = a_position * 0.5 + 0.5;
-  gl_Position = vec4(a_position, 0.0, 1.0);
-}`;
-  const fs = `precision highp float;
-varying vec2 v_texCoord;
-uniform float u_time;
-uniform vec2 u_resolution;
-void main() {
-    vec2 uv = v_texCoord;
-    vec3 cream = vec3(0.99, 0.98, 0.96);
-    vec3 softCoral = vec3(1.0, 0.92, 0.90);
-    vec3 warmAmber = vec3(1.0, 0.96, 0.88);
-    float t = u_time * 0.1;
-    float n1 = sin(uv.x * 2.0 + t) * cos(uv.y * 1.5 - t * 0.4);
-    float n2 = cos(uv.x * 1.8 - t * 0.3) * sin(uv.y * 2.2 + t * 0.5);
-    vec3 color = mix(cream, softCoral, smoothstep(-1.0, 1.0, n1) * 0.4);
-    color = mix(color, warmAmber, smoothstep(-1.0, 1.0, n2) * 0.3);
-    gl_FragColor = vec4(color, 1.0);
-}`;
-  function cs(type, src) {
-    const s = gl.createShader(type);
-    gl.shaderSource(s, src);
-    gl.compileShader(s);
-    return s;
-  }
-  const prog = gl.createProgram();
-  gl.attachShader(prog, cs(gl.VERTEX_SHADER, vs));
-  gl.attachShader(prog, cs(gl.FRAGMENT_SHADER, fs));
-  gl.linkProgram(prog);
-  gl.useProgram(prog);
-  const buf = gl.createBuffer();
-  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
-  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
-  const pos = gl.getAttribLocation(prog, 'a_position');
-  gl.enableVertexAttribArray(pos);
-  gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
-  const uTime = gl.getUniformLocation(prog, 'u_time');
-  const uRes = gl.getUniformLocation(prog, 'u_resolution');
-  function render(t) {
-    syncSize();
-    gl.viewport(0, 0, canvas.width, canvas.height);
-    if (uTime) gl.uniform1f(uTime, t * 0.001);
-    if (uRes) gl.uniform2f(uRes, canvas.width, canvas.height);
-    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
-    requestAnimationFrame(render);
-  }
-  render(0);
-})();
-</script>
-</div>
-<header class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200 shadow-sm"><div class="h-20 w-full px-4 md:px-6 lg:px-margin-desktop flex items-center justify-between"><div class="flex items-center gap-2 md:gap-4"><img alt="ASHA Healthcare Logo" class="h-10 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1VLzsl_g3kvVvju96tOYiaXnCvmk3KzD0Ajrhu7x-hEoSKim3X8Sy7Wvpy-E4qlzy5RstZIlq-k8rIIq_J4muQmMH_n5xRfGIJa7RDzAo5zGP8opqQdVy1zSAOXcpoXDE6zSm3bMh6bqlrC0oDedFQxxtez2GO3GeObjm6QXaHD9Y31aYfNDbL-xGr5wrD-7DBqD1aA8dqevxey9FVhivhgOjmIh8Qvox8zMGkXbMKgCFC90SiZuQg5kw"/><span class="font-headline-md text-headline-md tracking-tight text-[#00355f] uppercase hidden sm:block">ASHA Healthcare</span><span class="font-headline-md text-headline-md tracking-tight text-[#00355f] uppercase sm:hidden">ASHA</span></div><nav class="hidden lg:flex items-center gap-8" data-active-classes="text-[#00355f] font-bold"><a aria-current="page" class="transition-colors text-[#00355f] font-bold" data-path="home" href="#">Home</a><a class="font-label-md text-label-md text-gray-600 hover:text-[#00355f] transition-colors" href="auth/patient_login_variant_1/index.html">Patient Care</a><a class="font-label-md text-label-md text-gray-600 hover:text-[#00355f] transition-colors" href="workers/frontline_hub/index.html">Frontline (ASHA)</a><a class="font-label-md text-label-md text-gray-600 hover:text-[#00355f] transition-colors" href="patient/doctor_queue/index.html">Clinical (Doctor)</a><a class="font-label-md text-label-md text-gray-600 hover:text-[#00355f] transition-colors" href="admin/command_center_desktop/index.html">District Admin</a><a class="font-label-md text-label-md text-gray-600 hover:text-[#00355f] transition-colors" href="#about">About</a></nav><div class="flex items-center gap-4">
-<button onclick="openLoginModal()" class="hidden md:block bg-transparent border border-[#00355f]/20 text-[#00355f] font-label-md text-label-md px-6 py-2.5 rounded-full hover:bg-[#00355f]/5 transition-all cursor-pointer font-bold">Select Role</button>
-<button onclick="openLoginModal()" class="hidden md:block bg-[#ff8a75] text-white font-label-md text-label-md px-6 py-2.5 rounded-full hover:bg-[#e07560] hover:scale-105 transition-all shadow-sm cursor-pointer shadow-md">Portal Login</button>
-<button onclick="openLoginModal()" class="w-10 h-10 rounded-full bg-white border border-gray-200 flex items-center justify-center hover:bg-gray-50 transition-colors cursor-pointer group"><span class="material-symbols-outlined text-gray-600 text-[20px] group-hover:text-[#ff8a75] transition-colors">person</span></button></div></div></header><main class="w-full pt-28 pb-12 z-10 relative"><div class="flex flex-col w-full">
-<!-- 1. HERO SECTION -->
-<section class="relative w-full px-4 md:px-6 lg:px-margin-desktop pb-12 md:pb-margin-desktop flex flex-col lg:flex-row gap-8 lg:gap-gutter-md items-center mt-6 lg:mt-12">
-<div class="w-full lg:w-1/2 flex flex-col gap-6 z-10">
-<div class="flex flex-wrap items-center gap-3">
-<span class="px-4 py-1.5 rounded-full bg-[#ff8a75]/10 border border-[#ff8a75]/20 text-[#ff8a75] font-label-sm text-label-sm uppercase tracking-wider flex items-center gap-2 backdrop-blur-md">
-<span class="material-symbols-outlined text-[16px]">robot_2</span> AI-Assisted
-        </span>
-<span class="px-4 py-1.5 rounded-full bg-white/50 border border-gray-200 text-gray-600 font-label-sm text-label-sm uppercase tracking-wider flex items-center gap-2 backdrop-blur-md">
-<span class="material-symbols-outlined text-[16px]">wifi_off</span> Offline-First
-        </span>
-<span class="px-4 py-1.5 rounded-full bg-white/50 border border-gray-200 text-gray-600 font-label-sm text-label-sm uppercase tracking-wider flex items-center gap-2 backdrop-blur-md">
-<span class="material-symbols-outlined text-[16px]">translate</span> Multilingual
-        </span>
-</div>
-<h1 class="font-display-lg text-4xl lg:text-display-lg text-[#00355f] font-bold max-w-2xl leading-tight">
-        ASHA HEALTHCARE. <br/>
-<span class="text-[#ff8a75]">Connected Care. Everywhere.</span>
-</h1>
-<p class="font-headline-md text-lg lg:text-headline-md text-gray-600 max-w-xl">
-        Empowering rural healthcare with intelligent, offline-capable technology.
-      </p>
-<div class="flex flex-col sm:flex-row flex-wrap gap-4 mt-6 w-full">
-<button class="bg-[#ff8a75] text-white font-label-md text-label-md px-8 py-4 rounded-full shadow-[0_0_20px_rgba(255,138,117,0.3)] hover:shadow-[0_0_30px_rgba(255,138,117,0.5)] hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2 w-full sm:w-auto">
-          Explore Ecosystem <span class="material-symbols-outlined">arrow_forward</span>
-</button>
-<button class="bg-white/50 backdrop-blur-md border border-gray-200 text-[#00355f] font-label-md text-label-md px-8 py-4 rounded-full hover:bg-white transition-all flex items-center justify-center gap-2 w-full sm:w-auto">
-          View Documentation
-        </button>
-</div>
-</div>
-<div class="w-full lg:w-1/2 relative h-[300px] md:h-[400px] lg:h-[500px] rounded-xl overflow-hidden shadow-2xl border border-gray-200 bg-white">
-<img alt="Professional Indian female doctor in a modern clinic" class="absolute inset-0 w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsqDBuGNQSu-8mvD3VpFsFRt0yZ0f6kwnbw5VA_XCwtmeGU3r09M0Q9bJGLkT2Y_vgGHop82CwVinX5yE4Il9zzbtB7h6NXb1nSks7Gy2AQlocqlF7LS3Df85kitvexEbSb7CyuCak3-SnGGcieL38bVSdd1DiLG6pHYzd-H0rDG5AFRTseHW5kbMFc0y9czhz2oKzVZZM4H8OfLImskd79qWfEyCD3noReWltyJP9P6q5-smBJ7co"/>
-</div>
-</section>
-<!-- 2. STATS STRIP -->
-<section class="w-full px-4 md:px-6 lg:px-margin-desktop py-8 md:py-12 mt-12">
-<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-gutter-md">
-<div class="bg-white/80 backdrop-blur-lg border border-gray-200 p-6 rounded-xl shadow-sm flex flex-col gap-2 hover:-translate-y-1 transition-transform">
-<span class="material-symbols-outlined text-[#ff8a75] text-[32px]">devices</span>
-<h3 class="font-headline-lg text-headline-lg text-[#00355f]">14+</h3>
-<p class="font-label-md text-label-md text-gray-600">Core Screens</p>
-</div>
-<div class="bg-white/80 backdrop-blur-lg border border-gray-200 p-6 rounded-xl shadow-sm flex flex-col gap-2 hover:-translate-y-1 transition-transform">
-<span class="material-symbols-outlined text-[#ff8a75] text-[32px]">group</span>
-<h3 class="font-headline-lg text-headline-lg text-[#00355f]">4</h3>
-<p class="font-label-md text-label-md text-gray-600">Healthcare Roles</p>
-</div>
-<div class="bg-white/80 backdrop-blur-lg border border-gray-200 p-6 rounded-xl shadow-sm flex flex-col gap-2 hover:-translate-y-1 transition-transform">
-<span class="material-symbols-outlined text-[#ff8a75] text-[32px]">neurology</span>
-<h3 class="font-headline-lg text-headline-lg text-[#00355f]">AI</h3>
-<p class="font-label-md text-label-md text-gray-600">Assisted Care</p>
-</div>
-<div class="bg-white/80 backdrop-blur-lg border border-gray-200 p-6 rounded-xl shadow-sm flex flex-col gap-2 hover:-translate-y-1 transition-transform">
-<span class="material-symbols-outlined text-[#ff8a75] text-[32px]">cloud_off</span>
-<h3 class="font-headline-lg text-headline-lg text-[#00355f]">100%</h3>
-<p class="font-label-md text-label-md text-gray-600">Offline-First</p>
-</div>
-<div class="bg-white/80 backdrop-blur-lg border border-gray-200 p-6 rounded-xl shadow-sm flex flex-col gap-2 hover:-translate-y-1 transition-transform col-span-2 md:col-span-1">
-<span class="material-symbols-outlined text-[#ff8a75] text-[32px]">health_and_safety</span>
-<h3 class="font-headline-lg text-headline-lg text-[#00355f]">24/7</h3>
-<p class="font-label-md text-label-md text-gray-600">Care Access</p>
-</div>
-</div>
-</section>
-<!-- 3. ECOSYSTEM -->
-<section class="w-full px-4 md:px-6 lg:px-margin-desktop py-12 md:py-16 relative md:mt-20">
-<div class="hidden lg:block absolute left-0 top-1/2 -translate-y-1/2 text-gray-100 font-display-lg text-[120px] pointer-events-none select-none -z-10 [writing-mode:vertical-rl] rotate-180">
-      ECOSYSTEM
-    </div>
-<div class="mb-10 md:mb-16 text-center lg:text-left">
-<h2 class="font-headline-lg text-3xl lg:text-headline-lg text-[#00355f]">Integrated Platform</h2>
-<p class="font-body-lg text-base lg:text-body-lg text-gray-600 mt-3 max-w-2xl mx-auto lg:mx-0">Empowering every level of the rural healthcare supply chain.</p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-gutter-md">
-<!-- 1. Patient -->
-<div class="bg-white/80 backdrop-blur-xl border border-gray-200 text-gray-800 rounded-xl p-6 lg:p-8 shadow-sm flex flex-col h-full relative overflow-hidden group hover:border-[#ff8a75]/50 transition-all">
-<div class="absolute -right-8 -top-8 w-32 h-32 bg-[#ff8a75]/10 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700"></div>
-<span class="material-symbols-outlined text-[#ff8a75] text-[40px] mb-4 lg:mb-6">personal_injury</span>
-<h3 class="font-headline-md text-xl lg:text-headline-md text-[#00355f] mb-2">1. Patient Portal</h3>
-<p class="font-body-md text-sm lg:text-body-md text-gray-600 mb-6 lg:mb-8 flex-grow">ABHA Registration, medical history, AI health assistant, and prescription tracking.</p>
-<a href="auth/patient_login_variant_1/index.html" class="bg-gray-100 text-[#00355f] font-label-md text-label-md py-3 px-6 rounded-full w-full flex items-center justify-center gap-2 hover:bg-[#ff8a75] hover:text-white transition-all border border-gray-200 shadow-sm font-semibold">
-  Patient Login <span class="material-symbols-outlined text-[18px]">login</span>
-</a>
-</div>
-<!-- 2. Doctor -->
-<div class="bg-white/80 backdrop-blur-xl border border-gray-200 text-gray-800 rounded-xl p-6 lg:p-8 shadow-sm flex flex-col h-full relative overflow-hidden group hover:border-[#00355f]/50 transition-all">
-<div class="absolute -right-8 -top-8 w-32 h-32 bg-[#00355f]/10 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700"></div>
-<span class="material-symbols-outlined text-[#00355f] text-[40px] mb-4 lg:mb-6">stethoscope</span>
-<h3 class="font-headline-md text-xl lg:text-headline-md text-[#00355f] mb-2">2. Doctor Clinic</h3>
-<p class="font-body-md text-sm lg:text-body-md text-gray-800 mb-6 lg:mb-8 flex-grow">OPD queue, patient diagnosis, priority triage cases, and digital prescriptions.</p>
-<a href="patient/doctor_queue/index.html" class="bg-[#00355f] text-white font-label-md text-label-md py-3 px-6 rounded-full w-full flex items-center justify-center gap-2 hover:bg-[#002747] transition-all shadow-md font-semibold">
-  Doctor Portal <span class="material-symbols-outlined text-[18px]">medical_services</span>
-</a>
-</div>
-<!-- 3. Lab / Worker -->
-<div class="bg-white/80 backdrop-blur-xl border border-gray-200 text-gray-800 rounded-xl p-6 lg:p-8 shadow-sm flex flex-col h-full relative overflow-hidden group hover:border-[#006b5f]/50 transition-all">
-<div class="absolute -right-8 -top-8 w-32 h-32 bg-[#006b5f]/10 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700"></div>
-<span class="material-symbols-outlined text-[#006b5f] text-[40px] mb-4 lg:mb-6">science</span>
-<h3 class="font-headline-md text-xl lg:text-headline-md text-[#00355f] mb-2">3. Lab & Worker</h3>
-<p class="font-body-md text-sm lg:text-body-md text-gray-600 mb-6 lg:mb-8 flex-grow">Field sample collection, offline data sync, vital screening, and test reporting.</p>
-<a href="workers/frontline_hub/index.html" class="bg-gray-100 text-[#00355f] font-label-md text-label-md py-3 px-6 rounded-full w-full flex items-center justify-center gap-2 hover:bg-[#006b5f] hover:text-white transition-all border border-gray-200 shadow-sm font-semibold">
-  Worker Hub <span class="material-symbols-outlined text-[18px]">biotech</span>
-</a>
-</div>
-<!-- 4. Admin -->
-<div class="bg-white/80 backdrop-blur-xl border border-gray-200 text-gray-800 rounded-xl p-6 lg:p-8 shadow-sm flex flex-col h-full relative overflow-hidden group hover:border-[#3f0099]/50 transition-all">
-<div class="absolute -right-8 -top-8 w-32 h-32 bg-[#3f0099]/10 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700"></div>
-<span class="material-symbols-outlined text-[#3f0099] text-[40px] mb-4 lg:mb-6">admin_panel_settings</span>
-<h3 class="font-headline-md text-xl lg:text-headline-md text-[#00355f] mb-2">4. District Admin</h3>
-<p class="font-body-md text-sm lg:text-body-md text-gray-600 mb-6 lg:mb-8 flex-grow">Hospital management, doctor and patient oversight, bed telemetry, and supply chains.</p>
-<a href="auth/admin_login/index.html" class="bg-gray-100 text-[#00355f] font-label-md text-label-md py-3 px-6 rounded-full w-full flex items-center justify-center gap-2 hover:bg-[#3f0099] hover:text-white transition-all border border-gray-200 shadow-sm font-semibold">
-  Admin Login <span class="material-symbols-outlined text-[18px]">verified_user</span>
-</a>
-</div>
-</div>
-</section>
-<!-- 4. CAPABILITIES SHOWCASE (Offline & AI) -->
-<section class="w-full px-4 md:px-6 lg:px-margin-desktop py-12 md:py-16">
-<div class="flex flex-col lg:flex-row gap-8 lg:gap-gutter-md">
-<!-- AI Preview -->
-<div class="w-full lg:w-1/2 bg-white/80 backdrop-blur-lg border border-gray-200 rounded-xl p-6 lg:p-8 shadow-sm flex flex-col relative overflow-hidden">
-<div class="absolute top-0 right-0 w-64 h-64 bg-[#ff8a75]/10 rounded-full blur-3xl -z-10"></div>
-<div class="flex items-center gap-4 mb-8">
-<div class="w-12 h-12 rounded-full bg-[#ff8a75]/20 border border-[#ff8a75]/30 flex items-center justify-center shrink-0 shadow-[0_0_15px_rgba(255,138,117,0.2)]">
-<span class="material-symbols-outlined text-[#ff8a75]">psychology</span>
-</div>
-<h3 class="font-headline-md text-2xl lg:text-headline-md text-[#00355f]">Intelligent Assistance</h3>
-</div>
-<div class="flex-grow flex flex-col gap-6">
-<div class="bg-white/50 border border-gray-200 p-5 rounded-xl rounded-tl-none w-[90%] sm:w-5/6 shadow-sm backdrop-blur-sm">
-<p class="font-body-md text-sm sm:text-body-md text-gray-600">Patient presents with persistent cough for 3 weeks, mild fever in evenings, and weight loss. Lives in District 4.</p>
-</div>
-<div class="bg-[#ff8a75]/10 border border-[#ff8a75]/30 text-gray-800 p-5 rounded-xl rounded-tr-none w-[90%] sm:w-5/6 self-end shadow-sm backdrop-blur-sm relative overflow-hidden">
-<div class="absolute inset-0 bg-[#ff8a75]/5"></div>
-<p class="font-body-md text-sm sm:text-body-md relative z-10"><strong class="text-[#ff8a75]">AI Clinical Assistant:</strong> Flagging high risk for Tuberculosis given regional prevalence. Recommend sputum smear microscopy and immediate isolation protocol. Do you want to generate a referral slip?</p>
-</div>
-</div>
-</div>
-<!-- Offline Sync Queue -->
-<div class="w-full lg:w-1/2 bg-white/80 backdrop-blur-lg border border-gray-200 text-gray-800 rounded-xl p-6 lg:p-8 shadow-sm flex flex-col">
-<div class="flex items-center justify-between mb-8 flex-wrap gap-4 border-b border-gray-200 pb-6">
-<div class="flex items-center gap-4">
-<div class="w-12 h-12 rounded-full bg-gray-50 border border-gray-200 flex items-center justify-center shrink-0">
-<span class="material-symbols-outlined text-gray-400">wifi_off</span>
-</div>
-<h3 class="font-headline-md text-2xl lg:text-headline-md text-[#00355f]">Network Status</h3>
-</div>
-<span class="px-4 py-1.5 rounded-full bg-gray-100 text-gray-600 font-label-sm text-label-sm border border-gray-200 flex items-center gap-2">
-<span class="w-2 h-2 rounded-full bg-[#ff8a75] animate-pulse"></span>
-            Offline Mode Active
-          </span>
-</div>
-<div class="flex-grow flex flex-col justify-center gap-2">
-<div class="flex items-center justify-between py-4 px-4 bg-white/50 rounded-lg border border-gray-100">
-<div class="flex items-center gap-3 md:gap-4">
-<span class="material-symbols-outlined text-[#ff8a75]/70">description</span>
-<span class="font-body-md text-sm sm:text-body-md text-gray-800">Vitals: Ramesh K.</span>
-</div>
-<span class="font-label-sm text-label-sm text-[#ff8a75] bg-[#ff8a75]/10 px-2 py-1 rounded">Queued</span>
-</div>
-<div class="flex items-center justify-between py-4 px-4 bg-white/50 rounded-lg border border-gray-100">
-<div class="flex items-center gap-3 md:gap-4">
-<span class="material-symbols-outlined text-[#ff8a75]/70">image</span>
-<span class="font-body-md text-sm sm:text-body-md text-gray-800">X-Ray Scan: Ward 3</span>
-</div>
-<span class="font-label-sm text-label-sm text-[#ff8a75] bg-[#ff8a75]/10 px-2 py-1 rounded">Queued</span>
-</div>
-<div class="flex items-center justify-between py-4 px-4 bg-white/50 rounded-lg border border-gray-100">
-<div class="flex items-center gap-3 md:gap-4">
-<span class="material-symbols-outlined text-[#ff8a75]/70">person_add</span>
-<span class="font-body-md text-sm sm:text-body-md text-gray-800">New Reg: Sita M.</span>
-</div>
-<span class="font-label-sm text-label-sm text-[#ff8a75] bg-[#ff8a75]/10 px-2 py-1 rounded">Queued</span>
-</div>
-<div class="mt-8 h-1.5 w-full bg-gray-200 rounded-full overflow-hidden">
-<div class="h-full bg-[#ff8a75]/50 w-1/3 rounded-full relative">
-<div class="absolute inset-0 bg-white/50 animate-pulse"></div>
-</div>
-</div>
-<p class="text-center font-label-sm text-label-sm text-gray-500 mt-3">Waiting for connection... 14 records pending</p>
-</div>
-</div>
-</div>
-</section>
-<!-- 5. JOURNEY MAP -->
-<section class="w-full px-4 md:px-6 lg:px-margin-desktop py-12 md:py-16 my-8 md:my-12">
-<div class="text-center mb-12 md:mb-20">
-<h2 class="font-headline-lg text-3xl lg:text-headline-lg text-[#00355f]">The Continuum of Care</h2>
-<p class="font-body-lg text-base lg:text-body-lg text-gray-600 mt-3 max-w-2xl mx-auto">A seamless data journey from the village to the district hospital.</p>
-</div>
-<div class="relative flex flex-col md:flex-row justify-between items-center w-full max-w-5xl mx-auto gap-12 md:gap-8">
-<!-- Connecting Line -->
-<div class="hidden md:block absolute top-[40%] left-0 w-full h-0.5 bg-gray-200 -translate-y-1/2 -z-10"></div>
-<div class="md:hidden absolute top-0 left-1/2 w-0.5 h-full bg-gray-200 -translate-x-1/2 -z-10"></div>
-<!-- Nodes -->
-<div class="flex flex-col items-center gap-5 w-40">
-<div class="w-16 h-16 rounded-2xl bg-white border border-gray-200 text-gray-600 flex items-center justify-center shadow-sm z-10">
-<span class="material-symbols-outlined text-[28px]">home</span>
-</div>
-<div class="text-center px-2">
-<h4 class="font-label-md text-label-md text-[#00355f] mb-1">Home</h4>
-<p class="font-label-sm text-label-sm text-gray-600">Symptom Logging</p>
-</div>
-</div>
-<div class="flex flex-col items-center gap-5 w-40">
-<div class="w-16 h-16 rounded-2xl bg-white border border-gray-200 text-gray-600 flex items-center justify-center shadow-sm z-10">
-<span class="material-symbols-outlined text-[28px]">local_pharmacy</span>
-</div>
-<div class="text-center px-2">
-<h4 class="font-label-md text-label-md text-[#00355f] mb-1">Frontline</h4>
-<p class="font-label-sm text-label-sm text-gray-600">ASHA Screening</p>
-</div>
-</div>
-<div class="flex flex-col items-center gap-5 w-40">
-<div class="w-20 h-20 rounded-2xl bg-[#ff8a75]/10 border border-[#ff8a75]/40 text-[#ff8a75] flex items-center justify-center shadow-[0_0_20px_rgba(255,138,117,0.2)] z-10 backdrop-blur-sm">
-<span class="material-symbols-outlined text-[36px]">local_hospital</span>
-</div>
-<div class="text-center px-2">
-<h4 class="font-label-md text-label-md text-[#ff8a75] mb-1">Clinic</h4>
-<p class="font-label-sm text-label-sm text-gray-600">Doctor Diagnosis</p>
-</div>
-</div>
-<div class="flex flex-col items-center gap-5 w-40">
-<div class="w-16 h-16 rounded-2xl bg-white border border-gray-200 text-gray-600 flex items-center justify-center shadow-sm z-10">
-<span class="material-symbols-outlined text-[28px]">domain</span>
-</div>
-<div class="text-center px-2">
-<h4 class="font-label-md text-label-md text-[#00355f] mb-1">District</h4>
-<p class="font-label-sm text-label-sm text-gray-600">Advanced Care</p>
-</div>
-</div>
-</div>
-</section>
-</div></main><footer class="w-full bg-white/80 backdrop-blur-xl border-t border-gray-200 py-12 md:py-16 mt-12 md:mt-20 relative z-10"><div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-margin-desktop grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12"><div class="col-span-1 md:col-span-2 lg:col-span-1"><div class="flex items-center gap-3 mb-6"><img alt="ASHA Healthcare Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1VLzsl_g3kvVvju96tOYiaXnCvmk3KzD0Ajrhu7x-hEoSKim3X8Sy7Wvpy-E4qlzy5RstZIlq-k8rIIq_J4muQmMH_n5xRfGIJa7RDzAo5zGP8opqQdVy1zSAOXcpoXDE6zSm3bMh6bqlrC0oDedFQxxtez2GO3GeObjm6QXaHD9Y31aYfNDbL-xGr5wrD-7DBqD1aA8dqevxey9FVhivhgOjmIh8Qvox8zMGkXbMKgCFC90SiZuQg5kw"/><span class="font-headline-md text-label-md text-[#00355f] uppercase tracking-wider">ASHA</span></div><p class="font-body-md text-label-sm text-gray-600 max-w-sm leading-relaxed">Bridging the healthcare gap with compassion and AI excellence for rural communities worldwide.</p></div><div><h4 class="font-label-md text-label-md text-[#00355f] mb-4 md:mb-6 uppercase tracking-wider text-xs">Platform</h4><ul class="space-y-3 md:space-y-4"><li class="font-body-md text-label-sm text-gray-600 hover:text-[#ff8a75] transition-colors cursor-pointer">Patient Care</li><li class="font-body-md text-label-sm text-gray-600 hover:text-[#ff8a75] transition-colors cursor-pointer">Frontline Health</li><li class="font-body-md text-label-sm text-gray-600 hover:text-[#ff8a75] transition-colors cursor-pointer">Doctor Portal</li><li class="font-body-md text-label-sm text-gray-600 hover:text-[#ff8a75] transition-colors cursor-pointer">District Management</li></ul></div><div><h4 class="font-label-md text-label-md text-[#00355f] mb-4 md:mb-6 uppercase tracking-wider text-xs">Core Capabilities</h4><ul class="space-y-3 md:space-y-4"><li class="font-body-md text-label-sm text-gray-600 hover:text-[#ff8a75] transition-colors cursor-pointer">AI Diagnostics</li><li class="font-body-md text-label-sm text-gray-600 hover:text-[#ff8a75] transition-colors cursor-pointer">Offline-First</li><li class="font-body-md text-label-sm text-gray-600 hover:text-[#ff8a75] transition-colors cursor-pointer">Data Sync</li></ul></div><div><h4 class="font-label-md text-label-md text-[#00355f] mb-4 md:mb-6 uppercase tracking-wider text-xs">Project</h4><ul class="space-y-3 md:space-y-4"><li class="font-body-md text-label-sm text-gray-600 hover:text-[#ff8a75] transition-colors cursor-pointer">About Us</li><li class="font-body-md text-label-sm text-gray-600 hover:text-[#ff8a75] transition-colors cursor-pointer">Contact</li><li class="font-body-md text-label-sm text-gray-600 hover:text-[#ff8a75] transition-colors cursor-pointer">Privacy Policy</li></ul></div></div><div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-margin-desktop border-t border-gray-200 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4"><p class="font-body-md text-label-sm text-gray-600 text-center md:text-left">© 2024 ASHA Healthcare. All rights reserved.</p><div class="flex gap-6"><span class="material-symbols-outlined text-gray-400 cursor-pointer hover:text-[#ff8a75] transition-colors text-[20px]">language</span><span class="material-symbols-outlined text-gray-400 cursor-pointer hover:text-[#ff8a75] transition-colors text-[20px]">security</span></div></div></footer>
-
-<!-- ROLE LOGIN MODAL (4 ROLES) -->
-<div id="role-login-modal" class="fixed inset-0 z-[9999] bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-4 transition-all">
-  <div class="bg-white/95 backdrop-blur-2xl border border-gray-200 rounded-2xl max-w-xl w-full p-6 md:p-8 shadow-2xl relative">
-    <button onclick="closeLoginModal()" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-gray-500 hover:text-gray-800 transition-colors cursor-pointer">
-      <span class="material-symbols-outlined text-[20px]">close</span>
-    </button>
-    <div class="text-center mb-6">
-      <span class="px-3 py-1 rounded-full bg-[#ff8a75]/10 text-[#ff8a75] text-xs font-bold uppercase tracking-wider">Healthcare Access</span>
-      <h3 class="text-2xl font-bold text-[#00355f] mt-2">Select Your Login Role</h3>
-      <p class="text-gray-500 text-sm mt-1">Choose your workspace to sign in securely.</p>
-    </div>
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <style>
     
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-      <!-- 1. Patient Login -->
-      <a href="auth/patient_login_variant_1/index.html" class="flex items-center gap-3.5 p-4 rounded-xl border border-gray-200 bg-white hover:border-[#ff8a75] hover:shadow-md hover:-translate-y-0.5 transition-all group">
-        <div class="w-12 h-12 rounded-xl bg-[#ff8a75]/10 text-[#ff8a75] flex items-center justify-center shrink-0 group-hover:bg-[#ff8a75] group-hover:text-white transition-colors">
-          <span class="material-symbols-outlined text-[26px]">person</span>
-        </div>
-        <div>
-          <h4 class="font-bold text-[#00355f] text-sm group-hover:text-[#ff8a75] transition-colors">1. Patient Login</h4>
-          <p class="text-xs text-gray-500">ABHA & Health Records</p>
-        </div>
-      </a>
-
-      <!-- 2. Doctor Login -->
-      <a href="patient/doctor_queue/index.html" class="flex items-center gap-3.5 p-4 rounded-xl border border-gray-200 bg-white hover:border-[#00355f] hover:shadow-md hover:-translate-y-0.5 transition-all group">
-        <div class="w-12 h-12 rounded-xl bg-[#00355f]/10 text-[#00355f] flex items-center justify-center shrink-0 group-hover:bg-[#00355f] group-hover:text-white transition-colors">
-          <span class="material-symbols-outlined text-[26px]">stethoscope</span>
-        </div>
-        <div>
-          <h4 class="font-bold text-[#00355f] text-sm group-hover:text-[#00355f] transition-colors">2. Doctor Clinic</h4>
-          <p class="text-xs text-gray-500">OPD & Priority Cases</p>
-        </div>
-      </a>
-
-      <!-- 3. Lab / Worker Login -->
-      <a href="workers/frontline_hub/index.html" class="flex items-center gap-3.5 p-4 rounded-xl border border-gray-200 bg-white hover:border-[#006b5f] hover:shadow-md hover:-translate-y-0.5 transition-all group">
-        <div class="w-12 h-12 rounded-xl bg-[#006b5f]/10 text-[#006b5f] flex items-center justify-center shrink-0 group-hover:bg-[#006b5f] group-hover:text-white transition-colors">
-          <span class="material-symbols-outlined text-[26px]">science</span>
-        </div>
-        <div>
-          <h4 class="font-bold text-[#00355f] text-sm group-hover:text-[#006b5f] transition-colors">3. Lab / ASHA Worker</h4>
-          <p class="text-xs text-gray-500">Sample Collection & Sync</p>
-        </div>
-      </a>
-
-      <!-- 4. Admin Login -->
-      <a href="auth/admin_login/index.html" class="flex items-center gap-3.5 p-4 rounded-xl border border-gray-200 bg-white hover:border-[#3f0099] hover:shadow-md hover:-translate-y-0.5 transition-all group">
-        <div class="w-12 h-12 rounded-xl bg-[#3f0099]/10 text-[#3f0099] flex items-center justify-center shrink-0 group-hover:bg-[#3f0099] group-hover:text-white transition-colors">
-          <span class="material-symbols-outlined text-[26px]">admin_panel_settings</span>
-        </div>
-        <div>
-          <h4 class="font-bold text-[#00355f] text-sm group-hover:text-[#3f0099] transition-colors">4. District Admin</h4>
-          <p class="text-xs text-gray-500">Command Center & Control</p>
-        </div>
-      </a>
+    </script>
+  </div>
+  <header class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200 shadow-sm">
+    <div class="h-20 w-full px-4 md:px-6 lg:px-margin-desktop flex items-center justify-between">
+      <div class="flex items-center gap-2 md:gap-4"><img alt="ASHA Healthcare Logo" class="h-10 w-auto object-contain"
+          src="https://lh3.googleusercontent.com/aida/AEtjO1VLzsl_g3kvVvju96tOYiaXnCvmk3KzD0Ajrhu7x-hEoSKim3X8Sy7Wvpy-E4qlzy5RstZIlq-k8rIIq_J4muQmMH_n5xRfGIJa7RDzAo5zGP8opqQdVy1zSAOXcpoXDE6zSm3bMh6bqlrC0oDedFQxxtez2GO3GeObjm6QXaHD9Y31aYfNDbL-xGr5wrD-7DBqD1aA8dqevxey9FVhivhgOjmIh8Qvox8zMGkXbMKgCFC90SiZuQg5kw" /><span
+          class="font-headline-md text-headline-md tracking-tight text-[#00355f] uppercase hidden sm:block">ASHA
+          Healthcare</span><span
+          class="font-headline-md text-headline-md tracking-tight text-[#00355f] uppercase sm:hidden">ASHA</span></div>
+      <nav class="hidden lg:flex items-center gap-8" data-active-classes="text-[#00355f] font-bold"><a
+          aria-current="page" class="transition-colors text-[#00355f] font-bold" data-path="home" href="#">Home</a><a
+          class="font-label-md text-label-md text-gray-600 hover:text-[#00355f] transition-colors"
+          href="auth/patient_login_variant_1/index.html">Patient Care</a><a
+          class="font-label-md text-label-md text-gray-600 hover:text-[#00355f] transition-colors"
+          href="workers/frontline_hub/index.html">Frontline (ASHA)</a><a
+          class="font-label-md text-label-md text-gray-600 hover:text-[#00355f] transition-colors"
+          href="patient/doctor_queue/index.html">Clinical (Doctor)</a><a
+          class="font-label-md text-label-md text-gray-600 hover:text-[#00355f] transition-colors"
+          href="admin/command_center_desktop/index.html">District Admin</a><a
+          class="font-label-md text-label-md text-gray-600 hover:text-[#00355f] transition-colors"
+          href="#about">About</a></nav>
+      <div class="flex items-center gap-4">
+        <button onclick="openLoginModal()"
+          class="hidden md:block bg-transparent border border-[#00355f]/20 text-[#00355f] font-label-md text-label-md px-6 py-2.5 rounded-full hover:bg-[#00355f]/5 transition-all cursor-pointer font-bold">Select
+          Role</button>
+        <button onclick="openLoginModal()"
+          class="hidden md:block bg-[#ff8a75] text-white font-label-md text-label-md px-6 py-2.5 rounded-full hover:bg-[#e07560] hover:scale-105 transition-all shadow-sm cursor-pointer shadow-md">Portal
+          Login</button>
+        <button onclick="openLoginModal()"
+          class="w-10 h-10 rounded-full bg-white border border-gray-200 flex items-center justify-center hover:bg-gray-50 transition-colors cursor-pointer group"><span
+            class="material-symbols-outlined text-gray-600 text-[20px] group-hover:text-[#ff8a75] transition-colors">person</span></button>
+      </div>
     </div>
+  </header>
+  <main class="w-full pt-28 pb-12 z-10 relative">
+    <div class="flex flex-col w-full">
+      <!-- 1. HERO SECTION -->
+      <section
+        class="relative w-full px-4 md:px-6 lg:px-margin-desktop pb-12 md:pb-margin-desktop flex flex-col lg:flex-row gap-8 lg:gap-gutter-md items-center mt-6 lg:mt-12">
+        <div class="w-full lg:w-1/2 flex flex-col gap-6 z-10">
+          <div class="flex flex-wrap items-center gap-3">
+            <span
+              class="px-4 py-1.5 rounded-full bg-[#ff8a75]/10 border border-[#ff8a75]/20 text-[#ff8a75] font-label-sm text-label-sm uppercase tracking-wider flex items-center gap-2 backdrop-blur-md">
+              <span class="material-symbols-outlined text-[16px]">robot_2</span> AI-Assisted
+            </span>
+            <span
+              class="px-4 py-1.5 rounded-full bg-white/50 border border-gray-200 text-gray-600 font-label-sm text-label-sm uppercase tracking-wider flex items-center gap-2 backdrop-blur-md">
+              <span class="material-symbols-outlined text-[16px]">wifi_off</span> Offline-First
+            </span>
+            <span
+              class="px-4 py-1.5 rounded-full bg-white/50 border border-gray-200 text-gray-600 font-label-sm text-label-sm uppercase tracking-wider flex items-center gap-2 backdrop-blur-md">
+              <span class="material-symbols-outlined text-[16px]">translate</span> Multilingual
+            </span>
+          </div>
+          <h1 class="font-display-lg text-4xl lg:text-display-lg text-[#00355f] font-bold max-w-2xl leading-tight">
+            ASHA HEALTHCARE. <br />
+            <span class="text-[#ff8a75]">Connected Care. Everywhere.</span>
+          </h1>
+          <p class="font-headline-md text-lg lg:text-headline-md text-gray-600 max-w-xl">
+            Empowering rural healthcare with intelligent, offline-capable technology.
+          </p>
+          <div class="flex flex-col sm:flex-row flex-wrap gap-4 mt-6 w-full">
+            <button
+              class="bg-[#ff8a75] text-white font-label-md text-label-md px-8 py-4 rounded-full shadow-[0_0_20px_rgba(255,138,117,0.3)] hover:shadow-[0_0_30px_rgba(255,138,117,0.5)] hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2 w-full sm:w-auto">
+              Explore Ecosystem <span class="material-symbols-outlined">arrow_forward</span>
+            </button>
+            <button
+              class="bg-white/50 backdrop-blur-md border border-gray-200 text-[#00355f] font-label-md text-label-md px-8 py-4 rounded-full hover:bg-white transition-all flex items-center justify-center gap-2 w-full sm:w-auto">
+              View Documentation
+            </button>
+          </div>
+        </div>
+        <div
+          class="w-full lg:w-1/2 relative h-[300px] md:h-[400px] lg:h-[500px] rounded-xl overflow-hidden shadow-2xl border border-gray-200 bg-white">
+          <img alt="Professional Indian female doctor in a modern clinic"
+            class="absolute inset-0 w-full h-full object-cover"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsqDBuGNQSu-8mvD3VpFsFRt0yZ0f6kwnbw5VA_XCwtmeGU3r09M0Q9bJGLkT2Y_vgGHop82CwVinX5yE4Il9zzbtB7h6NXb1nSks7Gy2AQlocqlF7LS3Df85kitvexEbSb7CyuCak3-SnGGcieL38bVSdd1DiLG6pHYzd-H0rDG5AFRTseHW5kbMFc0y9czhz2oKzVZZM4H8OfLImskd79qWfEyCD3noReWltyJP9P6q5-smBJ7co" />
+        </div>
+      </section>
+      <!-- 2. STATS STRIP -->
+      <section class="w-full px-4 md:px-6 lg:px-margin-desktop py-8 md:py-12 mt-12">
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-gutter-md">
+          <div
+            class="bg-white/80 backdrop-blur-lg border border-gray-200 p-6 rounded-xl shadow-sm flex flex-col gap-2 hover:-translate-y-1 transition-transform">
+            <span class="material-symbols-outlined text-[#ff8a75] text-[32px]">devices</span>
+            <h3 class="font-headline-lg text-headline-lg text-[#00355f]">14+</h3>
+            <p class="font-label-md text-label-md text-gray-600">Core Screens</p>
+          </div>
+          <div
+            class="bg-white/80 backdrop-blur-lg border border-gray-200 p-6 rounded-xl shadow-sm flex flex-col gap-2 hover:-translate-y-1 transition-transform">
+            <span class="material-symbols-outlined text-[#ff8a75] text-[32px]">group</span>
+            <h3 class="font-headline-lg text-headline-lg text-[#00355f]">4</h3>
+            <p class="font-label-md text-label-md text-gray-600">Healthcare Roles</p>
+          </div>
+          <div
+            class="bg-white/80 backdrop-blur-lg border border-gray-200 p-6 rounded-xl shadow-sm flex flex-col gap-2 hover:-translate-y-1 transition-transform">
+            <span class="material-symbols-outlined text-[#ff8a75] text-[32px]">neurology</span>
+            <h3 class="font-headline-lg text-headline-lg text-[#00355f]">AI</h3>
+            <p class="font-label-md text-label-md text-gray-600">Assisted Care</p>
+          </div>
+          <div
+            class="bg-white/80 backdrop-blur-lg border border-gray-200 p-6 rounded-xl shadow-sm flex flex-col gap-2 hover:-translate-y-1 transition-transform">
+            <span class="material-symbols-outlined text-[#ff8a75] text-[32px]">cloud_off</span>
+            <h3 class="font-headline-lg text-headline-lg text-[#00355f]">100%</h3>
+            <p class="font-label-md text-label-md text-gray-600">Offline-First</p>
+          </div>
+          <div
+            class="bg-white/80 backdrop-blur-lg border border-gray-200 p-6 rounded-xl shadow-sm flex flex-col gap-2 hover:-translate-y-1 transition-transform col-span-2 md:col-span-1">
+            <span class="material-symbols-outlined text-[#ff8a75] text-[32px]">health_and_safety</span>
+            <h3 class="font-headline-lg text-headline-lg text-[#00355f]">24/7</h3>
+            <p class="font-label-md text-label-md text-gray-600">Care Access</p>
+          </div>
+        </div>
+      </section>
+      <!-- 3. ECOSYSTEM -->
+      <section class="w-full px-4 md:px-6 lg:px-margin-desktop py-12 md:py-16 relative md:mt-20">
+        <div
+          class="hidden lg:block absolute left-0 top-1/2 -translate-y-1/2 text-gray-100 font-display-lg text-[120px] pointer-events-none select-none -z-10 [writing-mode:vertical-rl] rotate-180">
+          ECOSYSTEM
+        </div>
+        <div class="mb-10 md:mb-16 text-center lg:text-left">
+          <h2 class="font-headline-lg text-3xl lg:text-headline-lg text-[#00355f]">Integrated Platform</h2>
+          <p class="font-body-lg text-base lg:text-body-lg text-gray-600 mt-3 max-w-2xl mx-auto lg:mx-0">Empowering
+            every level of the rural healthcare supply chain.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-gutter-md">
+          <!-- 1. Patient -->
+          <div
+            class="bg-white/80 backdrop-blur-xl border border-gray-200 text-gray-800 rounded-xl p-6 lg:p-8 shadow-sm flex flex-col h-full relative overflow-hidden group hover:border-[#ff8a75]/50 transition-all">
+            <div
+              class="absolute -right-8 -top-8 w-32 h-32 bg-[#ff8a75]/10 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700">
+            </div>
+            <span class="material-symbols-outlined text-[#ff8a75] text-[40px] mb-4 lg:mb-6">personal_injury</span>
+            <h3 class="font-headline-md text-xl lg:text-headline-md text-[#00355f] mb-2">1. Patient Portal</h3>
+            <p class="font-body-md text-sm lg:text-body-md text-gray-600 mb-6 lg:mb-8 flex-grow">ABHA Registration,
+              medical history, AI health assistant, and prescription tracking.</p>
+            <a href="auth/patient_login_variant_1/index.html"
+              class="bg-gray-100 text-[#00355f] font-label-md text-label-md py-3 px-6 rounded-full w-full flex items-center justify-center gap-2 hover:bg-[#ff8a75] hover:text-white transition-all border border-gray-200 shadow-sm font-semibold">
+              Patient Login <span class="material-symbols-outlined text-[18px]">login</span>
+            </a>
+          </div>
+          <!-- 2. Doctor -->
+          <div
+            class="bg-white/80 backdrop-blur-xl border border-gray-200 text-gray-800 rounded-xl p-6 lg:p-8 shadow-sm flex flex-col h-full relative overflow-hidden group hover:border-[#00355f]/50 transition-all">
+            <div
+              class="absolute -right-8 -top-8 w-32 h-32 bg-[#00355f]/10 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700">
+            </div>
+            <span class="material-symbols-outlined text-[#00355f] text-[40px] mb-4 lg:mb-6">stethoscope</span>
+            <h3 class="font-headline-md text-xl lg:text-headline-md text-[#00355f] mb-2">2. Doctor Clinic</h3>
+            <p class="font-body-md text-sm lg:text-body-md text-gray-800 mb-6 lg:mb-8 flex-grow">OPD queue, patient
+              diagnosis, priority triage cases, and digital prescriptions.</p>
+            <a href="patient/doctor_queue/index.html"
+              class="bg-[#00355f] text-white font-label-md text-label-md py-3 px-6 rounded-full w-full flex items-center justify-center gap-2 hover:bg-[#002747] transition-all shadow-md font-semibold">
+              Doctor Portal <span class="material-symbols-outlined text-[18px]">medical_services</span>
+            </a>
+          </div>
+          <!-- 3. Lab / Worker -->
+          <div
+            class="bg-white/80 backdrop-blur-xl border border-gray-200 text-gray-800 rounded-xl p-6 lg:p-8 shadow-sm flex flex-col h-full relative overflow-hidden group hover:border-[#006b5f]/50 transition-all">
+            <div
+              class="absolute -right-8 -top-8 w-32 h-32 bg-[#006b5f]/10 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700">
+            </div>
+            <span class="material-symbols-outlined text-[#006b5f] text-[40px] mb-4 lg:mb-6">science</span>
+            <h3 class="font-headline-md text-xl lg:text-headline-md text-[#00355f] mb-2">3. Lab & Worker</h3>
+            <p class="font-body-md text-sm lg:text-body-md text-gray-600 mb-6 lg:mb-8 flex-grow">Field sample
+              collection, offline data sync, vital screening, and test reporting.</p>
+            <a href="workers/frontline_hub/index.html"
+              class="bg-gray-100 text-[#00355f] font-label-md text-label-md py-3 px-6 rounded-full w-full flex items-center justify-center gap-2 hover:bg-[#006b5f] hover:text-white transition-all border border-gray-200 shadow-sm font-semibold">
+              Worker Hub <span class="material-symbols-outlined text-[18px]">biotech</span>
+            </a>
+          </div>
+          <!-- 4. Admin -->
+          <div
+            class="bg-white/80 backdrop-blur-xl border border-gray-200 text-gray-800 rounded-xl p-6 lg:p-8 shadow-sm flex flex-col h-full relative overflow-hidden group hover:border-[#3f0099]/50 transition-all">
+            <div
+              class="absolute -right-8 -top-8 w-32 h-32 bg-[#3f0099]/10 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700">
+            </div>
+            <span class="material-symbols-outlined text-[#3f0099] text-[40px] mb-4 lg:mb-6">admin_panel_settings</span>
+            <h3 class="font-headline-md text-xl lg:text-headline-md text-[#00355f] mb-2">4. District Admin</h3>
+            <p class="font-body-md text-sm lg:text-body-md text-gray-600 mb-6 lg:mb-8 flex-grow">Hospital management,
+              doctor and patient oversight, bed telemetry, and supply chains.</p>
+            <a href="auth/admin_login/index.html"
+              class="bg-gray-100 text-[#00355f] font-label-md text-label-md py-3 px-6 rounded-full w-full flex items-center justify-center gap-2 hover:bg-[#3f0099] hover:text-white transition-all border border-gray-200 shadow-sm font-semibold">
+              Admin Login <span class="material-symbols-outlined text-[18px]">verified_user</span>
+            </a>
+          </div>
+        </div>
+      </section>
+      <!-- 4. CAPABILITIES SHOWCASE (Offline & AI) -->
+      <section class="w-full px-4 md:px-6 lg:px-margin-desktop py-12 md:py-16">
+        <div class="flex flex-col lg:flex-row gap-8 lg:gap-gutter-md">
+          <!-- AI Preview -->
+          <div
+            class="w-full lg:w-1/2 bg-white/80 backdrop-blur-lg border border-gray-200 rounded-xl p-6 lg:p-8 shadow-sm flex flex-col relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-[#ff8a75]/10 rounded-full blur-3xl -z-10"></div>
+            <div class="flex items-center gap-4 mb-8">
+              <div
+                class="w-12 h-12 rounded-full bg-[#ff8a75]/20 border border-[#ff8a75]/30 flex items-center justify-center shrink-0 shadow-[0_0_15px_rgba(255,138,117,0.2)]">
+                <span class="material-symbols-outlined text-[#ff8a75]">psychology</span>
+              </div>
+              <h3 class="font-headline-md text-2xl lg:text-headline-md text-[#00355f]">Intelligent Assistance</h3>
+            </div>
+            <div class="flex-grow flex flex-col gap-6">
+              <div
+                class="bg-white/50 border border-gray-200 p-5 rounded-xl rounded-tl-none w-[90%] sm:w-5/6 shadow-sm backdrop-blur-sm">
+                <p class="font-body-md text-sm sm:text-body-md text-gray-600">Patient presents with persistent cough for
+                  3 weeks, mild fever in evenings, and weight loss. Lives in District 4.</p>
+              </div>
+              <div
+                class="bg-[#ff8a75]/10 border border-[#ff8a75]/30 text-gray-800 p-5 rounded-xl rounded-tr-none w-[90%] sm:w-5/6 self-end shadow-sm backdrop-blur-sm relative overflow-hidden">
+                <div class="absolute inset-0 bg-[#ff8a75]/5"></div>
+                <p class="font-body-md text-sm sm:text-body-md relative z-10"><strong class="text-[#ff8a75]">AI Clinical
+                    Assistant:</strong> Flagging high risk for Tuberculosis given regional prevalence. Recommend sputum
+                  smear microscopy and immediate isolation protocol. Do you want to generate a referral slip?</p>
+              </div>
+            </div>
+          </div>
+          <!-- Offline Sync Queue -->
+          <div
+            class="w-full lg:w-1/2 bg-white/80 backdrop-blur-lg border border-gray-200 text-gray-800 rounded-xl p-6 lg:p-8 shadow-sm flex flex-col">
+            <div class="flex items-center justify-between mb-8 flex-wrap gap-4 border-b border-gray-200 pb-6">
+              <div class="flex items-center gap-4">
+                <div
+                  class="w-12 h-12 rounded-full bg-gray-50 border border-gray-200 flex items-center justify-center shrink-0">
+                  <span class="material-symbols-outlined text-gray-400">wifi_off</span>
+                </div>
+                <h3 class="font-headline-md text-2xl lg:text-headline-md text-[#00355f]">Network Status</h3>
+              </div>
+              <span
+                class="px-4 py-1.5 rounded-full bg-gray-100 text-gray-600 font-label-sm text-label-sm border border-gray-200 flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-[#ff8a75] animate-pulse"></span>
+                Offline Mode Active
+              </span>
+            </div>
+            <div class="flex-grow flex flex-col justify-center gap-2">
+              <div class="flex items-center justify-between py-4 px-4 bg-white/50 rounded-lg border border-gray-100">
+                <div class="flex items-center gap-3 md:gap-4">
+                  <span class="material-symbols-outlined text-[#ff8a75]/70">description</span>
+                  <span class="font-body-md text-sm sm:text-body-md text-gray-800">Vitals: Ramesh K.</span>
+                </div>
+                <span class="font-label-sm text-label-sm text-[#ff8a75] bg-[#ff8a75]/10 px-2 py-1 rounded">Queued</span>
+              </div>
+              <div class="flex items-center justify-between py-4 px-4 bg-white/50 rounded-lg border border-gray-100">
+                <div class="flex items-center gap-3 md:gap-4">
+                  <span class="material-symbols-outlined text-[#ff8a75]/70">image</span>
+                  <span class="font-body-md text-sm sm:text-body-md text-gray-800">X-Ray Scan: Ward 3</span>
+                </div>
+                <span class="font-label-sm text-label-sm text-[#ff8a75] bg-[#ff8a75]/10 px-2 py-1 rounded">Queued</span>
+              </div>
+              <div class="flex items-center justify-between py-4 px-4 bg-white/50 rounded-lg border border-gray-100">
+                <div class="flex items-center gap-3 md:gap-4">
+                  <span class="material-symbols-outlined text-[#ff8a75]/70">person_add</span>
+                  <span class="font-body-md text-sm sm:text-body-md text-gray-800">New Reg: Sita M.</span>
+                </div>
+                <span class="font-label-sm text-label-sm text-[#ff8a75] bg-[#ff8a75]/10 px-2 py-1 rounded">Queued</span>
+              </div>
+              <div class="mt-8 h-1.5 w-full bg-gray-200 rounded-full overflow-hidden">
+                <div class="h-full bg-[#ff8a75]/50 w-1/3 rounded-full relative">
+                  <div class="absolute inset-0 bg-white/50 animate-pulse"></div>
+                </div>
+              </div>
+              <p class="text-center font-label-sm text-label-sm text-gray-500 mt-3">Waiting for connection... 14 records
+                pending</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- 5. JOURNEY MAP -->
+      <section class="w-full px-4 md:px-6 lg:px-margin-desktop py-12 md:py-16 my-8 md:my-12">
+        <div class="text-center mb-12 md:mb-20">
+          <h2 class="font-headline-lg text-3xl lg:text-headline-lg text-[#00355f]">The Continuum of Care</h2>
+          <p class="font-body-lg text-base lg:text-body-lg text-gray-600 mt-3 max-w-2xl mx-auto">A seamless data journey
+            from the village to the district hospital.</p>
+        </div>
+        <div
+          class="relative flex flex-col md:flex-row justify-between items-center w-full max-w-5xl mx-auto gap-12 md:gap-8">
+          <!-- Connecting Line -->
+          <div class="hidden md:block absolute top-[40%] left-0 w-full h-0.5 bg-gray-200 -translate-y-1/2 -z-10"></div>
+          <div class="md:hidden absolute top-0 left-1/2 w-0.5 h-full bg-gray-200 -translate-x-1/2 -z-10"></div>
+          <!-- Nodes -->
+          <div class="flex flex-col items-center gap-5 w-40">
+            <div
+              class="w-16 h-16 rounded-2xl bg-white border border-gray-200 text-gray-600 flex items-center justify-center shadow-sm z-10">
+              <span class="material-symbols-outlined text-[28px]">home</span>
+            </div>
+            <div class="text-center px-2">
+              <h4 class="font-label-md text-label-md text-[#00355f] mb-1">Home</h4>
+              <p class="font-label-sm text-label-sm text-gray-600">Symptom Logging</p>
+            </div>
+          </div>
+          <div class="flex flex-col items-center gap-5 w-40">
+            <div
+              class="w-16 h-16 rounded-2xl bg-white border border-gray-200 text-gray-600 flex items-center justify-center shadow-sm z-10">
+              <span class="material-symbols-outlined text-[28px]">local_pharmacy</span>
+            </div>
+            <div class="text-center px-2">
+              <h4 class="font-label-md text-label-md text-[#00355f] mb-1">Frontline</h4>
+              <p class="font-label-sm text-label-sm text-gray-600">ASHA Screening</p>
+            </div>
+          </div>
+          <div class="flex flex-col items-center gap-5 w-40">
+            <div
+              class="w-20 h-20 rounded-2xl bg-[#ff8a75]/10 border border-[#ff8a75]/40 text-[#ff8a75] flex items-center justify-center shadow-[0_0_20px_rgba(255,138,117,0.2)] z-10 backdrop-blur-sm">
+              <span class="material-symbols-outlined text-[36px]">local_hospital</span>
+            </div>
+            <div class="text-center px-2">
+              <h4 class="font-label-md text-label-md text-[#ff8a75] mb-1">Clinic</h4>
+              <p class="font-label-sm text-label-sm text-gray-600">Doctor Diagnosis</p>
+            </div>
+          </div>
+          <div class="flex flex-col items-center gap-5 w-40">
+            <div
+              class="w-16 h-16 rounded-2xl bg-white border border-gray-200 text-gray-600 flex items-center justify-center shadow-sm z-10">
+              <span class="material-symbols-outlined text-[28px]">domain</span>
+            </div>
+            <div class="text-center px-2">
+              <h4 class="font-label-md text-label-md text-[#00355f] mb-1">District</h4>
+              <p class="font-label-sm text-label-sm text-gray-600">Advanced Care</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+  <footer
+    class="w-full bg-white/80 backdrop-blur-xl border-t border-gray-200 py-12 md:py-16 mt-12 md:mt-20 relative z-10">
+    <div
+      class="max-w-7xl mx-auto px-4 md:px-6 lg:px-margin-desktop grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+      <div class="col-span-1 md:col-span-2 lg:col-span-1">
+        <div class="flex items-center gap-3 mb-6"><img alt="ASHA Healthcare Logo" class="h-8 w-auto object-contain"
+            src="https://lh3.googleusercontent.com/aida/AEtjO1VLzsl_g3kvVvju96tOYiaXnCvmk3KzD0Ajrhu7x-hEoSKim3X8Sy7Wvpy-E4qlzy5RstZIlq-k8rIIq_J4muQmMH_n5xRfGIJa7RDzAo5zGP8opqQdVy1zSAOXcpoXDE6zSm3bMh6bqlrC0oDedFQxxtez2GO3GeObjm6QXaHD9Y31aYfNDbL-xGr5wrD-7DBqD1aA8dqevxey9FVhivhgOjmIh8Qvox8zMGkXbMKgCFC90SiZuQg5kw" /><span
+            class="font-headline-md text-label-md text-[#00355f] uppercase tracking-wider">ASHA</span></div>
+        <p class="font-body-md text-label-sm text-gray-600 max-w-sm leading-relaxed">Bridging the healthcare gap with
+          compassion and AI excellence for rural communities worldwide.</p>
+      </div>
+      <div>
+        <h4 class="font-label-md text-label-md text-[#00355f] mb-4 md:mb-6 uppercase tracking-wider text-xs">Platform
+        </h4>
+        <ul class="space-y-3 md:space-y-4">
+          <li class="font-body-md text-label-sm text-gray-600 hover:text-[#ff8a75] transition-colors cursor-pointer">
+            Patient Care</li>
+          <li class="font-body-md text-label-sm text-gray-600 hover:text-[#ff8a75] transition-colors cursor-pointer">
+            Frontline Health</li>
+          <li class="font-body-md text-label-sm text-gray-600 hover:text-[#ff8a75] transition-colors cursor-pointer">
+            Doctor Portal</li>
+          <li class="font-body-md text-label-sm text-gray-600 hover:text-[#ff8a75] transition-colors cursor-pointer">
+            District Management</li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-label-md text-label-md text-[#00355f] mb-4 md:mb-6 uppercase tracking-wider text-xs">Core
+          Capabilities</h4>
+        <ul class="space-y-3 md:space-y-4">
+          <li class="font-body-md text-label-sm text-gray-600 hover:text-[#ff8a75] transition-colors cursor-pointer">AI
+            Diagnostics</li>
+          <li class="font-body-md text-label-sm text-gray-600 hover:text-[#ff8a75] transition-colors cursor-pointer">
+            Offline-First</li>
+          <li class="font-body-md text-label-sm text-gray-600 hover:text-[#ff8a75] transition-colors cursor-pointer">
+            Data Sync</li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-label-md text-label-md text-[#00355f] mb-4 md:mb-6 uppercase tracking-wider text-xs">Project
+        </h4>
+        <ul class="space-y-3 md:space-y-4">
+          <li class="font-body-md text-label-sm text-gray-600 hover:text-[#ff8a75] transition-colors cursor-pointer">
+            About Us</li>
+          <li class="font-body-md text-label-sm text-gray-600 hover:text-[#ff8a75] transition-colors cursor-pointer">
+            Contact</li>
+          <li class="font-body-md text-label-sm text-gray-600 hover:text-[#ff8a75] transition-colors cursor-pointer">
+            Privacy Policy</li>
+        </ul>
+      </div>
+    </div>
+    <div
+      class="max-w-7xl mx-auto px-4 md:px-6 lg:px-margin-desktop border-t border-gray-200 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="font-body-md text-label-sm text-gray-600 text-center md:text-left">© 2024 ASHA Healthcare. All rights
+        reserved.</p>
+      <div class="flex gap-6"><span
+          class="material-symbols-outlined text-gray-400 cursor-pointer hover:text-[#ff8a75] transition-colors text-[20px]">language</span><span
+          class="material-symbols-outlined text-gray-400 cursor-pointer hover:text-[#ff8a75] transition-colors text-[20px]">security</span>
+      </div>
+    </div>
+  </footer>
 
-    <!-- Public Analytics Link -->
-    <div class="mt-6 pt-4 border-t border-gray-200 text-center">
-      <a href="admin/command_center_desktop/index.html" class="text-xs text-gray-600 hover:text-[#00355f] font-medium inline-flex items-center gap-1.5 transition-colors">
-        <span class="material-symbols-outlined text-[16px]">bar_chart</span> View Public Health Analytics & Reports [Open to All]
-      </a>
+  <!-- ROLE LOGIN MODAL (4 ROLES) -->
+  <div id="role-login-modal"
+    class="fixed inset-0 z-[9999] bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-4 transition-all">
+    <div
+      class="bg-white/95 backdrop-blur-2xl border border-gray-200 rounded-2xl max-w-xl w-full p-6 md:p-8 shadow-2xl relative">
+      <button onclick="closeLoginModal()"
+        class="absolute top-5 right-5 w-9 h-9 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-gray-500 hover:text-gray-800 transition-colors cursor-pointer">
+        <span class="material-symbols-outlined text-[20px]">close</span>
+      </button>
+      <div class="text-center mb-6">
+        <span
+          class="px-3 py-1 rounded-full bg-[#ff8a75]/10 text-[#ff8a75] text-xs font-bold uppercase tracking-wider">Healthcare
+          Access</span>
+        <h3 class="text-2xl font-bold text-[#00355f] mt-2">Select Your Login Role</h3>
+        <p class="text-gray-500 text-sm mt-1">Choose your workspace to sign in securely.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <!-- 1. Patient Login -->
+        <a href="auth/patient_login_variant_1/index.html"
+          class="flex items-center gap-3.5 p-4 rounded-xl border border-gray-200 bg-white hover:border-[#ff8a75] hover:shadow-md hover:-translate-y-0.5 transition-all group">
+          <div
+            class="w-12 h-12 rounded-xl bg-[#ff8a75]/10 text-[#ff8a75] flex items-center justify-center shrink-0 group-hover:bg-[#ff8a75] group-hover:text-white transition-colors">
+            <span class="material-symbols-outlined text-[26px]">person</span>
+          </div>
+          <div>
+            <h4 class="font-bold text-[#00355f] text-sm group-hover:text-[#ff8a75] transition-colors">1. Patient Login
+            </h4>
+            <p class="text-xs text-gray-500">ABHA & Health Records</p>
+          </div>
+        </a>
+
+        <!-- 2. Doctor Login -->
+        <a href="patient/doctor_queue/index.html"
+          class="flex items-center gap-3.5 p-4 rounded-xl border border-gray-200 bg-white hover:border-[#00355f] hover:shadow-md hover:-translate-y-0.5 transition-all group">
+          <div
+            class="w-12 h-12 rounded-xl bg-[#00355f]/10 text-[#00355f] flex items-center justify-center shrink-0 group-hover:bg-[#00355f] group-hover:text-white transition-colors">
+            <span class="material-symbols-outlined text-[26px]">stethoscope</span>
+          </div>
+          <div>
+            <h4 class="font-bold text-[#00355f] text-sm group-hover:text-[#00355f] transition-colors">2. Doctor Clinic
+            </h4>
+            <p class="text-xs text-gray-500">OPD & Priority Cases</p>
+          </div>
+        </a>
+
+        <!-- 3. Lab / Worker Login -->
+        <a href="workers/frontline_hub/index.html"
+          class="flex items-center gap-3.5 p-4 rounded-xl border border-gray-200 bg-white hover:border-[#006b5f] hover:shadow-md hover:-translate-y-0.5 transition-all group">
+          <div
+            class="w-12 h-12 rounded-xl bg-[#006b5f]/10 text-[#006b5f] flex items-center justify-center shrink-0 group-hover:bg-[#006b5f] group-hover:text-white transition-colors">
+            <span class="material-symbols-outlined text-[26px]">science</span>
+          </div>
+          <div>
+            <h4 class="font-bold text-[#00355f] text-sm group-hover:text-[#006b5f] transition-colors">3. Lab / ASHA
+              Worker</h4>
+            <p class="text-xs text-gray-500">Sample Collection & Sync</p>
+          </div>
+        </a>
+
+        <!-- 4. Admin Login -->
+        <a href="auth/admin_login/index.html"
+          class="flex items-center gap-3.5 p-4 rounded-xl border border-gray-200 bg-white hover:border-[#3f0099] hover:shadow-md hover:-translate-y-0.5 transition-all group">
+          <div
+            class="w-12 h-12 rounded-xl bg-[#3f0099]/10 text-[#3f0099] flex items-center justify-center shrink-0 group-hover:bg-[#3f0099] group-hover:text-white transition-colors">
+            <span class="material-symbols-outlined text-[26px]">admin_panel_settings</span>
+          </div>
+          <div>
+            <h4 class="font-bold text-[#00355f] text-sm group-hover:text-[#3f0099] transition-colors">4. District Admin
+            </h4>
+            <p class="text-xs text-gray-500">Command Center & Control</p>
+          </div>
+        </a>
+      </div>
+
+      <!-- Public Analytics Link -->
+      <div class="mt-6 pt-4 border-t border-gray-200 text-center">
+        <a href="admin/command_center_desktop/index.html"
+          class="text-xs text-gray-600 hover:text-[#00355f] font-medium inline-flex items-center gap-1.5 transition-colors">
+          <span class="material-symbols-outlined text-[16px]">bar_chart</span> View Public Health Analytics & Reports
+          [Open to All]
+        </a>
+      </div>
     </div>
   </div>
-</div>
 
-<script>
-  function openLoginModal() {
-    const modal = document.getElementById('role-login-modal');
-    if (modal) modal.classList.remove('hidden');
-  }
-  function closeLoginModal() {
-    const modal = document.getElementById('role-login-modal');
-    if (modal) modal.classList.add('hidden');
-  }
+  <script>
+    function openLoginModal() {
+      const modal = document.getElementById('role-login-modal');
+      if (modal) modal.classList.remove('hidden');
+    }
+    function closeLoginModal() {
+      const modal = document.getElementById('role-login-modal');
+      if (modal) modal.classList.add('hidden');
+    }
 
-  // 5-Second Clean Loading Screen (Auto-transitions to main page)
-  (function() {
-    const splash = document.getElementById('asha-loading-screen');
-    if (!splash) return;
+    // 5-Second Clean Loading Screen (Auto-transitions to main page)
+    (function () {
+      const splash = document.getElementById('asha-loading-screen');
+      if (!splash) return;
 
-    setTimeout(() => {
-      splash.style.opacity = '0';
-      splash.style.pointerEvents = 'none';
       setTimeout(() => {
-        splash.style.display = 'none';
-      }, 700);
-    }, 5000);
-  })();
-</script>
-</body></html>
+        splash.style.opacity = '0';
+        splash.style.pointerEvents = 'none';
+        setTimeout(() => {
+          splash.style.display = 'none';
+        }, 700);
+      }, 5000);
+    })();
+  </script>
+</body>
+
+</html>
