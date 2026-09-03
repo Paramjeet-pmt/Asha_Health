@@ -198,6 +198,58 @@ app.get('/api/patient/:id/records', (req, res) => {
   }
 });
 
+// POST /api/patient/:id/sync (Sync patient medications and vitals with doctor data)
+app.post('/api/patient/:id/sync', (req, res) => {
+  try {
+    const patientId = req.params.id;
+    const patient = db.prepare('SELECT * FROM patients WHERE id = ?').get(patientId);
+    if (!patient) return res.status(404).json({ error: 'Patient not found' });
+
+    // Get latest prescriptions from doctor
+    const prescriptions = db.prepare('SELECT * FROM prescriptions WHERE patient_id = ? ORDER BY id ASC').all(patientId);
+
+    // Get doctor consultation status
+    const appointment = db.prepare(`
+      SELECT q.*, 'Dr. Rajesh Verma' as doctor_name 
+      FROM doctor_queue q 
+      WHERE q.patient_id = ? 
+      ORDER BY q.id DESC LIMIT 1
+    `).get(patientId);
+
+    // Get lab reports
+    const labReports = db.prepare('SELECT * FROM lab_samples WHERE patient_id = ? ORDER BY id DESC').all(patientId);
+
+    res.json({
+      success: true,
+      timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+      patient,
+      prescriptions,
+      appointment: appointment || {
+        doctor_name: 'Dr. Sharma',
+        priority: 'ROUTINE',
+        status: 'CONFIRMED',
+        symptoms: 'ANC Routine Checkup'
+      },
+      labReports,
+      message: 'Medications and clinical progress synced with doctor records.'
+    });
+  } catch (err) {
+    console.error('Sync error:', err);
+    res.status(500).json({ error: 'Sync failed' });
+  }
+});
+
+// PATCH /api/patient/prescription/:id/toggle (Toggle medicine taken status)
+app.patch('/api/patient/prescription/:id/toggle', (req, res) => {
+  try {
+    const { status } = req.body;
+    db.prepare('UPDATE prescriptions SET status = ? WHERE id = ?').run(status || 'TAKEN', req.params.id);
+    res.json({ success: true, message: 'Medication status updated' });
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to update medication status' });
+  }
+});
+
 // -------------------------------------------------------------
 // 3. DOCTOR FLOW APIS (④ Patient Details ⑪ & Priority Cases ⑫)
 // -------------------------------------------------------------
