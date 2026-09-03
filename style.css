@@ -44,14 +44,6 @@
   outline-offset: 2px
 }
 
-.asha-home-btn {
-  background: rgba(37, 99, 235, .08);
-}
-
-.asha-home-btn:hover {
-  background: rgba(37, 99, 235, .15);
-}
-
 @media(max-width:640px) {
   .asha-nav-wrap {
     top: 10px;

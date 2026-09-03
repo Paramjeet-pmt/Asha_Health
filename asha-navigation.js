@@ -3,12 +3,8 @@
   const root = document.createElement('div');
   root.className = 'asha-nav-wrap';
   
-  // Create navigation container with Home and Back buttons
+  // Create the shared Back button.
   root.innerHTML = `
-    <a href="/" class="asha-nav-btn asha-home-btn" aria-label="Go to Home">
-      <span aria-hidden="true">🏠</span>
-      <span>Home</span>
-    </a>
     <button class="asha-nav-btn asha-back-btn" type="button" aria-label="Go back">
       <span aria-hidden="true">←</span>
       <span>Back</span>
@@ -33,7 +29,7 @@
     'loading_screen'
   ]);
 
-  // Hide back button on splash/login pages, but keep home button visible
+  // Hide back button on splash/login pages.
   if (noBack.has(current)) {
     document.querySelector('.asha-back-btn').style.display = 'none';
   }
@@ -43,8 +39,7 @@
     if (history.length > 1 && document.referrer && new URL(document.referrer).origin === location.origin) {
       history.back();
     } else {
-      // Fallback: go to home
-      location.href = '/';
+      return;
     }
   });
 
