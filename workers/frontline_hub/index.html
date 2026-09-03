@@ -46,15 +46,16 @@
     <div class="flex flex-col w-full bg-background relative overflow-x-hidden">
       <!-- Sync Status Bar (Top for immediate visibility) -->
       <div
-        class="px-margin-mobile py-3 bg-admin-amber/10 flex items-center justify-between sticky top-16 z-40 backdrop-blur-md">
+        id="worker-sync-bar"
+        class="px-margin-mobile py-3 bg-admin-amber/10 flex items-center justify-between sticky top-16 z-40 backdrop-blur-md transition-colors">
         <div class="flex items-center gap-gutter-sm">
-          <div class="w-2 h-2 rounded-full bg-admin-amber animate-pulse"></div>
-          <span class="font-label-sm text-admin-amber font-semibold uppercase tracking-wider">3 records offline</span>
+          <div id="worker-sync-dot" class="w-2 h-2 rounded-full bg-admin-amber animate-pulse"></div>
+          <span id="worker-sync-text" class="font-label-sm text-admin-amber font-semibold uppercase tracking-wider">3 records offline</span>
         </div>
-        <button aria-label="Sync Now"
-          class="flex items-center gap-1 bg-admin-amber text-on-tertiary px-3 py-1.5 rounded-full font-label-sm shadow-sm active:scale-95 transition-transform">
-          <span class="material-symbols-outlined text-[16px]">sync</span>
-          <span class="">Sync Now</span>
+        <button id="worker-sync-btn" onclick="handleWorkerSync()" aria-label="Sync Now"
+          class="flex items-center gap-1 bg-admin-amber text-on-tertiary px-3 py-1.5 rounded-full font-label-sm shadow-sm active:scale-95 transition-all cursor-pointer hover:opacity-90">
+          <span id="worker-sync-icon" class="material-symbols-outlined text-[16px]">sync</span>
+          <span id="worker-sync-label">Sync Now</span>
         </button>
       </div>
       <!-- Dashboard Content -->
@@ -191,19 +192,41 @@
         class="flex flex-col items-center justify-center w-full h-full text-on-surface-variant transition-colors"
         data-path="risk" href="#"><span class="material-symbols-outlined">clinical_notes</span><span
           class="text-label-sm font-label-sm mt-1">Risk</span></a><a
-        class="flex flex-col items-center justify-center w-full h-full text-on-surface-variant transition-colors"
-        data-path="sync" href="#"><span class="material-symbols-outlined">sync</span><span
-          class="text-label-sm font-label-sm mt-1">Sync</span></a></div>
+          class="flex flex-col items-center justify-center w-full h-full text-on-surface-variant transition-colors hover:text-primary active:scale-95"
+          data-path="sync" href="../sync_offline/index.html"><span class="material-symbols-outlined">sync</span><span
+            class="text-label-sm font-label-sm mt-1">Sync</span></a></div>
   </nav>
 
+    <script>
+      function handleWorkerSync() {
+        const icon = document.getElementById('worker-sync-icon');
+        const label = document.getElementById('worker-sync-label');
+        const dot = document.getElementById('worker-sync-dot');
+        const text = document.getElementById('worker-sync-text');
+        const bar = document.getElementById('worker-sync-bar');
 
+        if (icon) icon.classList.add('asha-sync-spinning');
+        if (label) label.textContent = 'Syncing...';
 
+        if (window.triggerGlobalAshaSync) {
+          window.triggerGlobalAshaSync(document.getElementById('worker-sync-btn'));
+        }
+
+        setTimeout(() => {
+          if (icon) {
+            icon.classList.remove('asha-sync-spinning');
+            icon.textContent = 'cloud_done';
+          }
+          if (label) label.textContent = 'Synced';
+          if (dot) dot.className = 'w-2 h-2 rounded-full bg-green-500';
+          if (text) {
+            text.className = 'font-label-sm text-green-700 font-semibold uppercase tracking-wider';
+            text.textContent = 'All records synced';
+          }
+          if (bar) bar.className = 'px-margin-mobile py-3 bg-green-500/10 flex items-center justify-between sticky top-16 z-40 backdrop-blur-md transition-colors';
+        }, 1000);
+      }
+    </script>
   <script src="../../asha-navigation.js"></script>
 </body>
-
 </html>
-
-
-
-
-

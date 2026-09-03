@@ -106,10 +106,11 @@
                     View Pending Records
                 </button>
                 <button
-                    class="w-full bg-surface-variant text-on-surface-variant/50 font-label-md text-label-md h-touch-target rounded-full flex items-center justify-center gap-unit shadow-sm opacity-60 cursor-not-allowed"
-                    disabled="">
-                    <span class="material-symbols-outlined text-[20px]">sync</span>
-                    Force Sync
+                    id="force-sync-btn"
+                    onclick="triggerOfflineSync()"
+                    class="w-full bg-primary text-on-primary font-label-md text-label-md h-touch-target rounded-full flex items-center justify-center gap-unit shadow-md active:scale-[0.98] transition-all cursor-pointer hover:bg-primary/90">
+                    <span id="force-sync-icon" class="material-symbols-outlined text-[20px]">sync</span>
+                    <span id="force-sync-label">Force Sync Now</span>
                 </button>
             </div>
         </div>
@@ -118,18 +119,54 @@
         data-active-classes="text-primary font-semibold">
         <div class="flex justify-around items-center h-16 px-2"><a
                 class="flex flex-col items-center justify-center w-full h-full text-on-surface-variant transition-colors"
-                data-path="visits" href="#"><span class="material-symbols-outlined">event_repeat</span><span
+                data-path="visits" href="../frontline_hub/index.html"><span class="material-symbols-outlined">event_repeat</span><span
                     class="text-label-sm font-label-sm mt-1">Visits</span></a><a
                 class="flex flex-col items-center justify-center w-full h-full text-on-surface-variant transition-colors"
-                data-path="risk" href="#"><span class="material-symbols-outlined">clinical_notes</span><span
+                data-path="risk" href="../frontline_hub/index.html"><span class="material-symbols-outlined">clinical_notes</span><span
                     class="text-label-sm font-label-sm mt-1">Risk</span></a><a
-                class="flex flex-col items-center justify-center w-full h-full text-on-surface-variant transition-colors"
+                class="flex flex-col items-center justify-center w-full h-full text-primary font-semibold transition-colors"
                 data-path="sync" href="#"><span class="material-symbols-outlined">sync</span><span
                     class="text-label-sm font-label-sm mt-1">Sync</span></a></div>
     </nav>
 
+    <script>
+      function triggerOfflineSync() {
+        const icon = document.getElementById('force-sync-icon');
+        const label = document.getElementById('force-sync-label');
+        const bar = document.querySelector('.bg-sync-offline.rounded-full');
+        const percent = document.querySelector('.font-label-sm.text-on-surface-variant.text-right');
+        const badge = document.querySelector('.text-sync-offline.bg-surface');
+        const waiting = document.querySelector('.font-headline-md.text-headline-md.text-on-surface');
 
+        if (icon) icon.classList.add('asha-sync-spinning');
+        if (label) label.textContent = 'Synchronizing Records...';
+        if (badge) badge.textContent = 'Syncing...';
 
+        let p = 0;
+        const interval = setInterval(() => {
+          p += 25;
+          if (bar) bar.style.width = p + '%';
+          if (percent) percent.textContent = p + '% Completed';
+
+          if (p >= 100) {
+            clearInterval(interval);
+            if (icon) {
+              icon.classList.remove('asha-sync-spinning');
+              icon.textContent = 'check_circle';
+            }
+            if (label) label.textContent = 'All 7 Records Synced!';
+            if (badge) {
+              badge.textContent = 'Completed';
+              badge.className = 'ml-auto font-label-md text-label-md text-green-600 bg-green-50 py-unit px-gutter-sm rounded-full';
+            }
+            if (waiting) waiting.textContent = '0';
+            if (window.triggerGlobalAshaSync) {
+              window.triggerGlobalAshaSync(document.getElementById('force-sync-btn'));
+            }
+          }
+        }, 250);
+      }
+    </script>
     <script src="../../asha-navigation.js"></script>
 </body>
 
