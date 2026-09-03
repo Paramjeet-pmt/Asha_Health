@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+        name="viewport">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Geist:wght@500;600;700&amp;display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+        id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-secondary-container": "#0b6f63", "surface": "#f9f9fd", "background": "#f9f9fd", "secondary-container": "#9cefdf", "emergency-red": "#BA1A1A", "on-tertiary": "#ffffff", "on-primary-fixed": "#001c37", "on-surface": "#1a1c1f", "surface-container-lowest": "#ffffff", "primary-fixed-dim": "#a3c9fc", "surface-container": "#eeedf2", "error": "#ba1a1a", "on-primary": "#ffffff", "error-container": "#ffdad6", "on-tertiary-container": "#d38b5c", "sync-offline": "#727780", "primary": "#001f3c", "ai-purple": "#3F0099", "on-primary-container": "#799fcf", "surface-variant": "#e2e2e6", "on-secondary": "#ffffff", "primary-container": "#00355f", "admin-amber": "#B45309", "tertiary-fixed": "#ffdbc7", "outline-variant": "#c3c6d0", "surface-container-highest": "#e2e2e6", "surface-container-high": "#e8e8ec", "secondary-fixed-dim": "#83d5c6", "secondary-fixed": "#9ff2e2", "surface-bright": "#f9f9fd", "tertiary-container": "#562600", "on-secondary-fixed": "#00201c", "tertiary": "#361500", "inverse-primary": "#a3c9fc", "primary-fixed": "#d2e4ff", "on-error-container": "#93000a", "on-surface-variant": "#42474f", "tertiary-fixed-dim": "#ffb689", "on-secondary-fixed-variant": "#005047", "outline": "#73777f", "on-background": "#1a1c1f", "on-primary-fixed-variant": "#1e4973", "surface-tint": "#39608d", "inverse-on-surface": "#f1f0f4", "on-error": "#ffffff", "surface-dim": "#dadade", "surface-container-low": "#f4f3f7", "on-tertiary-fixed": "#311300", "secondary": "#006b5f", "on-tertiary-fixed-variant": "#6e3910", "inverse-surface": "#2f3034" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "touch-target": "48px", "margin-desktop": "40px", "gutter-md": "20px", "margin-mobile": "16px", "gutter-sm": "12px", "unit": "4px" }, "fontFamily": { "body-lg": ["Inter"], "label-sm": ["Geist"], "headline-lg": ["Geist"], "headline-md": ["Geist"], "headline-lg-mobile": ["Geist"], "display-lg": ["Geist"], "label-md": ["Geist"], "body-md": ["Inter"] }, "fontSize": { "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }], "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }], "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }], "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }], "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600" }], "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }] } } } }</script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../../asha-navigation.css">
+</head>
+
+<body class="bg-background font-body-md text-on-background">
+    <header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] pt-safe">
+        <div class="h-16 px-margin-mobile flex items-center gap-gutter-sm"><button
+                class="w-12 h-12 flex items-center justify-center text-on-surface -ml-2 cursor-pointer hover:bg-primary/5 active:scale-[0.98] transition-all rounded-full"
+                onclick="window.history.back()"><span class="material-symbols-outlined">arrow_back</span></button>
+            <div class="flex items-center gap-gutter-sm overflow-hidden"><img alt="Logo"
+                    class="h-6 w-auto flex-shrink-0"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQq3FM4h5Q618ZJ3i_dhXVXAPSBusU6BTZrSxwzQGQpHmYHzA5CMz3DJTrqcNfIfre2uuvK1g-irrv24ReyDIpGTd2o8XEMzn_tBCUWsyH9FqnZpmm8MTusC-fqtaIK2nK1s6FBx04j894BIc7NCkSW7Gc9JiYkDrFDTFYqMfsFXZA3SnK9E1k3nXxXc1ZyAkM3VVWEZy3FN_leJWNebEUIterfS8BtZApN6N93M5Dhk29n4IT_LBO">
+                <h1 class="font-headline-md text-body-md text-primary truncate">Clinical Dashboard</h1>
+            </div>
+        </div>
+    </header>
+    <main class="relative w-full bg-background min-h-screen page-content">
+        <div class="flex flex-col w-full px-margin-mobile pb-margin-mobile gap-gutter-md">
+            <!-- AI Insight Banner -->
+            <div
+                class="relative overflow-hidden rounded-xl bg-gradient-to-r from-surface-container to-surface-variant p-4 shadow-sm group">
+                <div
+                    class="absolute -right-4 -top-4 w-16 h-16 bg-ai-purple/10 rounded-full blur-xl group-hover:bg-ai-purple/20 transition-all duration-700">
+                </div>
+                <div class="flex items-start gap-3 relative z-10">
+                    <div class="flex-shrink-0 mt-0.5 relative">
+                        <span class="material-symbols-outlined text-ai-purple animate-pulse">magic_button</span>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="font-label-md text-ai-purple mb-1 uppercase tracking-wider">AI Insight</h3>
+                        <p class="font-body-md text-on-surface-variant">Based on symptoms, consider an ECG before
+                            tele-consult.</p>
+                    </div>
+                    <button aria-label="Dismiss insight"
+                        class="w-8 h-8 rounded-full bg-surface/50 flex items-center justify-center text-on-surface-variant shadow-sm hover:bg-surface transition-colors">
+                        <span class="material-symbols-outlined text-[18px]">close</span>
+                    </button>
+                </div>
+            </div>
+            <!-- Current Patient Card -->
+            <section>
+                <h2 class="font-label-md text-on-surface-variant uppercase tracking-wide mb-3 flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+                    Current Patient
+                </h2>
+                <div class="bg-surface-container-lowest rounded-2xl p-5 shadow-md relative overflow-hidden">
+                    <!-- Accent Bar -->
+                    <div class="absolute left-0 top-0 bottom-0 w-1.5 bg-admin-amber"></div>
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 class="font-headline-md text-on-surface">Ravi Kumar</h3>
+                            <p class="font-body-md text-on-surface-variant">42y / Male • ID: #99281</p>
+                        </div>
+                        <div class="bg-admin-amber/10 px-3 py-1 rounded-full flex items-center gap-1">
+                            <span class="w-2 h-2 rounded-full bg-admin-amber"></span>
+                            <span class="font-label-sm text-admin-amber uppercase tracking-wider">High Priority</span>
+                        </div>
+                    </div>
+                    <div class="bg-surface-container-low p-4 rounded-xl mb-5">
+                        <p class="font-label-sm text-on-surface-variant uppercase tracking-wider mb-1">Chief Complaint
+                        </p>
+                        <p class="font-body-md text-on-surface font-medium">Chest Pain (Mild), Shortness of breath</p>
+                    </div>
+                    <div class="grid grid-cols-2 gap-3">
+                        <button
+                            class="bg-primary text-on-primary font-label-md py-3.5 px-4 rounded-xl shadow-sm flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+                            <span class="material-symbols-outlined text-[20px]"
+                                style="font-variation-settings: 'FILL' 1;">video_camera_front</span>
+                            Start Consult
+                        </button>
+                        <button
+                            class="bg-surface-container-high text-on-surface font-label-md py-3.5 px-4 rounded-xl shadow-sm flex items-center justify-center gap-2 hover:bg-surface-variant transition-colors">
+                            <span class="material-symbols-outlined text-[20px]">folder_shared</span>
+                            View Record
+                        </button>
+                    </div>
+                    <button
+                        class="w-full mt-3 text-primary font-label-md py-3 px-4 rounded-xl flex items-center justify-center gap-2 hover:bg-primary/5 transition-colors">
+                        <span class="material-symbols-outlined text-[20px]">edit_note</span>
+                        Quick Notes
+                    </button>
+                </div>
+            </section>
+            <!-- Queue Section -->
+            <section class="mt-4">
+                <div class="flex justify-between items-end mb-4">
+                    <h2 class="font-label-md text-on-surface-variant uppercase tracking-wide">Waiting Queue (3)</h2>
+                    <button class="text-primary font-label-sm uppercase flex items-center gap-1 hover:opacity-80">
+                        Filter <span class="material-symbols-outlined text-[16px]">filter_list</span>
+                    </button>
+                </div>
+                <div class="flex flex-col gap-3">
+                    <!-- Queue Item 1 - Emergency -->
+                    <div
+                        class="bg-surface-container-lowest p-4 rounded-xl shadow-sm flex items-center gap-4 relative overflow-hidden active:scale-[0.98] transition-transform cursor-pointer">
+                        <div class="absolute left-0 top-0 bottom-0 w-1.5 bg-emergency-red"></div>
+                        <div
+                            class="w-12 h-12 rounded-full bg-error-container flex items-center justify-center flex-shrink-0 text-on-error-container font-headline-md">
+                            SM
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <h4 class="font-label-md text-on-surface truncate">Sita Devi</h4>
+                            <p class="font-body-md text-on-surface-variant text-sm truncate">Laceration, Bleeding</p>
+                        </div>
+                        <div class="flex flex-col items-end">
+                            <span
+                                class="font-label-sm text-emergency-red bg-emergency-red/10 px-2 py-0.5 rounded uppercase tracking-wider mb-1">Emergency</span>
+                            <span class="font-label-sm text-on-surface-variant text-xs">Waiting: 5m</span>
+                        </div>
+                    </div>
+                    <!-- Queue Item 2 - High -->
+                    <div
+                        class="bg-surface-container-lowest p-4 rounded-xl shadow-sm flex items-center gap-4 relative overflow-hidden active:scale-[0.98] transition-transform cursor-pointer">
+                        <div class="absolute left-0 top-0 bottom-0 w-1.5 bg-admin-amber"></div>
+                        <div
+                            class="w-12 h-12 rounded-full bg-surface-variant flex items-center justify-center flex-shrink-0 text-on-surface-variant font-headline-md">
+                            AM
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <h4 class="font-label-md text-on-surface truncate">Amit Patel</h4>
+                            <p class="font-body-md text-on-surface-variant text-sm truncate">Fever, 103°F</p>
+                        </div>
+                        <div class="flex flex-col items-end">
+                            <span
+                                class="font-label-sm text-admin-amber bg-admin-amber/10 px-2 py-0.5 rounded uppercase tracking-wider mb-1">High</span>
+                            <span class="font-label-sm text-on-surface-variant text-xs">Waiting: 22m</span>
+                        </div>
+                    </div>
+                    <!-- Queue Item 3 - Normal -->
+                    <div
+                        class="bg-surface-container-lowest p-4 rounded-xl shadow-sm flex items-center gap-4 relative overflow-hidden active:scale-[0.98] transition-transform cursor-pointer opacity-80">
+                        <div class="absolute left-0 top-0 bottom-0 w-1.5 bg-outline-variant"></div>
+                        <div
+                            class="w-12 h-12 rounded-full bg-surface-variant flex items-center justify-center flex-shrink-0 text-on-surface-variant font-headline-md">
+                            NK
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <h4 class="font-label-md text-on-surface truncate">Neha Kaur</h4>
+                            <p class="font-body-md text-on-surface-variant text-sm truncate">Follow-up, Diabetes</p>
+                        </div>
+                        <div class="flex flex-col items-end">
+                            <span
+                                class="font-label-sm text-on-surface-variant bg-surface-variant px-2 py-0.5 rounded uppercase tracking-wider mb-1">Normal</span>
+                            <span class="font-label-sm text-on-surface-variant text-xs">Waiting: 45m</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <script>
+            // Simple interactions
+            document.querySelectorAll('button[aria-label="Dismiss insight"]').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const banner = e.target.closest('.group');
+                    banner.style.opacity = '0';
+                    banner.style.transform = 'translateY(-10px)';
+                    setTimeout(() => banner.remove(), 300);
+                });
+            });
+        </script>
+    </main>
+
+    <script src="../../asha-navigation.js"></script>
+</body>
+
+</html>
+
+
+
+
+

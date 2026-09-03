@@ -1,0 +1,28 @@
+{
+  "name": "asha_health",
+  "version": "1.0.0",
+  "description": "This project contains multiple healthcare-related web interfaces and modules for the ASHA (Accredited Social Health Activist) patient portal and rural health management system.",
+  "main": "asha-navigation.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Paramjeet-pmt/Asha_Health.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Paramjeet-pmt/Asha_Health/issues"
+  },
+  "homepage": "https://github.com/Paramjeet-pmt/Asha_Health#readme",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3"
+  }
+}
