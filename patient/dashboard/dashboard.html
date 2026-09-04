@@ -761,6 +761,30 @@
       }, 950);
     }
 
+    // Fetch latest appointment from SQLite DB
+    async function loadUpcomingAppointment() {
+      try {
+        const res = await fetch('/api/appointments');
+        if (!res.ok) return;
+        const appointments = await res.json();
+        if (appointments && appointments.length > 0) {
+          const latest = appointments[0];
+          const nameEl = document.getElementById('upcoming-doc-name');
+          const specEl = document.getElementById('upcoming-doc-spec');
+          const timeEl = document.getElementById('upcoming-doc-time');
+
+          if (nameEl) nameEl.textContent = latest.doctor_name;
+          if (specEl) specEl.textContent = `${latest.doctor_specialty || 'General Physician'} • For ${latest.patient_name}`;
+          if (timeEl) {
+            timeEl.innerHTML = `
+              <span class="material-symbols-outlined text-[12px]">schedule</span>
+              <span>${latest.appointment_date} at ${latest.time_slot} (${latest.consultation_type.toUpperCase()})</span>
+            `;
+          }
+        }
+      } catch (e) {}
+    }
+
     // Initialize from storage or default
     document.addEventListener('DOMContentLoaded', () => {
       const cached = localStorage.getItem('asha_meds_cache');
@@ -768,6 +792,7 @@
         try { medicationsState = JSON.parse(cached); } catch(e) {}
       }
       renderMedications();
+      loadUpcomingAppointment();
     });
   </script>
 
