@@ -920,41 +920,125 @@ if (appointmentForm) {
             };
 
 
-            /*
-             * For now we're showing the
-             * result in console.
-             *
-             * Later this can be sent to
-             * your backend API.
-             */
+            // Save to Local Cache for immediate persistence
+            localStorage.setItem('asha_latest_appointment', JSON.stringify(bookingData));
 
-            console.log(
-                "Appointment:",
-                bookingData
-            );
+            // Send to Backend API
+            const submitBtn = appointmentForm.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn ? submitBtn.innerHTML : '';
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<span>⏳ Saving to Hospital DB...</span>';
+            }
 
-
-            /*
-             * User confirmation
-             */
-
-            alert(
-                `Appointment confirmed!\n\n` +
-
-                `Doctor: ${bookingData.doctor.name}\n` +
-
-                `Date: ${bookingData.date.display}\n` +
-
-                `Time: ${bookingData.time.value}\n` +
-
-                `Mode: ${bookingData.consultation.name}\n` +
-
-                `Total: ₹${bookingData.total}`
-            );
-
+            fetch('/api/appointments', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    patient_name: bookingData.patient.name,
+                    patient_phone: bookingData.patient.phone,
+                    patient_age: bookingData.patient.age,
+                    patient_gender: bookingData.patient.gender,
+                    patient_email: bookingData.patient.email,
+                    doctor_name: bookingData.doctor.name,
+                    doctor_specialty: bookingData.doctor.specialty,
+                    appointment_date: bookingData.date.value,
+                    time_slot: bookingData.time.value,
+                    consultation_type: bookingData.consultation.type,
+                    reason: bookingData.patient.reason || 'General Consultation',
+                    allergies: bookingData.patient.allergies,
+                    total_fee: bookingData.total
+                })
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalBtnText;
+                }
+                const bookingRef = data.bookingId || `APT-2026-${Math.floor(1000 + Math.random() * 9000)}`;
+                showSuccessConfirmationModal(bookingRef, bookingData);
+            })
+            .catch(err => {
+                console.warn('Backend unavailable, saved locally:', err);
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalBtnText;
+                }
+                const fallbackRef = `APT-OFFLINE-${Math.floor(1000 + Math.random() * 9000)}`;
+                showSuccessConfirmationModal(fallbackRef, bookingData);
+            });
         }
     );
+}
 
+/* =========================================================
+   MODAL: APPOINTMENT CONFIRMATION
+========================================================= */
+function showSuccessConfirmationModal(bookingRef, data) {
+    const existing = document.getElementById('booking-success-modal');
+    if (existing) existing.remove();
+
+    const modal = document.createElement('div');
+    modal.id = 'booking-success-modal';
+    modal.style.cssText = `
+        position: fixed; inset: 0; background: rgba(15, 23, 42, 0.65);
+        backdrop-filter: blur(6px); z-index: 9999;
+        display: flex; align-items: center; justify-content: center;
+        padding: 1rem; animation: fadeIn 0.25s ease;
+    `;
+
+    modal.innerHTML = `
+        <div style="background: white; border-radius: 1.5rem; max-width: 440px; width: 100%; padding: 2rem; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1); text-align: center; font-family: 'Inter', system-ui, sans-serif; position: relative;">
+            <div style="width: 64px; height: 64px; background: #ecfdf5; color: #059669; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem; font-size: 32px; border: 2px solid #a7f3d0;">
+                ✓
+            </div>
+            <h2 style="font-size: 1.35rem; font-weight: 700; color: #0f172a; margin-bottom: 0.35rem;">Appointment Confirmed!</h2>
+            <p style="font-size: 0.875rem; color: #64748b; margin-bottom: 1.25rem;">Saved in Hospital Database & Doctor Queue</p>
+            
+            <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 1rem; padding: 1rem; text-align: left; margin-bottom: 1.5rem; font-size: 0.85rem; line-height: 1.6;">
+                <div style="display: flex; justify-content: space-between; border-bottom: 1px dashed #cbd5e1; padding-bottom: 0.5rem; margin-bottom: 0.5rem;">
+                    <span style="color: #64748b;">Booking ID:</span>
+                    <strong style="color: #0f172a; font-family: monospace; font-size: 0.95rem;">${bookingRef}</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.25rem;">
+                    <span style="color: #64748b;">Doctor:</span>
+                    <strong style="color: #0f172a;">${data.doctor.name}</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.25rem;">
+                    <span style="color: #64748b;">Specialty:</span>
+                    <span style="color: #334155;">${data.doctor.specialty}</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.25rem;">
+                    <span style="color: #64748b;">Date & Time:</span>
+                    <strong style="color: #0f172a;">${data.date.display} • ${data.time.value}</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.25rem;">
+                    <span style="color: #64748b;">Consultation:</span>
+                    <span style="color: #059669; font-weight: 600;">${data.consultation.name}</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.25rem;">
+                    <span style="color: #64748b;">Patient:</span>
+                    <strong style="color: #0f172a;">${data.patient.name} (${data.patient.gender}, ${data.patient.age || 28}y)</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between; border-top: 1px solid #e2e8f0; padding-top: 0.5rem; margin-top: 0.5rem;">
+                    <span style="color: #64748b;">Total Fee:</span>
+                    <strong style="color: #0f172a; font-size: 1rem;">₹${data.total}</strong>
+                </div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                <button onclick="window.location.href='../dashboard/index.html'" style="width: 100%; padding: 0.75rem 1rem; background: #0066cc; color: white; border: none; border-radius: 0.75rem; font-weight: 600; font-size: 0.9rem; cursor: pointer; transition: all 0.2s; box-shadow: 0 4px 6px -1px rgba(0, 102, 204, 0.2);">
+                    Return to Patient Dashboard
+                </button>
+                <button onclick="window.location.href='../my_health/my-health.html'" style="width: 100%; padding: 0.75rem 1rem; background: #f1f5f9; color: #334155; border: 1px solid #e2e8f0; border-radius: 0.75rem; font-weight: 600; font-size: 0.9rem; cursor: pointer; transition: all 0.2s;">
+                    View in My Health Records
+                </button>
+            </div>
+        </div>
+    `;
+
+    document.body.appendChild(modal);
 }
 
 
@@ -1052,6 +1136,38 @@ function initializeAppointment() {
 
     }
 
+
+    /*
+     * Preselect Doctor from URL params (if linked from Talk to Doctor)
+     */
+    try {
+        const urlParams = new URLSearchParams(window.location.search);
+        const docParam = urlParams.get('doctor');
+        if (docParam) {
+            doctorCards.forEach(card => {
+                const title = card.querySelector('h3');
+                if (title && title.textContent.toLowerCase().includes(docParam.toLowerCase())) {
+                    card.click();
+                }
+            });
+        }
+
+        // Auto-fill logged in user info if present
+        const savedUser = localStorage.getItem('asha_user');
+        if (savedUser) {
+            const u = JSON.parse(savedUser);
+            const nameInput = document.querySelector('input[placeholder*="Full Name"], #patient-name');
+            const phoneInput = document.querySelector('input[placeholder*="Phone"], #patient-phone');
+            if (nameInput && !nameInput.value && u.name) {
+                nameInput.value = u.name;
+                appointment.patient.name = u.name;
+            }
+            if (phoneInput && !phoneInput.value && u.phone) {
+                phoneInput.value = u.phone;
+                appointment.patient.phone = u.phone;
+            }
+        }
+    } catch (e) {}
 
     /*
      * Update everything

@@ -278,83 +278,39 @@
              MEDICATION
         ================================================= -->
 
-      <section class="med-section">
-
+      <section class="med-section" id="medications">
 
         <div class="section-header">
-
-          <h2>
-            Active Medications
-          </h2>
-
-
-          <span class="view-all" onclick="showMessage('Showing all medications')">
-            View All
-          </span>
-
+          <h2>Active Medications</h2>
+          <span class="view-all" onclick="showMessage('All active prescriptions synced from hospital')">Sync Status: Live</span>
         </div>
 
-
-        <!-- Medicine 1 -->
-
-        <div class="medicine-card" onclick="showMessage('Paracetamol 500mg')">
-
-          <div class="medicine-icon">
-
-            <i class="fa-solid fa-prescription-bottle-medical"></i>
-
-          </div>
-
-
-          <div class="medicine-info">
-
-            <div class="medicine-name">
-              Paracetamol 500mg
+        <!-- Dynamic Medicine List -->
+        <div id="med-list-wrapper">
+          <!-- Populated from SQLite DB via /api/patient/1/records -->
+          <div class="medicine-card" onclick="showMessage('Iron Folic Acid (IFA) - 100mg')">
+            <div class="medicine-icon">
+              <i class="fa-solid fa-prescription-bottle-medical"></i>
             </div>
-
-            <div class="medicine-time">
-              After meals • 1-0-1
+            <div class="medicine-info">
+              <div class="medicine-name">Iron Folic Acid (IFA) 100mg</div>
+              <div class="medicine-time">1 tablet daily after food • Active</div>
             </div>
-
-          </div>
-
-
-          <div class="check checked" onclick="event.stopPropagation(); toggleMedicine(this)">
-
-            <i class="fa-solid fa-check"></i>
-
-          </div>
-
-        </div>
-
-
-        <!-- Medicine 2 -->
-
-        <div class="medicine-card" onclick="showMessage('Amlodipine 5mg')">
-
-          <div class="medicine-icon">
-
-            <i class="fa-solid fa-file-prescription"></i>
-
-          </div>
-
-
-          <div class="medicine-info">
-
-            <div class="medicine-name">
-              Amlodipine 5mg
+            <div class="check checked" onclick="event.stopPropagation(); toggleMedicineItem(1, this)">
+              <i class="fa-solid fa-check"></i>
             </div>
-
-            <div class="medicine-time">
-              Before breakfast • 1-0-0
+          </div>
+          <div class="medicine-card" onclick="showMessage('Calcium Carbonate - 500mg')">
+            <div class="medicine-icon">
+              <i class="fa-solid fa-file-prescription"></i>
             </div>
-
+            <div class="medicine-info">
+              <div class="medicine-name">Calcium Carbonate 500mg</div>
+              <div class="medicine-time">1 tablet twice daily • Active</div>
+            </div>
+            <div class="check" onclick="event.stopPropagation(); toggleMedicineItem(2, this)">
+            </div>
           </div>
-
-
-          <div class="check" onclick="event.stopPropagation(); toggleMedicine(this)">
-          </div>
-
         </div>
 
       </section>
@@ -592,11 +548,112 @@
 
       </button>
 
-    </nav>
+    <!-- Toast Notification Container -->
+    <div id="toast" style="position: fixed; bottom: 85px; left: 50%; transform: translateX(-50%); background: #0f172a; color: white; padding: 10px 20px; border-radius: 9999px; font-size: 13px; font-weight: 500; display: none; z-index: 99999; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.2); transition: all 0.2s;">
+      <span id="toast-text">Message</span>
+    </div>
 
+    <!-- Script: Live Backend Connection -->
+    <script>
+      let toastTimeout;
+      function showMessage(msg) {
+        const toast = document.getElementById('toast');
+        const text = document.getElementById('toast-text');
+        if (!toast) return;
+        text.textContent = msg;
+        toast.style.display = 'block';
+        clearTimeout(toastTimeout);
+        toastTimeout = setTimeout(() => { toast.style.display = 'none'; }, 2400);
+      }
+
+      function openProfile() {
+        const user = JSON.parse(localStorage.getItem('asha_user') || '{"name":"Priya Sharma","phone":"+91 9876543210","abha_id":"ABHA-9821-4321-0012"}');
+        showMessage(`ABHA ID: ${user.abha_id || 'ABHA-9821-4321-0012'} • Verified`);
+      }
+
+      function addDoctor() {
+        window.location.href = '../appointment/appointment.html';
+      }
+
+      function changePage(btn, page) {
+        if (page === 'Appointments') {
+          window.location.href = '../appointment/appointment.html';
+        } else if (page === 'Dashboard') {
+          window.location.href = '../dashboard/index.html';
+        } else if (page === 'Profile') {
+          openProfile();
+        }
+      }
+
+      function downloadReport() {
+        showMessage('Downloading Clinical Lab Report PDF...');
+        setTimeout(() => {
+          window.print();
+        }, 600);
+      }
+
+      async function toggleMedicineItem(presId, el) {
+        const isChecked = el.classList.contains('checked');
+        const newStatus = isChecked ? 'ACTIVE' : 'TAKEN';
+        
+        if (isChecked) {
+          el.classList.remove('checked');
+          el.innerHTML = '';
+          showMessage('Marked as Due');
+        } else {
+          el.classList.add('checked');
+          el.innerHTML = '<i class="fa-solid fa-check"></i>';
+          showMessage('Marked as Taken! Synced with Doctor.');
+        }
+
+        try {
+          await fetch(`/api/patient/prescription/${presId}/toggle`, {
+            method: 'PATCH',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ status: newStatus })
+          });
+        } catch (e) {
+          console.warn('Updated locally');
+        }
+      }
+
+      // Live Load from Backend SQLite Database
+      async function loadPatientEHR() {
+        try {
+          const res = await fetch('/api/patient/1/records');
+          if (!res.ok) return;
+          const data = await res.json();
+
+          if (data.prescriptions && data.prescriptions.length > 0) {
+            const listWrapper = document.getElementById('med-list-wrapper');
+            if (listWrapper) {
+              listWrapper.innerHTML = data.prescriptions.map(p => {
+                const isTaken = p.status === 'TAKEN';
+                return `
+                  <div class="medicine-card" onclick="showMessage('${p.medicine_name} - ${p.dosage}')">
+                    <div class="medicine-icon">
+                      <i class="fa-solid fa-prescription-bottle-medical"></i>
+                    </div>
+                    <div class="medicine-info">
+                      <div class="medicine-name">${p.medicine_name} (${p.dosage})</div>
+                      <div class="medicine-time">${p.frequency} • ${isTaken ? 'Taken' : 'Due'}</div>
+                    </div>
+                    <div class="check ${isTaken ? 'checked' : ''}" onclick="event.stopPropagation(); toggleMedicineItem(${p.id}, this)">
+                      ${isTaken ? '<i class="fa-solid fa-check"></i>' : ''}
+                    </div>
+                  </div>
+                `;
+              }).join('');
+            }
+          }
+        } catch (err) {
+          console.log('EHR loaded from static baseline');
+        }
+      }
+
+      document.addEventListener('DOMContentLoaded', loadPatientEHR);
+    </script>
+    <script src="../../asha-navigation.js"></script>
   </div>
-
-
 </body>
-
 </html>

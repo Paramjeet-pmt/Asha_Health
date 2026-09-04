@@ -303,7 +303,8 @@
           <!-- Secondary Actions Grid -->
           <div class="grid grid-cols-2 gap-3">
             <button
-              class="flex flex-col gap-3 p-4 rounded-2xl bg-surface-container-low shadow-sm transition-transform active:scale-[0.98] items-start"
+              onclick="window.location.href='../appointment/appointment.html'"
+              class="flex flex-col gap-3 p-4 rounded-2xl bg-surface-container-low shadow-sm transition-transform active:scale-[0.98] items-start cursor-pointer hover:bg-surface-container"
             >
               <div
                 class="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center"
@@ -320,7 +321,8 @@
               >
             </button>
             <button
-              class="flex flex-col gap-3 p-4 rounded-2xl bg-surface-container-low shadow-sm transition-transform active:scale-[0.98] items-start"
+              onclick="window.location.href='../Talktodoctor/talk-to-doctor.html'"
+              class="flex flex-col gap-3 p-4 rounded-2xl bg-surface-container-low shadow-sm transition-transform active:scale-[0.98] items-start cursor-pointer hover:bg-surface-container"
             >
               <div
                 class="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center"
@@ -337,7 +339,8 @@
               >
             </button>
             <button
-              class="flex flex-col gap-3 p-4 rounded-2xl bg-surface-container-low shadow-sm transition-transform active:scale-[0.98] items-start"
+              onclick="window.location.href='../my_health/my-health.html'"
+              class="flex flex-col gap-3 p-4 rounded-2xl bg-surface-container-low shadow-sm transition-transform active:scale-[0.98] items-start cursor-pointer hover:bg-surface-container"
             >
               <div
                 class="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center"
@@ -354,7 +357,8 @@
               >
             </button>
             <button
-              class="flex flex-col gap-3 p-4 rounded-2xl bg-surface-container-low shadow-sm transition-transform active:scale-[0.98] items-start"
+              onclick="window.location.href='../my_health/my-health.html'"
+              class="flex flex-col gap-3 p-4 rounded-2xl bg-surface-container-low shadow-sm transition-transform active:scale-[0.98] items-start cursor-pointer hover:bg-surface-container"
             >
               <div
                 class="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center"
@@ -374,13 +378,18 @@
         </div>
         <!-- Upcoming Appointment Widget -->
         <div class="px-margin-mobile flex flex-col gap-3 mt-2">
-          <h3
-            class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider"
-          >
-            Upcoming
-          </h3>
+          <div class="flex items-center justify-between">
+            <h3
+              class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider"
+            >
+              Upcoming
+            </h3>
+            <a href="../appointment/appointment.html" class="text-xs text-primary font-semibold hover:underline">Manage</a>
+          </div>
           <div
-            class="p-5 rounded-2xl bg-primary text-on-primary shadow-md flex justify-between items-center relative overflow-hidden"
+            id="upcoming-appointment-card"
+            onclick="window.location.href='../appointment/appointment.html'"
+            class="p-5 rounded-2xl bg-primary text-on-primary shadow-md flex justify-between items-center relative overflow-hidden cursor-pointer active:scale-[0.99] transition-transform"
           >
             <div
               class="absolute -top-4 -right-4 w-28 h-28 bg-primary-container/30 rounded-bl-[40px] pointer-events-none"
@@ -394,19 +403,20 @@
                 >
               </div>
               <div class="flex flex-col">
-                <span class="font-headline-md text-headline-md leading-none"
-                  >Dr. Sharma</span
+                <span id="upcoming-doc-name" class="font-headline-md text-headline-md leading-none"
+                  >Dr. Ananya Sharma</span
                 >
-                <span class="font-label-sm text-label-sm opacity-90 mt-1"
+                <span id="upcoming-doc-spec" class="font-label-sm text-label-sm opacity-90 mt-1"
                   >General Physician</span
                 >
                 <div
+                  id="upcoming-doc-time"
                   class="inline-flex items-center gap-1 mt-2 bg-on-primary/15 px-2 py-1 rounded text-[11px] font-label-sm tracking-wide w-fit"
                 >
                   <span class="material-symbols-outlined text-[12px]"
                     >schedule</span
                   >
-                  In 3 days
+                  <span>Upcoming Appointment</span>
                 </div>
               </div>
             </div>

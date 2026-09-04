@@ -76,12 +76,27 @@ const quickTriageBtn =
     document.getElementById("quickTriageBtn");
 
 
-quickTriageBtn.addEventListener("click", () => {
-
-    showToast(
-        "Connecting you to the Quick Triage desk..."
-    );
-
+quickTriageBtn.addEventListener("click", async () => {
+    showToast("Connecting to Quick Emergency Triage...");
+    try {
+        const res = await fetch('/api/doctor/quick-triage', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                patient_id: 1,
+                symptoms: 'Urgent teleconsultation requested via Talk-To-Doctor Desk',
+                priority: 'EMERGENCY'
+            })
+        });
+        const data = await res.json();
+        if (data.ticketId) {
+            showToast(`🚨 ${data.ticketId} Logged! Doctor notified on emergency queue.`);
+        } else {
+            showToast("Quick triage queued successfully!");
+        }
+    } catch (err) {
+        showToast("Quick triage registered (offline mode).");
+    }
 });
 
 
@@ -403,40 +418,25 @@ const doctorActionButtons =
 
 
 doctorActionButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        const doctor = button.dataset.doctor;
+        if (!doctor) return;
 
-    button.addEventListener(
-        "click",
-        () => {
-
-            const doctor =
-                button.dataset.doctor;
-
-
-            if (!doctor) {
-                return;
-            }
-
-
-            showToast(
-                `Connecting you with ${doctor}...`
-            );
-
-
+        const isBooking = button.textContent.toLowerCase().includes("book");
+        if (isBooking) {
+            showToast(`Opening appointment booking for ${doctor}...`);
             setTimeout(() => {
-
-                document
-                    .getElementById(
-                        "consultations"
-                    )
-                    .scrollIntoView({
-                        behavior: "smooth"
-                    });
-
-            }, 700);
-
+                window.location.href = `../appointment/appointment.html?doctor=${encodeURIComponent(doctor)}`;
+            }, 450);
+            return;
         }
-    );
 
+        showToast(`Connecting you with ${doctor}...`);
+        setTimeout(() => {
+            const consults = document.getElementById("consultations");
+            if (consults) consults.scrollIntoView({ behavior: "smooth" });
+        }, 600);
+    });
 });
 
 

@@ -312,7 +312,8 @@
           <!-- Secondary Actions Grid -->
           <div class="grid grid-cols-2 gap-3">
             <button
-              class="flex flex-col gap-3 p-4 rounded-2xl bg-surface-container-low shadow-sm transition-transform active:scale-[0.98] items-start"
+              onclick="window.location.href='../appointment/appointment.html'"
+              class="flex flex-col gap-3 p-4 rounded-2xl bg-surface-container-low shadow-sm transition-transform active:scale-[0.98] items-start cursor-pointer hover:bg-surface-container"
             >
               <div
                 class="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center"
@@ -329,7 +330,8 @@
               >
             </button>
             <button
-              class="flex flex-col gap-3 p-4 rounded-2xl bg-surface-container-low shadow-sm transition-transform active:scale-[0.98] items-start"
+              onclick="window.location.href='../Talktodoctor/talk-to-doctor.html'"
+              class="flex flex-col gap-3 p-4 rounded-2xl bg-surface-container-low shadow-sm transition-transform active:scale-[0.98] items-start cursor-pointer hover:bg-surface-container"
             >
               <div
                 class="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center"
@@ -346,7 +348,8 @@
               >
             </button>
             <button
-              class="flex flex-col gap-3 p-4 rounded-2xl bg-surface-container-low shadow-sm transition-transform active:scale-[0.98] items-start"
+              onclick="window.location.href='../my_health/my-health.html'"
+              class="flex flex-col gap-3 p-4 rounded-2xl bg-surface-container-low shadow-sm transition-transform active:scale-[0.98] items-start cursor-pointer hover:bg-surface-container"
             >
               <div
                 class="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center"
@@ -363,7 +366,8 @@
               >
             </button>
             <button
-              class="flex flex-col gap-3 p-4 rounded-2xl bg-surface-container-low shadow-sm transition-transform active:scale-[0.98] items-start"
+              onclick="window.location.href='../my_health/my-health.html'"
+              class="flex flex-col gap-3 p-4 rounded-2xl bg-surface-container-low shadow-sm transition-transform active:scale-[0.98] items-start cursor-pointer hover:bg-surface-container"
             >
               <div
                 class="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center"
@@ -389,7 +393,9 @@
             Upcoming
           </h3>
           <div
-            class="p-5 rounded-2xl bg-primary text-on-primary shadow-md flex justify-between items-center relative overflow-hidden"
+            id="upcoming-appointment-card"
+            onclick="window.location.href='../appointment/appointment.html'"
+            class="p-5 rounded-2xl bg-primary text-on-primary shadow-md flex justify-between items-center relative overflow-hidden cursor-pointer active:scale-[0.99] transition-transform"
           >
             <div
               class="absolute -top-4 -right-4 w-28 h-28 bg-primary-container/30 rounded-bl-[40px] pointer-events-none"

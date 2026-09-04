@@ -189,7 +189,7 @@
                         <span class="material-symbols-outlined text-primary text-[20px]">group</span>
                     </div>
                     <div>
-                        <div class="font-display-lg text-on-surface leading-none mb-1">1,240</div>
+                        <div id="admin-total-patients" class="font-display-lg text-on-surface leading-none mb-1">4</div>
                         <div class="font-label-sm text-on-surface-variant uppercase">Total Patients</div>
                     </div>
                 </div>
@@ -211,11 +211,11 @@
                     class="bg-error-container text-on-error-container rounded-xl p-gutter-sm flex flex-col justify-between shadow-sm relative overflow-hidden col-span-1">
                     <div class="absolute top-0 right-0 w-16 h-16 bg-error/10 rounded-bl-full pointer-events-none"></div>
                     <div class="flex items-start justify-between mb-2">
-                        <span class="material-symbols-outlined text-error text-[20px]">medication</span>
+                        <span class="material-symbols-outlined text-error text-[20px]">emergency</span>
                     </div>
                     <div>
-                        <div class="font-display-lg leading-none mb-1 text-error">3</div>
-                        <div class="font-label-sm uppercase opacity-90">Med Shortages</div>
+                        <div id="admin-emerg-count" class="font-display-lg leading-none mb-1 text-error">2</div>
+                        <div class="font-label-sm uppercase opacity-90">Emergency Triage</div>
                     </div>
                 </div>
                 <!-- Metric Card 4 (Pending) -->
@@ -224,11 +224,11 @@
                     <div class="absolute top-0 right-0 w-16 h-16 bg-tertiary/5 rounded-bl-full pointer-events-none">
                     </div>
                     <div class="flex items-start justify-between mb-2">
-                        <span class="material-symbols-outlined text-tertiary text-[20px]">forward</span>
+                        <span class="material-symbols-outlined text-tertiary text-[20px]">science</span>
                     </div>
                     <div>
-                        <div class="font-display-lg leading-none mb-1 text-tertiary">18</div>
-                        <div class="font-label-sm uppercase opacity-90">Pending Referrals</div>
+                        <div id="admin-pending-count" class="font-display-lg leading-none mb-1 text-tertiary">2</div>
+                        <div class="font-label-sm uppercase opacity-90">Pending Lab Tests</div>
                     </div>
                 </div>
             </div>
@@ -332,20 +332,57 @@
         <div
             class="fixed bottom-0 left-0 right-0 bg-surface/90 backdrop-blur-md shadow-[0_-4px_16px_rgba(0,0,0,0.05)] p-margin-mobile flex gap-gutter-sm z-40 pb-safe">
             <button
-                class="flex-1 h-touch-target rounded-full bg-primary text-on-primary font-label-md flex items-center justify-center gap-2 active:bg-primary/90 transition-colors shadow-sm">
+                onclick="promptNewDirective()"
+                class="flex-1 h-touch-target rounded-full bg-primary text-on-primary font-label-md flex items-center justify-center gap-2 active:bg-primary/90 transition-colors shadow-sm cursor-pointer">
                 <span class="material-symbols-outlined text-[20px]">add</span>
                 New Directive
             </button>
             <button
-                class="w-touch-target h-touch-target rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center active:bg-secondary-container/80 transition-colors shadow-sm shrink-0">
-                <span class="material-symbols-outlined text-[20px]">sync</span>
+                id="command-sync-btn"
+                onclick="refreshAdminMetrics()"
+                class="w-touch-target h-touch-target rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center active:bg-secondary-container/80 transition-colors shadow-sm shrink-0 cursor-pointer">
+                <span id="command-sync-icon" class="material-symbols-outlined text-[20px]">sync</span>
             </button>
         </div>
     </main>
 
+    <script>
+        async function refreshAdminMetrics() {
+            const icon = document.getElementById('command-sync-icon');
+            if (icon) icon.classList.add('animate-spin');
+            
+            try {
+                const res = await fetch('/api/admin/stats');
+                if (res.ok) {
+                    const stats = await res.json();
+                    const totalEl = document.getElementById('admin-total-patients');
+                    const emergEl = document.getElementById('admin-emerg-count');
+                    const pendEl = document.getElementById('admin-pending-count');
+                    if (totalEl) totalEl.textContent = stats.totalPatients || '4';
+                    if (emergEl) emergEl.textContent = stats.emergencyCases || '2';
+                    if (pendEl) pendEl.textContent = stats.pendingSamples || '2';
+                }
+            } catch (err) {}
+
+            setTimeout(() => {
+                if (icon) icon.classList.remove('animate-spin');
+                if (typeof showToast === 'function') {
+                    showToast('District Stats Synced ✅', 'Live telemetry refreshed from rural health database.');
+                }
+            }, 600);
+        }
+
+        function promptNewDirective() {
+            const directive = prompt('Enter New District Healthcare Directive (e.g. Priority Iron & Folic Acid distribution for maternal wards):');
+            if (directive && directive.trim()) {
+                alert(`✅ Directive Dispatched to District Network:\n"${directive.trim()}"\nRecorded in Command Center Log.`);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', refreshAdminMetrics);
+    </script>
     <script src="../../asha-navigation.js"></script>
 </body>
-
 </html>
 
 

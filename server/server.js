@@ -250,6 +250,205 @@ app.patch('/api/patient/prescription/:id/toggle', (req, res) => {
   }
 });
 
+// GET /api/doctors (Verified Doctor Directory)
+app.get('/api/doctors', (req, res) => {
+  try {
+    const doctors = [
+      {
+        id: 1,
+        name: 'Dr. Ananya Sharma',
+        specialty: 'General Physician',
+        experience: '10+ yrs',
+        hospital: 'District Hospital, Ward 4',
+        rating: 4.9,
+        reviewsCount: 340,
+        price: 500,
+        available: true,
+        modes: ['clinic', 'teleconsult']
+      },
+      {
+        id: 2,
+        name: 'Dr. Rajesh Verma',
+        specialty: 'Cardiologist',
+        experience: '14+ yrs',
+        hospital: 'Community Health Center',
+        rating: 4.8,
+        reviewsCount: 280,
+        price: 700,
+        available: true,
+        modes: ['clinic', 'teleconsult']
+      },
+      {
+        id: 3,
+        name: 'Dr. Sunita Patel',
+        specialty: 'Pediatrician',
+        experience: '8+ yrs',
+        hospital: 'Maternal & Child Health Wing',
+        rating: 4.95,
+        reviewsCount: 410,
+        price: 450,
+        available: true,
+        modes: ['clinic', 'teleconsult']
+      },
+      {
+        id: 4,
+        name: 'Dr. Amit Roy',
+        specialty: 'Orthopedic Surgeon',
+        experience: '12+ yrs',
+        hospital: 'Sub-District Trauma Center',
+        rating: 4.7,
+        reviewsCount: 195,
+        price: 600,
+        available: false,
+        modes: ['clinic']
+      }
+    ];
+    res.json(doctors);
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to fetch doctors' });
+  }
+});
+
+// POST /api/appointments (Book & Save Patient Appointment in SQL)
+app.post('/api/appointments', (req, res) => {
+  try {
+    const {
+      patient_id,
+      patient_name,
+      patient_phone,
+      patient_age,
+      patient_gender,
+      patient_email,
+      doctor_name,
+      doctor_specialty,
+      appointment_date,
+      time_slot,
+      consultation_type,
+      reason,
+      allergies,
+      total_fee
+    } = req.body;
+
+    if (!patient_name || !doctor_name || !appointment_date || !time_slot) {
+      return res.status(400).json({ error: 'Missing required booking fields' });
+    }
+
+    const bookingRef = `APT-2026-${Math.floor(1000 + Math.random() * 9000)}`;
+
+    // Resolve patient ID or link to existing
+    let targetPatientId = patient_id || 1;
+    if (!patient_id && patient_phone) {
+      const existingPatient = db.prepare('SELECT id FROM patients WHERE contact_number = ?').get(patient_phone);
+      if (existingPatient) {
+        targetPatientId = existingPatient.id;
+      }
+    }
+
+    // Insert into SQLite appointments table
+    const stmt = db.prepare(`
+      INSERT INTO appointments (
+        booking_ref, patient_id, patient_name, patient_phone, patient_age,
+        patient_gender, patient_email, doctor_name, doctor_specialty,
+        appointment_date, time_slot, consultation_type, reason,
+        allergies, total_fee, status
+      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'CONFIRMED')
+    `);
+
+    const result = stmt.run(
+      bookingRef,
+      targetPatientId,
+      patient_name,
+      patient_phone || null,
+      patient_age ? Number(patient_age) : null,
+      patient_gender || 'female',
+      patient_email || null,
+      doctor_name,
+      doctor_specialty || 'General Physician',
+      appointment_date,
+      time_slot,
+      consultation_type || 'clinic',
+      reason || 'General Consultation',
+      allergies || null,
+      total_fee ? Number(total_fee) : 520
+    );
+
+    // Also queue for doctor triage in doctor_queue table
+    try {
+      db.prepare(`
+        INSERT INTO doctor_queue (patient_id, priority, symptoms, vitals_bp, vitals_pulse, vitals_spo2, status)
+        VALUES (?, 'ROUTINE', ?, '120/80', 74, 98, 'WAITING')
+      `).run(targetPatientId, `Scheduled Appointment with ${doctor_name}: ${reason || 'Routine'}`);
+    } catch (e) {}
+
+    res.status(201).json({
+      success: true,
+      message: 'Appointment successfully booked and saved in database!',
+      bookingId: bookingRef,
+      appointmentId: Number(result.lastInsertRowid),
+      appointment: {
+        bookingRef,
+        patientName: patient_name,
+        doctorName: doctor_name,
+        date: appointment_date,
+        time: time_slot,
+        consultationType: consultation_type,
+        status: 'CONFIRMED',
+        totalFee: total_fee || 520
+      }
+    });
+  } catch (err) {
+    console.error('Appointment booking error:', err);
+    res.status(500).json({ error: 'Failed to save appointment to database' });
+  }
+});
+
+// GET /api/appointments (Fetch all booked appointments)
+app.get('/api/appointments', (req, res) => {
+  try {
+    const appointments = db.prepare('SELECT * FROM appointments ORDER BY id DESC').all();
+    res.json(appointments);
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to fetch appointments' });
+  }
+});
+
+// GET /api/patient/:id/appointments (Fetch patient appointments)
+app.get('/api/patient/:id/appointments', (req, res) => {
+  try {
+    const appointments = db.prepare('SELECT * FROM appointments WHERE patient_id = ? ORDER BY id DESC').all(req.params.id);
+    res.json(appointments);
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to fetch patient appointments' });
+  }
+});
+
+// POST /api/doctor/quick-triage (Instant Emergency/Urgent Triage Request)
+app.post('/api/doctor/quick-triage', (req, res) => {
+  try {
+    const { patient_id, symptoms, priority } = req.body;
+    const targetPatientId = patient_id || 1;
+    const triagePriority = priority || 'URGENT';
+    const patientSymptoms = symptoms || 'Emergency Quick Triage initiated via Patient App';
+
+    const stmt = db.prepare(`
+      INSERT INTO doctor_queue (patient_id, priority, symptoms, vitals_bp, vitals_pulse, vitals_spo2, status)
+      VALUES (?, ?, ?, '130/85', 86, 96, 'WAITING')
+    `);
+    const result = stmt.run(targetPatientId, triagePriority, patientSymptoms);
+    const queueId = Number(result.lastInsertRowid);
+
+    res.status(201).json({
+      success: true,
+      message: 'Quick Triage consultation registered. Doctor on call notified.',
+      ticketId: `TRG-2026-${queueId}`,
+      queueId,
+      priority: triagePriority
+    });
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to initiate quick triage' });
+  }
+});
+
 // -------------------------------------------------------------
 // 3. DOCTOR FLOW APIS (④ Patient Details ⑪ & Priority Cases ⑫)
 // -------------------------------------------------------------
@@ -263,7 +462,7 @@ app.get('/api/doctor/queue', (req, res) => {
         q.priority,
         q.symptoms,
         q.vitals_bp,
-        q.vitals_Asha ,
+        q.vitals_pulse,
         q.vitals_spo2,
         q.status,
         q.created_at,

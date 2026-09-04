@@ -46,7 +46,7 @@ db.exec(`
     priority TEXT CHECK(priority IN ('ROUTINE', 'URGENT', 'EMERGENCY')) DEFAULT 'ROUTINE',
     symptoms TEXT,
     vitals_bp TEXT,
-    vitals_Asha  INTEGER,
+    vitals_pulse INTEGER,
     vitals_spo2 INTEGER,
     status TEXT CHECK(status IN ('WAITING', 'IN_CONSULTATION', 'COMPLETED')) DEFAULT 'WAITING',
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
@@ -78,6 +78,29 @@ db.exec(`
     status TEXT DEFAULT 'ACTIVE',
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY(patient_id) REFERENCES patients(id) ON DELETE CASCADE
+  );
+
+  -- Appointments Table (Online & In-Clinic Bookings)
+  CREATE TABLE IF NOT EXISTS appointments (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    booking_ref TEXT UNIQUE NOT NULL,
+    patient_id INTEGER,
+    patient_name TEXT NOT NULL,
+    patient_phone TEXT,
+    patient_age INTEGER,
+    patient_gender TEXT,
+    patient_email TEXT,
+    doctor_name TEXT NOT NULL,
+    doctor_specialty TEXT,
+    appointment_date TEXT NOT NULL,
+    time_slot TEXT NOT NULL,
+    consultation_type TEXT NOT NULL,
+    reason TEXT,
+    allergies TEXT,
+    total_fee REAL DEFAULT 520,
+    status TEXT DEFAULT 'CONFIRMED',
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY(patient_id) REFERENCES patients(id) ON DELETE SET NULL
   );
 `);
 
@@ -117,7 +140,7 @@ if (userCount === 0) {
 
   // Seed Doctor Queue (Priority Triage Cases ⑪ ⑫)
   const insertQueue = db.prepare(`
-    INSERT INTO doctor_queue (patient_id, priority, symptoms, vitals_bp, vitals_Asha , vitals_spo2, status)
+    INSERT INTO doctor_queue (patient_id, priority, symptoms, vitals_bp, vitals_pulse, vitals_spo2, status)
     VALUES (?, ?, ?, ?, ?, ?, ?)
   `);
 
