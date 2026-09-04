@@ -1,3 +1,5 @@
+@import "../../theme.css";
+
 @layer base{html,body{width:100vw;margin:0;padding:0;overflow-x:hidden;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}}::-webkit-scrollbar{display:none;}
 
 
@@ -28,12 +30,12 @@
       100% { transform: translateY(0); opacity: 1; }
     }
     @keyframes glowAsha  {
-      0%, 100% { box-shadow: 0 0 10px rgba(9, 76, 178, 0.2), inset 0 0 5px rgba(255, 255, 255, 0.5); }
-      50% { box-shadow: 0 0 25px rgba(9, 76, 178, 0.6), inset 0 0 15px rgba(255, 255, 255, 0.8); }
+      0%, 100% { box-shadow: 0 0 10px rgba(0, 127, 109, 0.2), inset 0 0 5px rgba(255, 255, 255, 0.5); }
+      50% { box-shadow: 0 0 25px rgba(0, 127, 109, 0.6), inset 0 0 15px rgba(255, 255, 255, 0.8); }
     }
     @keyframes letterGlow {
-      0%, 100% { filter: drop-shadow(0 0 2px rgba(9, 76, 178, 0.3)); }
-      50% { filter: drop-shadow(0 0 8px rgba(9, 76, 178, 0.8)); }
+      0%, 100% { filter: drop-shadow(0 0 2px rgba(0, 127, 109, 0.3)); }
+      50% { filter: drop-shadow(0 0 8px rgba(0, 127, 109, 0.8)); }
     }
     @keyframes breathingScale {
       0%, 100% { transform: scale(1); }
@@ -58,7 +60,7 @@
     .fade-in-delayed { animation: fadeIn 1s ease-out 1.6s both; }
     
     .letter-gradient {
-      background: linear-gradient(135deg, #094cb2, #4fdbc8);
+      background: linear-gradient(135deg, var(--primary, #007F6D), var(--primary-light, #00A884));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       animation: letterGlow 3s ease-in-out 1.6s infinite;
@@ -78,7 +80,7 @@
       inset: -1px;
       border-radius: 19px;
       padding: 1px;
-      background: linear-gradient(135deg, rgba(9, 76, 178, 0.6), rgba(63, 0, 153, 0.4));
+      background: linear-gradient(135deg, rgba(0, 127, 109, 0.6), rgba(0, 168, 132, 0.4));
       -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
       -webkit-mask-composite: xor;
       mask-composite: exclude;

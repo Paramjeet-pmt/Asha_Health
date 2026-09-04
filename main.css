@@ -1,3 +1,5 @@
+@import "theme.css";
+
 /* ASHA unified navigation layer */
 .asha-nav-wrap {
   position: fixed;
@@ -152,11 +154,11 @@
 
   0%,
   100% {
-    box-shadow: 0 0 10px rgba(9, 76, 178, 0.2), inset 0 0 5px rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 10px rgba(0, 127, 109, 0.2), inset 0 0 5px rgba(255, 255, 255, 0.5);
   }
 
   50% {
-    box-shadow: 0 0 25px rgba(9, 76, 178, 0.6), inset 0 0 15px rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 25px rgba(0, 127, 109, 0.6), inset 0 0 15px rgba(255, 255, 255, 0.8);
   }
 }
 
@@ -164,11 +166,11 @@
 
   0%,
   100% {
-    filter: drop-shadow(0 0 2px rgba(9, 76, 178, 0.3));
+    filter: drop-shadow(0 0 2px rgba(0, 127, 109, 0.3));
   }
 
   50% {
-    filter: drop-shadow(0 0 8px rgba(9, 76, 178, 0.8));
+    filter: drop-shadow(0 0 8px rgba(0, 127, 109, 0.8));
   }
 }
 
@@ -231,7 +233,7 @@
 }
 
 .letter-gradient {
-  background: linear-gradient(135deg, #094cb2, #4fdbc8);
+  background: linear-gradient(135deg, var(--primary, #007F6D), var(--primary-light, #00A884));
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
