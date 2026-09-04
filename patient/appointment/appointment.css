@@ -182,23 +182,14 @@ fieldset {
     align-items: center;
 
     gap: 8px;
+    
 }
 
 .brand-mark {
-    width: 27px;
-    height: 27px;
+    width: 42px;
+    height: 42px;
 
-    display: grid;
-    place-items: center;
-
-    border-radius: 7px;
-
-    /* background: transparent; */
-    color: white;
-    filter: invert(1);
-
-    font-size: 18px;
-    font-weight: 700;
+    object-fit: contain;
 }
 
 .brand-text {
@@ -1446,8 +1437,8 @@ fieldset {
     }
 
     .brand-mark {
-        width: 32px;
-        height: 32px;
+        width: 48px;
+        height: 48px;
     }
 
     .brand-text strong {

@@ -123,10 +123,10 @@ app.post('/api/auth/login', (req, res) => {
 
     // Role-based redirect routing
     const roleRedirects = {
-      PATIENT: '/patient/dashboard/index.html',
-      DOCTOR: '/patient/doctor_queue/index.html',
-      WORKER: '/workers/frontline_hub/index.html',
-      ADMIN: '/admin/command_center/index.html'
+      PATIENT: '/patient/dashboard/dashboard.html',
+      DOCTOR: '/patient/doctor_queue/doctor-queue.html',
+      WORKER: '/workers/frontline_hub/frontline-hub.html',
+      ADMIN: '/admin/command_center/command-center.html'
     };
 
     const token = jwt.sign(

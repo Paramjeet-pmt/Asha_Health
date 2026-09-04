@@ -6,7 +6,7 @@ This project contains multiple healthcare-related web interfaces and modules for
 
 - **asha-navigation.css** - Global navigation stylesheet (back button styling)
 - **asha-navigation.js** - Global navigation JavaScript (back button functionality)
-- **index.html** - Main hub/launcher for all modules
+- **main.html** - Main hub/launcher for all modules
 - **README.md** - Project documentation
 
 ## Project Organization
@@ -17,70 +17,70 @@ The project is organized into **4 main categories** with **15 total modules**:
 Entry points and welcome screens for all user types:
 
 - **admin_login/** - Secure mobile login for administrators
-  - `index.html` - Admin authentication interface
-  - `styles.css` - Admin login styling
+  - `admin-login.html` - Admin authentication interface
+  - `admin-login.css` - Admin login styling
 
 - **patient_login_variant_1/** - Primary patient login interface
-  - `index.html` - Feature-rich login with multiple methods (OTP, ABHA, QR, Voice)
-  - `styles.css` - Login styling
+  - `patient-login.html` - Feature-rich login with multiple methods (OTP, ABHA, QR, Voice)
+  - `patient-login.css` - Login styling
 
 - **patient_login_variant_2/** - Alternative patient login variant
-  - `index.html` - Secondary login interface
-  - `styles.css` - Variant styling
+  - `patient-login-alternative.html` - Secondary login interface
+  - `patient-login-alternative.css` - Variant styling
 
 - **welcome_patient_portal/** - Patient portal welcome screen
-  - `index.html` - Onboarding for ASHA patient portal
-  - `styles.css` - Welcome styling
+  - `patient-welcome.html` - Onboarding for ASHA patient portal
+  - `patient-welcome.css` - Welcome styling
 
 - **welcome_rural_connect/** - Rural health system welcome screen
-  - `index.html` - Onboarding for rural health connect
-  - `styles.css` - Welcome styling
+  - `rural-connect.html` - Onboarding for rural health connect
+  - `rural-connect.css` - Welcome styling
 
 - **loading_screen/** - ASHA cinematic loading screen
-  - `index.html` - Branded loading animation
-  - `styles.css` - Loading screen styling
+  - `loading-screen.html` - Branded loading animation
+  - `loading-screen.css` - Loading screen styling
 
 ### 👥 Patient Features (`patient/`)
 End-user interfaces and patient-centric functionality:
 
 - **dashboard/** - Patient home screen and health summary
-  - `index.html` - Main patient dashboard with quick actions
-  - `styles.css` - Dashboard styling and layouts
+  - `dashboard.html` - Main patient dashboard with quick actions
+  - `dashboard.css` - Dashboard styling and layouts
 
 - **health_records/** - Personal health records management
-  - `index.html` - View and manage personal health data
-  - `styles.css` - Health records styling
+  - `health-records.html` - View and manage personal health data
+  - `health-records.css` - Health records styling
 
 - **doctor_queue/** - Doctor-patient queue management
-  - `index.html` - Queue status and appointment tracking
-  - `styles.css` - Queue interface styling
+  - `doctor-queue.html` - Queue status and appointment tracking
+  - `doctor-queue.css` - Queue interface styling
 
 - **health_assistant/** - AI-powered health assistance
-  - `index.html` - AI chatbot and health query interface
-  - `styles.css` - Assistant UI styling
+  - `health-assistant.html` - AI chatbot and health query interface
+  - `health-assistant.css` - Assistant UI styling
 
 - **referral_journey/** - Patient referral tracking system
-  - `index.html` - Track and manage referrals
-  - `styles.css` - Referral interface styling
+  - `referral-journey.html` - Track and manage referrals
+  - `referral-journey.css` - Referral interface styling
 
 ### 🏛️ Administration (`admin/`)
 District-level analytics and management tools:
 
 - **command_center/** - Responsive analytics dashboard
-  - `index.html` - Selects the desktop or mobile design based on screen width
-  - `desktop.html` / `desktop.css` - Desktop analytics dashboard
-  - `mobile.html` / `mobile.css` - Mobile-optimized command center
+  - `command-center.html` - Selects the desktop or mobile design based on screen width
+  - `command-center-desktop.html` / `command-center-desktop.css` - Desktop analytics dashboard
+  - `command-center-mobile.html` / `command-center-mobile.css` - Mobile-optimized command center
 
 ### 🔧 Worker Tools (`workers/`)
 Tools for frontline health workers and offline operations:
 
 - **frontline_hub/** - Health worker management portal
-  - `index.html` - Tools and resources for frontline ASHA workers
-  - `styles.css` - Worker hub styling
+  - `frontline-hub.html` - Tools and resources for frontline ASHA workers
+  - `frontline-hub.css` - Worker hub styling
 
 - **sync_offline/** - Offline synchronization center
-  - `index.html` - Connectivity management and offline sync features
-  - `styles.css` - Sync center styling
+  - `sync-offline.html` - Connectivity management and offline sync features
+  - `sync-offline.css` - Sync center styling
 ## System Overview
 
 This is a comprehensive healthcare management system designed to serve rural communities in India with features including:
@@ -102,7 +102,7 @@ This is a comprehensive healthcare management system designed to serve rural com
 
 ## Getting Started
 
-1. Open the main `index.html` in a web browser to view the module launcher
+1. Open the main `main.html` in a web browser to view the module launcher
 2. Click on any module card to open that specific page
 3. Use the "Back" button (top-left, auto-injected) to return to the previous page
 4. Each module is self-contained and works independently
@@ -128,8 +128,8 @@ Each module follows a consistent structure:
 ```
 category/
 └── module-name/
-    ├── index.html         (HTML markup + inline Tailwind config)
-    └── styles.css         (Module-specific overrides)
+    ├── module-name.html  (HTML markup + inline Tailwind config)
+    └── module-name.css   (Module-specific overrides)
 ```
 
 All modules reference the global navigation files:
