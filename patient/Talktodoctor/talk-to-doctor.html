@@ -4,34 +4,18 @@
 <head>
     <meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="description"
-        content="Asha Care Talk to Doctor tele-consultation dashboard"
-    >
+    <meta name="description" content="Asha Healthcare Talk to Doctor tele-consultation dashboard">
 
-    <title>Asha Care - Talk to Doctor</title>
+    <title>Asha Healthcare - Talk to Doctor</title>
 
     <!-- Google Font -->
-    <link
-        rel="preconnect"
-        href="https://fonts.googleapis.com"
-    >
+    <link rel="preconnect" href="https://fonts.googleapis.com">
 
-    <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin
-    >
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-        rel="stylesheet"
-    >
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="talk-to-doctor.css">
 </head>
@@ -53,10 +37,10 @@
                 </a>
                 <a href="../dashboard/index.html" class="brand">
                     <span class="brand-logo">
-                        ✚
+                        <img src="/logo/logo.png" alt="">
                     </span>
                     <span class="brand-name">
-                        Asha Care
+                        Asha Healthcare
                     </span>
                 </a>
             </div>
@@ -83,17 +67,11 @@
 
             <div class="header-actions">
 
-                <button
-                    class="header-icon"
-                    aria-label="Notifications"
-                >
+                <button class="header-icon" aria-label="Notifications">
                     🔔
                 </button>
 
-                <button
-                    class="profile-button"
-                    aria-label="Profile"
-                >
+                <button class="profile-button" aria-label="Profile">
                     👤
                 </button>
 
@@ -139,9 +117,7 @@
                     </h1>
 
                     <p>
-                        Connect with certified healthcare
-                        professionals, initiate tele-consultations,
-                        and manage ongoing medical advice.
+                        Connect with certified healthcare professionals, initiate tele-consultations, and manage ongoing medical advice.
                     </p>
 
                 </div>
@@ -149,17 +125,11 @@
 
                 <div class="intro-actions">
 
-                    <button
-                        class="btn btn-primary"
-                        id="findDoctorBtn"
-                    >
+                    <button class="btn btn-primary" id="findDoctorBtn">
                         🔎 Find a Doctor
                     </button>
 
-                    <button
-                        class="btn btn-light"
-                        id="myConsultationsBtn"
-                    >
+                    <button class="btn btn-light" id="myConsultationsBtn">
                         ▣ My Consultations
                     </button>
 
@@ -186,26 +156,17 @@
                     </h2>
 
                     <p>
-                        Connect with general physicians or
-                        specialists via secure video, audio call,
-                        or schedule an in-clinic appointment
-                        within minutes.
+                        Connect with general physicians or specialists via secure video, audio call, or schedule an in-clinic appointment within minutes.
                     </p>
 
 
                     <div class="quick-actions">
 
-                        <button
-                            class="btn btn-primary"
-                            id="quickTriageBtn"
-                        >
+                        <button class="btn btn-primary" id="quickTriageBtn">
                             ⚡ Start Quick Triage
                         </button>
 
-                        <button
-                            class="btn btn-white"
-                            id="browseSpecialistsBtn"
-                        >
+                        <button class="btn btn-white" id="browseSpecialistsBtn">
                             ▣ Browse Specialists
                         </button>
 
@@ -272,10 +233,7 @@
                  ACTIVE CONSULTATION
             ================================================== -->
 
-            <section
-                class="active-consultation"
-                id="consultations"
-            >
+            <section class="active-consultation" id="consultations">
 
                 <div class="active-header">
 
@@ -376,10 +334,7 @@
                         </div>
 
 
-                        <div
-                            class="chat-messages"
-                            id="chatMessages"
-                        >
+                        <div class="chat-messages" id="chatMessages">
 
                             <div class="message doctor-message">
 
@@ -394,12 +349,7 @@
                                     </small>
 
                                     <p>
-                                        Hello Kiran, I have reviewed
-                                        your latest complete blood
-                                        count and thyroid report
-                                        from yesterday. How are your
-                                        symptoms today? Any persistent
-                                        fever or throat discomfort?
+                                        Hello Kiran, I have reviewed your latest complete blood count and thyroid report from yesterday. How are your symptoms today? Any persistent fever or throat discomfort?
                                     </p>
 
                                 </div>
@@ -412,11 +362,7 @@
                                 <div>
 
                                     <p>
-                                        Good morning doctor. The mild
-                                        fever has subsided since
-                                        yesterday evening, but I still
-                                        have a dry cough and slight
-                                        tightness in the mornings.
+                                        Good morning doctor. The mild fever has subsided since yesterday evening, but I still have a dry cough and slight tightness in the mornings.
                                     </p>
 
                                     <small>
@@ -445,9 +391,7 @@
                                     </small>
 
                                     <p>
-                                        That's good to hear. Let me
-                                        ask you a few more questions
-                                        about the cough.
+                                        That's good to hear. Let me ask you a few more questions about the cough.
                                     </p>
 
                                 </div>
@@ -457,22 +401,11 @@
                         </div>
 
 
-                        <form
-                            class="chat-input"
-                            id="chatForm"
-                        >
+                        <form class="chat-input" id="chatForm">
 
-                            <input
-                                type="text"
-                                id="chatInput"
-                                placeholder="Type your health update or question..."
-                                autocomplete="off"
-                            >
+                            <input type="text" id="chatInput" placeholder="Type your health update or question..." autocomplete="off">
 
-                            <button
-                                type="submit"
-                                aria-label="Send message"
-                            >
+                            <button type="submit" aria-label="Send message">
                                 ➤
                             </button>
 
@@ -485,10 +418,7 @@
 
                 <div class="end-consultation-row">
 
-                    <button
-                        class="btn btn-danger"
-                        id="endConsultationBtn"
-                    >
+                    <button class="btn btn-danger" id="endConsultationBtn">
                         ☎ End Consultation
                     </button>
 
@@ -502,10 +432,7 @@
                  DOCTOR SEARCH
             ================================================== -->
 
-            <section
-                class="doctor-section"
-                id="doctors"
-            >
+            <section class="doctor-section" id="doctors">
 
                 <div class="search-panel">
 
@@ -513,11 +440,7 @@
 
                         <span>⌕</span>
 
-                        <input
-                            type="search"
-                            id="doctorSearch"
-                            placeholder="Search by doctor name, specialty, symptom or hospital..."
-                        >
+                        <input type="search" id="doctorSearch" placeholder="Search by doctor name, specialty, symptom or hospital...">
 
                     </div>
 
@@ -580,38 +503,23 @@
                         Consultation Mode:
                     </span>
 
-                    <button
-                        class="filter active"
-                        data-mode="all"
-                    >
+                    <button class="filter active" data-mode="all">
                         All Types
                     </button>
 
-                    <button
-                        class="filter"
-                        data-mode="video"
-                    >
+                    <button class="filter" data-mode="video">
                         Video Consultation
                     </button>
 
-                    <button
-                        class="filter"
-                        data-mode="audio"
-                    >
+                    <button class="filter" data-mode="audio">
                         Audio Call
                     </button>
 
-                    <button
-                        class="filter"
-                        data-mode="clinic"
-                    >
+                    <button class="filter" data-mode="clinic">
                         In-Clinic Visit
                     </button>
 
-                    <button
-                        class="available-toggle"
-                        id="availableToggle"
-                    >
+                    <button class="available-toggle" id="availableToggle">
                         ● Available Now Only
                     </button>
 
@@ -636,8 +544,7 @@
                         </h2>
 
                         <p>
-                            Physicians on call ready to start
-                            within 5 minutes.
+                            Physicians on call ready to start within 5 minutes.
                         </p>
 
                     </div>
@@ -649,23 +556,12 @@
                 </div>
 
 
-                <div
-                    class="doctor-grid instant-doctors"
-                    id="instantDoctors"
-                >
+                <div class="doctor-grid instant-doctors" id="instantDoctors">
 
 
                     <!-- DOCTOR 1 -->
 
-                    <article
-                        class="doctor-card"
-                        data-name="Dr. Priya Sharma"
-                        data-specialty="general"
-                        data-mode="video"
-                        data-price="450"
-                        data-rating="4.9"
-                        data-available="true"
-                    >
+                    <article class="doctor-card" data-name="Dr. Priya Sharma" data-specialty="general" data-mode="video" data-price="450" data-rating="4.9" data-available="true">
 
                         <div class="doctor-top">
 
@@ -721,10 +617,7 @@
                         </div>
 
 
-                        <button
-                            class="btn btn-primary doctor-action"
-                            data-doctor="Dr. Priya Sharma"
-                        >
+                        <button class="btn btn-primary doctor-action" data-doctor="Dr. Priya Sharma">
                             ☎ Talk Now
                         </button>
 
@@ -734,15 +627,7 @@
 
                     <!-- DOCTOR 2 -->
 
-                    <article
-                        class="doctor-card"
-                        data-name="Dr. Rajesh Khanna"
-                        data-specialty="cardiology"
-                        data-mode="video"
-                        data-price="800"
-                        data-rating="4.8"
-                        data-available="true"
-                    >
+                    <article class="doctor-card" data-name="Dr. Rajesh Khanna" data-specialty="cardiology" data-mode="video" data-price="800" data-rating="4.8" data-available="true">
 
                         <div class="doctor-top">
 
@@ -798,10 +683,7 @@
                         </div>
 
 
-                        <button
-                            class="btn btn-primary doctor-action"
-                            data-doctor="Dr. Rajesh Khanna"
-                        >
+                        <button class="btn btn-primary doctor-action" data-doctor="Dr. Rajesh Khanna">
                             ☎ Talk Now
                         </button>
 
@@ -811,15 +693,7 @@
 
                     <!-- DOCTOR 3 -->
 
-                    <article
-                        class="doctor-card"
-                        data-name="Dr. Ananya Sharma"
-                        data-specialty="dermatology"
-                        data-mode="video"
-                        data-price="400"
-                        data-rating="4.9"
-                        data-available="true"
-                    >
+                    <article class="doctor-card" data-name="Dr. Ananya Sharma" data-specialty="dermatology" data-mode="video" data-price="400" data-rating="4.9" data-available="true">
 
                         <div class="doctor-top">
 
@@ -875,10 +749,7 @@
                         </div>
 
 
-                        <button
-                            class="btn btn-primary doctor-action"
-                            data-doctor="Dr. Ananya Sharma"
-                        >
+                        <button class="btn btn-primary doctor-action" data-doctor="Dr. Ananya Sharma">
                             ☎ Talk Now
                         </button>
 
@@ -905,8 +776,7 @@
                         </h2>
 
                         <p>
-                            Flexible consultation modes tailored
-                            to your clinical needs and urgency.
+                            Flexible consultation modes tailored to your clinical needs and urgency.
                         </p>
 
                     </div>
@@ -917,10 +787,7 @@
                 <div class="consult-type-grid">
 
 
-                    <article
-                        class="consult-type-card"
-                        data-consult-mode="video"
-                    >
+                    <article class="consult-type-card" data-consult-mode="video">
 
                         <div class="type-icon blue">
                             ▷
@@ -935,9 +802,7 @@
                         </span>
 
                         <p>
-                            High-definition, face-to-face
-                            encrypted video call with instant
-                            digital prescription delivery.
+                            High-definition, face-to-face encrypted video call with instant digital prescription delivery.
                         </p>
 
                         <a href="#doctors">
@@ -948,10 +813,7 @@
 
 
 
-                    <article
-                        class="consult-type-card"
-                        data-consult-mode="audio"
-                    >
+                    <article class="consult-type-card" data-consult-mode="audio">
 
                         <div class="type-icon green">
                             ☎
@@ -966,10 +828,7 @@
                         </span>
 
                         <p>
-                            Quick voice call when internet
-                            bandwidth is low or for quick
-                            follow-ups, test report readings,
-                            and second opinions.
+                            Quick voice call when internet bandwidth is low or for quick follow-ups, test report readings, and second opinions.
                         </p>
 
                         <a href="#doctors">
@@ -980,10 +839,7 @@
 
 
 
-                    <article
-                        class="consult-type-card"
-                        data-consult-mode="clinic"
-                    >
+                    <article class="consult-type-card" data-consult-mode="clinic">
 
                         <div class="type-icon blue">
                             ▦
@@ -998,9 +854,7 @@
                         </span>
 
                         <p>
-                            Book confirmed priority in-person
-                            consultation at affiliated hospitals
-                            and network clinics.
+                            Book confirmed priority in-person consultation at affiliated hospitals and network clinics.
                         </p>
 
                         <a href="#doctors">
@@ -1019,10 +873,7 @@
                  SPECIALTIES
             ================================================== -->
 
-            <section
-                class="section-block"
-                id="specialties"
-            >
+            <section class="section-block" id="specialties">
 
                 <div class="section-title">
 
@@ -1033,8 +884,7 @@
                         </h2>
 
                         <p>
-                            Consult with top medical specialists
-                            certified by national boards.
+                            Consult with top medical specialists certified by national boards.
                         </p>
 
                     </div>
@@ -1048,80 +898,56 @@
 
                 <div class="specialty-grid">
 
-                    <button
-                        class="specialty-card"
-                        data-specialty="general"
-                    >
+                    <button class="specialty-card" data-specialty="general">
                         <span>⚕</span>
                         <strong>General Physician</strong>
                         <small>34 Doctors</small>
                     </button>
 
 
-                    <button
-                        class="specialty-card"
-                        data-specialty="cardiology"
-                    >
+                    <button class="specialty-card" data-specialty="cardiology">
                         <span>♡</span>
                         <strong>Cardiology</strong>
                         <small>18 Doctors</small>
                     </button>
 
 
-                    <button
-                        class="specialty-card"
-                        data-specialty="dermatology"
-                    >
+                    <button class="specialty-card" data-specialty="dermatology">
                         <span>✦</span>
                         <strong>Dermatology</strong>
                         <small>22 Doctors</small>
                     </button>
 
 
-                    <button
-                        class="specialty-card"
-                        data-specialty="pediatrics"
-                    >
+                    <button class="specialty-card" data-specialty="pediatrics">
                         <span>●</span>
                         <strong>Pediatrics</strong>
                         <small>15 Doctors</small>
                     </button>
 
 
-                    <button
-                        class="specialty-card"
-                        data-specialty="dental"
-                    >
+                    <button class="specialty-card" data-specialty="dental">
                         <span>♧</span>
                         <strong>Dental Care</strong>
                         <small>12 Doctors</small>
                     </button>
 
 
-                    <button
-                        class="specialty-card"
-                        data-specialty="neurology"
-                    >
+                    <button class="specialty-card" data-specialty="neurology">
                         <span>◎</span>
                         <strong>Neurology</strong>
                         <small>9 Doctors</small>
                     </button>
 
 
-                    <button
-                        class="specialty-card"
-                        data-specialty="womens"
-                    >
+                    <button class="specialty-card" data-specialty="womens">
                         <span>♀</span>
                         <strong>Women's Health</strong>
                         <small>20 Doctors</small>
                     </button>
 
 
-                    <button
-                        class="specialty-card"
-                        data-specialty="mental"
-                    >
+                    <button class="specialty-card" data-specialty="mental">
                         <span>☁</span>
                         <strong>Mental Wellness</strong>
                         <small>14 Doctors</small>
@@ -1144,14 +970,11 @@
                     <div>
 
                         <h2>
-                            Verified Doctors Available for
-                            Consultation
+                            Verified Doctors Available for Consultation
                         </h2>
 
                         <p>
-                            Choose your physician and initiate
-                            instant consultation or schedule
-                            ahead.
+                            Choose your physician and initiate instant consultation or schedule ahead.
                         </p>
 
                     </div>
@@ -1209,10 +1032,7 @@
                                 View Profile
                             </button>
 
-                            <button
-                                class="btn btn-primary doctor-action"
-                                data-doctor="Dr. Priya Sharma"
-                            >
+                            <button class="btn btn-primary doctor-action" data-doctor="Dr. Priya Sharma">
                                 ☎ Talk Now
                             </button>
 
@@ -1269,10 +1089,7 @@
                                 View Profile
                             </button>
 
-                            <button
-                                class="btn btn-primary"
-                                data-doctor="Dr. Rajesh Khanna"
-                            >
+                            <button class="btn btn-primary" data-doctor="Dr. Rajesh Khanna">
                                 ▣ Book Slot
                             </button>
 
@@ -1329,10 +1146,7 @@
                                 View Profile
                             </button>
 
-                            <button
-                                class="btn btn-primary"
-                                data-doctor="Dr. Ananya Sharma"
-                            >
+                            <button class="btn btn-primary" data-doctor="Dr. Ananya Sharma">
                                 ☎ Talk Now
                             </button>
 
@@ -1389,10 +1203,7 @@
                                 View Profile
                             </button>
 
-                            <button
-                                class="btn btn-primary"
-                                data-doctor="Dr. Rahul Mehta"
-                            >
+                            <button class="btn btn-primary" data-doctor="Dr. Rahul Mehta">
                                 ▣ Schedule
                             </button>
 
@@ -1449,10 +1260,7 @@
                                 View Profile
                             </button>
 
-                            <button
-                                class="btn btn-primary"
-                                data-doctor="Dr. Sunita Deshmukh"
-                            >
+                            <button class="btn btn-primary" data-doctor="Dr. Sunita Deshmukh">
                                 ▣ Schedule
                             </button>
 
@@ -1509,10 +1317,7 @@
                                 View Profile
                             </button>
 
-                            <button
-                                class="btn btn-primary"
-                                data-doctor="Dr. Vikram Sen"
-                            >
+                            <button class="btn btn-primary" data-doctor="Dr. Vikram Sen">
                                 ▣ Schedule
                             </button>
 
@@ -1530,10 +1335,7 @@
                  RECORDS
             ================================================== -->
 
-            <section
-                class="section-block"
-                id="records"
-            >
+            <section class="section-block" id="records">
 
                 <div class="section-title">
 
@@ -1544,8 +1346,7 @@
                         </h2>
 
                         <p>
-                            Scheduled visits, instant session
-                            history, and certified prescriptions.
+                            Scheduled visits, instant session history, and certified prescriptions.
                         </p>
 
                     </div>
@@ -1640,8 +1441,7 @@
                                 </strong>
 
                                 <p>
-                                    General Physician ·
-                                    28 Aug 2026 · Video Call
+                                    General Physician · 28 Aug 2026 · Video Call
                                 </p>
 
                             </div>
@@ -1670,8 +1470,7 @@
                                 </strong>
 
                                 <p>
-                                    Cardiology Review ·
-                                    14 Aug 2026 · In-Clinic Visit
+                                    Cardiology Review · 14 Aug 2026 · In-Clinic Visit
                                 </p>
 
                             </div>
@@ -1687,10 +1486,7 @@
                         </div>
 
 
-                        <a
-                            href="#"
-                            class="download-link"
-                        >
+                        <a href="#" class="download-link">
                             Download All Tele-Health Invoices &
                             ABHA Health Records ↗
                         </a>
@@ -1719,34 +1515,26 @@
                     </h2>
 
                     <p>
-                        4 quick steps to make your consultation
-                        efficient and clear.
+                        4 quick steps to make your consultation efficient and clear.
                     </p>
 
 
                     <ul>
 
                         <li>
-                            ✓ Keep health records ready.
-                            Upload recent lab reports,
-                            scans, or discharge summaries.
+                            ✓ Keep health records ready. Upload recent lab reports, scans, or discharge summaries.
                         </li>
 
                         <li>
-                            ✓ Describe symptoms clearly:
-                            Note onset time, pain severity,
-                            and triggers.
+                            ✓ Describe symptoms clearly: Note onset time, pain severity, and triggers.
                         </li>
 
                         <li>
-                            ✓ List current medications &amp;
-                            allergies. Keep active pill strips
-                            with you.
+                            ✓ List current medications &amp; allergies. Keep active pill strips with you.
                         </li>
 
                         <li>
-                            ✓ Test audio &amp; camera before
-                            consultation for a smooth session.
+                            ✓ Test audio &amp; camera before consultation for a smooth session.
                         </li>
 
                     </ul>
@@ -1764,12 +1552,7 @@
                     </h2>
 
                     <p>
-                        Online consultations provide medical
-                        guidance, triage assistance, and
-                        preliminary diagnosis. For immediate
-                        life-threatening emergencies, severe
-                        chest pain, sudden paralysis, or acute
-                        respiratory distress:
+                        Online consultations provide medical guidance, triage assistance, and preliminary diagnosis. For immediate life-threatening emergencies, severe chest pain, sudden paralysis, or acute respiratory distress:
                     </p>
 
 
@@ -1816,24 +1599,19 @@
 
     <nav class="mobile-bottom-nav">
         <a href="../dashboard/index.html">
-            <span>⌂</span>
-            Home
+            <span>⌂</span> Home
         </a>
         <a href="talk-to-doctor.html" class="active">
-            <span>♙</span>
-            Doctors
+            <span>♙</span> Doctors
         </a>
         <a href="../appointment/appointment.html">
-            <span>▣</span>
-            Visits
+            <span>▣</span> Visits
         </a>
         <a href="../my_health/my-health.html">
-            <span>▤</span>
-            Records
+            <span>▤</span> Records
         </a>
         <a href="../health_assistant/health-assistant.html">
-            <span>✚</span>
-            AI Assist
+            <span>✚</span> AI Assist
         </a>
     </nav>
 
@@ -1843,11 +1621,7 @@
          TOAST
     ====================================================== -->
 
-    <div
-        class="toast"
-        id="toast"
-        role="status"
-    >
+    <div class="toast" id="toast" role="status">
         <span id="toastMessage">
             Done
         </span>

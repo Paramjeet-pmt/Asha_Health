@@ -2,381 +2,378 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>My Health Dashboard</title>
+    <title>My Health Dashboard</title>
 
-  <!-- Google Font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  <link href="my-health.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="my-health.css" rel="stylesheet">
 </head>
 
 
 <body>
 
 
-  <div class="app">
+    <div class="app">
 
 
-    <!-- =====================================================
+        <!-- =====================================================
          HEADER
     ===================================================== -->
 
-    <header class="header">
+        <header class="header">
 
-      <div class="logo-area">
+            <div class="logo-area">
+                <a href="../dashboard/index.html" class="brand"></a>
+                <img src="/logo/logo.png" class="logo" alt="My Health Logo">
 
-        <img src="https://www.myhealthplatform.co.uk/wp-content/uploads/2023/06/Asset-1@2x.png" class="logo"
-          alt="My Health Logo">
-
-        <h1>MY HEALTH</h1>
-
-      </div>
+                <h1>MY HEALTH</h1>
+                </a>
+            </div>
 
 
-      <div class="header-right">
+            <div class="header-right">
 
-        <!-- Notification -->
+                <!-- Notification -->
 
-        <button class="notification-btn" id="notificationBtn" title="Notifications">
+                <button class="notification-btn" id="notificationBtn" title="Notifications">
           <i class="fa-regular fa-bell"></i>
         </button>
 
 
-        <!-- Profile -->
+                <!-- Profile -->
 
-        <button class="profile-btn" onclick="openProfile()" title="Profile">
+                <button class="profile-btn" onclick="openProfile()" title="Profile">
 
           <img src="https://tse4.mm.bing.net/th/id/OIP.hGSCbXlcOjL_9mmzerqAbQHaHa?r=0&pid=Api&P=0&h=180"
             class="profile-img" alt="Profile">
 
         </button>
 
-      </div>
+            </div>
 
-    </header>
-
-
-    <!-- Notification popup -->
-
-    <div class="popup" id="notificationPopup">
-
-      <h3>Notifications</h3>
-
-      <p>
-        You have no new notifications.
-      </p>
-
-    </div>
+        </header>
 
 
-    <!-- =====================================================
+        <!-- Notification popup -->
+
+        <div class="popup" id="notificationPopup">
+
+            <h3>Notifications</h3>
+
+            <p>
+                You have no new notifications.
+            </p>
+
+        </div>
+
+
+        <!-- =====================================================
          MAIN
     ===================================================== -->
 
-    <main class="main">
+        <main class="main">
 
 
-      <!-- =================================================
+            <!-- =================================================
              HEALTH SUMMARY
         ================================================= -->
 
-      <section>
+            <section>
 
-        <h2 class="section-title">
-          Health Summary
-        </h2>
-
-
-        <div class="health-grid">
+                <h2 class="section-title">
+                    Health Summary
+                </h2>
 
 
-          <!-- Blood Group -->
+                <div class="health-grid">
 
-          <div class="health-card blood" onclick="showMessage('Blood Group: O+')">
 
-            <div class="card-top">
+                    <!-- Blood Group -->
 
-              <i class="fa-solid fa-droplet"></i>
+                    <div class="health-card blood" onclick="showMessage('Blood Group: O+')">
 
-              <span>
+                        <div class="card-top">
+
+                            <i class="fa-solid fa-droplet"></i>
+
+                            <span>
                 Blood Group
               </span>
 
-            </div>
+                        </div>
 
 
-            <div class="card-value">
-              O+
-            </div>
+                        <div class="card-value">
+                            O+
+                        </div>
 
-          </div>
+                    </div>
 
 
-          <!-- Allergies -->
+                    <!-- Allergies -->
 
-          <div class="health-card allergy" onclick="showMessage('Allergy: Penicillin')">
+                    <div class="health-card allergy" onclick="showMessage('Allergy: Penicillin')">
 
-            <div class="card-top">
+                        <div class="card-top">
 
-              <i class="fa-solid fa-virus"></i>
+                            <i class="fa-solid fa-virus"></i>
 
-              <span>
+                            <span>
                 Allergies
               </span>
 
-            </div>
+                        </div>
 
 
-            <div class="card-value">
-              Penicillin
-            </div>
+                        <div class="card-value">
+                            Penicillin
+                        </div>
 
-          </div>
+                    </div>
 
 
-          <!-- Blood Pressure -->
+                    <!-- Blood Pressure -->
 
-          <div class="health-card bp" onclick="showMessage('Latest Blood Pressure: 120/80 mmHg')">
+                    <div class="health-card bp" onclick="showMessage('Latest Blood Pressure: 120/80 mmHg')">
 
-            <div class="card-top">
+                        <div class="card-top">
 
-              <i class="fa-solid fa-heart-Asha "></i>
+                            <i class="fa-solid fa-heart-Asha "></i>
 
-              <span>
+                            <span>
                 Latest BP
               </span>
 
-            </div>
+                        </div>
 
 
-            <div class="card-value">
+                        <div class="card-value">
 
-              120/80
+                            120/80
 
-              <span class="card-unit">
+                            <span class="card-unit">
                 mmHg
               </span>
 
-            </div>
+                        </div>
 
-          </div>
+                    </div>
 
 
-          <!-- Heart Rate -->
+                    <!-- Heart Rate -->
 
-          <div class="health-card heart" onclick="showMessage('Heart Rate: 72 bpm')">
+                    <div class="health-card heart" onclick="showMessage('Heart Rate: 72 bpm')">
 
-            <div class="card-top">
+                        <div class="card-top">
 
-              <i class="fa-regular fa-heart"></i>
+                            <i class="fa-regular fa-heart"></i>
 
-              <span>
+                            <span>
                 Heart Rate
               </span>
 
-            </div>
+                        </div>
 
 
-            <div class="card-value">
+                        <div class="card-value">
 
-              72
+                            72
 
-              <span class="card-unit">
+                            <span class="card-unit">
                 bpm
               </span>
 
-            </div>
+                        </div>
 
-          </div>
+                    </div>
 
-        </div>
+                </div>
 
-      </section>
+            </section>
 
 
-      <!-- =================================================
+            <!-- =================================================
              BOOKED APPOINTMENTS
         ================================================= -->
-      <section class="appointments-section" style="margin-top: 1.5rem; margin-bottom: 1.5rem;">
-        <div class="section-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
-          <h2 style="font-size: 1.15rem; font-weight: 700; color: #0f172a;">My Booked Appointments</h2>
-          <a href="../appointment/appointment.html" style="font-size: 0.85rem; color: #007F6D; font-weight: 600; text-decoration: none;">+ Book New</a>
-        </div>
-        <div id="booked-appointments-list" style="display: flex; flex-direction: column; gap: 0.75rem;">
-          <div style="background: white; border: 1px solid #e2e8f0; border-radius: 1rem; padding: 1rem; color: #64748b; font-size: 0.85rem;">
-            Loading appointments from hospital database...
-          </div>
-        </div>
-      </section>
+            <section class="appointments-section" style="margin-top: 1.5rem; margin-bottom: 1.5rem;">
+                <div class="section-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+                    <h2 style="font-size: 1.15rem; font-weight: 700; color: #0f172a;">My Booked Appointments</h2>
+                    <a href="../appointment/appointment.html" style="font-size: 0.85rem; color: #007F6D; font-weight: 600; text-decoration: none;">+ Book New</a>
+                </div>
+                <div id="booked-appointments-list" style="display: flex; flex-direction: column; gap: 0.75rem;">
+                    <div style="background: white; border: 1px solid #e2e8f0; border-radius: 1rem; padding: 1rem; color: #64748b; font-size: 0.85rem;">
+                        Loading appointments from hospital database...
+                    </div>
+                </div>
+            </section>
 
-      <!-- =================================================
+            <!-- =================================================
              CARE TEAM
         ================================================= -->
 
-      <section class="care-section">
+            <section class="care-section">
 
-        <h2 class="section-title">
-          Your Care Team
-        </h2>
-
-
-        <div class="care-team">
+                <h2 class="section-title">
+                    Your Care Team
+                </h2>
 
 
-          <!-- Doctor 1 -->
-
-          <div class="doctor" onclick="showMessage('Dr. Sharma - General Physician')">
-
-            <img src="https://tse2.mm.bing.net/th/id/OIP.X9DikiefBC3sByedxaNrmwHaHa?r=0&pid=Api&P=0&h=180"
-              class="doctor-img" alt="Dr Sharma">
-
-            <div class="doctor-name">
-              Dr. Sharma
-            </div>
-
-            <div class="doctor-type">
-              General
-            </div>
-
-          </div>
+                <div class="care-team">
 
 
-          <!-- Doctor 2 -->
+                    <!-- Doctor 1 -->
 
-          <div class="doctor" onclick="showMessage('Dr. Patel - Cardiologist')">
+                    <div class="doctor" onclick="showMessage('Dr. Sharma - General Physician')">
 
-            <img src="https://tse3.mm.bing.net/th/id/OIP.9BA_wumzq_clQvJJDVvz4AHaEO?r=0&pid=Api&P=0&h=180"
-              class="doctor-img" alt="Dr Patel">
+                        <img src="https://tse2.mm.bing.net/th/id/OIP.X9DikiefBC3sByedxaNrmwHaHa?r=0&pid=Api&P=0&h=180" class="doctor-img" alt="Dr Sharma">
 
-            <div class="doctor-name">
-              Dr. Patel
-            </div>
+                        <div class="doctor-name">
+                            Dr. Sharma
+                        </div>
 
-            <div class="doctor-type">
-              Cardio
-            </div>
+                        <div class="doctor-type">
+                            General
+                        </div>
 
-          </div>
-
-
-          <!-- Add New -->
-
-          <div class="doctor" onclick="addDoctor()">
-
-            <div class="add-doctor">
-
-              <i class="fa-solid fa-user-plus"></i>
-
-            </div>
+                    </div>
 
 
-            <div class="doctor-name">
-              Add New
-            </div>
+                    <!-- Doctor 2 -->
 
-          </div>
+                    <div class="doctor" onclick="showMessage('Dr. Patel - Cardiologist')">
 
-        </div>
+                        <img src="https://tse3.mm.bing.net/th/id/OIP.9BA_wumzq_clQvJJDVvz4AHaEO?r=0&pid=Api&P=0&h=180" class="doctor-img" alt="Dr Patel">
 
-      </section>
+                        <div class="doctor-name">
+                            Dr. Patel
+                        </div>
+
+                        <div class="doctor-type">
+                            Cardio
+                        </div>
+
+                    </div>
 
 
-      <!-- =================================================
+                    <!-- Add New -->
+
+                    <div class="doctor" onclick="addDoctor()">
+
+                        <div class="add-doctor">
+
+                            <i class="fa-solid fa-user-plus"></i>
+
+                        </div>
+
+
+                        <div class="doctor-name">
+                            Add New
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
              MEDICATION
         ================================================= -->
 
-      <section class="med-section" id="medications">
+            <section class="med-section" id="medications">
 
-        <div class="section-header">
-          <h2>Active Medications</h2>
-          <span class="view-all" onclick="showMessage('All active prescriptions synced from hospital')">Sync Status: Live</span>
-        </div>
+                <div class="section-header">
+                    <h2>Active Medications</h2>
+                    <span class="view-all" onclick="showMessage('All active prescriptions synced from hospital')">Sync Status: Live</span>
+                </div>
 
-        <!-- Dynamic Medicine List -->
-        <div id="med-list-wrapper">
-          <!-- Populated from SQLite DB via /api/patient/1/records -->
-          <div class="medicine-card" onclick="showMessage('Iron Folic Acid (IFA) - 100mg')">
-            <div class="medicine-icon">
-              <i class="fa-solid fa-prescription-bottle-medical"></i>
-            </div>
-            <div class="medicine-info">
-              <div class="medicine-name">Iron Folic Acid (IFA) 100mg</div>
-              <div class="medicine-time">1 tablet daily after food • Active</div>
-            </div>
-            <div class="check checked" onclick="event.stopPropagation(); toggleMedicineItem(1, this)">
-              <i class="fa-solid fa-check"></i>
-            </div>
-          </div>
-          <div class="medicine-card" onclick="showMessage('Calcium Carbonate - 500mg')">
-            <div class="medicine-icon">
-              <i class="fa-solid fa-file-prescription"></i>
-            </div>
-            <div class="medicine-info">
-              <div class="medicine-name">Calcium Carbonate 500mg</div>
-              <div class="medicine-time">1 tablet twice daily • Active</div>
-            </div>
-            <div class="check" onclick="event.stopPropagation(); toggleMedicineItem(2, this)">
-            </div>
-          </div>
-        </div>
+                <!-- Dynamic Medicine List -->
+                <div id="med-list-wrapper">
+                    <!-- Populated from SQLite DB via /api/patient/1/records -->
+                    <div class="medicine-card" onclick="showMessage('Iron Folic Acid (IFA) - 100mg')">
+                        <div class="medicine-icon">
+                            <i class="fa-solid fa-prescription-bottle-medical"></i>
+                        </div>
+                        <div class="medicine-info">
+                            <div class="medicine-name">Iron Folic Acid (IFA) 100mg</div>
+                            <div class="medicine-time">1 tablet daily after food • Active</div>
+                        </div>
+                        <div class="check checked" onclick="event.stopPropagation(); toggleMedicineItem(1, this)">
+                            <i class="fa-solid fa-check"></i>
+                        </div>
+                    </div>
+                    <div class="medicine-card" onclick="showMessage('Calcium Carbonate - 500mg')">
+                        <div class="medicine-icon">
+                            <i class="fa-solid fa-file-prescription"></i>
+                        </div>
+                        <div class="medicine-info">
+                            <div class="medicine-name">Calcium Carbonate 500mg</div>
+                            <div class="medicine-time">1 tablet twice daily • Active</div>
+                        </div>
+                        <div class="check" onclick="event.stopPropagation(); toggleMedicineItem(2, this)">
+                        </div>
+                    </div>
+                </div>
 
-      </section>
+            </section>
 
 
-      <!-- =================================================
+            <!-- =================================================
              RECENT REPORTS
         ================================================= -->
 
-      <section class="reports-section">
+            <section class="reports-section">
 
 
-        <div class="section-header">
+                <div class="section-header">
 
-          <h2>
-            Recent Reports
-          </h2>
+                    <h2>
+                        Recent Reports
+                    </h2>
 
-        </div>
-
-
-        <div class="reports-container">
+                </div>
 
 
-          <!-- Report 1 -->
-
-          <div class="report-card" onclick="showMessage('Complete Blood Count Report')">
-
-            <div class="report-icon">
-
-              <i class="fa-solid fa-microscope"></i>
-
-            </div>
+                <div class="reports-container">
 
 
-            <div class="report-status">
-              Normal
-            </div>
+                    <!-- Report 1 -->
+
+                    <div class="report-card" onclick="showMessage('Complete Blood Count Report')">
+
+                        <div class="report-icon">
+
+                            <i class="fa-solid fa-microscope"></i>
+
+                        </div>
 
 
-            <div class="report-name">
-              Complete Blood Count
-            </div>
+                        <div class="report-status">
+                            Normal
+                        </div>
 
 
-            <div class="report-date">
-              Oct 12, 2023 • Apollo Labs
-            </div>
+                        <div class="report-name">
+                            Complete Blood Count
+                        </div>
 
 
-            <button class="download" onclick="event.stopPropagation(); downloadReport()">
+                        <div class="report-date">
+                            Oct 12, 2023 • Apollo Labs
+                        </div>
+
+
+                        <button class="download" onclick="event.stopPropagation(); downloadReport()">
 
               <i class="fa-solid fa-download"></i>
 
@@ -384,154 +381,150 @@
 
             </button>
 
-          </div>
+                    </div>
 
 
-          <!-- Report 2 -->
+                    <!-- Report 2 -->
 
-          <div class="small-report" onclick="showMessage('Chest X-Ray Report')">
+                    <div class="small-report" onclick="showMessage('Chest X-Ray Report')">
 
-            <div class="report-icon">
+                        <div class="report-icon">
 
-              <i class="fa-solid fa-x-ray"></i>
+                            <i class="fa-solid fa-x-ray"></i>
 
-            </div>
-
-
-            <h3>
-              Chest X-Ray
-            </h3>
+                        </div>
 
 
-            <p>
-              Oct 14, 2023
-            </p>
-
-          </div>
-
-        </div>
-
-      </section>
+                        <h3>
+                            Chest X-Ray
+                        </h3>
 
 
-      <!-- =================================================
+                        <p>
+                            Oct 14, 2023
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
              MEDICAL HISTORY
         ================================================= -->
 
-      <section class="history-section">
+            <section class="history-section">
 
 
-        <h2 class="section-title">
-          Medical History
-        </h2>
+                <h2 class="section-title">
+                    Medical History
+                </h2>
 
 
-        <div class="history">
+                <div class="history">
 
 
-          <!-- History 1 -->
+                    <!-- History 1 -->
 
-          <div class="history-item">
+                    <div class="history-item">
 
-            <div class="history-dot"></div>
-
-
-            <div class="history-date">
-              Oct 14, 2023
-            </div>
+                        <div class="history-dot"></div>
 
 
-            <div class="history-card" onclick="showMessage('General Consultation Details')">
-
-              <h3>
-                General Consultation
-              </h3>
+                        <div class="history-date">
+                            Oct 14, 2023
+                        </div>
 
 
-              <p>
-                Dr. Ananya Sharma
-              </p>
+                        <div class="history-card" onclick="showMessage('General Consultation Details')">
+
+                            <h3>
+                                General Consultation
+                            </h3>
 
 
-              <p class="location">
-
-                <i class="fa-solid fa-location-dot"></i>
-
-                District Hospital - Sub-center 4
-
-              </p>
+                            <p>
+                                Dr. Ananya Sharma
+                            </p>
 
 
-              <p class="details">
-                View Details →
-              </p>
+                            <p class="location">
 
-            </div>
+                                <i class="fa-solid fa-location-dot"></i> District Hospital - Sub-center 4
 
-          </div>
+                            </p>
 
 
-          <!-- History 2 -->
+                            <p class="details">
+                                View Details →
+                            </p>
 
-          <div class="history-item">
+                        </div>
 
-            <div class="history-dot"></div>
-
-
-            <div class="history-date">
-              Sep 28, 2023
-            </div>
+                    </div>
 
 
-            <div class="history-card" onclick="showMessage('Covid-19 Booster Details')">
+                    <!-- History 2 -->
 
-              <h3>
-                Covid-19 Booster
-              </h3>
+                    <div class="history-item">
 
-
-              <p>
-                Preventive Care
-              </p>
+                        <div class="history-dot"></div>
 
 
-              <p class="location">
-
-                <i class="fa-solid fa-location-dot"></i>
-
-                Community Health Center
-
-              </p>
+                        <div class="history-date">
+                            Sep 28, 2023
+                        </div>
 
 
-              <p class="details">
-                View Details →
-              </p>
+                        <div class="history-card" onclick="showMessage('Covid-19 Booster Details')">
 
-            </div>
-
-          </div>
-
-        </div>
-
-      </section>
-
-    </main>
+                            <h3>
+                                Covid-19 Booster
+                            </h3>
 
 
-    <!-- =====================================================
+                            <p>
+                                Preventive Care
+                            </p>
+
+
+                            <p class="location">
+
+                                <i class="fa-solid fa-location-dot"></i> Community Health Center
+
+                            </p>
+
+
+                            <p class="details">
+                                View Details →
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+
+        <!-- =====================================================
          BOTTOM NAVIGATION
     ===================================================== -->
 
-    <nav class="bottom-nav">
+        <nav class="bottom-nav">
 
 
-      <button class="nav-item" onclick="window.location.href='../dashboard/dashboard.html'">
+            <button class="nav-item" onclick="window.location.href='../dashboard/dashboard.html'">
         <i class="fa-solid fa-qrcode"></i>
         <span>Dashboard</span>
       </button>
 
-      <button class="nav-item active" onclick="changePage(this, 'My Health')">
+            <button class="nav-item active" onclick="changePage(this, 'My Health')">
 
         <i class="fa-solid fa-shield-heart"></i>
 
@@ -542,7 +535,7 @@
       </button>
 
 
-      <button class="nav-item" onclick="changePage(this, 'Appointments')">
+            <button class="nav-item" onclick="changePage(this, 'Appointments')">
 
         <i class="fa-regular fa-calendar"></i>
 
@@ -553,7 +546,7 @@
       </button>
 
 
-      <button class="nav-item" onclick="changePage(this, 'Profile')">
+            <button class="nav-item" onclick="changePage(this, 'Profile')">
 
         <i class="fa-regular fa-user"></i>
 
@@ -563,85 +556,92 @@
 
       </button>
 
-    <!-- Toast Notification Container -->
-    <div id="toast" style="position: fixed; bottom: 85px; left: 50%; transform: translateX(-50%); background: #0f172a; color: white; padding: 10px 20px; border-radius: 9999px; font-size: 13px; font-weight: 500; display: none; z-index: 99999; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.2); transition: all 0.2s;">
-      <span id="toast-text">Message</span>
-    </div>
+            <!-- Toast Notification Container -->
+            <div id="toast" style="position: fixed; bottom: 85px; left: 50%; transform: translateX(-50%); background: #0f172a; color: white; padding: 10px 20px; border-radius: 9999px; font-size: 13px; font-weight: 500; display: none; z-index: 99999; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.2); transition: all 0.2s;">
+                <span id="toast-text">Message</span>
+            </div>
 
-    <!-- Script: Live Backend Connection -->
-    <script>
-      let toastTimeout;
-      function showMessage(msg) {
-        const toast = document.getElementById('toast');
-        const text = document.getElementById('toast-text');
-        if (!toast) return;
-        text.textContent = msg;
-        toast.style.display = 'block';
-        clearTimeout(toastTimeout);
-        toastTimeout = setTimeout(() => { toast.style.display = 'none'; }, 2400);
-      }
+            <!-- Script: Live Backend Connection -->
+            <script>
+                let toastTimeout;
 
-      function openProfile() {
-        const user = JSON.parse(localStorage.getItem('asha_user') || '{"name":"Priya Sharma","phone":"+91 9876543210","abha_id":"ABHA-9821-4321-0012"}');
-        showMessage(`ABHA ID: ${user.abha_id || 'ABHA-9821-4321-0012'} • Verified`);
-      }
+                function showMessage(msg) {
+                    const toast = document.getElementById('toast');
+                    const text = document.getElementById('toast-text');
+                    if (!toast) return;
+                    text.textContent = msg;
+                    toast.style.display = 'block';
+                    clearTimeout(toastTimeout);
+                    toastTimeout = setTimeout(() => {
+                        toast.style.display = 'none';
+                    }, 2400);
+                }
 
-      function addDoctor() {
-        window.location.href = '../appointment/appointment.html';
-      }
+                function openProfile() {
+                    const user = JSON.parse(localStorage.getItem('asha_user') || '{"name":"Priya Sharma","phone":"+91 9876543210","abha_id":"ABHA-9821-4321-0012"}');
+                    showMessage(`ABHA ID: ${user.abha_id || 'ABHA-9821-4321-0012'} • Verified`);
+                }
 
-      function changePage(btn, page) {
-        if (page === 'Appointments') {
-          window.location.href = '../appointment/appointment.html';
-        } else if (page === 'Dashboard') {
-          window.location.href = '../dashboard/index.html';
-        } else if (page === 'Profile') {
-          openProfile();
-        }
-      }
+                function addDoctor() {
+                    window.location.href = '../appointment/appointment.html';
+                }
 
-      function downloadReport() {
-        showMessage('Downloading Clinical Lab Report PDF...');
-        setTimeout(() => {
-          window.print();
-        }, 600);
-      }
+                function changePage(btn, page) {
+                    if (page === 'Appointments') {
+                        window.location.href = '../appointment/appointment.html';
+                    } else if (page === 'Dashboard') {
+                        window.location.href = '../dashboard/index.html';
+                    } else if (page === 'Profile') {
+                        openProfile();
+                    }
+                }
 
-      async function toggleMedicineItem(presId, el) {
-        const isChecked = el.classList.contains('checked');
-        const newStatus = isChecked ? 'ACTIVE' : 'TAKEN';
-        
-        if (isChecked) {
-          el.classList.remove('checked');
-          el.innerHTML = '';
-          showMessage('Marked as Due');
-        } else {
-          el.classList.add('checked');
-          el.innerHTML = '<i class="fa-solid fa-check"></i>';
-          showMessage('Marked as Taken! Synced with Doctor.');
-        }
+                function downloadReport() {
+                    showMessage('Downloading Clinical Lab Report PDF...');
+                    setTimeout(() => {
+                        window.print();
+                    }, 600);
+                }
 
-        try {
-          await fetch(`/api/patient/prescription/${presId}/toggle`, {
-            method: 'PATCH',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ status: newStatus })
-          });
-        } catch (e) {
-          console.warn('Updated locally');
-        }
-      }
+                async function toggleMedicineItem(presId, el) {
+                    const isChecked = el.classList.contains('checked');
+                    const newStatus = isChecked ? 'ACTIVE' : 'TAKEN';
 
-      // Live Load from Backend SQLite Database
-      async function loadPatientEHR() {
-        // 1. Fetch Booked Appointments
-        try {
-          const aptRes = await fetch('/api/appointments');
-          if (aptRes.ok) {
-            const apts = await aptRes.json();
-            const aptContainer = document.getElementById('booked-appointments-list');
-            if (aptContainer && apts.length > 0) {
-              aptContainer.innerHTML = apts.map(a => `
+                    if (isChecked) {
+                        el.classList.remove('checked');
+                        el.innerHTML = '';
+                        showMessage('Marked as Due');
+                    } else {
+                        el.classList.add('checked');
+                        el.innerHTML = '<i class="fa-solid fa-check"></i>';
+                        showMessage('Marked as Taken! Synced with Doctor.');
+                    }
+
+                    try {
+                        await fetch(`/api/patient/prescription/${presId}/toggle`, {
+                            method: 'PATCH',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({
+                                status: newStatus
+                            })
+                        });
+                    } catch (e) {
+                        console.warn('Updated locally');
+                    }
+                }
+
+                // Live Load from Backend SQLite Database
+                async function loadPatientEHR() {
+                    // 1. Fetch Booked Appointments
+                    try {
+                        const aptRes = await fetch('/api/appointments');
+                        if (aptRes.ok) {
+                            const apts = await aptRes.json();
+                            const aptContainer = document.getElementById('booked-appointments-list');
+                            if (aptContainer && apts.length > 0) {
+                                aptContainer.innerHTML = apts.map(a => `
                 <div style="background: white; border: 1px solid #e2e8f0; border-left: 4px solid #007F6D; border-radius: 1rem; padding: 1rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05); display: flex; justify-content: space-between; align-items: center;">
                   <div style="display: flex; flex-direction: column; gap: 0.2rem;">
                     <div style="display: flex; align-items: center; gap: 0.5rem;">
@@ -696,8 +696,9 @@
       }
 
       document.addEventListener('DOMContentLoaded', loadPatientEHR);
-    </script>
-    <script src="../../asha-navigation.js"></script>
-  </div>
+            </script>
+            <script src="../../asha-navigation.js"></script>
+    </div>
 </body>
+
 </html>
