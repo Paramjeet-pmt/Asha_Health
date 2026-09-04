@@ -419,7 +419,11 @@
               <h3 class="font-headline-md text-headline-md text-on-background">
                 Medicine Reminders
               </h3>
-              <span id="med-count-badge" class="px-2 py-0.5 rounded-full bg-primary/10 text-primary font-label-sm text-[11px] font-bold">2 Active</span>
+              <span
+                id="med-count-badge"
+                class="px-2 py-0.5 rounded-full bg-primary/10 text-primary font-label-sm text-[11px] font-bold"
+                >2 Active</span
+              >
             </div>
             <button
               onclick="handleSyncClick(event)"
@@ -466,7 +470,9 @@
                 id="med-check-1"
                 class="w-7 h-7 rounded-full bg-secondary text-on-secondary flex items-center justify-center shadow-sm"
               >
-                <span class="material-symbols-outlined text-[16px] font-bold">check</span>
+                <span class="material-symbols-outlined text-[16px] font-bold"
+                  >check</span
+                >
               </div>
             </div>
 
@@ -492,7 +498,9 @@
                   >
                 </div>
                 <div class="flex flex-col">
-                  <span id="med-title-2" class="font-label-md text-label-md text-on-surface font-semibold"
+                  <span
+                    id="med-title-2"
+                    class="font-label-md text-label-md text-on-surface font-semibold"
                     >Calcium Carbonate (500mg)</span
                   >
                   <span
@@ -519,8 +527,13 @@
             onclick="handleSyncClick(event)"
             class="inline-flex items-center gap-2 px-4 py-2 bg-surface-container-low rounded-full shadow-sm cursor-pointer hover:bg-surface-container transition-all active:scale-95 border border-outline-variant/30"
           >
-            <span id="sync-status-dot" class="w-2 h-2 rounded-full bg-secondary"></span>
-            <span id="sync-status-text" class="font-label-sm text-label-sm text-on-surface-variant"
+            <span
+              id="sync-status-dot"
+              class="w-2 h-2 rounded-full bg-secondary"
+            ></span>
+            <span
+              id="sync-status-text"
+              class="font-label-sm text-label-sm text-on-surface-variant"
               >Doctor records synced</span
             >
             <span
@@ -530,233 +543,299 @@
             >
           </button>
         </div>
-    </div>
-  </main>
-
-  <!-- Live Sync Floating Toast Notification -->
-  <div
-    id="sync-toast"
-    class="fixed bottom-20 left-1/2 -translate-x-1/2 z-50 pointer-events-none transition-all duration-300 opacity-0 translate-y-3 max-w-[90%] w-[340px]"
-  >
-    <div class="bg-surface-container-highest/95 backdrop-blur-md text-on-surface p-3.5 rounded-2xl shadow-xl border border-outline-variant/40 flex items-center gap-3">
-      <div id="toast-icon-wrapper" class="w-9 h-9 rounded-full bg-primary/10 text-primary flex items-center justify-center flex-shrink-0">
-        <span id="toast-icon" class="material-symbols-outlined text-[20px] animate-spin">sync</span>
       </div>
-      <div class="flex flex-col flex-1 min-w-0">
-        <span id="toast-title" class="text-xs font-bold text-on-surface">Syncing with Doctor Portal...</span>
-        <span id="toast-sub" class="text-[11px] text-on-surface-variant truncate">Fetching latest prescriptions & clinical notes</span>
+    </main>
+
+    <!-- Live Sync Floating Toast Notification -->
+    <div
+      id="sync-toast"
+      class="fixed bottom-20 left-1/2 -translate-x-1/2 z-50 pointer-events-none transition-all duration-300 opacity-0 translate-y-3 max-w-[90%] w-[340px]"
+    >
+      <div
+        class="bg-surface-container-highest/95 backdrop-blur-md text-on-surface p-3.5 rounded-2xl shadow-xl border border-outline-variant/40 flex items-center gap-3"
+      >
+        <div
+          id="toast-icon-wrapper"
+          class="w-9 h-9 rounded-full bg-primary/10 text-primary flex items-center justify-center flex-shrink-0"
+        >
+          <span
+            id="toast-icon"
+            class="material-symbols-outlined text-[20px] animate-spin"
+            >sync</span
+          >
+        </div>
+        <div class="flex flex-col flex-1 min-w-0">
+          <span id="toast-title" class="text-xs font-bold text-on-surface"
+            >Syncing with Doctor Portal...</span
+          >
+          <span
+            id="toast-sub"
+            class="text-[11px] text-on-surface-variant truncate"
+            >Fetching latest prescriptions & clinical notes</span
+          >
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- Bottom Navigation Bar -->
-  <nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/80 backdrop-blur-xl shadow-[0_-1px_8px_rgba(0,0,0,0.04)]"
-    data-active-classes="text-primary font-semibold">
-    <div class="flex justify-around items-center h-16 px-2">
-      <a
-        class="flex flex-col items-center justify-center w-full h-full text-on-surface-variant transition-colors"
-        data-path="visits" href="../doctor_queue/index.html">
-        <span class="material-symbols-outlined">event_repeat</span>
-        <span class="text-label-sm font-label-sm mt-1">Visits</span>
-      </a>
+    <!-- Bottom Navigation Bar -->
+    <nav
+      class="fixed bottom-0 w-full z-50 pb-safe bg-surface/80 backdrop-blur-xl shadow-[0_-1px_8px_rgba(0,0,0,0.04)]"
+      data-active-classes="text-primary font-semibold"
+    >
+      <div class="flex justify-around items-center h-16 px-2">
+        <a
+          class="flex flex-col items-center justify-center w-full h-full text-on-surface-variant transition-colors"
+          data-path="visits"
+          href="../doctor_queue/index.html"
+        >
+          <span class="material-symbols-outlined">event_repeat</span>
+          <span class="text-label-sm font-label-sm mt-1">Visits</span>
+        </a>
 
-      <!-- Actual bottom right sync button -->
-      <button
-        id="navbar-sync-btn"
-        onclick="handleSyncClick(event)"
-        class="flex flex-col items-center justify-center w-full h-full text-primary transition-colors cursor-pointer active:scale-95"
-        data-path="sync"
-        title="Sync progress with doctor data">
-        <span id="navbar-sync-icon" class="material-symbols-outlined transition-transform">sync</span>
-        <span class="text-label-sm font-label-sm mt-1 font-semibold">Sync</span>
-      </button>
-    </div>
-  </nav>
+        <!-- Actual bottom right sync button -->
+        <button
+          id="navbar-sync-btn"
+          onclick="handleSyncClick(event)"
+          class="flex flex-col items-center justify-center w-full h-full text-primary transition-colors cursor-pointer active:scale-95"
+          data-path="sync"
+          title="Sync progress with doctor data"
+        >
+          <span
+            id="navbar-sync-icon"
+            class="material-symbols-outlined transition-transform"
+            >sync</span
+          >
+          <span class="text-label-sm font-label-sm mt-1 font-semibold"
+            >Sync</span
+          >
+        </button>
+      </div>
+    </nav>
 
-  <!-- Synchronization & Interactive Medicine Script -->
-  <script>
-    let isSyncing = false;
-    let medicationsState = [
-      { id: 1, name: 'Iron Folic Acid (IFA)', dosage: '100mg', instructions: '1 tablet daily after food', status: 'TAKEN' },
-      { id: 2, name: 'Calcium Carbonate', dosage: '500mg', instructions: 'Tonight • Twice Daily', status: 'ACTIVE' },
-      { id: 3, name: 'Paracetamol (SOS)', dosage: '650mg', instructions: 'If fever > 100°F (from Dr. Sharma)', status: 'ACTIVE' }
-    ];
+    <!-- Synchronization & Interactive Medicine Script -->
+    <script>
+      let isSyncing = false;
+      let medicationsState = [
+        {
+          id: 1,
+          name: "Iron Folic Acid (IFA)",
+          dosage: "100mg",
+          instructions: "1 tablet daily after food",
+          status: "TAKEN",
+        },
+        {
+          id: 2,
+          name: "Calcium Carbonate",
+          dosage: "500mg",
+          instructions: "Tonight • Twice Daily",
+          status: "ACTIVE",
+        },
+        {
+          id: 3,
+          name: "Paracetamol (SOS)",
+          dosage: "650mg",
+          instructions: "If fever > 100°F (from Dr. Sharma)",
+          status: "ACTIVE",
+        },
+      ];
 
-    // Show toast helper
-    function showToast(title, sub, isDone = false) {
-      const toast = document.getElementById('sync-toast');
-      const toastTitle = document.getElementById('toast-title');
-      const toastSub = document.getElementById('toast-sub');
-      const toastIcon = document.getElementById('toast-icon');
-      const toastIconWrapper = document.getElementById('toast-icon-wrapper');
+      // Show toast helper
+      function showToast(title, sub, isDone = false) {
+        const toast = document.getElementById("sync-toast");
+        const toastTitle = document.getElementById("toast-title");
+        const toastSub = document.getElementById("toast-sub");
+        const toastIcon = document.getElementById("toast-icon");
+        const toastIconWrapper = document.getElementById("toast-icon-wrapper");
 
-      toastTitle.textContent = title;
-      toastSub.textContent = sub;
+        toastTitle.textContent = title;
+        toastSub.textContent = sub;
 
-      if (isDone) {
-        toastIcon.classList.remove('animate-spin');
-        toastIcon.textContent = 'check_circle';
-        toastIconWrapper.className = 'w-9 h-9 rounded-full bg-green-100 text-green-700 flex items-center justify-center flex-shrink-0';
-      } else {
-        toastIcon.classList.add('animate-spin');
-        toastIcon.textContent = 'sync';
-        toastIconWrapper.className = 'w-9 h-9 rounded-full bg-primary/10 text-primary flex items-center justify-center flex-shrink-0';
+        if (isDone) {
+          toastIcon.classList.remove("animate-spin");
+          toastIcon.textContent = "check_circle";
+          toastIconWrapper.className =
+            "w-9 h-9 rounded-full bg-green-100 text-green-700 flex items-center justify-center flex-shrink-0";
+        } else {
+          toastIcon.classList.add("animate-spin");
+          toastIcon.textContent = "sync";
+          toastIconWrapper.className =
+            "w-9 h-9 rounded-full bg-primary/10 text-primary flex items-center justify-center flex-shrink-0";
+        }
+
+        toast.classList.remove("opacity-0", "translate-y-3");
+        toast.classList.add("opacity-100", "translate-y-0");
+
+        if (isDone) {
+          setTimeout(() => {
+            toast.classList.remove("opacity-100", "translate-y-0");
+            toast.classList.add("opacity-0", "translate-y-3");
+          }, 3200);
+        }
       }
 
-      toast.classList.remove('opacity-0', 'translate-y-3');
-      toast.classList.add('opacity-100', 'translate-y-0');
+      // Toggle medicine taken state
+      function toggleMedicineStatus(medId) {
+        const med = medicationsState.find((m) => m.id === medId);
+        if (!med) return;
 
-      if (isDone) {
-        setTimeout(() => {
-          toast.classList.remove('opacity-100', 'translate-y-0');
-          toast.classList.add('opacity-0', 'translate-y-3');
-        }, 3200);
+        med.status = med.status === "TAKEN" ? "ACTIVE" : "TAKEN";
+        renderMedications();
+
+        // Show instant micro-feedback
+        const toastMsg =
+          med.status === "TAKEN"
+            ? `Marked ${med.name} as taken! Progress queued for sync.`
+            : `Marked ${med.name} as pending.`;
+        showToast("Medication Updated", toastMsg, true);
+
+        // Save locally
+        localStorage.setItem(
+          "asha_meds_cache",
+          JSON.stringify(medicationsState),
+        );
+
+        // Asynchronously push to backend if available
+        try {
+          fetch(`/api/patient/prescription/${medId}/toggle`, {
+            method: "PATCH",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ status: med.status }),
+          }).catch(() => {});
+        } catch (e) {}
       }
-    }
 
-    // Toggle medicine taken state
-    function toggleMedicineStatus(medId) {
-      const med = medicationsState.find(m => m.id === medId);
-      if (!med) return;
+      // Render medicines list dynamically
+      function renderMedications() {
+        const container = document.getElementById("medicine-list-container");
+        if (!container) return;
 
-      med.status = med.status === 'TAKEN' ? 'ACTIVE' : 'TAKEN';
-      renderMedications();
+        const badge = document.getElementById("med-count-badge");
+        const activeCount = medicationsState.filter(
+          (m) => m.status !== "TAKEN",
+        ).length;
+        if (badge) badge.textContent = `${activeCount} Pending`;
 
-      // Show instant micro-feedback
-      const toastMsg = med.status === 'TAKEN' 
-        ? `Marked ${med.name} as taken! Progress queued for sync.` 
-        : `Marked ${med.name} as pending.`;
-      showToast('Medication Updated', toastMsg, true);
-
-      // Save locally
-      localStorage.setItem('asha_meds_cache', JSON.stringify(medicationsState));
-
-      // Asynchronously push to backend if available
-      try {
-        fetch(`/api/patient/prescription/${medId}/toggle`, {
-          method: 'PATCH',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ status: med.status })
-        }).catch(() => {});
-      } catch(e) {}
-    }
-
-    // Render medicines list dynamically
-    function renderMedications() {
-      const container = document.getElementById('medicine-list-container');
-      if (!container) return;
-
-      const badge = document.getElementById('med-count-badge');
-      const activeCount = medicationsState.filter(m => m.status !== 'TAKEN').length;
-      if (badge) badge.textContent = `${activeCount} Pending`;
-
-      container.innerHTML = medicationsState.map((med, index) => {
-        const isTaken = med.status === 'TAKEN';
-        return `
+        container.innerHTML = medicationsState
+          .map((med, index) => {
+            const isTaken = med.status === "TAKEN";
+            return `
           <div
             onclick="toggleMedicineStatus(${med.id})"
-            class="flex items-center justify-between p-4 ${isTaken ? 'bg-surface-container-high' : 'bg-surface-container-lowest border border-outline-variant/30'} rounded-xl shadow-sm cursor-pointer transition-all active:scale-[0.99] relative overflow-hidden"
+            class="flex items-center justify-between p-4 ${isTaken ? "bg-surface-container-high" : "bg-surface-container-lowest border border-outline-variant/30"} rounded-xl shadow-sm cursor-pointer transition-all active:scale-[0.99] relative overflow-hidden"
           >
-            ${!isTaken ? '<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-admin-amber rounded-l-xl"></div>' : ''}
-            <div class="flex items-center gap-4 ${!isTaken ? 'pl-2' : ''}">
-              <div class="w-10 h-10 rounded-full ${isTaken ? 'bg-secondary/10 text-secondary' : 'bg-admin-amber/10 text-admin-amber'} flex items-center justify-center">
+            ${!isTaken ? '<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-admin-amber rounded-l-xl"></div>' : ""}
+            <div class="flex items-center gap-4 ${!isTaken ? "pl-2" : ""}">
+              <div class="w-10 h-10 rounded-full ${isTaken ? "bg-secondary/10 text-secondary" : "bg-admin-amber/10 text-admin-amber"} flex items-center justify-center">
                 <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1">
-                  ${isTaken ? 'pill' : 'medication'}
+                  ${isTaken ? "pill" : "medication"}
                 </span>
               </div>
               <div class="flex flex-col">
-                <span class="font-label-md text-label-md text-on-surface ${isTaken ? 'line-through opacity-70' : 'font-semibold'}">
+                <span class="font-label-md text-label-md text-on-surface ${isTaken ? "line-through opacity-70" : "font-semibold"}">
                   ${med.name} (${med.dosage})
                 </span>
-                <span class="font-label-sm text-label-sm ${isTaken ? 'text-on-surface-variant' : 'text-admin-amber font-semibold'}">
-                  ${med.instructions} • ${isTaken ? 'Taken' : 'Due'}
+                <span class="font-label-sm text-label-sm ${isTaken ? "text-on-surface-variant" : "text-admin-amber font-semibold"}">
+                  ${med.instructions} • ${isTaken ? "Taken" : "Due"}
                 </span>
               </div>
             </div>
-            <div class="w-7 h-7 rounded-full ${isTaken ? 'bg-secondary text-on-secondary' : 'bg-surface-container-highest text-on-surface-variant'} flex items-center justify-center shadow-sm transition-all">
+            <div class="w-7 h-7 rounded-full ${isTaken ? "bg-secondary text-on-secondary" : "bg-surface-container-highest text-on-surface-variant"} flex items-center justify-center shadow-sm transition-all">
               ${isTaken ? '<span class="material-symbols-outlined text-[16px] font-bold">check</span>' : '<span class="w-3 h-3 rounded-full bg-surface"></span>'}
             </div>
           </div>
         `;
-      }).join('');
-    }
-
-    // Actual Sync Trigger
-    async function handleSyncClick(event) {
-      if (event) event.preventDefault();
-      if (isSyncing) return;
-      isSyncing = true;
-
-      // Spin icons & update UI pill
-      const navIcon = document.getElementById('navbar-sync-icon');
-      const pillIcon = document.getElementById('sync-status-icon');
-      const pillText = document.getElementById('sync-status-text');
-      const pillDot = document.getElementById('sync-status-dot');
-
-      if (navIcon) navIcon.classList.add('animate-spin');
-      if (pillIcon) {
-        pillIcon.classList.add('animate-spin');
-        pillIcon.textContent = 'sync';
-      }
-      if (pillText) pillText.textContent = 'Syncing with doctor...';
-      if (pillDot) pillDot.className = 'w-2 h-2 rounded-full bg-amber-500 animate-pulse';
-
-      showToast('Syncing with Doctor Portal...', 'Sending patient adherence & fetching doctor updates...');
-
-      try {
-        // Call backend sync API for Patient #1 (Priya Sharma)
-        const res = await fetch('/api/patient/1/sync', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ medications: medicationsState })
-        });
-
-        if (res.ok) {
-          const data = await res.json();
-          if (data.prescriptions && data.prescriptions.length > 0) {
-            // Merge prescriptions from doctor's SQL table
-            medicationsState = data.prescriptions.map(p => ({
-              id: p.id,
-              name: p.medicine_name,
-              dosage: p.dosage,
-              instructions: `${p.frequency} • ${p.duration || 'As prescribed by Dr.'}`,
-              status: p.status || 'ACTIVE'
-            }));
-            renderMedications();
-          }
-        }
-      } catch (err) {
-        console.log('Syncing locally in standalone mode:', err);
+          })
+          .join("");
       }
 
-      // Complete sync animation after brief delay
-      setTimeout(() => {
-        const now = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-        
-        if (navIcon) navIcon.classList.remove('animate-spin');
+      // Actual Sync Trigger
+      async function handleSyncClick(event) {
+        if (event) event.preventDefault();
+        if (isSyncing) return;
+        isSyncing = true;
+
+        // Spin icons & update UI pill
+        const navIcon = document.getElementById("navbar-sync-icon");
+        const pillIcon = document.getElementById("sync-status-icon");
+        const pillText = document.getElementById("sync-status-text");
+        const pillDot = document.getElementById("sync-status-dot");
+
+        if (navIcon) navIcon.classList.add("animate-spin");
         if (pillIcon) {
-          pillIcon.classList.remove('animate-spin');
-          pillIcon.textContent = 'cloud_done';
+          pillIcon.classList.add("animate-spin");
+          pillIcon.textContent = "sync";
         }
-        if (pillText) pillText.textContent = `Data safely synced (${now})`;
-        if (pillDot) pillDot.className = 'w-2 h-2 rounded-full bg-secondary';
+        if (pillText) pillText.textContent = "Syncing with doctor...";
+        if (pillDot)
+          pillDot.className = "w-2 h-2 rounded-full bg-amber-500 animate-pulse";
 
-        showToast('Synced with Doctor Data! ✅', `Updated prescriptions & adherence records as of ${now}`, true);
-        isSyncing = false;
-      }, 950);
-    }
+        showToast(
+          "Syncing with Doctor Portal...",
+          "Sending patient adherence & fetching doctor updates...",
+        );
 
-    // Initialize from storage or default
-    document.addEventListener('DOMContentLoaded', () => {
-      const cached = localStorage.getItem('asha_meds_cache');
-      if (cached) {
-        try { medicationsState = JSON.parse(cached); } catch(e) {}
+        try {
+          // Call backend sync API for Patient #1 (Priya Sharma)
+          const res = await fetch("/api/patient/1/sync", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ medications: medicationsState }),
+          });
+
+          if (res.ok) {
+            const data = await res.json();
+            if (data.prescriptions && data.prescriptions.length > 0) {
+              // Merge prescriptions from doctor's SQL table
+              medicationsState = data.prescriptions.map((p) => ({
+                id: p.id,
+                name: p.medicine_name,
+                dosage: p.dosage,
+                instructions: `${p.frequency} • ${p.duration || "As prescribed by Dr."}`,
+                status: p.status || "ACTIVE",
+              }));
+              renderMedications();
+            }
+          }
+        } catch (err) {
+          console.log("Syncing locally in standalone mode:", err);
+        }
+
+        // Complete sync animation after brief delay
+        setTimeout(() => {
+          const now = new Date().toLocaleTimeString([], {
+            hour: "2-digit",
+            minute: "2-digit",
+          });
+
+          if (navIcon) navIcon.classList.remove("animate-spin");
+          if (pillIcon) {
+            pillIcon.classList.remove("animate-spin");
+            pillIcon.textContent = "cloud_done";
+          }
+          if (pillText) pillText.textContent = `Data safely synced (${now})`;
+          if (pillDot) pillDot.className = "w-2 h-2 rounded-full bg-secondary";
+
+          showToast(
+            "Synced with Doctor Data! ✅",
+            `Updated prescriptions & adherence records as of ${now}`,
+            true,
+          );
+          isSyncing = false;
+        }, 950);
       }
-      renderMedications();
-    });
-  </script>
 
-  <script src="../../asha-navigation.js"></script>
-</body>
+      // Initialize from storage or default
+      document.addEventListener("DOMContentLoaded", () => {
+        const cached = localStorage.getItem("asha_meds_cache");
+        if (cached) {
+          try {
+            medicationsState = JSON.parse(cached);
+          } catch (e) {}
+        }
+        renderMedications();
+      });
+    </script>
 
+    <script src="../../asha-navigation.js"></script>
+  </body>
 </html>
