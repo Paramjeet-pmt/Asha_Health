@@ -1,0 +1,308 @@
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+    name="viewport" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#007F6D",
+            "primary-light": "#00A884",
+            "primary-dark": "#006052",
+            "primary-container": "#EAF6F2",
+            "on-primary": "#ffffff",
+            "on-primary-container": "#006052",
+            "primary-fixed": "#EAF6F2",
+            "primary-fixed-dim": "#C7DCD7",
+            "on-primary-fixed": "#006052",
+            "on-primary-fixed-variant": "#007F6D",
+            "inverse-primary": "#00A884",
+
+            secondary: "#00A884",
+            "secondary-container": "#EAF6F2",
+            "on-secondary": "#ffffff",
+            "on-secondary-container": "#006052",
+            "secondary-fixed": "#EAF6F2",
+            "secondary-fixed-dim": "#C7DCD7",
+            "on-secondary-fixed": "#006052",
+            "on-secondary-fixed-variant": "#007F6D",
+
+            tertiary: "#2878B5",
+            "tertiary-container": "#E8F1F8",
+            "on-tertiary": "#ffffff",
+            "on-tertiary-container": "#1B4F72",
+            "tertiary-fixed": "#E8F1F8",
+            "tertiary-fixed-dim": "#B9D7EA",
+            "on-tertiary-fixed": "#1B4F72",
+            "on-tertiary-fixed-variant": "#2878B5",
+
+            background: "#F4FAF8",
+            "on-background": "#163B35",
+
+            surface: "#FFFFFF",
+            "on-surface": "#163B35",
+            "surface-variant": "#F4FAF8",
+            "on-surface-variant": "#60736E",
+            "surface-container-lowest": "#FFFFFF",
+            "surface-container-low": "#F4FAF8",
+            "surface-container": "#FFFFFF",
+            "surface-container-high": "#EAF6F2",
+            "surface-container-highest": "#DCEAE6",
+            "surface-bright": "#FFFFFF",
+            "surface-dim": "#EAF6F2",
+            "surface-tint": "#007F6D",
+            "inverse-surface": "#163B35",
+            "inverse-on-surface": "#F4FAF8",
+
+            outline: "#84948F",
+            "outline-variant": "#DCEAE6",
+
+            error: "#D64545",
+            "on-error": "#ffffff",
+            "error-container": "#FDE8E8",
+            "on-error-container": "#9B1C1C",
+
+            "emergency-red": "#D64545",
+            "admin-amber": "#E59A23",
+            "ai-purple": "#007F6D",
+            "sync-offline": "#84948F",
+          },
+          borderRadius: {
+            DEFAULT: "0.25rem",
+            lg: "0.5rem",
+            xl: "0.75rem",
+            full: "9999px",
+          },
+          spacing: {
+            gutter: "20px",
+            xl: "32px",
+            "margin-mobile": "16px",
+            md: "16px",
+            sm: "8px",
+            unit: "4px",
+            "margin-desktop": "40px",
+            xs: "4px",
+            lg: "24px",
+          },
+          fontFamily: {
+            "headline-lg": ["Geist"],
+            "display-lg": ["Geist"],
+            "label-md": ["Geist"],
+            "headline-lg-mobile": ["Geist"],
+            "body-md": ["Inter"],
+            "body-lg": ["Inter"],
+            "headline-md": ["Geist"],
+            "label-sm": ["Geist"],
+          },
+          fontSize: {
+            "headline-lg": [
+              "32px",
+              { lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "600" },
+            ],
+            "display-lg": [
+              "48px",
+              { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "700" },
+            ],
+            "label-md": [
+              "14px",
+              { lineHeight: "20px", fontWeight: "500" },
+            ],
+            "headline-lg-mobile": [
+              "24px",
+              { lineHeight: "32px", fontWeight: "600" },
+            ],
+            "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+            "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+            "headline-md": [
+              "24px",
+              { lineHeight: "32px", fontWeight: "600" },
+            ],
+            "label-sm": ["12px", { lineHeight: "16px", fontWeight: "500" }],
+          },
+        },
+      },
+    };
+  </script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;family=Inter:wght@100..900&amp;display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="loading-screen.css">
+  <link rel="stylesheet" href="../../theme.css">
+</head>
+
+<body class="bg-background pt-safe pb-safe">
+  <main class="relative w-full h-screen bg-background">
+    <div
+      class="relative flex flex-col w-full h-full min-h-screen bg-background text-on-background items-center justify-center overflow-hidden">
+      <!-- STITCH_SHADER_START:ANIMATION_106 class="absolute inset-0 w-full h-full z-0 pointer-events-none opacity-60" -->
+      <div class="absolute inset-0 w-full h-full z-0 pointer-events-none opacity-60" style="display:block;">
+        <canvas id="shader-canvas-ANIMATION_106" style="display:block;width:100%;height:100%"></canvas>
+        <script>
+            (function () {
+              const canvas = document.getElementById('shader-canvas-ANIMATION_106');
+
+              // Sync the WebGL drawing-buffer size with the CSS-driven layout size.
+              // This fires on initial layout and whenever the element is resized.
+              function syncSize() {
+                const w = canvas.clientWidth || 1280;
+                const h = canvas.clientHeight || 720;
+                if (canvas.width !== w || canvas.height !== h) {
+                  canvas.width = w;
+                  canvas.height = h;
+                }
+              }
+              if (typeof ResizeObserver !== 'undefined') {
+                new ResizeObserver(syncSize).observe(canvas);
+              }
+              syncSize();
+
+              const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+              if (!gl) return;
+              const vs = `attribute vec2 a_position;
+varying vec2 v_texCoord;
+void main() {
+  v_texCoord = a_position * 0.5 + 0.5;
+  gl_Position = vec4(a_position, 0.0, 1.0);
+}`;
+              const fs = `precision highp float;
+varying vec2 v_texCoord;
+uniform float u_time;
+uniform vec2 u_resolution;
+
+void main() {
+    vec2 uv = v_texCoord;
+    float t = u_time * 0.15;
+    
+    // ASHA Healthcare Palette: Soft Mint/Teal/White
+    vec3 base = vec3(0.957, 0.980, 0.973); // #F4FAF8
+    vec3 primaryTeal = vec3(0.0, 0.498, 0.427); // #007F6D
+    vec3 lightTeal = vec3(0.0, 0.659, 0.518); // #00A884
+    
+    // Drifting soft organic blobs
+    float n1 = sin(uv.x * 2.0 + t) * cos(uv.y * 1.5 - t * 0.5);
+    float n2 = cos(uv.x * 1.8 - t * 0.7) * sin(uv.y * 2.2 + t * 0.3);
+    
+    vec3 color = base;
+    color = mix(color, primaryTeal, smoothstep(-1.2, 1.5, n1) * 0.08);
+    color = mix(color, lightTeal, smoothstep(-1.0, 1.8, n2) * 0.06);
+    
+    // Central radial gradient depth
+    float d = length(uv - 0.5);
+    color = mix(color, vec3(1.0), (1.0 - d) * 0.1);
+    
+    // Floating bokeh particles
+    float particles = 0.0;
+    for(float i = 1.0; i < 8.0; i++) {
+        vec2 p = vec2(
+            fract(sin(i * 143.4) * 456.7 + t * 0.02),
+            fract(cos(i * 927.6) * 654.3 + t * 0.015)
+        );
+        float dist = length(uv - p);
+        particles += smoothstep(0.005, 0.0, dist) * 0.15;
+    }
+    
+    gl_FragColor = vec4(color + particles, 1.0);
+}`;
+              function cs(type, src) {
+                const s = gl.createShader(type);
+                gl.shaderSource(s, src);
+                gl.compileShader(s);
+                return s;
+              }
+              const prog = gl.createProgram();
+              gl.attachShader(prog, cs(gl.VERTEX_SHADER, vs));
+              gl.attachShader(prog, cs(gl.FRAGMENT_SHADER, fs));
+              gl.linkProgram(prog);
+              gl.useProgram(prog);
+              const buf = gl.createBuffer();
+              gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+              gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]), gl.STATIC_DRAW);
+              const pos = gl.getAttribLocation(prog, 'a_position');
+              gl.enableVertexAttribArray(pos);
+              gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
+              const uTime = gl.getUniformLocation(prog, 'u_time');
+              const uRes = gl.getUniformLocation(prog, 'u_resolution');
+              const uMouse = gl.getUniformLocation(prog, 'u_mouse');
+
+              // u_mouse is in pixel coordinates matching u_resolution (ShaderToy convention).
+              // Shaders that need normalized coords should use: u_mouse / u_resolution.
+              let mouse = { x: canvas.width / 2, y: canvas.height / 2 };
+              window.addEventListener('mousemove', (event) => {
+                const rect = canvas.getBoundingClientRect();
+                if (rect.width && rect.height) {
+                  const nx = (event.clientX - rect.left) / rect.width;
+                  const ny = 1.0 - (event.clientY - rect.top) / rect.height;
+                  mouse.x = nx * canvas.width;
+                  mouse.y = ny * canvas.height;
+                }
+              });
+
+              function render(t) {
+                if (typeof ResizeObserver === 'undefined') syncSize();
+                gl.viewport(0, 0, canvas.width, canvas.height);
+                if (uTime) gl.uniform1f(uTime, t * 0.001);
+                if (uRes) gl.uniform2f(uRes, canvas.width, canvas.height);
+                if (uMouse) gl.uniform2f(uMouse, mouse.x, mouse.y);
+                gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+                requestAnimationFrame(render);
+              }
+              render(0);
+            })();
+        </script>
+      </div>
+      <!-- STITCH_SHADER_END:ANIMATION_106 -->
+
+      <div class="relative z-10 flex flex-col items-center justify-center space-y-12 w-full max-w-md px-6">
+        <div
+          class="absolute w-48 h-48 rounded-full border border-primary/30 opacity-0 ripple pointer-events-none top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+        </div>
+        <div
+          class="absolute w-64 h-64 rounded-full border border-primary/20 opacity-0 ripple pointer-events-none top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+          style="animation-delay: 1.8s;"></div>
+        <div class="flex flex-row items-center justify-center space-x-3 relative z-20">
+          <div class="glass-box box-a1 w-[64px] h-[64px] flex items-center justify-center shadow-md">
+            <span class="font-headline font-bold text-3xl letter-gradient leading-none">A</span>
+          </div>
+          <div class="glass-box box-s w-[64px] h-[64px] flex items-center justify-center shadow-md">
+            <span class="font-headline font-bold text-3xl letter-gradient leading-none">S</span>
+          </div>
+          <div class="glass-box box-h w-[64px] h-[64px] flex items-center justify-center shadow-md">
+            <span class="font-headline font-bold text-3xl letter-gradient leading-none">H</span>
+          </div>
+          <div class="glass-box box-a2 w-[64px] h-[64px] flex items-center justify-center shadow-md">
+            <span class="font-headline font-bold text-3xl letter-gradient leading-none">A</span>
+          </div>
+        </div>
+        <div class="flex flex-col items-center space-y-6 fade-in-delayed">
+          <h2 class="font-label text-sm tracking-[0.3em] text-on-surface/70 uppercase">Care • Connect • Heal</h2>
+          <div class="flex items-center space-x-2">
+            <div class="w-1.5 h-1.5 rounded-full bg-primary/60 animate-[glowAsha _1.4s_ease-in-out_infinite_0s]"></div>
+            <div class="w-1.5 h-1.5 rounded-full bg-primary/60 animate-[glowAsha _1.4s_ease-in-out_infinite_0.2s]">
+            </div>
+            <div class="w-1.5 h-1.5 rounded-full bg-primary/60 animate-[glowAsha _1.4s_ease-in-out_infinite_0.4s]">
+            </div>
+            <div class="w-1.5 h-1.5 rounded-full bg-primary/60 animate-[glowAsha _1.4s_ease-in-out_infinite_0.6s]">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="../../asha-navigation.js"></script>
+</body>
+
+</html>
+
+
+
+
+
+

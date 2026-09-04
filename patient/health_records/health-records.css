@@ -1,0 +1,15 @@
+@import "../../theme.css";
+
+body {
+      min-height: max(884px, 100dvh);
+    }
+  
+
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }

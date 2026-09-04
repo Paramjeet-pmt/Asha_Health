@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+        name="viewport">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Geist:wght@500;600;700&amp;display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#007F6D",
+              "primary-light": "#00A884",
+              "primary-dark": "#006052",
+              "primary-container": "#EAF6F2",
+              "on-primary": "#ffffff",
+              "on-primary-container": "#006052",
+              "primary-fixed": "#EAF6F2",
+              "primary-fixed-dim": "#C7DCD7",
+              "on-primary-fixed": "#006052",
+              "on-primary-fixed-variant": "#007F6D",
+              "inverse-primary": "#00A884",
+
+              secondary: "#00A884",
+              "secondary-container": "#EAF6F2",
+              "on-secondary": "#ffffff",
+              "on-secondary-container": "#006052",
+              "secondary-fixed": "#EAF6F2",
+              "secondary-fixed-dim": "#C7DCD7",
+              "on-secondary-fixed": "#006052",
+              "on-secondary-fixed-variant": "#007F6D",
+
+              tertiary: "#2878B5",
+              "tertiary-container": "#E8F1F8",
+              "on-tertiary": "#ffffff",
+              "on-tertiary-container": "#1B4F72",
+              "tertiary-fixed": "#E8F1F8",
+              "tertiary-fixed-dim": "#B9D7EA",
+              "on-tertiary-fixed": "#1B4F72",
+              "on-tertiary-fixed-variant": "#2878B5",
+
+              background: "#F4FAF8",
+              "on-background": "#163B35",
+
+              surface: "#FFFFFF",
+              "on-surface": "#163B35",
+              "surface-variant": "#F4FAF8",
+              "on-surface-variant": "#60736E",
+              "surface-container-lowest": "#FFFFFF",
+              "surface-container-low": "#F4FAF8",
+              "surface-container": "#FFFFFF",
+              "surface-container-high": "#EAF6F2",
+              "surface-container-highest": "#DCEAE6",
+              "surface-bright": "#FFFFFF",
+              "surface-dim": "#EAF6F2",
+              "surface-tint": "#007F6D",
+              "inverse-surface": "#163B35",
+              "inverse-on-surface": "#F4FAF8",
+
+              outline: "#84948F",
+              "outline-variant": "#DCEAE6",
+
+              error: "#D64545",
+              "on-error": "#ffffff",
+              "error-container": "#FDE8E8",
+              "on-error-container": "#9B1C1C",
+
+              "emergency-red": "#D64545",
+              "admin-amber": "#E59A23",
+              "ai-purple": "#007F6D",
+              "sync-offline": "#84948F",
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+            spacing: {
+              "touch-target": "48px",
+              "margin-desktop": "40px",
+              "gutter-md": "20px",
+              "margin-mobile": "16px",
+              "gutter-sm": "12px",
+              unit: "4px",
+            },
+            fontFamily: {
+              "body-lg": ["Inter"],
+              "label-sm": ["Geist"],
+              "headline-lg": ["Geist"],
+              "headline-md": ["Geist"],
+              "headline-lg-mobile": ["Geist"],
+              "display-lg": ["Geist"],
+              "label-md": ["Geist"],
+              "body-md": ["Inter"],
+            },
+            fontSize: {
+              "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+              "label-sm": ["12px", { lineHeight: "16px", fontWeight: "500" }],
+              "headline-lg": [
+                "32px",
+                {
+                  lineHeight: "40px",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "600",
+                },
+              ],
+              "headline-md": [
+                "24px",
+                { lineHeight: "32px", fontWeight: "600" },
+              ],
+              "headline-lg-mobile": [
+                "24px",
+                { lineHeight: "32px", fontWeight: "600" },
+              ],
+              "display-lg": [
+                "48px",
+                {
+                  lineHeight: "56px",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "700",
+                },
+              ],
+              "label-md": [
+                "14px",
+                {
+                  lineHeight: "20px",
+                  letterSpacing: "0.02em",
+                  fontWeight: "600",
+                },
+              ],
+              "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="stylesheet" href="command-center-desktop.css">
+    <link rel="stylesheet" href="../../theme.css">
+</head>
+
+<body class="bg-background font-body-md text-on-background">
+    <header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] pt-safe">
+        <div class="h-16 px-margin-mobile flex items-center gap-gutter-sm"><button
+                class="w-10 h-10 flex items-center justify-center text-on-surface -ml-2" onclick="history.back()"><span
+                    class="material-symbols-outlined" text-content="arrow_back">arrow_back</span></button>
+            <div class="flex items-center gap-gutter-sm overflow-hidden"><img alt="Logo"
+                    class="h-6 w-auto flex-shrink-0"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQq3FM4h5Q618ZJ3i_dhXVXAPSBusU6BTZrSxwzQGQpHmYHzA5CMz3DJTrqcNfIfre2uuvK1g-irrv24ReyDIpGTd2o8XEMzn_tBCUWsyH9FqnZpmm8MTusC-fqtaIK2nK1s6FBx04j894BIc7NCkSW7Gc9JiYkDrFDTFYqMfsFXZA3SnK9E1k3nXxXc1ZyAkM3VVWEZy3FN_leJWNebEUIterfS8BtZApN6N93M5Dhk29n4IT_LBO">
+                <h1 class="font-headline-md text-body-md text-primary truncate">Analytics &amp; Reports</h1>
+            </div>
+        </div>
+    </header>
+    <main class="relative w-full pt-16 bg-background min-h-screen">
+        <div class="flex flex-col w-full gap-margin-mobile px-margin-mobile py-margin-mobile pb-[80px]">
+            <!-- AI Insights Summary -->
+            <div
+                class="relative bg-surface-container/70 backdrop-blur-md rounded-xl p-gutter-md overflow-hidden flex flex-col gap-unit shadow-sm">
+                <div
+                    class="absolute top-0 right-0 w-32 h-32 bg-ai-purple/10 rounded-full blur-2xl -mr-16 -mt-16 pointer-events-none">
+                </div>
+                <div class="flex items-center gap-2 text-ai-purple mb-1">
+                    <span class="material-symbols-outlined text-[18px]">auto_awesome</span>
+                    <span class="font-label-sm uppercase tracking-wider text-ai-purple">AI District Summary</span>
+                </div>
+                <p class="font-body-md text-on-surface">3 facilities reporting critical medicine shortages. 85% sync
+                    health across district. Referral bottleneck detected at CHC North.</p>
+            </div>
+            <!-- Key Metrics Grid -->
+            <div class="grid grid-cols-2 gap-gutter-sm">
+                <!-- Metric Card 1 -->
+                <div
+                    class="bg-surface-container rounded-xl p-gutter-sm flex flex-col justify-between shadow-sm relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-16 h-16 bg-primary/5 rounded-bl-full pointer-events-none">
+                    </div>
+                    <div class="flex items-start justify-between mb-2">
+                        <span class="material-symbols-outlined text-primary text-[20px]">group</span>
+                    </div>
+                    <div>
+                        <div class="font-display-lg text-on-surface leading-none mb-1">1,240</div>
+                        <div class="font-label-sm text-on-surface-variant uppercase">Total Patients</div>
+                    </div>
+                </div>
+                <!-- Metric Card 2 -->
+                <div
+                    class="bg-surface-container rounded-xl p-gutter-sm flex flex-col justify-between shadow-sm relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-16 h-16 bg-secondary/5 rounded-bl-full pointer-events-none">
+                    </div>
+                    <div class="flex items-start justify-between mb-2">
+                        <span class="material-symbols-outlined text-secondary text-[20px]">local_hospital</span>
+                    </div>
+                    <div>
+                        <div class="font-display-lg text-on-surface leading-none mb-1">12</div>
+                        <div class="font-label-sm text-on-surface-variant uppercase">Active Facilities</div>
+                    </div>
+                </div>
+                <!-- Metric Card 3 (Alert) -->
+                <div
+                    class="bg-error-container text-on-error-container rounded-xl p-gutter-sm flex flex-col justify-between shadow-sm relative overflow-hidden col-span-1">
+                    <div class="absolute top-0 right-0 w-16 h-16 bg-error/10 rounded-bl-full pointer-events-none"></div>
+                    <div class="flex items-start justify-between mb-2">
+                        <span class="material-symbols-outlined text-error text-[20px]">medication</span>
+                    </div>
+                    <div>
+                        <div class="font-display-lg leading-none mb-1 text-error">3</div>
+                        <div class="font-label-sm uppercase opacity-90">Med Shortages</div>
+                    </div>
+                </div>
+                <!-- Metric Card 4 (Pending) -->
+                <div
+                    class="bg-tertiary-fixed text-on-tertiary-fixed rounded-xl p-gutter-sm flex flex-col justify-between shadow-sm relative overflow-hidden col-span-1">
+                    <div class="absolute top-0 right-0 w-16 h-16 bg-tertiary/5 rounded-bl-full pointer-events-none">
+                    </div>
+                    <div class="flex items-start justify-between mb-2">
+                        <span class="material-symbols-outlined text-tertiary text-[20px]">forward</span>
+                    </div>
+                    <div>
+                        <div class="font-display-lg leading-none mb-1 text-tertiary">18</div>
+                        <div class="font-label-sm uppercase opacity-90">Pending Referrals</div>
+                    </div>
+                </div>
+            </div>
+            <!-- Map View -->
+            <div class="flex flex-col gap-gutter-sm">
+                <h2 class="font-headline-md text-on-surface">District Overview</h2>
+                <div class="w-full h-[200px] rounded-xl overflow-hidden shadow-sm relative">
+                    <div class="w-full h-full bg-cover bg-center" data-location="Rural District Healthcare Facilities"
+                        style="background-image: url('https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg')">
+                    </div>
+                    <!-- Overlay Status Dots -->
+                    <div
+                        class="absolute top-[30%] left-[40%] w-3 h-3 bg-secondary rounded-full shadow-[0_0_8px_rgba(0,107,95,0.8)] animate-Asha ">
+                    </div>
+                    <div
+                        class="absolute top-[60%] left-[20%] w-3 h-3 bg-secondary rounded-full shadow-[0_0_8px_rgba(0,107,95,0.8)] animate-Asha ">
+                    </div>
+                    <div
+                        class="absolute top-[50%] left-[70%] w-3 h-3 bg-error rounded-full shadow-[0_0_8px_rgba(186,26,26,0.8)] animate-Asha ">
+                    </div>
+                    <div
+                        class="absolute top-[20%] left-[80%] w-3 h-3 bg-sync-offline rounded-full shadow-[0_0_8px_rgba(114,119,128,0.8)]">
+                    </div>
+                </div>
+            </div>
+            <!-- Hierarchy List -->
+            <div class="flex flex-col gap-gutter-sm">
+                <div class="flex items-center justify-between">
+                    <h2 class="font-headline-md text-on-surface">Facility Status</h2>
+                    <button
+                        class="text-primary font-label-md py-2 px-4 rounded-full bg-primary/5 active:bg-primary/10 transition-colors">View
+                        All</button>
+                </div>
+                <div class="flex flex-col gap-unit">
+                    <!-- District Hospital -->
+                    <div
+                        class="bg-surface-container rounded-xl p-gutter-sm flex items-center justify-between shadow-sm cursor-pointer active:scale-[0.98] transition-transform">
+                        <div class="flex items-center gap-gutter-sm">
+                            <div
+                                class="w-10 h-10 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shrink-0">
+                                <span class="material-symbols-outlined text-[20px]"
+                                    style="font-variation-settings: 'FILL' 1;">domain</span>
+                            </div>
+                            <div class="flex flex-col min-w-0">
+                                <span class="font-body-md text-on-surface font-semibold truncate">District Central
+                                    Hosp.</span>
+                                <span class="font-label-sm text-on-surface-variant truncate">Level 1 • 450
+                                    Patients</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-secondary"></span>
+                            <span class="font-label-sm text-secondary uppercase">Online</span>
+                        </div>
+                    </div>
+                    <!-- CHC -->
+                    <div
+                        class="bg-surface-container rounded-xl p-gutter-sm flex items-center justify-between shadow-sm cursor-pointer active:scale-[0.98] transition-transform">
+                        <div class="flex items-center gap-gutter-sm">
+                            <div
+                                class="w-10 h-10 rounded-full bg-surface-variant text-on-surface flex items-center justify-center shrink-0">
+                                <span class="material-symbols-outlined text-[20px]">local_hospital</span>
+                            </div>
+                            <div class="flex flex-col min-w-0">
+                                <span class="font-body-md text-on-surface font-semibold truncate">CHC North</span>
+                                <span class="font-label-sm text-on-surface-variant truncate">Level 2 • 120
+                                    Patients</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-col items-end">
+                            <div class="flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-admin-amber"></span>
+                                <span class="font-label-sm text-admin-amber uppercase">Syncing</span>
+                            </div>
+                            <span class="font-label-sm text-error mt-1">2 Shortages</span>
+                        </div>
+                    </div>
+                    <!-- PHC -->
+                    <div
+                        class="bg-surface-container rounded-xl p-gutter-sm flex items-center justify-between shadow-sm cursor-pointer active:scale-[0.98] transition-transform">
+                        <div class="flex items-center gap-gutter-sm">
+                            <div
+                                class="w-10 h-10 rounded-full bg-surface-variant text-on-surface flex items-center justify-center shrink-0">
+                                <span class="material-symbols-outlined text-[20px]">home_health</span>
+                            </div>
+                            <div class="flex flex-col min-w-0">
+                                <span class="font-body-md text-on-surface font-semibold truncate">PHC East Valley</span>
+                                <span class="font-label-sm text-on-surface-variant truncate">Level 3 • 45
+                                    Patients</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-sync-offline"></span>
+                            <span class="font-label-sm text-sync-offline uppercase">Offline</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Persistent Action Bar -->
+        <div
+            class="fixed bottom-0 left-0 right-0 bg-surface/90 backdrop-blur-md shadow-[0_-4px_16px_rgba(0,0,0,0.05)] p-margin-mobile flex gap-gutter-sm z-40 pb-safe">
+            <button
+                class="flex-1 h-touch-target rounded-full bg-primary text-on-primary font-label-md flex items-center justify-center gap-2 active:bg-primary/90 transition-colors shadow-sm">
+                <span class="material-symbols-outlined text-[20px]">add</span>
+                New Directive
+            </button>
+            <button
+                class="w-touch-target h-touch-target rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center active:bg-secondary-container/80 transition-colors shadow-sm shrink-0">
+                <span class="material-symbols-outlined text-[20px]">sync</span>
+            </button>
+        </div>
+    </main>
+
+    <script src="../../asha-navigation.js"></script>
+</body>
+
+</html>
+
+
+
+
+

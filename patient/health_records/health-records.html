@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+        name="viewport">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Geist:wght@500;600;700&amp;display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#007F6D",
+              "primary-light": "#00A884",
+              "primary-dark": "#006052",
+              "primary-container": "#EAF6F2",
+              "on-primary": "#ffffff",
+              "on-primary-container": "#006052",
+              "primary-fixed": "#EAF6F2",
+              "primary-fixed-dim": "#C7DCD7",
+              "on-primary-fixed": "#006052",
+              "on-primary-fixed-variant": "#007F6D",
+              "inverse-primary": "#00A884",
+
+              secondary: "#00A884",
+              "secondary-container": "#EAF6F2",
+              "on-secondary": "#ffffff",
+              "on-secondary-container": "#006052",
+              "secondary-fixed": "#EAF6F2",
+              "secondary-fixed-dim": "#C7DCD7",
+              "on-secondary-fixed": "#006052",
+              "on-secondary-fixed-variant": "#007F6D",
+
+              tertiary: "#2878B5",
+              "tertiary-container": "#E8F1F8",
+              "on-tertiary": "#ffffff",
+              "on-tertiary-container": "#1B4F72",
+              "tertiary-fixed": "#E8F1F8",
+              "tertiary-fixed-dim": "#B9D7EA",
+              "on-tertiary-fixed": "#1B4F72",
+              "on-tertiary-fixed-variant": "#2878B5",
+
+              background: "#F4FAF8",
+              "on-background": "#163B35",
+
+              surface: "#FFFFFF",
+              "on-surface": "#163B35",
+              "surface-variant": "#F4FAF8",
+              "on-surface-variant": "#60736E",
+              "surface-container-lowest": "#FFFFFF",
+              "surface-container-low": "#F4FAF8",
+              "surface-container": "#FFFFFF",
+              "surface-container-high": "#EAF6F2",
+              "surface-container-highest": "#DCEAE6",
+              "surface-bright": "#FFFFFF",
+              "surface-dim": "#EAF6F2",
+              "surface-tint": "#007F6D",
+              "inverse-surface": "#163B35",
+              "inverse-on-surface": "#F4FAF8",
+
+              outline: "#84948F",
+              "outline-variant": "#DCEAE6",
+
+              error: "#D64545",
+              "on-error": "#ffffff",
+              "error-container": "#FDE8E8",
+              "on-error-container": "#9B1C1C",
+
+              "emergency-red": "#D64545",
+              "admin-amber": "#E59A23",
+              "ai-purple": "#007F6D",
+              "sync-offline": "#84948F",
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+            spacing: {
+              "touch-target": "48px",
+              "margin-desktop": "40px",
+              "gutter-md": "20px",
+              "margin-mobile": "16px",
+              "gutter-sm": "12px",
+              unit: "4px",
+            },
+            fontFamily: {
+              "body-lg": ["Inter"],
+              "label-sm": ["Geist"],
+              "headline-lg": ["Geist"],
+              "headline-md": ["Geist"],
+              "headline-lg-mobile": ["Geist"],
+              "display-lg": ["Geist"],
+              "label-md": ["Geist"],
+              "body-md": ["Inter"],
+            },
+            fontSize: {
+              "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+              "label-sm": ["12px", { lineHeight: "16px", fontWeight: "500" }],
+              "headline-lg": [
+                "32px",
+                {
+                  lineHeight: "40px",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "600",
+                },
+              ],
+              "headline-md": [
+                "24px",
+                { lineHeight: "32px", fontWeight: "600" },
+              ],
+              "headline-lg-mobile": [
+                "24px",
+                { lineHeight: "32px", fontWeight: "600" },
+              ],
+              "display-lg": [
+                "48px",
+                {
+                  lineHeight: "56px",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "700",
+                },
+              ],
+              "label-md": [
+                "14px",
+                {
+                  lineHeight: "20px",
+                  letterSpacing: "0.02em",
+                  fontWeight: "600",
+                },
+              ],
+              "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="stylesheet" href="health-records.css">
+    <link rel="stylesheet" href="../../theme.css">
+</head>
+
+<body class="bg-background font-body-md text-on-background">
+    <header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] pt-safe">
+        <div class="h-16 px-margin-mobile flex items-center gap-gutter-sm"><button
+                class="w-12 h-12 flex items-center justify-center text-on-surface -ml-2 rounded-full transition-colors hover:bg-surface-variant active:scale-95"
+                onclick="window.history.back()"><span class="material-symbols-outlined">arrow_back</span></button>
+            <div class="flex items-center gap-gutter-sm overflow-hidden"><img alt="Logo"
+                    class="h-6 w-auto flex-shrink-0"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQq3FM4h5Q618ZJ3i_dhXVXAPSBusU6BTZrSxwzQGQpHmYHzA5CMz3DJTrqcNfIfre2uuvK1g-irrv24ReyDIpGTd2o8XEMzn_tBCUWsyH9FqnZpmm8MTusC-fqtaIK2nK1s6FBx04j894BIc7NCkSW7Gc9JiYkDrFDTFYqMfsFXZA3SnK9E1k3nXxXc1ZyAkM3VVWEZy3FN_leJWNebEUIterfS8BtZApN6N93M5Dhk29n4IT_LBO">
+                <h1 class="font-headline-md text-body-md text-primary truncate">Patient Detail</h1>
+            </div>
+        </div>
+    </header>
+    <main class="relative w-full pt-16 bg-background min-h-screen">
+        <div class="flex flex-col w-full bg-surface">
+            <!-- Patient Header Summary -->
+            <section class="px-margin-mobile py-gutter-md bg-surface-container-lowest">
+                <div class="flex items-start justify-between">
+                    <div class="flex items-center gap-gutter-sm">
+                        <img class="w-16 h-16 rounded-full object-cover shadow-sm"
+                            data-alt="A portrait of an older Indian woman, 68 years old, looking serene and resilient, wearing a soft teal sari, warm lighting, soft background, modern healthcare context."
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4gUBnq-8t7VFZ220jiCScnze7d7foGIqpjtyzNG3cviAihFnUj1UCLkHiaZWdbmObnPV39F6-v47WrKO9lvjiR9DSXH-hkchWhummQyOJVlqze9oU_3EcPSgOxoclX1k6h68_qE9gFHH5sv7kDc2MUWXqNNK2vG0xJIEO-sW35iUVEmoSdYUTPaROiMCZD6OMeWiiRfeys7MYbe_XMlMEDZpBM6lVKtp42DNJt4O_bTtKevuZMnfI">
+                        <div>
+                            <h2 class="font-headline-md text-on-surface">Kamala Devi</h2>
+                            <div class="flex items-center gap-unit mt-1">
+                                <span class="font-label-md text-on-surface-variant">68y</span>
+                                <span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+                                <span class="font-label-md text-on-surface-variant">ABHA ID: 91-4523-8891</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button aria-label="Share Record"
+                        class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center shadow-sm active:scale-95 transition-transform">
+                        <span class="material-symbols-outlined text-on-primary-container">qr_code_scanner</span>
+                    </button>
+                </div>
+            </section>
+            <!-- AI Highlight Card -->
+            <section class="px-margin-mobile py-gutter-sm">
+                <div
+                    class="relative overflow-hidden rounded-xl bg-surface-container-low p-gutter-sm shadow-[0_4px_12px_rgba(0,0,0,0.04)]">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-br from-ai-purple/5 via-transparent to-transparent pointer-events-none">
+                    </div>
+                    <div class="relative flex gap-gutter-sm">
+                        <div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center shrink-0">
+                            <span class="material-symbols-outlined text-on-primary-fixed-variant"
+                                style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-label-md text-on-surface">AI Care Summary</h3>
+                            <p class="font-body-md text-on-surface-variant mt-1">Hypertension stabilized over last 3
+                                months. Current BP 138/84. Adherence to Amlodipine is consistent.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Timeline Filter (Horizontal Scroll) -->
+            <nav class="px-margin-mobile py-gutter-sm flex gap-gutter-sm overflow-x-auto no-scrollbar snap-x">
+                <button
+                    class="snap-start shrink-0 px-4 py-2 rounded-full bg-primary text-on-primary font-label-md shadow-sm">All
+                    Records</button>
+                <button
+                    class="snap-start shrink-0 px-4 py-2 rounded-full bg-surface-container text-on-surface-variant font-label-md">Visits</button>
+                <button
+                    class="snap-start shrink-0 px-4 py-2 rounded-full bg-surface-container text-on-surface-variant font-label-md">Medications</button>
+                <button
+                    class="snap-start shrink-0 px-4 py-2 rounded-full bg-surface-container text-on-surface-variant font-label-md">Diagnostics</button>
+            </nav>
+            <!-- Longitudinal Timeline -->
+            <section class="px-margin-mobile pb-margin-desktop relative">
+                <!-- Timeline Vertical Line -->
+                <div class="absolute left-[35px] top-4 bottom-0 w-0.5 bg-surface-variant"></div>
+                <div class="flex flex-col gap-gutter-md mt-gutter-sm">
+                    <!-- Event 1: Today's Vitals -->
+                    <div class="relative flex gap-gutter-md items-start">
+                        <div
+                            class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center z-10 shadow-sm shrink-0">
+                            <span class="material-symbols-outlined text-on-secondary-container">vital_signs</span>
+                        </div>
+                        <div
+                            class="flex-1 bg-surface-container-lowest rounded-xl p-gutter-sm shadow-[0_2px_8px_rgba(0,0,0,0.02)]">
+                            <div class="flex justify-between items-start mb-2">
+                                <div>
+                                    <span class="font-label-sm text-on-surface-variant uppercase tracking-wider">Today,
+                                        09:30 AM</span>
+                                    <h4 class="font-headline-lg-mobile text-on-surface mt-1">Vitals Logged</h4>
+                                </div>
+                                <span
+                                    class="px-2 py-1 bg-secondary-fixed-dim text-on-secondary-fixed-variant font-label-sm rounded-full">Stabilized</span>
+                            </div>
+                            <div class="grid grid-cols-2 gap-unit">
+                                <div class="p-2 bg-surface-container-low rounded-lg">
+                                    <span class="font-label-sm text-on-surface-variant block">Blood Pressure</span>
+                                    <span class="font-headline-md text-on-surface">138/84</span>
+                                </div>
+                                <div class="p-2 bg-surface-container-low rounded-lg">
+                                    <span class="font-label-sm text-on-surface-variant block">Heart Rate</span>
+                                    <span class="font-headline-md text-on-surface">72 bpm</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Event 2: Diagnostic Report -->
+                    <div class="relative flex gap-gutter-md items-start">
+                        <div
+                            class="w-10 h-10 rounded-full bg-tertiary-fixed flex items-center justify-center z-10 shadow-sm shrink-0">
+                            <span class="material-symbols-outlined text-on-tertiary-fixed-variant">lab_profile</span>
+                        </div>
+                        <div
+                            class="flex-1 bg-surface-container-lowest rounded-xl p-gutter-sm shadow-[0_2px_8px_rgba(0,0,0,0.02)]">
+                            <div class="flex justify-between items-start mb-2">
+                                <div>
+                                    <span class="font-label-sm text-on-surface-variant uppercase tracking-wider">Oct 12,
+                                        2023</span>
+                                    <h4 class="font-label-md text-on-surface mt-1">Lipid Panel Results</h4>
+                                </div>
+                            </div>
+                            <p class="font-body-md text-on-surface-variant mb-3">Cholesterol levels show slight
+                                improvement. Sent from CHC Anantapur.</p>
+                            <button
+                                class="flex items-center justify-center gap-2 w-full py-2 bg-surface-container text-primary font-label-md rounded-lg active:bg-surface-variant transition-colors">
+                                <span class="material-symbols-outlined text-[18px]">visibility</span>
+                                View Report
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Event 3: Medication Refill -->
+                    <div class="relative flex gap-gutter-md items-start">
+                        <div
+                            class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center z-10 shadow-sm shrink-0">
+                            <span class="material-symbols-outlined text-on-primary-container">medication</span>
+                        </div>
+                        <div
+                            class="flex-1 bg-surface-container-lowest rounded-xl p-gutter-sm shadow-[0_2px_8px_rgba(0,0,0,0.02)]">
+                            <div class="flex justify-between items-start mb-2">
+                                <div>
+                                    <span class="font-label-sm text-on-surface-variant uppercase tracking-wider">Sep 28,
+                                        2023</span>
+                                    <h4 class="font-label-md text-on-surface mt-1">Prescription Refill</h4>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-gutter-sm bg-surface-container-low p-2 rounded-lg">
+                                <div class="w-8 h-8 rounded bg-surface flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-primary text-[16px]">pill</span>
+                                </div>
+                                <div>
+                                    <p class="font-label-md text-on-surface">Amlodipine 5mg</p>
+                                    <p class="font-label-sm text-on-surface-variant">1 tab daily (90 days)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="../../asha-navigation.js"></script>
+</body>
+
+</html>
+
+
+
+
+

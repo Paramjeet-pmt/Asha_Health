@@ -1,0 +1,1870 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Asha Care Talk to Doctor tele-consultation dashboard"
+    >
+
+    <title>Asha Care - Talk to Doctor</title>
+
+    <!-- Google Font -->
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="talk-to-doctor.css">
+</head>
+
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header class="site-header">
+
+        <div class="container header-inner">
+
+            <a href="#" class="brand">
+
+                <span class="brand-logo">
+                    ✚
+                </span>
+
+                <span class="brand-name">
+                    Asha Care
+                </span>
+
+            </a>
+
+
+            <nav class="desktop-nav">
+
+                <a href="#doctors">Doctors</a>
+
+                <a href="#consultations">
+                    Consultations
+                </a>
+
+                <a href="#specialties">
+                    Specialties
+                </a>
+
+                <a href="#records">
+                    Records
+                </a>
+
+            </nav>
+
+
+            <div class="header-actions">
+
+                <button
+                    class="header-icon"
+                    aria-label="Notifications"
+                >
+                    🔔
+                </button>
+
+                <button
+                    class="profile-button"
+                    aria-label="Profile"
+                >
+                    👤
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         PAGE
+    ====================================================== -->
+
+    <main>
+
+        <div class="container">
+
+
+            <!-- =================================================
+                 BREADCRUMB
+            ================================================== -->
+
+            <div class="breadcrumb">
+
+                <span>Patient Dashboard</span>
+
+                <span>›</span>
+
+                <strong>Talk to Doctor</strong>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 PAGE INTRO
+            ================================================== -->
+
+            <section class="page-intro">
+
+                <div>
+
+                    <h1>
+                        Talk to Doctor
+                    </h1>
+
+                    <p>
+                        Connect with certified healthcare
+                        professionals, initiate tele-consultations,
+                        and manage ongoing medical advice.
+                    </p>
+
+                </div>
+
+
+                <div class="intro-actions">
+
+                    <button
+                        class="btn btn-primary"
+                        id="findDoctorBtn"
+                    >
+                        🔎 Find a Doctor
+                    </button>
+
+                    <button
+                        class="btn btn-light"
+                        id="myConsultationsBtn"
+                    >
+                        ▣ My Consultations
+                    </button>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 QUICK CONSULT HERO
+            ================================================== -->
+
+            <section class="quick-consult">
+
+                <div class="quick-main">
+
+                    <span class="online-label">
+                        ● 24/7 Telehealth Quick Desk
+                    </span>
+
+                    <h2>
+                        Need to talk to a doctor right now?
+                    </h2>
+
+                    <p>
+                        Connect with general physicians or
+                        specialists via secure video, audio call,
+                        or schedule an in-clinic appointment
+                        within minutes.
+                    </p>
+
+
+                    <div class="quick-actions">
+
+                        <button
+                            class="btn btn-primary"
+                            id="quickTriageBtn"
+                        >
+                            ⚡ Start Quick Triage
+                        </button>
+
+                        <button
+                            class="btn btn-white"
+                            id="browseSpecialistsBtn"
+                        >
+                            ▣ Browse Specialists
+                        </button>
+
+                    </div>
+
+
+                    <div class="quick-info">
+
+                        <span>
+                            ◷ Avg. response: &lt; 5 mins
+                        </span>
+
+                        <span>
+                            ✓ Verified MCI/NMC Doctors
+                        </span>
+
+                        <span>
+                            ✓ 100% encrypted &amp; ABHA linked
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <aside class="doctor-status">
+
+                    <h3>
+                        Active On-Duty Doctors
+                    </h3>
+
+                    <div class="status-row">
+                        <span>
+                            General Medicine Queue
+                        </span>
+
+                        <strong>
+                            &lt;2 min
+                        </strong>
+                    </div>
+
+                    <div class="status-row">
+                        <span>
+                            Pediatric On-Call
+                        </span>
+
+                        <strong>
+                            Ready Now
+                        </strong>
+                    </div>
+
+                    <small>
+                        Covered by National Ayushman Digital
+                        Health Network.
+                    </small>
+
+                </aside>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 ACTIVE CONSULTATION
+            ================================================== -->
+
+            <section
+                class="active-consultation"
+                id="consultations"
+            >
+
+                <div class="active-header">
+
+                    <div>
+
+                        <strong>
+                            ● Active Tele-Consultation in Progress
+                        </strong>
+
+                        <span>
+                            Room #ASHA-4092
+                        </span>
+
+                    </div>
+
+                    <div>
+                        ◷ <span id="consultTimer">08:50</span>
+                    </div>
+
+                </div>
+
+
+                <div class="consult-layout">
+
+
+                    <!-- DOCTOR PANEL -->
+
+                    <aside class="consult-doctor">
+
+                        <div class="consult-doctor-profile">
+
+                            <div class="doctor-avatar large">
+                                👩‍⚕️
+                            </div>
+
+                            <div>
+
+                                <h3>
+                                    Dr. Priya Sharma
+                                </h3>
+
+                                <p>
+                                    MD (Internal Medicine)
+                                </p>
+
+                                <p>
+                                    CityCare SuperSpeciality
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="consult-details">
+
+                            <div>
+                                <span>Channel</span>
+                                <strong>
+                                    Encrypted HD Audio &amp; Chat
+                                </strong>
+                            </div>
+
+                            <div>
+                                <span>Patient</span>
+                                <strong>
+                                    Kiran Singh (28 / M)
+                                </strong>
+                            </div>
+
+                            <div>
+                                <span>Case ID</span>
+                                <strong>
+                                    ACLN-7782
+                                </strong>
+                            </div>
+
+                        </div>
+
+                    </aside>
+
+
+
+                    <!-- CHAT -->
+
+                    <div class="chat-panel">
+
+                        <div class="chat-header">
+
+                            <span>
+                                🟢 Live Medical Consultation Chat
+                            </span>
+
+                            <small>
+                                End-to-end encrypted
+                            </small>
+
+                        </div>
+
+
+                        <div
+                            class="chat-messages"
+                            id="chatMessages"
+                        >
+
+                            <div class="message doctor-message">
+
+                                <div class="message-avatar">
+                                    👩‍⚕️
+                                </div>
+
+                                <div>
+
+                                    <small>
+                                        Dr. Priya Sharma · 10:31 AM
+                                    </small>
+
+                                    <p>
+                                        Hello Kiran, I have reviewed
+                                        your latest complete blood
+                                        count and thyroid report
+                                        from yesterday. How are your
+                                        symptoms today? Any persistent
+                                        fever or throat discomfort?
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="message patient-message">
+
+                                <div>
+
+                                    <p>
+                                        Good morning doctor. The mild
+                                        fever has subsided since
+                                        yesterday evening, but I still
+                                        have a dry cough and slight
+                                        tightness in the mornings.
+                                    </p>
+
+                                    <small>
+                                        You · 10:33 AM
+                                    </small>
+
+                                </div>
+
+                                <div class="message-avatar">
+                                    👤
+                                </div>
+
+                            </div>
+
+
+                            <div class="message doctor-message">
+
+                                <div class="message-avatar">
+                                    👩‍⚕️
+                                </div>
+
+                                <div>
+
+                                    <small>
+                                        Dr. Priya Sharma · 10:35 AM
+                                    </small>
+
+                                    <p>
+                                        That's good to hear. Let me
+                                        ask you a few more questions
+                                        about the cough.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <form
+                            class="chat-input"
+                            id="chatForm"
+                        >
+
+                            <input
+                                type="text"
+                                id="chatInput"
+                                placeholder="Type your health update or question..."
+                                autocomplete="off"
+                            >
+
+                            <button
+                                type="submit"
+                                aria-label="Send message"
+                            >
+                                ➤
+                            </button>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+
+                <div class="end-consultation-row">
+
+                    <button
+                        class="btn btn-danger"
+                        id="endConsultationBtn"
+                    >
+                        ☎ End Consultation
+                    </button>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 DOCTOR SEARCH
+            ================================================== -->
+
+            <section
+                class="doctor-section"
+                id="doctors"
+            >
+
+                <div class="search-panel">
+
+                    <div class="search-box">
+
+                        <span>⌕</span>
+
+                        <input
+                            type="search"
+                            id="doctorSearch"
+                            placeholder="Search by doctor name, specialty, symptom or hospital..."
+                        >
+
+                    </div>
+
+
+                    <select id="specialtyFilter">
+
+                        <option value="all">
+                            All Specialties
+                        </option>
+
+                        <option value="general">
+                            General Physician
+                        </option>
+
+                        <option value="cardiology">
+                            Cardiology
+                        </option>
+
+                        <option value="dermatology">
+                            Dermatology
+                        </option>
+
+                        <option value="pediatrics">
+                            Pediatrics
+                        </option>
+
+                        <option value="dental">
+                            Dental Care
+                        </option>
+
+                    </select>
+
+
+                    <select id="sortDoctors">
+
+                        <option value="recommended">
+                            Sort: Recommended
+                        </option>
+
+                        <option value="rating">
+                            Highest Rated
+                        </option>
+
+                        <option value="price-low">
+                            Price: Low to High
+                        </option>
+
+                        <option value="price-high">
+                            Price: High to Low
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="filter-row">
+
+                    <span>
+                        Consultation Mode:
+                    </span>
+
+                    <button
+                        class="filter active"
+                        data-mode="all"
+                    >
+                        All Types
+                    </button>
+
+                    <button
+                        class="filter"
+                        data-mode="video"
+                    >
+                        Video Consultation
+                    </button>
+
+                    <button
+                        class="filter"
+                        data-mode="audio"
+                    >
+                        Audio Call
+                    </button>
+
+                    <button
+                        class="filter"
+                        data-mode="clinic"
+                    >
+                        In-Clinic Visit
+                    </button>
+
+                    <button
+                        class="available-toggle"
+                        id="availableToggle"
+                    >
+                        ● Available Now Only
+                    </button>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 INSTANT CONNECT
+            ================================================== -->
+
+            <section class="section-block">
+
+                <div class="section-title">
+
+                    <div>
+
+                        <h2>
+                            🟢 Available Now — Instant Connect
+                        </h2>
+
+                        <p>
+                            Physicians on call ready to start
+                            within 5 minutes.
+                        </p>
+
+                    </div>
+
+                    <span>
+                        6 doctors available
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="doctor-grid instant-doctors"
+                    id="instantDoctors"
+                >
+
+
+                    <!-- DOCTOR 1 -->
+
+                    <article
+                        class="doctor-card"
+                        data-name="Dr. Priya Sharma"
+                        data-specialty="general"
+                        data-mode="video"
+                        data-price="450"
+                        data-rating="4.9"
+                        data-available="true"
+                    >
+
+                        <div class="doctor-top">
+
+                            <div class="doctor-avatar">
+                                👩‍⚕️
+                            </div>
+
+                            <div class="doctor-info">
+
+                                <h3>
+                                    Dr. Priya Sharma
+                                </h3>
+
+                                <p>
+                                    MD (Internal Medicine)
+                                </p>
+
+                                <p>
+                                    CityCare SuperSpeciality Hospital
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="doctor-rating">
+                            ⭐ 4.9
+                            <small>
+                                (184 reviews)
+                            </small>
+                        </div>
+
+
+                        <div class="doctor-status-row">
+
+                            <span class="available">
+                                ● Responds in ~3 mins
+                            </span>
+
+                            <strong>
+                                ₹450
+                            </strong>
+
+                        </div>
+
+
+                        <div class="doctor-tags">
+
+                            <span>Video</span>
+                            <span>Audio</span>
+
+                        </div>
+
+
+                        <button
+                            class="btn btn-primary doctor-action"
+                            data-doctor="Dr. Priya Sharma"
+                        >
+                            ☎ Talk Now
+                        </button>
+
+                    </article>
+
+
+
+                    <!-- DOCTOR 2 -->
+
+                    <article
+                        class="doctor-card"
+                        data-name="Dr. Rajesh Khanna"
+                        data-specialty="cardiology"
+                        data-mode="video"
+                        data-price="800"
+                        data-rating="4.8"
+                        data-available="true"
+                    >
+
+                        <div class="doctor-top">
+
+                            <div class="doctor-avatar gray">
+                                👨‍⚕️
+                            </div>
+
+                            <div class="doctor-info">
+
+                                <h3>
+                                    Dr. Rajesh Khanna
+                                </h3>
+
+                                <p>
+                                    MD, FACC (Cardiology)
+                                </p>
+
+                                <p>
+                                    Medanta The Medicity
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="doctor-rating">
+                            ⭐ 4.8
+                            <small>
+                                (96 reviews)
+                            </small>
+                        </div>
+
+
+                        <div class="doctor-status-row">
+
+                            <span class="available">
+                                ● Responds in ~5 mins
+                            </span>
+
+                            <strong>
+                                ₹800
+                            </strong>
+
+                        </div>
+
+
+                        <div class="doctor-tags">
+
+                            <span>Video</span>
+                            <span>Audio</span>
+
+                        </div>
+
+
+                        <button
+                            class="btn btn-primary doctor-action"
+                            data-doctor="Dr. Rajesh Khanna"
+                        >
+                            ☎ Talk Now
+                        </button>
+
+                    </article>
+
+
+
+                    <!-- DOCTOR 3 -->
+
+                    <article
+                        class="doctor-card"
+                        data-name="Dr. Ananya Sharma"
+                        data-specialty="dermatology"
+                        data-mode="video"
+                        data-price="400"
+                        data-rating="4.9"
+                        data-available="true"
+                    >
+
+                        <div class="doctor-top">
+
+                            <div class="doctor-avatar">
+                                👩‍⚕️
+                            </div>
+
+                            <div class="doctor-info">
+
+                                <h3>
+                                    Dr. Ananya Sharma
+                                </h3>
+
+                                <p>
+                                    MBBS (General Physician)
+                                </p>
+
+                                <p>
+                                    Apollo Clinics
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="doctor-rating">
+                            ⭐ 4.9
+                            <small>
+                                (112 reviews)
+                            </small>
+                        </div>
+
+
+                        <div class="doctor-status-row">
+
+                            <span class="available">
+                                ● Available now
+                            </span>
+
+                            <strong>
+                                ₹400
+                            </strong>
+
+                        </div>
+
+
+                        <div class="doctor-tags">
+
+                            <span>Video</span>
+                            <span>In-Clinic</span>
+
+                        </div>
+
+
+                        <button
+                            class="btn btn-primary doctor-action"
+                            data-doctor="Dr. Ananya Sharma"
+                        >
+                            ☎ Talk Now
+                        </button>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 CONSULTATION TYPES
+            ================================================== -->
+
+            <section class="section-block">
+
+                <div class="section-title">
+
+                    <div>
+
+                        <h2>
+                            Choose How You Want to Consult
+                        </h2>
+
+                        <p>
+                            Flexible consultation modes tailored
+                            to your clinical needs and urgency.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="consult-type-grid">
+
+
+                    <article
+                        class="consult-type-card"
+                        data-consult-mode="video"
+                    >
+
+                        <div class="type-icon blue">
+                            ▷
+                        </div>
+
+                        <h3>
+                            Video Consultation
+                        </h3>
+
+                        <span>
+                            From ₹400
+                        </span>
+
+                        <p>
+                            High-definition, face-to-face
+                            encrypted video call with instant
+                            digital prescription delivery.
+                        </p>
+
+                        <a href="#doctors">
+                            Recommended for diagnosis →
+                        </a>
+
+                    </article>
+
+
+
+                    <article
+                        class="consult-type-card"
+                        data-consult-mode="audio"
+                    >
+
+                        <div class="type-icon green">
+                            ☎
+                        </div>
+
+                        <h3>
+                            Audio Consultation
+                        </h3>
+
+                        <span>
+                            From ₹300
+                        </span>
+
+                        <p>
+                            Quick voice call when internet
+                            bandwidth is low or for quick
+                            follow-ups, test report readings,
+                            and second opinions.
+                        </p>
+
+                        <a href="#doctors">
+                            Instant connection →
+                        </a>
+
+                    </article>
+
+
+
+                    <article
+                        class="consult-type-card"
+                        data-consult-mode="clinic"
+                    >
+
+                        <div class="type-icon blue">
+                            ▦
+                        </div>
+
+                        <h3>
+                            In-Clinic Visit
+                        </h3>
+
+                        <span>
+                            From ₹600
+                        </span>
+
+                        <p>
+                            Book confirmed priority in-person
+                            consultation at affiliated hospitals
+                            and network clinics.
+                        </p>
+
+                        <a href="#doctors">
+                            Physical examination →
+                        </a>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 SPECIALTIES
+            ================================================== -->
+
+            <section
+                class="section-block"
+                id="specialties"
+            >
+
+                <div class="section-title">
+
+                    <div>
+
+                        <h2>
+                            Browse by Specialty
+                        </h2>
+
+                        <p>
+                            Consult with top medical specialists
+                            certified by national boards.
+                        </p>
+
+                    </div>
+
+                    <a href="#doctors">
+                        View all 24 specialties →
+                    </a>
+
+                </div>
+
+
+                <div class="specialty-grid">
+
+                    <button
+                        class="specialty-card"
+                        data-specialty="general"
+                    >
+                        <span>⚕</span>
+                        <strong>General Physician</strong>
+                        <small>34 Doctors</small>
+                    </button>
+
+
+                    <button
+                        class="specialty-card"
+                        data-specialty="cardiology"
+                    >
+                        <span>♡</span>
+                        <strong>Cardiology</strong>
+                        <small>18 Doctors</small>
+                    </button>
+
+
+                    <button
+                        class="specialty-card"
+                        data-specialty="dermatology"
+                    >
+                        <span>✦</span>
+                        <strong>Dermatology</strong>
+                        <small>22 Doctors</small>
+                    </button>
+
+
+                    <button
+                        class="specialty-card"
+                        data-specialty="pediatrics"
+                    >
+                        <span>●</span>
+                        <strong>Pediatrics</strong>
+                        <small>15 Doctors</small>
+                    </button>
+
+
+                    <button
+                        class="specialty-card"
+                        data-specialty="dental"
+                    >
+                        <span>♧</span>
+                        <strong>Dental Care</strong>
+                        <small>12 Doctors</small>
+                    </button>
+
+
+                    <button
+                        class="specialty-card"
+                        data-specialty="neurology"
+                    >
+                        <span>◎</span>
+                        <strong>Neurology</strong>
+                        <small>9 Doctors</small>
+                    </button>
+
+
+                    <button
+                        class="specialty-card"
+                        data-specialty="womens"
+                    >
+                        <span>♀</span>
+                        <strong>Women's Health</strong>
+                        <small>20 Doctors</small>
+                    </button>
+
+
+                    <button
+                        class="specialty-card"
+                        data-specialty="mental"
+                    >
+                        <span>☁</span>
+                        <strong>Mental Wellness</strong>
+                        <small>14 Doctors</small>
+                    </button>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 VERIFIED DOCTORS
+            ================================================== -->
+
+            <section class="section-block">
+
+                <div class="section-title">
+
+                    <div>
+
+                        <h2>
+                            Verified Doctors Available for
+                            Consultation
+                        </h2>
+
+                        <p>
+                            Choose your physician and initiate
+                            instant consultation or schedule
+                            ahead.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="verified-grid">
+
+
+                    <!-- CARD -->
+
+                    <article class="verified-card">
+
+                        <div class="doctor-avatar">
+                            👩‍⚕️
+                        </div>
+
+                        <div class="verified-content">
+
+                            <h3>
+                                Dr. Priya Sharma ✓
+                            </h3>
+
+                            <p>
+                                MD, Internal Medicine
+                            </p>
+
+                            <p>
+                                Max Healthcare
+                            </p>
+
+                            <div class="verified-meta">
+                                ⭐ 4.9 (184 reviews)
+                            </div>
+
+                            <span class="experience">
+                                12+ Years Exp.
+                            </span>
+
+                        </div>
+
+                        <strong class="doctor-fee">
+                            ₹450
+                        </strong>
+
+
+                        <div class="verified-footer">
+
+                            <span class="available">
+                                ● Available Now
+                            </span>
+
+                            <button class="btn btn-light">
+                                View Profile
+                            </button>
+
+                            <button
+                                class="btn btn-primary doctor-action"
+                                data-doctor="Dr. Priya Sharma"
+                            >
+                                ☎ Talk Now
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- CARD -->
+
+                    <article class="verified-card">
+
+                        <div class="doctor-avatar gray">
+                            👨‍⚕️
+                        </div>
+
+                        <div class="verified-content">
+
+                            <h3>
+                                Dr. Rajesh Khanna ✓
+                            </h3>
+
+                            <p>
+                                MD, FACC (Cardiology)
+                            </p>
+
+                            <p>
+                                Medanta The Medicity
+                            </p>
+
+                            <div class="verified-meta">
+                                ⭐ 4.8 (96 reviews)
+                            </div>
+
+                            <span class="experience">
+                                18+ Years Exp.
+                            </span>
+
+                        </div>
+
+                        <strong class="doctor-fee">
+                            ₹800
+                        </strong>
+
+
+                        <div class="verified-footer">
+
+                            <span class="next">
+                                ● Next: Today, 3:30 PM
+                            </span>
+
+                            <button class="btn btn-light">
+                                View Profile
+                            </button>
+
+                            <button
+                                class="btn btn-primary"
+                                data-doctor="Dr. Rajesh Khanna"
+                            >
+                                ▣ Book Slot
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- CARD -->
+
+                    <article class="verified-card">
+
+                        <div class="doctor-avatar">
+                            👩‍⚕️
+                        </div>
+
+                        <div class="verified-content">
+
+                            <h3>
+                                Dr. Ananya Sharma ✓
+                            </h3>
+
+                            <p>
+                                MBBS, DNB (Family Med.)
+                            </p>
+
+                            <p>
+                                Apollo Clinics
+                            </p>
+
+                            <div class="verified-meta">
+                                ⭐ 4.9 (112 reviews)
+                            </div>
+
+                            <span class="experience">
+                                8+ Years Exp.
+                            </span>
+
+                        </div>
+
+                        <strong class="doctor-fee">
+                            ₹400
+                        </strong>
+
+
+                        <div class="verified-footer">
+
+                            <span class="available">
+                                ● Available Now
+                            </span>
+
+                            <button class="btn btn-light">
+                                View Profile
+                            </button>
+
+                            <button
+                                class="btn btn-primary"
+                                data-doctor="Dr. Ananya Sharma"
+                            >
+                                ☎ Talk Now
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- CARD 4 -->
+
+                    <article class="verified-card">
+
+                        <div class="doctor-avatar gray">
+                            👨‍⚕️
+                        </div>
+
+                        <div class="verified-content">
+
+                            <h3>
+                                Dr. Rahul Mehta ✓
+                            </h3>
+
+                            <p>
+                                MD, Psychiatry
+                            </p>
+
+                            <p>
+                                Rainbow Children's Hospital
+                            </p>
+
+                            <div class="verified-meta">
+                                ⭐ 4.7 (89 reviews)
+                            </div>
+
+                            <span class="experience">
+                                10+ Years Exp.
+                            </span>
+
+                        </div>
+
+                        <strong class="doctor-fee">
+                            ₹550
+                        </strong>
+
+
+                        <div class="verified-footer">
+
+                            <span class="next">
+                                Next: Tomorrow, 11:00 AM
+                            </span>
+
+                            <button class="btn btn-light">
+                                View Profile
+                            </button>
+
+                            <button
+                                class="btn btn-primary"
+                                data-doctor="Dr. Rahul Mehta"
+                            >
+                                ▣ Schedule
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- CARD 5 -->
+
+                    <article class="verified-card">
+
+                        <div class="doctor-avatar">
+                            👩‍⚕️
+                        </div>
+
+                        <div class="verified-content">
+
+                            <h3>
+                                Dr. Sunita Deshmukh ✓
+                            </h3>
+
+                            <p>
+                                MD, Dermatology
+                            </p>
+
+                            <p>
+                                Fortis Memorial
+                            </p>
+
+                            <div class="verified-meta">
+                                ⭐ 4.9 (310 reviews)
+                            </div>
+
+                            <span class="experience">
+                                10+ Years Exp.
+                            </span>
+
+                        </div>
+
+                        <strong class="doctor-fee">
+                            ₹600
+                        </strong>
+
+
+                        <div class="verified-footer">
+
+                            <span class="next">
+                                Next: Today, 6:00 PM
+                            </span>
+
+                            <button class="btn btn-light">
+                                View Profile
+                            </button>
+
+                            <button
+                                class="btn btn-primary"
+                                data-doctor="Dr. Sunita Deshmukh"
+                            >
+                                ▣ Schedule
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- CARD 6 -->
+
+                    <article class="verified-card">
+
+                        <div class="doctor-avatar gray">
+                            👨‍⚕️
+                        </div>
+
+                        <div class="verified-content">
+
+                            <h3>
+                                Dr. Vikram Sen ✓
+                            </h3>
+
+                            <p>
+                                MBBS, Neurology
+                            </p>
+
+                            <p>
+                                AIIMS Super-Speciality
+                            </p>
+
+                            <div class="verified-meta">
+                                ⭐ 4.8 (154 reviews)
+                            </div>
+
+                            <span class="experience">
+                                16+ Years Exp.
+                            </span>
+
+                        </div>
+
+                        <strong class="doctor-fee">
+                            ₹900
+                        </strong>
+
+
+                        <div class="verified-footer">
+
+                            <span class="next">
+                                Next: Friday, 2:00 PM
+                            </span>
+
+                            <button class="btn btn-light">
+                                View Profile
+                            </button>
+
+                            <button
+                                class="btn btn-primary"
+                                data-doctor="Dr. Vikram Sen"
+                            >
+                                ▣ Schedule
+                            </button>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 RECORDS
+            ================================================== -->
+
+            <section
+                class="section-block"
+                id="records"
+            >
+
+                <div class="section-title">
+
+                    <div>
+
+                        <h2>
+                            My Consultation Records
+                        </h2>
+
+                        <p>
+                            Scheduled visits, instant session
+                            history, and certified prescriptions.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="records-grid">
+
+
+                    <!-- UPCOMING -->
+
+                    <article class="record-card upcoming">
+
+                        <span class="record-status">
+                            ● Confirmed Upcoming
+                        </span>
+
+                        <div class="record-doctor">
+
+                            <div class="doctor-avatar">
+                                👨‍⚕️
+                            </div>
+
+                            <div>
+
+                                <h3>
+                                    Dr. Rahul Mehta
+                                </h3>
+
+                                <p>
+                                    Psychiatrist &amp; Family Care
+                                </p>
+
+                                <small>
+                                    Scheduled Tele-Consultation
+                                </small>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="record-info">
+
+                            <span>
+                                📅 05 September 2026
+                            </span>
+
+                            <span>
+                                ◷ 04:30 PM IST
+                            </span>
+
+                        </div>
+
+
+                        <div class="record-actions">
+
+                            <button class="btn btn-primary">
+                                ▣ Join Consultation
+                            </button>
+
+                            <button class="btn btn-light">
+                                Reschedule
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- RECENT -->
+
+                    <article class="record-card">
+
+                        <h3>
+                            Recent Medical Consultations
+                        </h3>
+
+
+                        <div class="recent-consult">
+
+                            <div class="doctor-avatar small">
+                                👩‍⚕️
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    Dr. Ananya Sharma
+                                </strong>
+
+                                <p>
+                                    General Physician ·
+                                    28 Aug 2026 · Video Call
+                                </p>
+
+                            </div>
+
+                            <span class="completed">
+                                Completed
+                            </span>
+
+                            <button class="btn btn-light">
+                                View Rx
+                            </button>
+
+                        </div>
+
+
+                        <div class="recent-consult">
+
+                            <div class="doctor-avatar small gray">
+                                👨‍⚕️
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    Dr. Rajesh Khanna
+                                </strong>
+
+                                <p>
+                                    Cardiology Review ·
+                                    14 Aug 2026 · In-Clinic Visit
+                                </p>
+
+                            </div>
+
+                            <span class="completed">
+                                Completed
+                            </span>
+
+                            <button class="btn btn-light">
+                                View Rx
+                            </button>
+
+                        </div>
+
+
+                        <a
+                            href="#"
+                            class="download-link"
+                        >
+                            Download All Tele-Health Invoices &
+                            ABHA Health Records ↗
+                        </a>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 INFORMATION CARDS
+            ================================================== -->
+
+            <section class="info-grid">
+
+
+                <!-- BEFORE CONSULT -->
+
+                <article class="info-card">
+
+                    <h2>
+                        ☷ Before You Talk to a Doctor
+                    </h2>
+
+                    <p>
+                        4 quick steps to make your consultation
+                        efficient and clear.
+                    </p>
+
+
+                    <ul>
+
+                        <li>
+                            ✓ Keep health records ready.
+                            Upload recent lab reports,
+                            scans, or discharge summaries.
+                        </li>
+
+                        <li>
+                            ✓ Describe symptoms clearly:
+                            Note onset time, pain severity,
+                            and triggers.
+                        </li>
+
+                        <li>
+                            ✓ List current medications &amp;
+                            allergies. Keep active pill strips
+                            with you.
+                        </li>
+
+                        <li>
+                            ✓ Test audio &amp; camera before
+                            consultation for a smooth session.
+                        </li>
+
+                    </ul>
+
+                </article>
+
+
+
+                <!-- MEDICAL NOTICE -->
+
+                <article class="info-card medical-notice">
+
+                    <h2>
+                        ✚ Critical Medical Notice
+                    </h2>
+
+                    <p>
+                        Online consultations provide medical
+                        guidance, triage assistance, and
+                        preliminary diagnosis. For immediate
+                        life-threatening emergencies, severe
+                        chest pain, sudden paralysis, or acute
+                        respiratory distress:
+                    </p>
+
+
+                    <div class="emergency">
+
+                        <div>
+
+                            <strong>
+                                Emergency Ambulance Helpline
+                            </strong>
+
+                            <small>
+                                Toll-free national emergency
+                                dispatcher
+                            </small>
+
+                        </div>
+
+                        <a href="tel:112">
+                            112 / 102
+                        </a>
+
+                    </div>
+
+
+                    <small class="notice-footer">
+                        Telemedicine Practice Guidelines compliant
+                        (NMC 2020)
+                    </small>
+
+                </article>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         MOBILE BOTTOM NAVIGATION
+    ====================================================== -->
+
+    <nav class="mobile-bottom-nav">
+
+        <a href="#" class="active">
+            <span>⌂</span>
+            Home
+        </a>
+
+        <a href="#doctors">
+            <span>♙</span>
+            Doctors
+        </a>
+
+        <a href="#consultations">
+            <span>▣</span>
+            Visits
+        </a>
+
+        <a href="#records">
+            <span>▤</span>
+            Records
+        </a>
+
+        <a href="#">
+            <span>✚</span>
+            AI Assist
+        </a>
+
+    </nav>
+
+
+
+    <!-- =====================================================
+         TOAST
+    ====================================================== -->
+
+    <div
+        class="toast"
+        id="toast"
+        role="status"
+    >
+        <span id="toastMessage">
+            Done
+        </span>
+    </div>
+
+
+
+    <script src="talk-to-doctor.js"></script>
+
+</body>
+
+</html>

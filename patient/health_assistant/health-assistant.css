@@ -1,0 +1,8 @@
+@import "../../theme.css";
+
+@layer base{html,body{width:100vw;margin:0;padding:0;overflow-x:hidden;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}}::-webkit-scrollbar{display:none;}
+
+
+    body {
+      min-height: max(884px, 100dvh);
+    }

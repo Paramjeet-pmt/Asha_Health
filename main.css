@@ -1,0 +1,421 @@
+@import "theme.css";
+
+/* ASHA unified navigation layer */
+.asha-nav-wrap {
+  position: fixed;
+  top: 18px;
+  left: 18px;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.asha-nav-btn {
+  appearance: none;
+  border: 1px solid rgba(100, 116, 139, .22);
+  background: rgba(255, 255, 255, .86);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #0f172a;
+  border-radius: 12px;
+  min-height: 44px;
+  padding: 0 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font: 600 14px/1 Inter, system-ui, sans-serif;
+  cursor: pointer;
+  box-shadow: 0 6px 24px rgba(15, 23, 42, .10);
+  transition: transform .16s ease, box-shadow .16s ease, background .16s ease;
+  text-decoration: none;
+}
+
+.asha-nav-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 28px rgba(15, 23, 42, .14);
+  background: #fff
+}
+
+.asha-nav-btn:active {
+  transform: translateY(0) scale(.98)
+}
+
+.asha-nav-btn:focus-visible {
+  outline: 3px solid rgba(37, 99, 235, .28);
+  outline-offset: 2px
+}
+
+@media(max-width:640px) {
+  .asha-nav-wrap {
+    top: 10px;
+    left: 10px;
+    gap: 8px;
+  }
+
+  .asha-nav-btn {
+    padding: 0 11px;
+    border-radius: 10px;
+    font-size: 13px;
+  }
+
+  .asha-nav-btn span:last-child {
+    display: none;
+  }
+}
+
+/* Main Page CSS */
+@layer base {
+
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  main>:first-child {
+    margin-top: 0 !important;
+  }
+
+  main>:last-child {
+    margin-bottom: 0 !important;
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+
+  60% {
+    transform: translateY(10px);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideRight {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+
+  60% {
+    transform: translateX(10px);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideLeft {
+  0% {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+
+  60% {
+    transform: translateX(-10px);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+
+  60% {
+    transform: translateY(-10px);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes glowAsha  {
+
+  0%,
+  100% {
+    box-shadow: 0 0 10px rgba(0, 127, 109, 0.2), inset 0 0 5px rgba(255, 255, 255, 0.5);
+  }
+
+  50% {
+    box-shadow: 0 0 25px rgba(0, 127, 109, 0.6), inset 0 0 15px rgba(255, 255, 255, 0.8);
+  }
+}
+
+@keyframes letterGlow {
+
+  0%,
+  100% {
+    filter: drop-shadow(0 0 2px rgba(0, 127, 109, 0.3));
+  }
+
+  50% {
+    filter: drop-shadow(0 0 8px rgba(0, 127, 109, 0.8));
+  }
+}
+
+@keyframes breathingScale {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+@keyframes rippleExpand {
+  0% {
+    transform: scale(0.5);
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.box-a1 {
+  animation: slideDown 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.3s both, glowAsha  3s ease-in-out 1.6s infinite, breathingScale 4s ease-in-out 2s infinite;
+}
+
+.box-s {
+  animation: slideRight 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s both, glowAsha  3s ease-in-out 1.6s infinite, breathingScale 4s ease-in-out 2s infinite;
+}
+
+.box-h {
+  animation: slideLeft 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.7s both, glowAsha  3s ease-in-out 1.6s infinite, breathingScale 4s ease-in-out 2s infinite;
+}
+
+.box-a2 {
+  animation: slideUp 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.9s both, glowAsha  3s ease-in-out 1.6s infinite, breathingScale 4s ease-in-out 2s infinite;
+}
+
+.ripple {
+  animation: rippleExpand 1.5s cubic-bezier(0.165, 0.84, 0.44, 1) 1.6s both;
+}
+
+.fade-in-delayed {
+  animation: fadeIn 1s ease-out 1.6s both;
+}
+
+.letter-gradient {
+  background: linear-gradient(135deg, var(--primary, #007F6D), var(--primary-light, #00A884));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: letterGlow 3s ease-in-out 1.6s infinite;
+}
+
+.glass-box {
+  position: relative;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+/* The following fragment was copied from HTML and is intentionally disabled. */
+/*
+  darkMode: "class",
+  theme: {
+    extend: {
+      "colors": {
+        "surface-container-low": "#0d1d2a",
+          "secondary-fixed": "#ffdad4",
+          "surface-container-high": "#1c2b39",
+          "inverse-primary": "#006495",
+          "tertiary-fixed-dim": "#e9c349",
+          "secondary-container": "#7f291c",
+          "inverse-surface": "#d4e4f7",
+          "on-error-container": "#ffdad6",
+          "surface-container": "#11212f",
+          "surface-container-lowest": "#010f1c",
+          "background": "#000d1a",
+          "primary-fixed": "#cbe6ff",
+          "tertiary": "#eec74d",
+          "on-surface-variant": "#bec7d2",
+          "on-secondary-container": "#ff9a88",
+          "on-tertiary-fixed": "#241a00",
+          "error": "#ffb4ab",
+          "surface-container-highest": "#273645",
+          "surface": "#051522",
+          "tertiary-fixed": "#ffe088",
+          "on-secondary-fixed-variant": "#7f291c",
+          "outline": "#89929b",
+          "on-primary-fixed-variant": "#004b71",
+          "on-primary": "#003450",
+          "secondary-fixed-dim": "#ffb4a6",
+          "primary-fixed-dim": "#8fcdff",
+          "surface-bright": "#2c3b49",
+          "on-secondary": "#601308",
+          "error-container": "#93000a",
+          "on-tertiary-fixed-variant": "#574500",
+          "surface-tint": "#8fcdff",
+          "secondary": "#ffb4a6",
+          "on-tertiary": "#3c2f00",
+          "on-secondary-fixed": "#3f0300",
+          "inverse-on-surface": "#233240",
+          "tertiary-container": "#d1ac34",
+          "on-background": "#d4e4f7",
+          "surface-variant": "#273645",
+          "on-primary-fixed": "#001e30",
+          "primary-container": "#4db8ff",
+          "on-error": "#690005",
+          "on-primary-container": "#00476b",
+          "primary": "#4db8ff",
+          "outline-variant": "#3f4850",
+          "on-surface": "#ffffff",
+          "surface-dim": "#051522",
+          "on-tertiary-container": "#524100"
+      }
+
+      ,
+      "borderRadius": {
+        "DEFAULT": "0.75rem",
+          "lg": "0.75rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+      }
+
+      ,
+      "spacing": {
+        "lg": "24px",
+          "xs": "4px",
+          "sm": "8px",
+          "md": "16px",
+          "margin-desktop": "64px",
+          "xl": "48px",
+          "base": "4px",
+          "gutter": "24px",
+          "margin-mobile": "16px"
+      }
+
+      ,
+      "fontFamily": {
+        "display-lg-mobile": [ "Geist"
+          ],
+          "label-sm": [ "Geist"
+          ],
+          "body-md": [ "Geist"
+          ],
+          "label-md": [ "Geist"
+          ],
+          "headline-md": [ "Geist"
+          ],
+          "display-lg": [ "Geist"
+          ],
+          "headline-lg": [ "Geist"
+          ],
+          "body-lg": [ "Geist"
+          ]
+      }
+
+      ,
+      "fontSize": {
+
+        "display-lg-mobile": [ "32px",
+        {
+        "lineHeight": "40px",
+          "letterSpacing": "-0.02em",
+          "fontWeight": "700"
+      }
+
+      ],
+      "label-sm": [ "12px",
+      {
+      "lineHeight": "16px",
+        "letterSpacing": "0.05em",
+        "fontWeight": "500"
+    }
+
+    ],
+    "body-md": [ "16px",
+    {
+    "lineHeight": "24px",
+      "fontWeight": "400"
+  }
+
+  ],
+  "label-md": [ "14px",
+  {
+  "lineHeight": "20px",
+    "letterSpacing": "0.02em",
+    "fontWeight": "500"
+}
+
+],
+"headline-md": [ "24px",
+{
+"lineHeight": "32px",
+  "fontWeight": "600"
+}
+
+],
+"display-lg": [ "48px",
+{
+"lineHeight": "56px",
+  "letterSpacing": "-0.02em",
+  "fontWeight": "700"
+}
+
+],
+"headline-lg": [ "32px",
+{
+"lineHeight": "40px",
+  "letterSpacing": "-0.01em",
+  "fontWeight": "600"
+}
+
+],
+"body-lg": [ "18px",
+{
+"lineHeight": "28px",
+  "fontWeight": "400"
+}
+
+]
+}
+}
+
+,
+}
+
+,
+}
+*/
+
