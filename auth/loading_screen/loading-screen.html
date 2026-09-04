@@ -5,8 +5,129 @@
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
     name="viewport" />
   <script src="https://cdn.tailwindcss.com"></script>
-  <script
-    id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "on-surface-variant": "#42474f", "on-secondary-fixed-variant": "#005048", "primary-fixed": "#d2e4ff", "surface-bright": "#f9f9fe", "surface-variant": "#e2e2e7", "on-primary": "#ffffff", "inverse-primary": "#a0c9ff", "on-primary-container": "#8ebdf9", "on-secondary-container": "#006f64", "surface-container-low": "#f3f3f8", "primary-fixed-dim": "#a0c9ff", "secondary-fixed-dim": "#4fdbc8", "surface-tint": "#2d6197", "surface-dim": "#d9dadf", "inverse-surface": "#2e3034", "on-tertiary": "#ffffff", "background": "#f9f9fe", "primary": "#00355f", "surface-container-high": "#e7e8ed", "primary-container": "#0f4c81", "tertiary-fixed-dim": "#d0bcff", "on-primary-fixed-variant": "#07497d", "surface-container-highest": "#e2e2e7", "outline-variant": "#c2c7d1", "surface": "#f9f9fe", "on-tertiary-fixed-variant": "#5516be", "tertiary-fixed": "#e9ddff", "on-surface": "#191c1f", "inverse-on-surface": "#f0f0f5", "secondary-fixed": "#71f8e4", "on-tertiary-fixed": "#23005c", "on-background": "#191c1f", "secondary-container": "#6df5e1", "on-tertiary-container": "#c5adff", "surface-container": "#ededf3", "on-error-container": "#93000a", "secondary": "#006b5f", "on-secondary-fixed": "#00201c", "outline": "#727780", "on-secondary": "#ffffff", "surface-container-lowest": "#ffffff", "on-error": "#ffffff", "tertiary": "#3f0099", "error-container": "#ffdad6", "on-primary-fixed": "#001c37", "error": "#ba1a1a", "tertiary-container": "#581dc2" }, borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px" }, spacing: { gutter: "20px", xl: "32px", "margin-mobile": "16px", md: "16px", sm: "8px", unit: "4px", "margin-desktop": "40px", xs: "4px", lg: "24px" }, fontFamily: { "headline-lg": ["Geist"], "display-lg": ["Geist"], "label-md": ["Geist"], "headline-lg-mobile": ["Geist"], "body-md": ["Inter"], "body-lg": ["Inter"], "headline-md": ["Geist"], "label-sm": ["Geist"] }, fontSize: { "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "600" }], "display-lg": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "700" }], "label-md": ["14px", { lineHeight: "20px", fontWeight: "500" }], "headline-lg-mobile": ["24px", { lineHeight: "32px", fontWeight: "600" }], "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }], "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }], "headline-md": ["24px", { lineHeight: "32px", fontWeight: "600" }], "label-sm": ["12px", { lineHeight: "16px", fontWeight: "500" }] } } } }</script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#007F6D",
+            "primary-light": "#00A884",
+            "primary-dark": "#006052",
+            "primary-container": "#EAF6F2",
+            "on-primary": "#ffffff",
+            "on-primary-container": "#006052",
+            "primary-fixed": "#EAF6F2",
+            "primary-fixed-dim": "#C7DCD7",
+            "on-primary-fixed": "#006052",
+            "on-primary-fixed-variant": "#007F6D",
+            "inverse-primary": "#00A884",
+
+            secondary: "#00A884",
+            "secondary-container": "#EAF6F2",
+            "on-secondary": "#ffffff",
+            "on-secondary-container": "#006052",
+            "secondary-fixed": "#EAF6F2",
+            "secondary-fixed-dim": "#C7DCD7",
+            "on-secondary-fixed": "#006052",
+            "on-secondary-fixed-variant": "#007F6D",
+
+            tertiary: "#2878B5",
+            "tertiary-container": "#E8F1F8",
+            "on-tertiary": "#ffffff",
+            "on-tertiary-container": "#1B4F72",
+            "tertiary-fixed": "#E8F1F8",
+            "tertiary-fixed-dim": "#B9D7EA",
+            "on-tertiary-fixed": "#1B4F72",
+            "on-tertiary-fixed-variant": "#2878B5",
+
+            background: "#F4FAF8",
+            "on-background": "#163B35",
+
+            surface: "#FFFFFF",
+            "on-surface": "#163B35",
+            "surface-variant": "#F4FAF8",
+            "on-surface-variant": "#60736E",
+            "surface-container-lowest": "#FFFFFF",
+            "surface-container-low": "#F4FAF8",
+            "surface-container": "#FFFFFF",
+            "surface-container-high": "#EAF6F2",
+            "surface-container-highest": "#DCEAE6",
+            "surface-bright": "#FFFFFF",
+            "surface-dim": "#EAF6F2",
+            "surface-tint": "#007F6D",
+            "inverse-surface": "#163B35",
+            "inverse-on-surface": "#F4FAF8",
+
+            outline: "#84948F",
+            "outline-variant": "#DCEAE6",
+
+            error: "#D64545",
+            "on-error": "#ffffff",
+            "error-container": "#FDE8E8",
+            "on-error-container": "#9B1C1C",
+
+            "emergency-red": "#D64545",
+            "admin-amber": "#E59A23",
+            "ai-purple": "#007F6D",
+            "sync-offline": "#84948F",
+          },
+          borderRadius: {
+            DEFAULT: "0.25rem",
+            lg: "0.5rem",
+            xl: "0.75rem",
+            full: "9999px",
+          },
+          spacing: {
+            gutter: "20px",
+            xl: "32px",
+            "margin-mobile": "16px",
+            md: "16px",
+            sm: "8px",
+            unit: "4px",
+            "margin-desktop": "40px",
+            xs: "4px",
+            lg: "24px",
+          },
+          fontFamily: {
+            "headline-lg": ["Geist"],
+            "display-lg": ["Geist"],
+            "label-md": ["Geist"],
+            "headline-lg-mobile": ["Geist"],
+            "body-md": ["Inter"],
+            "body-lg": ["Inter"],
+            "headline-md": ["Geist"],
+            "label-sm": ["Geist"],
+          },
+          fontSize: {
+            "headline-lg": [
+              "32px",
+              { lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "600" },
+            ],
+            "display-lg": [
+              "48px",
+              { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "700" },
+            ],
+            "label-md": [
+              "14px",
+              { lineHeight: "20px", fontWeight: "500" },
+            ],
+            "headline-lg-mobile": [
+              "24px",
+              { lineHeight: "32px", fontWeight: "600" },
+            ],
+            "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+            "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+            "headline-md": [
+              "24px",
+              { lineHeight: "32px", fontWeight: "600" },
+            ],
+            "label-sm": ["12px", { lineHeight: "16px", fontWeight: "500" }],
+          },
+        },
+      },
+    };
+  </script>
   <link
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
     rel="stylesheet" />
@@ -14,7 +135,7 @@
     href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;family=Inter:wght@100..900&amp;display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="loading-screen.css">
-  <link rel="stylesheet" href="../../asha-navigation.css">
+  <link rel="stylesheet" href="../../theme.css">
 </head>
 
 <body class="bg-background pt-safe pb-safe">
@@ -60,18 +181,18 @@ void main() {
     vec2 uv = v_texCoord;
     float t = u_time * 0.15;
     
-    // Premium Healthcare Palette: White, Soft Blue, Pale Teal
-    vec3 base = vec3(0.97, 0.98, 1.0);
-    vec3 blueGlow = vec3(0.145, 0.388, 0.921); // #2563EB
-    vec3 tealGlow = vec3(0.078, 0.721, 0.651); // #14B8A6
+    // ASHA Healthcare Palette: Soft Mint/Teal/White
+    vec3 base = vec3(0.957, 0.980, 0.973); // #F4FAF8
+    vec3 primaryTeal = vec3(0.0, 0.498, 0.427); // #007F6D
+    vec3 lightTeal = vec3(0.0, 0.659, 0.518); // #00A884
     
     // Drifting soft organic blobs
     float n1 = sin(uv.x * 2.0 + t) * cos(uv.y * 1.5 - t * 0.5);
     float n2 = cos(uv.x * 1.8 - t * 0.7) * sin(uv.y * 2.2 + t * 0.3);
     
     vec3 color = base;
-    color = mix(color, blueGlow, smoothstep(-1.2, 1.5, n1) * 0.08);
-    color = mix(color, tealGlow, smoothstep(-1.0, 1.8, n2) * 0.06);
+    color = mix(color, primaryTeal, smoothstep(-1.2, 1.5, n1) * 0.08);
+    color = mix(color, lightTeal, smoothstep(-1.0, 1.8, n2) * 0.06);
     
     // Central radial gradient depth
     float d = length(uv - 0.5);
