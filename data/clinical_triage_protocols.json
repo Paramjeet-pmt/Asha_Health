@@ -1,0 +1,3232 @@
+[
+  {
+    "protocol_id": "ASHA-TRIAGE-001",
+    "condition_title": "Post-Partum Hemorrhage (PPH)",
+    "clinical_category": "Maternal Health",
+    "icd10_mapping": "O72.0",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-002",
+    "condition_title": "Pre-Eclampsia with Severe Features",
+    "clinical_category": "Maternal Health",
+    "icd10_mapping": "O14.1",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-003",
+    "condition_title": "Neonatal Sepsis & Severe Hypothermia",
+    "clinical_category": "Newborn & Child Health",
+    "icd10_mapping": "P36.9",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-004",
+    "condition_title": "Severe Acute Dehydration / Cholera Suspect",
+    "clinical_category": "Infectious Disease",
+    "icd10_mapping": "A00.9",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-005",
+    "condition_title": "Severe Community-Acquired Pneumonia with Cyanosis",
+    "clinical_category": "Respiratory",
+    "icd10_mapping": "J18.9",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-006",
+    "condition_title": "Venomous Snakebite Envenomation (Neurotoxic/Vasculotoxic)",
+    "clinical_category": "Trauma & Environmental",
+    "icd10_mapping": "T63.0",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-007",
+    "condition_title": "Acute Severe Asthma / Status Asthmaticus",
+    "clinical_category": "Respiratory",
+    "icd10_mapping": "J45.9",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-008",
+    "condition_title": "Heat Stroke with Altered Sensorium",
+    "clinical_category": "Trauma & Environmental",
+    "icd10_mapping": "T67.0",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-009",
+    "condition_title": "Acute Organophosphate / Pesticide Poisoning",
+    "clinical_category": "Toxicology",
+    "icd10_mapping": "T60.0",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-010",
+    "condition_title": "Severe Falciparum Malaria with Cerebral Complications",
+    "clinical_category": "Vector-Borne Disease",
+    "icd10_mapping": "B50.0",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-011",
+    "condition_title": "Dengue Hemorrhagic Fever with Hypotension (Dengue Shock)",
+    "clinical_category": "Vector-Borne Disease",
+    "icd10_mapping": "A91",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-012",
+    "condition_title": "Acute Coronary Syndrome / Myocardial Infarction",
+    "clinical_category": "Cardiovascular",
+    "icd10_mapping": "I21.9",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-013",
+    "condition_title": "Hypertensive Encephalopathy / Acute Stroke",
+    "clinical_category": "Neurological",
+    "icd10_mapping": "I64",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-014",
+    "condition_title": "Severe Diabetic Ketoacidosis with Kussmaul Breathing",
+    "clinical_category": "Endocrine",
+    "icd10_mapping": "E11.1",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-015",
+    "condition_title": "Obstructed Labor / Prolonged Second Stage",
+    "clinical_category": "Maternal Health",
+    "icd10_mapping": "O66.9",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-016",
+    "condition_title": "Post-Partum Hemorrhage (PPH) - Variant Stage 1",
+    "clinical_category": "Maternal Health",
+    "icd10_mapping": "O72.0",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-017",
+    "condition_title": "Pre-Eclampsia with Severe Features - Variant Stage 1",
+    "clinical_category": "Maternal Health",
+    "icd10_mapping": "O14.1",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-018",
+    "condition_title": "Neonatal Sepsis & Severe Hypothermia - Variant Stage 1",
+    "clinical_category": "Newborn & Child Health",
+    "icd10_mapping": "P36.9",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-019",
+    "condition_title": "Severe Acute Dehydration / Cholera Suspect - Variant Stage 1",
+    "clinical_category": "Infectious Disease",
+    "icd10_mapping": "A00.9",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-020",
+    "condition_title": "Severe Community-Acquired Pneumonia with Cyanosis - Variant Stage 1",
+    "clinical_category": "Respiratory",
+    "icd10_mapping": "J18.9",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-021",
+    "condition_title": "Venomous Snakebite Envenomation (Neurotoxic/Vasculotoxic) - Variant Stage 1",
+    "clinical_category": "Trauma & Environmental",
+    "icd10_mapping": "T63.0",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-022",
+    "condition_title": "Acute Severe Asthma / Status Asthmaticus - Variant Stage 1",
+    "clinical_category": "Respiratory",
+    "icd10_mapping": "J45.9",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-023",
+    "condition_title": "Heat Stroke with Altered Sensorium - Variant Stage 1",
+    "clinical_category": "Trauma & Environmental",
+    "icd10_mapping": "T67.0",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-024",
+    "condition_title": "Acute Organophosphate / Pesticide Poisoning - Variant Stage 1",
+    "clinical_category": "Toxicology",
+    "icd10_mapping": "T60.0",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-025",
+    "condition_title": "Severe Falciparum Malaria with Cerebral Complications - Variant Stage 1",
+    "clinical_category": "Vector-Borne Disease",
+    "icd10_mapping": "B50.0",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-026",
+    "condition_title": "Dengue Hemorrhagic Fever with Hypotension (Dengue Shock) - Variant Stage 1",
+    "clinical_category": "Vector-Borne Disease",
+    "icd10_mapping": "A91",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-027",
+    "condition_title": "Acute Coronary Syndrome / Myocardial Infarction - Variant Stage 1",
+    "clinical_category": "Cardiovascular",
+    "icd10_mapping": "I21.9",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-028",
+    "condition_title": "Hypertensive Encephalopathy / Acute Stroke - Variant Stage 1",
+    "clinical_category": "Neurological",
+    "icd10_mapping": "I64",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-029",
+    "condition_title": "Severe Diabetic Ketoacidosis with Kussmaul Breathing - Variant Stage 1",
+    "clinical_category": "Endocrine",
+    "icd10_mapping": "E11.1",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-030",
+    "condition_title": "Obstructed Labor / Prolonged Second Stage - Variant Stage 2",
+    "clinical_category": "Maternal Health",
+    "icd10_mapping": "O66.9",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-031",
+    "condition_title": "Post-Partum Hemorrhage (PPH) - Variant Stage 2",
+    "clinical_category": "Maternal Health",
+    "icd10_mapping": "O72.0",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-032",
+    "condition_title": "Pre-Eclampsia with Severe Features - Variant Stage 2",
+    "clinical_category": "Maternal Health",
+    "icd10_mapping": "O14.1",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-033",
+    "condition_title": "Neonatal Sepsis & Severe Hypothermia - Variant Stage 2",
+    "clinical_category": "Newborn & Child Health",
+    "icd10_mapping": "P36.9",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-034",
+    "condition_title": "Severe Acute Dehydration / Cholera Suspect - Variant Stage 2",
+    "clinical_category": "Infectious Disease",
+    "icd10_mapping": "A00.9",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-035",
+    "condition_title": "Severe Community-Acquired Pneumonia with Cyanosis - Variant Stage 2",
+    "clinical_category": "Respiratory",
+    "icd10_mapping": "J18.9",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-036",
+    "condition_title": "Venomous Snakebite Envenomation (Neurotoxic/Vasculotoxic) - Variant Stage 2",
+    "clinical_category": "Trauma & Environmental",
+    "icd10_mapping": "T63.0",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-037",
+    "condition_title": "Acute Severe Asthma / Status Asthmaticus - Variant Stage 2",
+    "clinical_category": "Respiratory",
+    "icd10_mapping": "J45.9",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-038",
+    "condition_title": "Heat Stroke with Altered Sensorium - Variant Stage 2",
+    "clinical_category": "Trauma & Environmental",
+    "icd10_mapping": "T67.0",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-039",
+    "condition_title": "Acute Organophosphate / Pesticide Poisoning - Variant Stage 2",
+    "clinical_category": "Toxicology",
+    "icd10_mapping": "T60.0",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-040",
+    "condition_title": "Severe Falciparum Malaria with Cerebral Complications - Variant Stage 2",
+    "clinical_category": "Vector-Borne Disease",
+    "icd10_mapping": "B50.0",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-041",
+    "condition_title": "Dengue Hemorrhagic Fever with Hypotension (Dengue Shock) - Variant Stage 2",
+    "clinical_category": "Vector-Borne Disease",
+    "icd10_mapping": "A91",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-042",
+    "condition_title": "Acute Coronary Syndrome / Myocardial Infarction - Variant Stage 2",
+    "clinical_category": "Cardiovascular",
+    "icd10_mapping": "I21.9",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-043",
+    "condition_title": "Hypertensive Encephalopathy / Acute Stroke - Variant Stage 2",
+    "clinical_category": "Neurological",
+    "icd10_mapping": "I64",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-044",
+    "condition_title": "Severe Diabetic Ketoacidosis with Kussmaul Breathing - Variant Stage 2",
+    "clinical_category": "Endocrine",
+    "icd10_mapping": "E11.1",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-045",
+    "condition_title": "Obstructed Labor / Prolonged Second Stage - Variant Stage 3",
+    "clinical_category": "Maternal Health",
+    "icd10_mapping": "O66.9",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-046",
+    "condition_title": "Post-Partum Hemorrhage (PPH) - Variant Stage 3",
+    "clinical_category": "Maternal Health",
+    "icd10_mapping": "O72.0",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-047",
+    "condition_title": "Pre-Eclampsia with Severe Features - Variant Stage 3",
+    "clinical_category": "Maternal Health",
+    "icd10_mapping": "O14.1",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-048",
+    "condition_title": "Neonatal Sepsis & Severe Hypothermia - Variant Stage 3",
+    "clinical_category": "Newborn & Child Health",
+    "icd10_mapping": "P36.9",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-049",
+    "condition_title": "Severe Acute Dehydration / Cholera Suspect - Variant Stage 3",
+    "clinical_category": "Infectious Disease",
+    "icd10_mapping": "A00.9",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-050",
+    "condition_title": "Severe Community-Acquired Pneumonia with Cyanosis - Variant Stage 3",
+    "clinical_category": "Respiratory",
+    "icd10_mapping": "J18.9",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-051",
+    "condition_title": "Venomous Snakebite Envenomation (Neurotoxic/Vasculotoxic) - Variant Stage 3",
+    "clinical_category": "Trauma & Environmental",
+    "icd10_mapping": "T63.0",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-052",
+    "condition_title": "Acute Severe Asthma / Status Asthmaticus - Variant Stage 3",
+    "clinical_category": "Respiratory",
+    "icd10_mapping": "J45.9",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-053",
+    "condition_title": "Heat Stroke with Altered Sensorium - Variant Stage 3",
+    "clinical_category": "Trauma & Environmental",
+    "icd10_mapping": "T67.0",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-054",
+    "condition_title": "Acute Organophosphate / Pesticide Poisoning - Variant Stage 3",
+    "clinical_category": "Toxicology",
+    "icd10_mapping": "T60.0",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-055",
+    "condition_title": "Severe Falciparum Malaria with Cerebral Complications - Variant Stage 3",
+    "clinical_category": "Vector-Borne Disease",
+    "icd10_mapping": "B50.0",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-056",
+    "condition_title": "Dengue Hemorrhagic Fever with Hypotension (Dengue Shock) - Variant Stage 3",
+    "clinical_category": "Vector-Borne Disease",
+    "icd10_mapping": "A91",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-057",
+    "condition_title": "Acute Coronary Syndrome / Myocardial Infarction - Variant Stage 3",
+    "clinical_category": "Cardiovascular",
+    "icd10_mapping": "I21.9",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-058",
+    "condition_title": "Hypertensive Encephalopathy / Acute Stroke - Variant Stage 3",
+    "clinical_category": "Neurological",
+    "icd10_mapping": "I64",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-059",
+    "condition_title": "Severe Diabetic Ketoacidosis with Kussmaul Breathing - Variant Stage 3",
+    "clinical_category": "Endocrine",
+    "icd10_mapping": "E11.1",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-060",
+    "condition_title": "Obstructed Labor / Prolonged Second Stage - Variant Stage 4",
+    "clinical_category": "Maternal Health",
+    "icd10_mapping": "O66.9",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-061",
+    "condition_title": "Post-Partum Hemorrhage (PPH) - Variant Stage 4",
+    "clinical_category": "Maternal Health",
+    "icd10_mapping": "O72.0",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-062",
+    "condition_title": "Pre-Eclampsia with Severe Features - Variant Stage 4",
+    "clinical_category": "Maternal Health",
+    "icd10_mapping": "O14.1",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-063",
+    "condition_title": "Neonatal Sepsis & Severe Hypothermia - Variant Stage 4",
+    "clinical_category": "Newborn & Child Health",
+    "icd10_mapping": "P36.9",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-064",
+    "condition_title": "Severe Acute Dehydration / Cholera Suspect - Variant Stage 4",
+    "clinical_category": "Infectious Disease",
+    "icd10_mapping": "A00.9",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-065",
+    "condition_title": "Severe Community-Acquired Pneumonia with Cyanosis - Variant Stage 4",
+    "clinical_category": "Respiratory",
+    "icd10_mapping": "J18.9",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-066",
+    "condition_title": "Venomous Snakebite Envenomation (Neurotoxic/Vasculotoxic) - Variant Stage 4",
+    "clinical_category": "Trauma & Environmental",
+    "icd10_mapping": "T63.0",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-067",
+    "condition_title": "Acute Severe Asthma / Status Asthmaticus - Variant Stage 4",
+    "clinical_category": "Respiratory",
+    "icd10_mapping": "J45.9",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-068",
+    "condition_title": "Heat Stroke with Altered Sensorium - Variant Stage 4",
+    "clinical_category": "Trauma & Environmental",
+    "icd10_mapping": "T67.0",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-069",
+    "condition_title": "Acute Organophosphate / Pesticide Poisoning - Variant Stage 4",
+    "clinical_category": "Toxicology",
+    "icd10_mapping": "T60.0",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-070",
+    "condition_title": "Severe Falciparum Malaria with Cerebral Complications - Variant Stage 4",
+    "clinical_category": "Vector-Borne Disease",
+    "icd10_mapping": "B50.0",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-071",
+    "condition_title": "Dengue Hemorrhagic Fever with Hypotension (Dengue Shock) - Variant Stage 4",
+    "clinical_category": "Vector-Borne Disease",
+    "icd10_mapping": "A91",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-072",
+    "condition_title": "Acute Coronary Syndrome / Myocardial Infarction - Variant Stage 4",
+    "clinical_category": "Cardiovascular",
+    "icd10_mapping": "I21.9",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-073",
+    "condition_title": "Hypertensive Encephalopathy / Acute Stroke - Variant Stage 4",
+    "clinical_category": "Neurological",
+    "icd10_mapping": "I64",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-074",
+    "condition_title": "Severe Diabetic Ketoacidosis with Kussmaul Breathing - Variant Stage 4",
+    "clinical_category": "Endocrine",
+    "icd10_mapping": "E11.1",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-075",
+    "condition_title": "Obstructed Labor / Prolonged Second Stage - Variant Stage 5",
+    "clinical_category": "Maternal Health",
+    "icd10_mapping": "O66.9",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-076",
+    "condition_title": "Post-Partum Hemorrhage (PPH) - Variant Stage 5",
+    "clinical_category": "Maternal Health",
+    "icd10_mapping": "O72.0",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-077",
+    "condition_title": "Pre-Eclampsia with Severe Features - Variant Stage 5",
+    "clinical_category": "Maternal Health",
+    "icd10_mapping": "O14.1",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-078",
+    "condition_title": "Neonatal Sepsis & Severe Hypothermia - Variant Stage 5",
+    "clinical_category": "Newborn & Child Health",
+    "icd10_mapping": "P36.9",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-079",
+    "condition_title": "Severe Acute Dehydration / Cholera Suspect - Variant Stage 5",
+    "clinical_category": "Infectious Disease",
+    "icd10_mapping": "A00.9",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-080",
+    "condition_title": "Severe Community-Acquired Pneumonia with Cyanosis - Variant Stage 5",
+    "clinical_category": "Respiratory",
+    "icd10_mapping": "J18.9",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-081",
+    "condition_title": "Venomous Snakebite Envenomation (Neurotoxic/Vasculotoxic) - Variant Stage 5",
+    "clinical_category": "Trauma & Environmental",
+    "icd10_mapping": "T63.0",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-082",
+    "condition_title": "Acute Severe Asthma / Status Asthmaticus - Variant Stage 5",
+    "clinical_category": "Respiratory",
+    "icd10_mapping": "J45.9",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-083",
+    "condition_title": "Heat Stroke with Altered Sensorium - Variant Stage 5",
+    "clinical_category": "Trauma & Environmental",
+    "icd10_mapping": "T67.0",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-084",
+    "condition_title": "Acute Organophosphate / Pesticide Poisoning - Variant Stage 5",
+    "clinical_category": "Toxicology",
+    "icd10_mapping": "T60.0",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-085",
+    "condition_title": "Severe Falciparum Malaria with Cerebral Complications - Variant Stage 5",
+    "clinical_category": "Vector-Borne Disease",
+    "icd10_mapping": "B50.0",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-086",
+    "condition_title": "Dengue Hemorrhagic Fever with Hypotension (Dengue Shock) - Variant Stage 5",
+    "clinical_category": "Vector-Borne Disease",
+    "icd10_mapping": "A91",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-087",
+    "condition_title": "Acute Coronary Syndrome / Myocardial Infarction - Variant Stage 5",
+    "clinical_category": "Cardiovascular",
+    "icd10_mapping": "I21.9",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-088",
+    "condition_title": "Hypertensive Encephalopathy / Acute Stroke - Variant Stage 5",
+    "clinical_category": "Neurological",
+    "icd10_mapping": "I64",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-089",
+    "condition_title": "Severe Diabetic Ketoacidosis with Kussmaul Breathing - Variant Stage 5",
+    "clinical_category": "Endocrine",
+    "icd10_mapping": "E11.1",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-090",
+    "condition_title": "Obstructed Labor / Prolonged Second Stage - Variant Stage 6",
+    "clinical_category": "Maternal Health",
+    "icd10_mapping": "O66.9",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-091",
+    "condition_title": "Post-Partum Hemorrhage (PPH) - Variant Stage 6",
+    "clinical_category": "Maternal Health",
+    "icd10_mapping": "O72.0",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-092",
+    "condition_title": "Pre-Eclampsia with Severe Features - Variant Stage 6",
+    "clinical_category": "Maternal Health",
+    "icd10_mapping": "O14.1",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-093",
+    "condition_title": "Neonatal Sepsis & Severe Hypothermia - Variant Stage 6",
+    "clinical_category": "Newborn & Child Health",
+    "icd10_mapping": "P36.9",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-094",
+    "condition_title": "Severe Acute Dehydration / Cholera Suspect - Variant Stage 6",
+    "clinical_category": "Infectious Disease",
+    "icd10_mapping": "A00.9",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  },
+  {
+    "protocol_id": "ASHA-TRIAGE-095",
+    "condition_title": "Severe Community-Acquired Pneumonia with Cyanosis - Variant Stage 6",
+    "clinical_category": "Respiratory",
+    "icd10_mapping": "J18.9",
+    "triage_priority_tier": "EMERGENCY",
+    "vital_thresholds": {
+      "systolic_bp_alert": "< 90 or > 160 mmHg",
+      "heart_rate_alert": "> 110 or < 50 bpm",
+      "spo2_oxygen_alert": "< 92% on ambient air",
+      "respiratory_rate_alert": "> 28 or < 10 breaths/min",
+      "temperature_alert": "> 101.5°F or < 95.0°F"
+    },
+    "red_flag_indicators": [
+      "Altered mental consciousness, drowsiness, or unresponsiveness",
+      "Inability to drink, breastfeed, or retain fluids",
+      "Severe respiratory distress with chest in-drawing or stridor",
+      "Cold clammy extremities with capillary refill > 3 seconds",
+      "Uncontrolled systemic active bleeding or petechial rash"
+    ],
+    "frontline_asha_first_aid": [
+      "Place patient in left lateral recovery position if unconscious or maternal",
+      "Ensure clear airway, administer oral rehydration salts if patient is alert and able to swallow",
+      "Keep patient warm; prevent hypothermia using warm blankets or kangaroo mother care",
+      "Do not give solid food or oral medications if patient has altered sensorium",
+      "Immediate contact with Block Medical Officer (BMO) via Asha tele-consultation"
+    ],
+    "emergency_escalation_protocol": {
+      "ambulance_dispatch": "Call 112 / 102 National Ambulance Immediate Dispatch",
+      "destination_facility": "Sub-District Hospital (SDH) / First Referral Unit (FRU) with Blood Bank",
+      "pre_referral_stabilization_notified": true
+    },
+    "tele_consultation_support_required": true
+  }
+]
