@@ -23,6 +23,7 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
         rel="stylesheet"
     >
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="appointment.css">
 </head>
@@ -1017,33 +1018,32 @@
     </main>
 
 
-    <!-- ==================================================
-         MOBILE NAVIGATION
-    =================================================== -->
-
-    <nav class="bottom-nav" aria-label="Main navigation">
-        <a href="../dashboard/index.html">
-            <span>⌂</span>
-            Home
-        </a>
-        <a href="../Talktodoctor/talk-to-doctor.html">
-            <span>♧</span>
-            Doctors
-        </a>
-        <a href="appointment.html" class="active">
-            <span>▣</span>
-            Visits
-        </a>
-        <a href="../my_health/my-health.html">
-            <span>▤</span>
-            Records
-        </a>
-        <a href="../health_assistant/health-assistant.html">
-            <span>?</span>
-            Help
-        </a>
+    <!-- Unified Bottom Navigation Bar -->
+    <nav class="asha-unified-patient-nav" aria-label="Patient Portal Navigation">
+        <div class="asha-patient-nav-inner">
+            <a href="../dashboard/index.html" class="asha-nav-item" data-nav="home" title="Patient Dashboard">
+                <span class="material-symbols-outlined">home</span>
+                <span class="asha-nav-label">Home</span>
+            </a>
+            <a href="../Talktodoctor/talk-to-doctor.html" class="asha-nav-item" data-nav="doctor" title="Talk to Doctor">
+                <span class="material-symbols-outlined">video_camera_front</span>
+                <span class="asha-nav-label">Talk to Doctor</span>
+            </a>
+            <a href="appointment.html" class="asha-nav-item active" data-nav="appointment" title="Book Appointment">
+                <span class="material-symbols-outlined">calendar_add_on</span>
+                <span class="asha-nav-label">Appointment</span>
+            </a>
+            <a href="../my_health/my-health.html" class="asha-nav-item" data-nav="records" title="My Health Record">
+                <span class="material-symbols-outlined">health_and_safety</span>
+                <span class="asha-nav-label">My Health</span>
+            </a>
+            <button type="button" class="asha-nav-item asha-nav-sync-btn" data-path="sync" title="Sync progress with doctor data">
+                <span class="material-symbols-outlined asha-nav-sync-icon">sync</span>
+                <span class="asha-nav-label">Sync</span>
+            </button>
+        </div>
     </nav>
 <script src="appointment.js"></script>
-
+<script src="../../asha-navigation.js"></script>
 </body>
 </html>
