@@ -1,0 +1,222 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "ASHA Health Digital Healthcare Platform API",
+    "description": "Comprehensive backend REST API documentation for ASHA Healthcare — powering rural health workers, patient tele-consultations, doctor triage queues, lab diagnostics, and PMBI Jan Aushadhi generic medication services.",
+    "version": "2.0.0",
+    "contact": {
+      "name": "ASHA Health Engineering Team",
+      "email": "prateeksagar640@gmail.com"
+    }
+  },
+  "servers": [
+    {
+      "url": "http://localhost:5000",
+      "description": "Local Healthcare Development Server"
+    }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "summary": "Root Platform Landing Fallback",
+        "description": "Serves primary HTML index or redirects seamlessly to patient portal dashboard without 404 errors.",
+        "responses": {
+          "200": {
+            "description": "HTML Dashboard Content"
+          }
+        }
+      }
+    },
+    "/api/auth/login": {
+      "post": {
+        "summary": "Cryptographic User Authentication",
+        "description": "Authenticates patients, doctors, workers, and administrators using BCrypt password hashing and returns JSON Web Token (JWT).",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "email",
+                  "password"
+                ],
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "example": "patient@asha.org"
+                  },
+                  "password": {
+                    "type": "string",
+                    "example": "patient123"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Authentication successful with JWT token and user profile."
+          },
+          "401": {
+            "description": "Invalid email or password."
+          }
+        }
+      }
+    },
+    "/api/medications": {
+      "get": {
+        "summary": "Query National Essential Medications Catalog",
+        "description": "Searches medications by brand, generic salt composition, or symptom condition with Jan Aushadhi pricing comparison.",
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Search term (e.g., fever, paracetamol, asthma)"
+          },
+          {
+            "name": "category",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Therapeutic drug category"
+          },
+          {
+            "name": "otc",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "description": "Filter non-prescription drugs only"
+          },
+          {
+            "name": "essential",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "description": "Filter National Essential Medicines"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Filtered list of medications with clinical precautions and savings."
+          }
+        }
+      }
+    },
+    "/api/medications/search/precautions": {
+      "get": {
+        "summary": "Search Clinical Precautions & Contraindications",
+        "description": "Returns safety warnings, side effects, and contraindications by patient medical condition.",
+        "parameters": [
+          {
+            "name": "condition",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Patient condition (e.g. pregnancy, asthma, ulcer)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Matching medications with explicit safety warnings."
+          }
+        }
+      }
+    },
+    "/api/medications/categories": {
+      "get": {
+        "summary": "Get Medication Categories Summary",
+        "description": "Returns list of therapeutic categories and count of registered generic drugs.",
+        "responses": {
+          "200": {
+            "description": "Categories with item counts."
+          }
+        }
+      }
+    },
+    "/api/medications/{id}": {
+      "get": {
+        "summary": "Get Detailed Medication Profile",
+        "description": "Retrieves full details of a specific drug including Jan Aushadhi generic savings calculation.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Full medication profile."
+          },
+          "404": {
+            "description": "Medication not found."
+          }
+        }
+      }
+    },
+    "/api/doctor/quick-triage": {
+      "post": {
+        "summary": "Dispatch Critical SOS Emergency Alert",
+        "description": "Triggers priority queue injection for emergency patients with vital alerts.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "patient_id": {
+                    "type": "integer",
+                    "example": 1
+                  },
+                  "symptoms": {
+                    "type": "string",
+                    "example": "Severe maternal hemorrhage and hypotension"
+                  },
+                  "priority": {
+                    "type": "string",
+                    "enum": [
+                      "ROUTINE",
+                      "URGENT",
+                      "EMERGENCY"
+                    ],
+                    "example": "EMERGENCY"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Emergency triage ticket generated and doctor alerted."
+          }
+        }
+      }
+    },
+    "/api/appointments/book": {
+      "post": {
+        "summary": "Book Healthcare Appointment",
+        "description": "Creates confirmed patient appointment booking with reference code and date-slot validation.",
+        "responses": {
+          "201": {
+            "description": "Appointment confirmed."
+          }
+        }
+      }
+    }
+  }
+}
