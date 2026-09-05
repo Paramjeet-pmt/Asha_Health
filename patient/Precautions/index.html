@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Precautions | ASHA Healthcare</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+<div class="app">
+
+    <!-- HEADER -->
+    <header class="header">
+
+        <div class="brand">
+
+            <div class="brand-logo">✚</div>
+
+            <div class="brand-text">
+                ASHA HEALTHCARE<br>
+                PLATFORM
+            </div>
+
+        </div>
+
+        <div class="header-icons">
+
+            <div class="notification" id="notificationBtn">
+                ♧
+            </div>
+
+            <div class="profile">
+                P
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <main class="content">
+
+        <!-- PAGE INTRO -->
+
+        <h1 class="page-title">
+            Precautions
+        </h1>
+
+        <p class="page-description">
+            Simple health and safety guidance to help you stay healthy
+            and prevent common health problems.
+        </p>
+
+
+        <!-- SAFETY BANNER -->
+
+        <div class="safety-banner" id="safetyBanner">
+
+            <div class="safety-icon">
+                ✓
+            </div>
+
+            <div class="safety-text">
+
+                <strong>
+                    Stay Safe & Stay Healthy
+                </strong>
+
+                <p>
+                    Follow these simple precautions and contact a
+                    healthcare professional if you have concerns.
+                </p>
+
+            </div>
+
+            <div class="close" id="closeBanner">
+                ×
+            </div>
+
+        </div>
+
+
+        <!-- SEARCH -->
+
+        <div class="search-box">
+
+            <span class="search-icon">
+                🔍
+            </span>
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search by health topic or precaution..."
+            >
+
+        </div>
+
+
+        <!-- FILTERS -->
+
+        <div class="filters">
+
+            <button class="filter active" data-filter="all">
+                ▦ All
+            </button>
+
+            <button class="filter" data-filter="general">
+                ◉ General Health
+            </button>
+
+            <button class="filter" data-filter="hygiene">
+                ♙ Hygiene
+            </button>
+
+            <button class="filter" data-filter="nutrition">
+                ♧ Nutrition
+            </button>
+
+        </div>
+
+
+        <!-- RECOMMENDED -->
+
+        <div class="section-header">
+
+            <div class="section-title">
+                Recommended Precautions
+            </div>
+
+            <div class="section-count">
+                Essential · 4 items
+            </div>
+
+        </div>
+
+
+        <div class="recommended" id="recommended">
+
+            <div class="recommend-card searchable"
+                 data-category="hygiene"
+                 data-search="hand hygiene wash hands soap clean water">
+
+                <div class="card-icon">
+                    ♙
+                </div>
+
+                <h3>
+                    Hand Hygiene
+                </h3>
+
+                <p>
+                    Wash your hands regularly with soap and clean
+                    water, especially before eating.
+                </p>
+
+                <button class="details-btn">
+                    View Details →
+                </button>
+
+            </div>
+
+
+            <div class="recommend-card searchable"
+                 data-category="general"
+                 data-search="safe drinking clean water water borne illness">
+
+                <div class="card-icon">
+                    ◉
+                </div>
+
+                <h3>
+                    Safe Drinking
+                </h3>
+
+                <p>
+                    Drink clean and safe water to prevent
+                    water-borne illnesses.
+                </p>
+
+                <button class="details-btn">
+                    View Details →
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- FEATURE CARD -->
+
+        <div class="feature-card searchable"
+             data-category="general"
+             data-search="doctor verified evidence based family care">
+
+            <img
+                class="feature-image"
+                src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=900&q=80"
+                alt="Doctor consulting patient"
+            >
+
+            <div class="feature-content">
+
+                <div class="doctor-label">
+                    ● Doctor Verified Guidelines
+                </div>
+
+                <h3>
+                    Evidence-Based Family Care
+                </h3>
+
+                <p>
+                    All health precautions listed here are curated
+                    according to national public health standards
+                    and verified by healthcare professionals.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- PERSONALIZED -->
+
+        <div class="personalized-title">
+            Personalized for Priya Sharma
+        </div>
+
+        <div class="personalized-name">
+
+            <span>
+                Your Reminders
+            </span>
+
+            <span class="active-pill" id="activeCount">
+                4 Active
+            </span>
+
+        </div>
+
+
+        <!-- TASKS -->
+
+        <div class="tasks">
+
+            <div class="task">
+
+                <input
+                    class="checkbox"
+                    type="checkbox"
+                    checked
+                >
+
+                <div class="task-info">
+
+                    <div class="task-title">
+                        Drink enough safe water
+                    </div>
+
+                    <div class="task-subtitle">
+                        Daily Target: 2.5 Liters
+                    </div>
+
+                </div>
+
+                <span class="task-status on-track">
+                    On Track
+                </span>
+
+            </div>
+
+
+            <div class="task">
+
+                <input
+                    class="checkbox"
+                    type="checkbox"
+                >
+
+                <div class="task-info">
+
+                    <div class="task-title">
+                        Prescription adherence
+                    </div>
+
+                    <div class="task-subtitle">
+                        Evening dose at 8:00 PM
+                    </div>
+
+                </div>
+
+                <span class="task-status due">
+                    Due 8 PM
+                </span>
+
+            </div>
+
+
+            <div class="task">
+
+                <input
+                    class="checkbox"
+                    type="checkbox"
+                >
+
+                <div class="task-info">
+
+                    <div class="task-title">
+                        Attend follow-up appointment
+                    </div>
+
+                    <div class="task-subtitle">
+                        Dr. Sen · Thursday 10:30 AM
+                    </div>
+
+                </div>
+
+                <span class="task-status due">
+                    Thursday
+                </span>
+
+            </div>
+
+
+            <div class="task">
+
+                <input
+                    class="checkbox"
+                    type="checkbox"
+                    checked
+                >
+
+                <div class="task-info">
+
+                    <div class="task-title">
+                        Doctor's advice: 20-min walk
+                    </div>
+
+                    <div class="task-subtitle">
+                        Low-impact activity
+                    </div>
+
+                </div>
+
+                <span class="task-status done">
+                    Done
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- CATEGORIES -->
+
+        <div class="section-header">
+
+            <div class="section-title">
+                Health & Safety Categories
+            </div>
+
+            <div class="section-count">
+                6 Topics
+            </div>
+
+        </div>
+
+
+        <div class="categories">
+
+            <div class="category searchable"
+                 data-category="hygiene"
+                 data-search="personal hygiene hand washing clean surroundings">
+
+                <div class="category-icon">
+                    ♙
+                </div>
+
+                <div class="category-info">
+
+                    <h4>
+                        Personal Hygiene
+                    </h4>
+
+                    <p>
+                        Hand washing, clean surroundings...
+                    </p>
+
+                </div>
+
+                <div class="arrow">
+                    →
+                </div>
+
+            </div>
+
+
+            <div class="category searchable"
+                 data-category="nutrition"
+                 data-search="food nutrition balanced meals safe food">
+
+                <div class="category-icon">
+                    ⌁
+                </div>
+
+                <div class="category-info">
+
+                    <h4>
+                        Food & Nutrition
+                    </h4>
+
+                    <p>
+                        Balanced meals, safe food handling...
+                    </p>
+
+                </div>
+
+                <div class="arrow">
+                    →
+                </div>
+
+            </div>
+
+
+            <div class="category searchable"
+                 data-category="general"
+                 data-search="medication safety prescription timing medicine">
+
+                <div class="category-icon">
+                    ▣
+                </div>
+
+                <div class="category-info">
+
+                    <h4>
+                        Medication Safety
+                    </h4>
+
+                    <p>
+                        Prescription timing, no sharing...
+                    </p>
+
+                </div>
+
+                <div class="arrow">
+                    →
+                </div>
+
+            </div>
+
+
+            <div class="category searchable"
+                 data-category="general"
+                 data-search="seasonal health weather hydration allergies">
+
+                <div class="category-icon">
+                    ♨
+                </div>
+
+                <div class="category-info">
+
+                    <h4>
+                        Seasonal Health
+                    </h4>
+
+                    <p>
+                        Weather changes, hydration...
+                    </p>
+
+                </div>
+
+                <div class="arrow">
+                    →
+                </div>
+
+            </div>
+
+
+            <div class="category searchable"
+                 data-category="general"
+                 data-search="home safety clean spaces cooking fire safety">
+
+                <div class="category-icon">
+                    ⌂
+                </div>
+
+                <div class="category-info">
+
+                    <h4>
+                        Home Safety
+                    </h4>
+
+                    <p>
+                        Clean spaces, cooking & fire safety...
+                    </p>
+
+                </div>
+
+                <div class="arrow">
+                    →
+                </div>
+
+            </div>
+
+
+            <div class="category searchable"
+                 data-category="general"
+                 data-search="general wellness sleep physical activity">
+
+                <div class="category-icon">
+                    ☁
+                </div>
+
+                <div class="category-info">
+
+                    <h4>
+                        General Wellness
+                    </h4>
+
+                    <p>
+                        Sleep quality, physical activity...
+                    </p>
+
+                </div>
+
+                <div class="arrow">
+                    →
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- EVERYDAY PRECAUTIONS -->
+
+        <div class="section-header">
+
+            <div>
+
+                <div class="section-title">
+                    Everyday Precautions
+                </div>
+
+                <div class="section-count">
+                    Step-by-step health guidance
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="precaution-list">
+
+            <div class="precaution">
+
+                <div class="number">
+                    01
+                </div>
+
+                <div class="precaution-info">
+
+                    <h4>
+                        Maintain Hand Hygiene
+                    </h4>
+
+                    <p>
+                        Wash your hands regularly.
+                    </p>
+
+                </div>
+
+                <div class="plus">
+                    +
+                </div>
+
+                <div class="precaution-detail">
+                    Wash your hands with soap and clean running water,
+                    especially before eating and after using the restroom.
+                </div>
+
+            </div>
+
+
+            <div class="precaution">
+
+                <div class="number">
+                    02
+                </div>
+
+                <div class="precaution-info">
+
+                    <h4>
+                        Keep Your Surroundings Clean
+                    </h4>
+
+                    <p>
+                        Reduce germs around your home.
+                    </p>
+
+                </div>
+
+                <div class="plus">
+                    +
+                </div>
+
+                <div class="precaution-detail">
+                    Keep frequently touched surfaces clean and dispose
+                    of household waste properly.
+                </div>
+
+            </div>
+
+
+            <div class="precaution">
+
+                <div class="number">
+                    03
+                </div>
+
+                <div class="precaution-info">
+
+                    <h4>
+                        Drink Safe Water
+                    </h4>
+
+                    <p>
+                        Protect yourself from water-borne illness.
+                    </p>
+
+                </div>
+
+                <div class="plus">
+                    +
+                </div>
+
+                <div class="precaution-detail">
+                    Drink water from a safe source. If the quality is
+                    uncertain, use an appropriate purification method.
+                </div>
+
+            </div>
+
+
+            <div class="precaution">
+
+                <div class="number">
+                    04
+                </div>
+
+                <div class="precaution-info">
+
+                    <h4>
+                        Follow Medication Instructions
+                    </h4>
+
+                    <p>
+                        Take medicines as prescribed.
+                    </p>
+
+                </div>
+
+                <div class="plus">
+                    +
+                </div>
+
+                <div class="precaution-detail">
+                    Follow the dose and timing given by your healthcare
+                    professional and never share prescription medicines.
+                </div>
+
+            </div>
+
+
+            <div class="precaution">
+
+                <div class="number">
+                    05
+                </div>
+
+                <div class="precaution-info">
+
+                    <h4>
+                        Maintain a Balanced Diet
+                    </h4>
+
+                    <p>
+                        Support your overall health.
+                    </p>
+
+                </div>
+
+                <div class="plus">
+                    +
+                </div>
+
+                <div class="precaution-detail">
+                    Include a variety of vegetables, fruits, whole grains,
+                    proteins and adequate fluids in your daily diet.
+                </div>
+
+            </div>
+
+
+            <div class="precaution">
+
+                <div class="number">
+                    06
+                </div>
+
+                <div class="precaution-info">
+
+                    <h4>
+                        Take Care During Seasonal Changes
+                    </h4>
+
+                    <p>
+                        Protect against common seasonal problems.
+                    </p>
+
+                </div>
+
+                <div class="plus">
+                    +
+                </div>
+
+                <div class="precaution-detail">
+                    Stay hydrated, dress appropriately for the weather and
+                    take reasonable precautions during seasonal changes.
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- SEARCH RESULT -->
+
+        <div class="no-results" id="noResults">
+            🔍 No precautions found.<br>
+            Try another health topic.
+        </div>
+
+
+        <!-- CONTACT HEALTHCARE -->
+
+        <div class="warning">
+
+            <div class="warning-title">
+                🟠 When Should You Contact a Healthcare Professional?
+            </div>
+
+            <div class="warning-subtitle">
+                If you experience any of the following symptoms,
+                please seek prompt medical attention:
+            </div>
+
+            <ul>
+
+                <li>
+                    Persistent or worsening symptoms over 48 hours
+                </li>
+
+                <li>
+                    Difficulty breathing or sudden shortness of breath
+                </li>
+
+                <li>
+                    Severe, sharp, unexplained pain
+                </li>
+
+                <li>
+                    High or persistent fever
+                </li>
+
+                <li>
+                    Sudden changes in consciousness
+                </li>
+
+                <li>
+                    Any unexpected symptoms causing significant concern
+                </li>
+
+            </ul>
+
+            <button class="contact-btn" id="contactBtn">
+                ☎ Contact Healthcare Professional
+            </button>
+
+        </div>
+
+
+        <!-- EMERGENCY -->
+
+        <div class="emergency">
+
+            <div class="emergency-heading">
+
+                <div class="emergency-title">
+                    ✚ Need Urgent Help?
+                </div>
+
+                <div class="emergency-tag">
+                    Emergency Line 112
+                </div>
+
+            </div>
+
+            <p>
+                If you believe you're experiencing a medical emergency,
+                seek immediate help from emergency services or the
+                nearest hospital emergency room.
+            </p>
+
+            <button class="emergency-btn" id="emergencyBtn">
+                ☎ Get Emergency Help (112)
+            </button>
+
+        </div>
+
+
+        <!-- FOOTER -->
+
+        <footer class="footer">
+
+            <div class="footer-brand">
+                ✚ ASHA Healthcare
+            </div>
+
+            <div class="footer-links">
+
+                <span>
+                    Help Center
+                </span>
+
+                <span>•</span>
+
+                <span>
+                    Contact Support
+                </span>
+
+                <span>•</span>
+
+                <span>
+                    Privacy Policy
+                </span>
+
+            </div>
+
+            <div class="footer-links" style="margin-top:7px;">
+
+                <span>
+                    Terms of Service
+                </span>
+
+                <span>•</span>
+
+                <span>
+                    Cookie Notice
+                </span>
+
+            </div>
+
+            <div class="copyright">
+
+                Your health information and wellbeing matter to us.<br>
+                Reviewed by ASHA Clinical Advisory Board.<br><br>
+                © 2026 ASHA Healthcare Platform. All rights reserved.
+
+            </div>
+
+        </footer>
+
+    </main>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+    /* =========================
+       CLOSE SAFETY BANNER
+    ========================= */
+
+    const closeBanner = document.getElementById("closeBanner");
+    const safetyBanner = document.getElementById("safetyBanner");
+
+    closeBanner.addEventListener("click", function () {
+
+        safetyBanner.style.display = "none";
+
+    });
+
+
+    /* =========================
+       SEARCH
+    ========================= */
+
+    const searchInput = document.getElementById("searchInput");
+    const searchableItems = document.querySelectorAll(".searchable");
+    const noResults = document.getElementById("noResults");
+
+    let activeFilter = "all";
+
+    function filterContent() {
+
+        const searchValue = searchInput.value
+            .toLowerCase()
+            .trim();
+
+        let visibleItems = 0;
+
+        searchableItems.forEach(function (item) {
+
+            const text = (
+                item.innerText +
+                " " +
+                item.dataset.search
+            ).toLowerCase();
+
+            const category = item.dataset.category;
+
+            const matchesSearch =
+                searchValue === "" ||
+                text.includes(searchValue);
+
+            const matchesFilter =
+                activeFilter === "all" ||
+                category === activeFilter;
+
+            if (matchesSearch && matchesFilter) {
+
+                item.classList.remove("hidden-card");
+
+                visibleItems++;
+
+            } else {
+
+                item.classList.add("hidden-card");
+
+            }
+
+        });
+
+        if (visibleItems === 0) {
+
+            noResults.classList.add("show");
+
+        } else {
+
+            noResults.classList.remove("show");
+
+        }
+
+    }
+
+    searchInput.addEventListener("input", filterContent);
+
+
+    /* =========================
+       FILTER BUTTONS
+    ========================= */
+
+    const filterButtons = document.querySelectorAll(".filter");
+
+    filterButtons.forEach(function (button) {
+
+        button.addEventListener("click", function () {
+
+            filterButtons.forEach(function (btn) {
+                btn.classList.remove("active");
+            });
+
+            this.classList.add("active");
+
+            activeFilter = this.dataset.filter;
+
+            filterContent();
+
+        });
+
+    });
+
+
+    /* =========================
+       PRECAUTION ACCORDION
+    ========================= */
+
+    const precautions =
+        document.querySelectorAll(".precaution");
+
+    precautions.forEach(function (precaution) {
+
+        const plus =
+            precaution.querySelector(".plus");
+
+        plus.addEventListener("click", function () {
+
+            precaution.classList.toggle("open");
+
+        });
+
+    });
+
+
+    /* =========================
+       REMINDER CHECKBOXES
+    ========================= */
+
+    const tasks =
+        document.querySelectorAll(".task");
+
+    const activeCount =
+        document.getElementById("activeCount");
+
+    function updateTaskCount() {
+
+        let checkedCount = 0;
+
+        tasks.forEach(function (task) {
+
+            const checkbox =
+                task.querySelector(".checkbox");
+
+            const status =
+                task.querySelector(".task-status");
+
+            if (checkbox.checked) {
+
+                checkedCount++;
+
+                status.textContent = "Done";
+
+                status.classList.remove("due");
+
+                status.classList.add("done");
+
+            } else {
+
+                status.classList.remove("done");
+
+                status.classList.add("due");
+
+            }
+
+        });
+
+        activeCount.textContent =
+            checkedCount + " Active";
+
+    }
+
+    document
+        .querySelectorAll(".checkbox")
+        .forEach(function (checkbox) {
+
+            checkbox.addEventListener(
+                "change",
+                updateTaskCount
+            );
+
+        });
+
+
+    /* =========================
+       EMERGENCY CALL
+    ========================= */
+
+    const emergencyBtn =
+        document.getElementById("emergencyBtn");
+
+    emergencyBtn.addEventListener("click", function () {
+
+        const confirmCall =
+            confirm(
+                "Call emergency services (112)?"
+            );
+
+        if (confirmCall) {
+
+            window.location.href = "tel:112";
+
+        }
+
+    });
+
+
+    /* =========================
+       CONTACT HEALTHCARE
+    ========================= */
+
+    const contactBtn =
+        document.getElementById("contactBtn");
+
+    contactBtn.addEventListener("click", function () {
+
+        alert(
+            "Please contact your healthcare professional or nearest healthcare facility for medical advice."
+        );
+
+    });
+
+
+    /* =========================
+       RECOMMENDED DETAILS
+    ========================= */
+
+    const detailsButtons =
+        document.querySelectorAll(".details-btn");
+
+    detailsButtons.forEach(function (button) {
+
+        button.addEventListener("click", function () {
+
+            const card =
+                this.closest(".recommend-card");
+
+            const title =
+                card.querySelector("h3").textContent;
+
+            alert(
+                "More information about " +
+                title +
+                " will be available here."
+            );
+
+        });
+
+    });
+
+
+    /* =========================
+       NOTIFICATION
+    ========================= */
+
+    const notificationBtn =
+        document.getElementById("notificationBtn");
+
+    notificationBtn.addEventListener("click", function () {
+
+        alert(
+            "You have 2 new healthcare reminders."
+        );
+
+    });
+
+    /* =========================
+       INITIAL TASK COUNT
+    ========================= */
+
+    updateTaskCount();
+
+</script>
+
+</body>
+
+</html>
+```
