@@ -33,6 +33,8 @@ app.get('/', (req, res) => {
 // Friendly shortcuts so clicking or typing any common path always works
 app.get('/patient', (req, res) => res.redirect('/patient/dashboard/index.html'));
 app.get('/dashboard', (req, res) => res.redirect('/patient/dashboard/index.html'));
+app.get('/patient/dashboard', (req, res) => res.redirect('/patient/dashboard/index.html'));
+app.get('/patient/dashboard/dashboard.html', (req, res) => res.redirect('/patient/dashboard/index.html'));
 app.get('/admin', (req, res) => res.redirect('/admin/command_center/command-center.html'));
 app.get('/doctor', (req, res) => res.redirect('/patient/Talktodoctor/talk-to-doctor.html'));
 app.get('/appointment', (req, res) => res.redirect('/patient/appointment/appointment.html'));
@@ -144,7 +146,7 @@ app.post('/api/auth/login', (req, res) => {
 
     // Role-based redirect routing
     const roleRedirects = {
-      PATIENT: '/patient/dashboard/dashboard.html',
+      PATIENT: '/patient/dashboard/index.html',
       DOCTOR: '/patient/doctor_queue/doctor-queue.html',
       WORKER: '/workers/frontline_hub/frontline-hub.html',
       ADMIN: '/admin/command_center/command-center.html'

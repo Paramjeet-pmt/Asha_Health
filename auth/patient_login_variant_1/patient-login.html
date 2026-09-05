@@ -171,10 +171,10 @@
                     alertBox.textContent = `Welcome ${data.user.name}! Entering portal...`;
 
                     setTimeout(() => {
-                        window.location.href = '../../patient/dashboard/dashboard.html';
+                        window.location.href = data.redirectUrl || '../../patient/dashboard/index.html';
                     }, 500);
                 } catch(err) {
-                    window.location.href = '../../patient/dashboard/dashboard.html';
+                    window.location.href = '../../patient/dashboard/index.html';
                 }
             }
         </script>

@@ -201,7 +201,8 @@
       p.includes('talktodoctor') || 
       p.includes('my_health') || 
       p.includes('doctor_queue') ||
-      p.includes('dashboard.html');
+      p.includes('dashboard') ||
+      p.includes('index.html');
 
     // Do not show on auth / admin / worker / splash screens
     if (!isPatientArea || noBack.has(current) || p.includes('/admin/') || p.includes('/workers/') || p.includes('/auth/')) {
