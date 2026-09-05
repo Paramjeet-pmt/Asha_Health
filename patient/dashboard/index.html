@@ -285,15 +285,30 @@
                 <!-- Quick Actions: Find Medication & SOS Emergency -->
                 <div class="grid grid-cols-2 gap-3">
                     <!-- Find Medication Button -->
-                    <button id="find-medication-btn" onclick="handleFindMedicationClick()" class="flex flex-col gap-2.5 p-4 rounded-2xl bg-surface-container-low shadow-sm transition-all active:scale-[0.98] items-start cursor-pointer hover:bg-surface-container border border-outline-variant/30 hover:border-primary/40 group">
-                        <div class="w-11 h-11 rounded-full bg-primary/10 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-on-primary transition-colors">
-                            <span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1">medication</span>
-                        </div>
-                        <div class="flex flex-col items-start text-left">
-                            <span class="font-label-md text-label-md text-on-surface font-semibold leading-tight">Find Medication</span>
-                            <span class="font-label-sm text-[11px] text-on-surface-variant mt-1 leading-snug">Check pharmacy & drug stocks</span>
-                        </div>
-                    </button>
+                    <button
+    id="find-medication-btn"
+    onclick="window.location.href='../Precautions/index.html'"
+    class="flex flex-col gap-2.5 p-4 rounded-2xl bg-surface-container-low shadow-sm transition-all active:scale-[0.98] items-start cursor-pointer hover:bg-surface-container border border-outline-variant/30 hover:border-primary/40 group">
+
+    <div class="w-11 h-11 rounded-full bg-primary/10 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-on-primary transition-colors">
+        <span
+            class="material-symbols-outlined text-[24px]"
+            style="font-variation-settings: 'FILL' 1">
+            medication
+        </span>
+    </div>
+
+    <div class="flex flex-col items-start text-left">
+        <span class="font-label-md text-label-md text-on-surface font-semibold leading-tight">
+            Precaution
+        </span>
+
+        <span class="font-label-sm text-[11px] text-on-surface-variant mt-1 leading-snug">
+            Check pharmacy & drug stocks
+        </span>
+    </div>
+
+</button>
 
                     <!-- SOS Emergency Button -->
                     <button id="sos-emergency-btn" onclick="handleSosClick()" class="flex flex-col gap-2.5 p-4 rounded-2xl bg-error-container text-on-error-container shadow-sm transition-all active:scale-[0.98] items-start cursor-pointer hover:shadow-md border border-error/25 relative overflow-hidden group">
