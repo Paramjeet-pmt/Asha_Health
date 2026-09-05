@@ -176,7 +176,7 @@
   // 3. Delegate click listener for ANY sync buttons or elements
   document.addEventListener('click', function (e) {
     const syncTarget = e.target.closest(
-      '[data-path="sync"], [id*="sync"], button[aria-label*="Sync"], button[title*="Sync"], .asha-sync-btn'
+      '[data-path="sync"], [id*="sync"], button[aria-label*="Sync"], button[title*="Sync"], .asha-sync-btn, .asha-nav-sync-btn'
     );
 
     if (syncTarget) {
@@ -189,4 +189,209 @@
       window.triggerGlobalAshaSync(syncTarget);
     }
   });
+
+  // -------------------------------------------------------------------------
+  // UNIFIED PATIENT NAVIGATION BAR SYSTEM
+  // Guarantees exact same, modern bottom navigation across all patient pages
+  // -------------------------------------------------------------------------
+  function injectUnifiedPatientNavbar() {
+    const p = location.pathname.toLowerCase();
+    const isPatientArea = p.includes('/patient/') || 
+      p.includes('appointment') || 
+      p.includes('talktodoctor') || 
+      p.includes('my_health') || 
+      p.includes('doctor_queue') ||
+      p.includes('dashboard') ||
+      p.includes('index.html');
+
+    // Do not show on auth / admin / worker / splash screens
+    if (!isPatientArea || noBack.has(current) || p.includes('/admin/') || p.includes('/workers/') || p.includes('/auth/')) {
+      return;
+    }
+
+    // Determine current active page
+    let activeKey = 'home';
+    if (p.includes('talktodoctor') || p.includes('talk-to-doctor')) activeKey = 'doctor';
+    else if (p.includes('appointment')) activeKey = 'appointment';
+    else if (p.includes('my_health') || p.includes('health-records') || p.includes('my-health')) activeKey = 'records';
+    else if (p.includes('dashboard')) activeKey = 'home';
+
+    // Calculate relative root path
+    let patientRoot = '/patient/';
+    if (location.protocol === 'file:') {
+      if (p.includes('/patient/dashboard/') || p.includes('/patient/appointment/') || p.includes('/patient/talktodoctor/') || p.includes('/patient/my_health/')) {
+        patientRoot = '../';
+      }
+    }
+
+    const homeUrl = patientRoot + 'dashboard/index.html';
+    const doctorUrl = patientRoot + 'Talktodoctor/talk-to-doctor.html';
+    const appointmentUrl = patientRoot + 'appointment/appointment.html';
+    const recordsUrl = patientRoot + 'my_health/my-health.html';
+
+    // Inject Unified Navigation CSS
+    if (!document.getElementById('asha-unified-nav-styles')) {
+      const navStyles = document.createElement('style');
+      navStyles.id = 'asha-unified-nav-styles';
+      navStyles.textContent = `
+        /* Hide any outdated, disparate patient navigation bars */
+        nav.bottom-nav,
+        nav.mobile-bottom-nav,
+        nav[data-active-classes]:not(.asha-unified-patient-nav) {
+          display: none !important;
+        }
+
+        /* Unified Patient Bottom Bar */
+        .asha-unified-patient-nav {
+          position: fixed !important;
+          bottom: 0 !important;
+          left: 0 !important;
+          right: 0 !important;
+          width: 100% !important;
+          height: calc(64px + env(safe-area-inset-bottom, 0px)) !important;
+          padding-bottom: env(safe-area-inset-bottom, 0px) !important;
+          background: rgba(255, 255, 255, 0.98) !important;
+          backdrop-filter: blur(16px) !important;
+          -webkit-backdrop-filter: blur(16px) !important;
+          border-top: 1px solid #d5e0ec !important;
+          box-shadow: 0 -3px 14px rgba(15, 23, 42, 0.07) !important;
+          z-index: 99999 !important;
+          display: flex !important;
+          justify-content: center !important;
+          box-sizing: border-box !important;
+          margin: 0 !important;
+        }
+
+        .asha-patient-nav-inner {
+          width: 100% !important;
+          max-width: 580px !important;
+          display: flex !important;
+          align-items: center !important;
+          justify-content: space-around !important;
+          height: 64px !important;
+          padding: 0 8px !important;
+          margin: 0 auto !important;
+          box-sizing: border-box !important;
+        }
+
+        .asha-nav-item {
+          flex: 1 1 0 !important;
+          display: flex !important;
+          flex-direction: column !important;
+          align-items: center !important;
+          justify-content: center !important;
+          height: 100% !important;
+          text-decoration: none !important;
+          border: none !important;
+          background: transparent !important;
+          color: #64748b !important;
+          font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+          padding: 6px 2px !important;
+          cursor: pointer !important;
+          -webkit-tap-highlight-color: transparent !important;
+          transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+          border-radius: 12px !important;
+        }
+
+        .asha-nav-item:active {
+          transform: scale(0.92) !important;
+        }
+
+        .asha-nav-item .material-symbols-outlined {
+          font-size: 22px !important;
+          line-height: 1 !important;
+          display: block !important;
+          transition: transform 0.2s ease, color 0.2s ease !important;
+        }
+
+        .asha-nav-label {
+          font-size: 10px !important;
+          font-weight: 600 !important;
+          margin-top: 3px !important;
+          line-height: 1.15 !important;
+          text-align: center !important;
+          white-space: nowrap !important;
+          letter-spacing: -0.01em !important;
+        }
+
+        /* Active State */
+        .asha-nav-item.active {
+          color: #007F6D !important;
+        }
+
+        .asha-nav-item.active .material-symbols-outlined {
+          color: #007F6D !important;
+          font-variation-settings: 'FILL' 1, 'wght' 600 !important;
+          transform: translateY(-1px) scale(1.08) !important;
+        }
+
+        .asha-nav-item.active .asha-nav-label {
+          color: #007F6D !important;
+          font-weight: 700 !important;
+        }
+
+        /* Sync Button Highlights */
+        .asha-nav-sync-btn {
+          color: #007F6D !important;
+        }
+
+        .asha-nav-sync-btn .material-symbols-outlined {
+          color: #007F6D !important;
+        }
+      `;
+      document.head.appendChild(navStyles);
+    }
+
+    // Remove any existing instance of our unified nav to prevent duplicates
+    const existing = document.querySelector('.asha-unified-patient-nav');
+    if (existing) existing.remove();
+
+    // Create Unified Nav Element
+    const nav = document.createElement('nav');
+    nav.className = 'asha-unified-patient-nav';
+    nav.setAttribute('aria-label', 'Patient Portal Navigation');
+
+    nav.innerHTML = `
+      <div class="asha-patient-nav-inner">
+        <a href="${homeUrl}" class="asha-nav-item ${activeKey === 'home' ? 'active' : ''}" data-nav="home" title="Patient Dashboard">
+          <span class="material-symbols-outlined">home</span>
+          <span class="asha-nav-label">Home</span>
+        </a>
+        <a href="${doctorUrl}" class="asha-nav-item ${activeKey === 'doctor' ? 'active' : ''}" data-nav="doctor" title="Talk to Certified Doctor">
+          <span class="material-symbols-outlined">video_camera_front</span>
+          <span class="asha-nav-label">Talk to Doctor</span>
+        </a>
+        <a href="${appointmentUrl}" class="asha-nav-item ${activeKey === 'appointment' ? 'active' : ''}" data-nav="appointment" title="Book Doctor Appointment">
+          <span class="material-symbols-outlined">calendar_add_on</span>
+          <span class="asha-nav-label">Appointment</span>
+        </a>
+        <a href="${recordsUrl}" class="asha-nav-item ${activeKey === 'records' ? 'active' : ''}" data-nav="records" title="My Health & Adherence Records">
+          <span class="material-symbols-outlined">health_and_safety</span>
+          <span class="asha-nav-label">My Health</span>
+        </a>
+        <button type="button" class="asha-nav-item asha-nav-sync-btn" data-path="sync" title="Sync prescriptions & adherence with doctor">
+          <span class="material-symbols-outlined asha-nav-sync-icon">sync</span>
+          <span class="asha-nav-label">Sync</span>
+        </button>
+      </div>
+    `;
+
+    document.body.appendChild(nav);
+
+    // Ensure main element has enough bottom padding so content is never covered
+    const mainEl = document.querySelector('main') || document.querySelector('.main') || document.querySelector('.booking-layout');
+    if (mainEl) {
+      const currentPadding = parseInt(window.getComputedStyle(mainEl).paddingBottom, 10) || 0;
+      if (currentPadding < 90) {
+        mainEl.style.paddingBottom = '100px';
+      }
+    }
+  }
+
+  // Run on page load
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', injectUnifiedPatientNavbar);
+  } else {
+    injectUnifiedPatientNavbar();
+  }
 })();

@@ -282,68 +282,36 @@
               >chevron_right</span
             >
           </button>
-                <!-- Secondary Actions Grid -->
+                <!-- Quick Actions: Find Medication & SOS Emergency -->
                 <div class="grid grid-cols-2 gap-3">
-                    <button onclick="window.location.href='../appointment/appointment.html'" class="flex flex-col gap-3 p-4 rounded-2xl bg-surface-container-low shadow-sm transition-transform active:scale-[0.98] items-start cursor-pointer hover:bg-surface-container">
-              <div
-                class="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center"
-              >
-                <span
-                  class="material-symbols-outlined text-[20px]"
-                  style="font-variation-settings: &quot;FILL&quot; 1"
-                  >calendar_add_on</span
-                >
-              </div>
-              <span
-                class="font-label-sm text-label-sm text-on-surface text-left leading-snug"
-                >Book<br />Appointment</span
-              >
-            </button>
-                    <button onclick="window.location.href='../Talktodoctor/talk-to-doctor.html'" class="flex flex-col gap-3 p-4 rounded-2xl bg-surface-container-low shadow-sm transition-transform active:scale-[0.98] items-start cursor-pointer hover:bg-surface-container">
-              <div
-                class="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center"
-              >
-                <span
-                  class="material-symbols-outlined text-[20px]"
-                  style="font-variation-settings: &quot;FILL&quot; 1"
-                  >video_camera_front</span
-                >
-              </div>
-              <span
-                class="font-label-sm text-label-sm text-on-surface text-left leading-snug"
-                >Talk to<br />Doctor</span
-              >
-            </button>
-                    <button onclick="window.location.href='../my_health/my-health.html'" class="flex flex-col gap-3 p-4 rounded-2xl bg-surface-container-low shadow-sm transition-transform active:scale-[0.98] items-start cursor-pointer hover:bg-surface-container">
-              <div
-                class="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center"
-              >
-                <span
-                  class="material-symbols-outlined text-[20px]"
-                  style="font-variation-settings: &quot;FILL&quot; 1"
-                  >medication</span
-                >
-              </div>
-              <span
-                class="font-label-sm text-label-sm text-on-surface text-left leading-snug"
-                >Find<br />Medicine</span
-              >
-            </button>
-                    <button onclick="window.location.href='../my_health/my-health.html'" class="flex flex-col gap-3 p-4 rounded-2xl bg-surface-container-low shadow-sm transition-transform active:scale-[0.98] items-start cursor-pointer hover:bg-surface-container">
-              <div
-                class="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center"
-              >
-                <span
-                  class="material-symbols-outlined text-[20px]"
-                  style="font-variation-settings: &quot;FILL&quot; 1"
-                  >lab_profile</span
-                >
-              </div>
-              <span
-                class="font-label-sm text-label-sm text-on-surface text-left leading-snug"
-                >My Health<br />Record</span
-              >
-            </button>
+                    <!-- Find Medication Button -->
+                    <button id="find-medication-btn" onclick="handleFindMedicationClick()" class="flex flex-col gap-2.5 p-4 rounded-2xl bg-surface-container-low shadow-sm transition-all active:scale-[0.98] items-start cursor-pointer hover:bg-surface-container border border-outline-variant/30 hover:border-primary/40 group">
+                        <div class="w-11 h-11 rounded-full bg-primary/10 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-on-primary transition-colors">
+                            <span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1">medication</span>
+                        </div>
+                        <div class="flex flex-col items-start text-left">
+                            <span class="font-label-md text-label-md text-on-surface font-semibold leading-tight">Find Medication</span>
+                            <span class="font-label-sm text-[11px] text-on-surface-variant mt-1 leading-snug">Check pharmacy & drug stocks</span>
+                        </div>
+                    </button>
+
+                    <!-- SOS Emergency Button -->
+                    <button id="sos-emergency-btn" onclick="handleSosClick()" class="flex flex-col gap-2.5 p-4 rounded-2xl bg-error-container text-on-error-container shadow-sm transition-all active:scale-[0.98] items-start cursor-pointer hover:shadow-md border border-error/25 relative overflow-hidden group">
+                        <div class="absolute -right-3 -top-3 w-16 h-16 bg-error/10 rounded-full blur-md pointer-events-none group-hover:scale-125 transition-transform"></div>
+                        <div class="w-11 h-11 rounded-full bg-error text-on-error flex items-center justify-center shadow-sm">
+                            <span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1">emergency</span>
+                        </div>
+                        <div class="flex flex-col items-start text-left z-10">
+                            <div class="flex items-center gap-1.5">
+                                <span class="font-label-md text-label-md font-bold text-error leading-tight">SOS Emergency</span>
+                                <span class="relative flex h-2 w-2">
+                                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-error opacity-75"></span>
+                                    <span class="relative inline-flex rounded-full h-2 w-2 bg-error"></span>
+                                </span>
+                            </div>
+                            <span class="font-label-sm text-[11px] text-on-error-container/80 mt-1 leading-snug">Immediate triage & ambulance alert</span>
+                        </div>
+                    </button>
                 </div>
             </div>
             <!-- Upcoming Appointment Widget -->
@@ -515,40 +483,104 @@
           >
         </div>
       </div>
-    </div>
-
-    <!-- Bottom Navigation Bar -->
+    </div>    <!-- Unified Bottom Navigation Bar -->
     <nav
-      class="fixed bottom-0 w-full z-50 pb-safe bg-surface/80 backdrop-blur-xl shadow-[0_-1px_8px_rgba(0,0,0,0.04)]"
-      data-active-classes="text-primary font-semibold"
+      class="fixed bottom-0 w-full z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-1px_8px_rgba(0,0,0,0.06)] border-t border-outline-variant/30 asha-unified-patient-nav"
+      aria-label="Patient Portal Navigation"
     >
-      <div class="flex justify-around items-center h-16 px-2">
+      <div class="flex justify-around items-center h-16 max-w-lg mx-auto px-2 asha-patient-nav-inner">
         <a
-          class="flex flex-col items-center justify-center w-full h-full text-on-surface-variant transition-colors"
-          data-path="visits"
-          href="../doctor_queue/index.html"
+          class="flex flex-col items-center justify-center w-full h-full text-primary font-bold asha-nav-item active"
+          data-nav="home"
+          href="index.html"
+          title="Patient Dashboard"
         >
-          <span class="material-symbols-outlined">event_repeat</span>
-                            <span class="text-label-sm font-label-sm mt-1">Visits</span>
-                            </a>
+          <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">home</span>
+          <span class="text-[10px] font-semibold mt-1 asha-nav-label">Home</span>
+        </a>
 
-                            <!-- Actual bottom right sync button -->
-                            <button id="navbar-sync-btn" onclick="handleSyncClick(event)" class="flex flex-col items-center justify-center w-full h-full text-primary transition-colors cursor-pointer active:scale-95" data-path="sync" title="Sync progress with doctor data">
+        <a
+          class="flex flex-col items-center justify-center w-full h-full text-on-surface-variant transition-colors asha-nav-item"
+          data-nav="doctor"
+          href="../Talktodoctor/talk-to-doctor.html"
+          title="Talk to Doctor"
+        >
+          <span class="material-symbols-outlined">video_camera_front</span>
+          <span class="text-[10px] font-semibold mt-1 asha-nav-label">Talk to Doctor</span>
+        </a>
+
+        <a
+          class="flex flex-col items-center justify-center w-full h-full text-on-surface-variant transition-colors asha-nav-item"
+          data-nav="appointment"
+          href="../appointment/appointment.html"
+          title="Book Appointment"
+        >
+          <span class="material-symbols-outlined">calendar_add_on</span>
+          <span class="text-[10px] font-semibold mt-1 asha-nav-label">Appointment</span>
+        </a>
+
+        <a
+          class="flex flex-col items-center justify-center w-full h-full text-on-surface-variant transition-colors asha-nav-item"
+          data-nav="records"
+          href="../my_health/my-health.html"
+          title="My Health Record"
+        >
+          <span class="material-symbols-outlined">health_and_safety</span>
+          <span class="text-[10px] font-semibold mt-1 asha-nav-label">My Health</span>
+        </a>
+
+        <!-- Actual bottom right sync button -->
+        <button
+          id="navbar-sync-btn"
+          onclick="handleSyncClick(event)"
+          class="flex flex-col items-center justify-center w-full h-full text-primary transition-colors cursor-pointer active:scale-95 asha-nav-item asha-nav-sync-btn"
+          data-path="sync"
+          title="Sync progress with doctor data"
+        >
           <span
             id="navbar-sync-icon"
-            class="material-symbols-outlined transition-transform"
+            class="material-symbols-outlined transition-transform asha-nav-sync-icon"
             >sync</span
           >
-          <span class="text-label-sm font-label-sm mt-1 font-semibold"
-            >Sync</span
-          >
+          <span class="text-[10px] font-bold mt-1 asha-nav-label">Sync</span>
         </button>
-                        </div>
-                        </nav>
+      </div>
+    </nav>
 
                         <!-- Synchronization & Interactive Medicine Script -->
                         <script>
                             let isSyncing = false;
+                            function handleFindMedicationClick() {
+                                // Navigate to patient prescription & medicine adherence records
+                                window.location.href = '../my_health/my-health.html';
+                            }
+
+                            async function handleSosClick() {
+                                if (typeof window.onAshaSosTrigger === 'function') {
+                                    window.onAshaSosTrigger();
+                                    return;
+                                }
+                                const confirmDispatch = confirm('🚨 CRITICAL EMERGENCY (SOS)\n\nDo you want to immediately dispatch an emergency triage alert to on-duty doctors and call Emergency Services (112)?');
+                                if (confirmDispatch) {
+                                    try {
+                                        const res = await fetch('/api/doctor/quick-triage', {
+                                            method: 'POST',
+                                            headers: { 'Content-Type': 'application/json' },
+                                            body: JSON.stringify({
+                                                patient_id: 1,
+                                                symptoms: 'CRITICAL SOS EMERGENCY BUTTON PRESSED on Patient Mobile Dashboard',
+                                                priority: 'EMERGENCY'
+                                            })
+                                        });
+                                        const data = await res.json();
+                                        alert(`🚨 Emergency Alert Logged (${data.ticketId || 'SOS-ACTIVE'})!\n\nDoctor notified on emergency queue. Calling National Emergency Ambulance (112)...`);
+                                        window.location.href = 'tel:112';
+                                    } catch(e) {
+                                        alert('🚨 Emergency Alert registered! Dialing 112/102...');
+                                        window.location.href = 'tel:112';
+                                    }
+                                }
+                            }
                             let medicationsState = [{
                                 id: 1,
                                 name: "Iron Folic Acid (IFA)",

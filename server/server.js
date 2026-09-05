@@ -16,6 +16,29 @@ app.use(express.json());
 // Serve static frontend files from repository root
 app.use(express.static(path.join(__dirname, '..')));
 
+// Explicit root route handler - guarantees http://localhost:5000/ ALWAYS loads on any machine
+app.get('/', (req, res) => {
+  const rootIndex = path.join(__dirname, '..', 'index.html');
+  const patientIndex = path.join(__dirname, '..', 'patient', 'dashboard', 'index.html');
+  
+  if (require('fs').existsSync(rootIndex)) {
+    return res.sendFile(rootIndex);
+  } else if (require('fs').existsSync(patientIndex)) {
+    return res.sendFile(patientIndex);
+  } else {
+    return res.redirect('/patient/dashboard/index.html');
+  }
+});
+
+// Friendly shortcuts so clicking or typing any common path always works
+app.get('/patient', (req, res) => res.redirect('/patient/dashboard/index.html'));
+app.get('/dashboard', (req, res) => res.redirect('/patient/dashboard/index.html'));
+app.get('/patient/dashboard', (req, res) => res.redirect('/patient/dashboard/index.html'));
+app.get('/patient/dashboard/dashboard.html', (req, res) => res.redirect('/patient/dashboard/index.html'));
+app.get('/admin', (req, res) => res.redirect('/admin/command_center/command-center.html'));
+app.get('/doctor', (req, res) => res.redirect('/patient/Talktodoctor/talk-to-doctor.html'));
+app.get('/appointment', (req, res) => res.redirect('/patient/appointment/appointment.html'));
+
 // Helper: JWT verification middleware
 function authenticateToken(req, res, next) {
   const authHeader = req.headers['authorization'];
@@ -123,7 +146,7 @@ app.post('/api/auth/login', (req, res) => {
 
     // Role-based redirect routing
     const roleRedirects = {
-      PATIENT: '/patient/dashboard/dashboard.html',
+      PATIENT: '/patient/dashboard/index.html',
       DOCTOR: '/patient/doctor_queue/doctor-queue.html',
       WORKER: '/workers/frontline_hub/frontline-hub.html',
       ADMIN: '/admin/command_center/command-center.html'
@@ -591,6 +614,159 @@ app.get('/api/admin/stats', (req, res) => {
     });
   } catch (err) {
     res.status(500).json({ error: 'Failed to load district stats' });
+  }
+});
+
+// -------------------------------------------------------------
+// 6. MEDICATIONS & CLINICAL PRECAUTIONS APIS (Find Medication Service)
+// -------------------------------------------------------------
+
+// GET /api/medications - List & search medications with filters
+app.get('/api/medications', (req, res) => {
+  try {
+    const { q, category, otc, essential } = req.query;
+    let query = 'SELECT * FROM medications WHERE 1=1';
+    const params = [];
+
+    if (q) {
+      const searchTerm = `%${q.trim().toLowerCase()}%`;
+      query += ` AND (LOWER(name) LIKE ? OR LOWER(generic_name) LIKE ? OR LOWER(indications) LIKE ?)`;
+      params.push(searchTerm, searchTerm, searchTerm);
+    }
+
+    if (category) {
+      query += ` AND category = ?`;
+      params.push(category);
+    }
+
+    if (otc === 'true' || otc === '1') {
+      query += ` AND prescription_required = 0`;
+    }
+
+    if (essential === 'true' || essential === '1') {
+      query += ` AND is_essential = 1`;
+    }
+
+    query += ' ORDER BY is_essential DESC, name ASC';
+
+    const medications = db.prepare(query).all(...params);
+    res.json({
+      success: true,
+      count: medications.length,
+      data: medications
+    });
+  } catch (err) {
+    console.error('Error fetching medications:', err);
+    res.status(500).json({ error: 'Failed to retrieve medications catalog' });
+  }
+});
+
+// GET /api/medications/categories - List categories with counts
+app.get('/api/medications/categories', (req, res) => {
+  try {
+    const categories = db.prepare(`
+      SELECT category, COUNT(*) as count 
+      FROM medications 
+      GROUP BY category 
+      ORDER BY count DESC
+    `).all();
+
+    res.json({
+      success: true,
+      categories
+    });
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to retrieve medication categories' });
+  }
+});
+
+// GET /api/medications/search/precautions - Search precautions and contraindications
+app.get('/api/medications/search/precautions', (req, res) => {
+  try {
+    const { condition } = req.query;
+    if (!condition) {
+      return res.status(400).json({ error: 'Condition or symptom query parameter required' });
+    }
+
+    const term = `%${condition.trim().toLowerCase()}%`;
+    const results = db.prepare(`
+      SELECT id, name, generic_name, indications, precautions, contraindications, side_effects, jan_aushadhi_price
+      FROM medications
+      WHERE LOWER(indications) LIKE ? OR LOWER(contraindications) LIKE ? OR LOWER(precautions) LIKE ?
+    `).all(term, term, term);
+
+    res.json({
+      success: true,
+      count: results.length,
+      data: results
+    });
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to search clinical precautions' });
+  }
+});
+
+// GET /api/medications/:id - Get detailed medicine profile
+app.get('/api/medications/:id', (req, res) => {
+  try {
+    const med = db.prepare('SELECT * FROM medications WHERE id = ?').get(req.params.id);
+    if (!med) {
+      return res.status(404).json({ error: 'Medication not found' });
+    }
+
+    // Calculate Jan Aushadhi generic savings
+    const savingsPercent = med.market_price && med.market_price > med.jan_aushadhi_price
+      ? Math.round(((med.market_price - med.jan_aushadhi_price) / med.market_price) * 100)
+      : 0;
+
+    res.json({
+      success: true,
+      data: {
+        ...med,
+        savings_percentage: `${savingsPercent}%`
+      }
+    });
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to retrieve medication details' });
+  }
+});
+
+// POST /api/medications - Add new generic medication (Admin/Pharmacist)
+app.post('/api/medications', (req, res) => {
+  try {
+    const {
+      name, generic_name, category, dosage_form, strength,
+      indications, precautions, side_effects, contraindications,
+      jan_aushadhi_price, market_price, is_essential, prescription_required
+    } = req.body;
+
+    if (!name || !generic_name || !indications || !precautions) {
+      return res.status(400).json({
+        error: 'Required fields missing: name, generic_name, indications, and precautions are mandatory.'
+      });
+    }
+
+    const stmt = db.prepare(`
+      INSERT INTO medications (
+        name, generic_name, category, dosage_form, strength,
+        indications, precautions, side_effects, contraindications,
+        jan_aushadhi_price, market_price, is_essential, prescription_required
+      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    `);
+
+    const result = stmt.run(
+      name, generic_name, category || 'General', dosage_form || 'Tablet', strength || 'Standard',
+      indications, precautions, side_effects || '', contraindications || '',
+      jan_aushadhi_price || 0, market_price || 0, is_essential !== undefined ? is_essential : 1, prescription_required ? 1 : 0
+    );
+
+    res.status(201).json({
+      success: true,
+      message: 'Medication added to national catalog successfully',
+      medication_id: Number(result.lastInsertRowid)
+    });
+  } catch (err) {
+    console.error('Error adding medication:', err);
+    res.status(500).json({ error: 'Failed to create medication record' });
   }
 });
 

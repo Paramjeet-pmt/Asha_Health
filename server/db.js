@@ -102,6 +102,25 @@ db.exec(`
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY(patient_id) REFERENCES patients(id) ON DELETE SET NULL
   );
+
+  -- Medications & Clinical Precautions Catalog
+  CREATE TABLE IF NOT EXISTS medications (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    generic_name TEXT NOT NULL,
+    category TEXT NOT NULL,
+    dosage_form TEXT NOT NULL,
+    strength TEXT NOT NULL,
+    indications TEXT NOT NULL,
+    precautions TEXT NOT NULL,
+    side_effects TEXT,
+    contraindications TEXT,
+    jan_aushadhi_price REAL,
+    market_price REAL,
+    is_essential BOOLEAN DEFAULT 1,
+    prescription_required BOOLEAN DEFAULT 0,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+  );
 `);
 
 // 2. Seed Default Demo Users with Cryptographic Password Hashing (BCrypt)
@@ -169,7 +188,213 @@ if (userCount === 0) {
   insertPrescription.run(1, 'Calcium Carbonate', '500mg', '1 tablet twice daily', '30 days', 'ACTIVE');
   insertPrescription.run(2, 'Paracetamol', '650mg', 'SOS (Every 6 hours if fever > 100F)', '5 days', 'ACTIVE');
 
-  console.log('Database initialized and demo data seeded successfully!');
+  console.log('Database users & clinical queues initialized.');
+}
+
+// Seed Essential Medications & Precautions Catalog if empty
+const medCountStmt = db.prepare('SELECT COUNT(*) as count FROM medications');
+if (medCountStmt.get().count === 0) {
+  console.log('Seeding Essential Generic Medications & Clinical Precautions Catalog...');
+  const insertMed = db.prepare(`
+    INSERT INTO medications (
+      name, generic_name, category, dosage_form, strength,
+      indications, precautions, side_effects, contraindications,
+      jan_aushadhi_price, market_price, is_essential, prescription_required
+    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+  `);
+
+  const essentialMedicines = [
+    {
+      name: 'Paracetamol (Dolo / Crocin Generic)',
+      generic_name: 'Paracetamol / Acetaminophen',
+      category: 'Analgesic & Antipyretic',
+      dosage_form: 'Tablet',
+      strength: '650mg',
+      indications: 'Fever, mild to moderate body pain, headache, post-vaccination fever',
+      precautions: 'Do not exceed 4000mg in 24 hours. Avoid alcohol consumption. Maintain minimum 4-6 hours interval between doses.',
+      side_effects: 'Nausea, allergic skin rash, liver toxicity in case of severe overdose.',
+      contraindications: 'Severe hepatic impairment, acute liver failure, hypersensitivity to paracetamol.',
+      jan_price: 12.50,
+      mkt_price: 34.00,
+      essential: 1,
+      rx_req: 0
+    },
+    {
+      name: 'Amoxicillin + Potassium Clavulanate (Augmentin Generic)',
+      generic_name: 'Amoxicillin + Clavulanic Acid',
+      category: 'Antibiotics',
+      dosage_form: 'Tablet',
+      strength: '625mg',
+      indications: 'Bacterial respiratory infections, pneumonia, acute otitis media, skin and soft tissue infections',
+      precautions: 'Complete the entire 5 to 7 day course even if symptoms resolve. Take at the start of a meal to minimize GI upset.',
+      side_effects: 'Diarrhea, nausea, vomiting, candidiasis (fungal infection).',
+      contraindications: 'History of penicillin or beta-lactam anaphylaxis, past amoxicillin-associated jaundice.',
+      jan_price: 52.00,
+      mkt_price: 210.00,
+      essential: 1,
+      rx_req: 1
+    },
+    {
+      name: 'Azithromycin (Azee Generic)',
+      generic_name: 'Azithromycin',
+      category: 'Macrolide Antibiotic',
+      dosage_form: 'Tablet',
+      strength: '500mg',
+      indications: 'Community-acquired pneumonia, acute bacterial sinusitis, tonsillitis, typhoid fever',
+      precautions: 'Take 1 hour before or 2 hours after meals. Do not take antacids containing aluminum or magnesium simultaneously.',
+      side_effects: 'Abdominal cramping, loose stools, temporary taste disturbance, dizziness.',
+      contraindications: 'Known macrolide allergy, severe hepatic disease, QT interval prolongation.',
+      jan_price: 42.00,
+      mkt_price: 135.00,
+      essential: 1,
+      rx_req: 1
+    },
+    {
+      name: 'Oral Rehydration Salts (WHO Formula ORS)',
+      generic_name: 'Sodium Chloride, Potassium Chloride, Sodium Citrate, Dextrose',
+      category: 'Electrolytes & Rehydration',
+      dosage_form: 'Powder Sachet',
+      strength: '20.5g for 1 Liter',
+      indications: 'Acute diarrhea, dehydration, heat stroke, cholera, gastroenteritis in children and adults',
+      precautions: 'Mix exactly with 1 Liter of clean drinking water. Do not boil prepared solution. Discard leftover solution after 24 hours.',
+      side_effects: 'Mild nausea if consumed too rapidly.',
+      contraindications: 'Intestinal perforation, persistent severe vomiting with inability to swallow, acute renal anuria.',
+      jan_price: 5.50,
+      mkt_price: 24.00,
+      essential: 1,
+      rx_req: 0
+    },
+    {
+      name: 'Metformin Hydrochloride (Glycomet Generic)',
+      generic_name: 'Metformin HCl',
+      category: 'Antidiabetic',
+      dosage_form: 'Sustained Release Tablet',
+      strength: '500mg',
+      indications: 'Type 2 Diabetes Mellitus glycemic control, insulin resistance management',
+      precautions: 'Take with or immediately after meals to prevent gastric irritation. Monitor renal function and HbA1c periodically.',
+      side_effects: 'Metallic taste, flatulence, nausea, diarrhea in early weeks.',
+      contraindications: 'Severe renal failure (eGFR < 30 mL/min), metabolic or lactic acidosis, severe hypoxemia.',
+      jan_price: 8.00,
+      mkt_price: 48.00,
+      essential: 1,
+      rx_req: 1
+    },
+    {
+      name: 'Amlodipine Besylate (Norvasc Generic)',
+      generic_name: 'Amlodipine',
+      category: 'Antihypertensive',
+      dosage_form: 'Tablet',
+      strength: '5mg',
+      indications: 'Essential hypertension, chronic stable angina, coronary artery disease',
+      precautions: 'Take regularly at the same time each day. Do not discontinue abruptly. Monitor blood pressure weekly.',
+      side_effects: 'Peripheral edema (ankle swelling), flushing, dizziness, fatigue.',
+      contraindications: 'Severe hypotension, cardiogenic shock, severe aortic stenosis.',
+      jan_price: 6.50,
+      mkt_price: 36.00,
+      essential: 1,
+      rx_req: 1
+    },
+    {
+      name: 'Pantoprazole Gastro-Resistant (Pan-40 Generic)',
+      generic_name: 'Pantoprazole Sodium',
+      category: 'Gastrointestinal / Antacid',
+      dosage_form: 'Enteric Coated Tablet',
+      strength: '40mg',
+      indications: 'Gastroesophageal Reflux Disease (GERD), peptic ulcers, acid reflux, gastritis, NSAID-induced gastric prophylaxis',
+      precautions: 'Swallow whole with water 30-60 minutes before breakfast. Do not crush or chew tablets.',
+      side_effects: 'Headache, dry mouth, mild abdominal pain, long-term B12/magnesium deficiency.',
+      contraindications: 'Hypersensitivity to substituted benzimidazoles.',
+      jan_price: 14.00,
+      mkt_price: 85.00,
+      essential: 1,
+      rx_req: 0
+    },
+    {
+      name: 'Cetirizine Hydrochloride (Cetzine Generic)',
+      generic_name: 'Cetirizine HCl',
+      category: 'Antihistamine / Anti-Allergy',
+      dosage_form: 'Tablet',
+      strength: '10mg',
+      indications: 'Allergic rhinitis, seasonal allergies, urticaria (hives), pruritus, insect bite itching',
+      precautions: 'May cause mild drowsiness; avoid driving or operating heavy machinery. Take preferably at bedtime.',
+      side_effects: 'Somnolence, dry mouth, fatigue, pharyngitis.',
+      contraindications: 'Severe end-stage renal disease, allergy to hydroxyzine/cetirizine.',
+      jan_price: 4.80,
+      mkt_price: 26.00,
+      essential: 1,
+      rx_req: 0
+    },
+    {
+      name: 'Iron & Folic Acid (National Anaemia Mukt Bharat Formula)',
+      generic_name: 'Ferrous Sulfate + Folic Acid',
+      category: 'Maternal & Nutritional',
+      dosage_form: 'Sugar Coated Tablet',
+      strength: '100mg Elemental Iron + 500mcg Folic Acid',
+      indications: 'Prophylaxis and treatment of nutritional anemia in pregnancy, lactation, and adolescent girls',
+      precautions: 'Do not take with tea, coffee, or milk (reduces absorption). Stools may turn black (normal and harmless).',
+      side_effects: 'Constipation, dark stools, gastric irritation, mild metallic taste.',
+      contraindications: 'Hemochromatosis, hemosiderosis, active peptic ulceration, hemolytic anemia.',
+      jan_price: 9.50,
+      mkt_price: 65.00,
+      essential: 1,
+      rx_req: 0
+    },
+    {
+      name: 'Albendazole (Zentel Generic)',
+      generic_name: 'Albendazole',
+      category: 'Anthelmintic / Deworming',
+      dosage_form: 'Chewable Tablet',
+      strength: '400mg',
+      indications: 'Intestinal worm infections, roundworm, hookworm, whipworm, tapeworm infestations',
+      precautions: 'Chew thoroughly before swallowing. Best taken with fatty food to enhance absorption. Routine bi-annual deworming.',
+      side_effects: 'Transient stomach ache, headache, mild nausea.',
+      contraindications: 'Pregnancy (especially 1st trimester), known albendazole allergy.',
+      jan_price: 5.00,
+      mkt_price: 25.00,
+      essential: 1,
+      rx_req: 0
+    },
+    {
+      name: 'Salbutamol Metered Dose Inhaler (Asthalin Generic)',
+      generic_name: 'Salbutamol / Albuterol Sulfate',
+      category: 'Respiratory / Bronchodilator',
+      dosage_form: 'Inhalation Aerosol',
+      strength: '100mcg per puff (200 doses)',
+      indications: 'Acute bronchospasm, asthma attacks, Chronic Obstructive Pulmonary Disease (COPD) wheezing',
+      precautions: 'Rinse mouth after use. Shake canister well. If symptoms persist after 2-4 puffs, seek emergency care immediately.',
+      side_effects: 'Fine tremors in hands, palpitations, mild tachycardia, headache.',
+      contraindications: 'Known hypersensitivity to salbutamol.',
+      jan_price: 68.00,
+      mkt_price: 185.00,
+      essential: 1,
+      rx_req: 1
+    },
+    {
+      name: 'Ibuprofen + Paracetamol (Combiflam Generic)',
+      generic_name: 'Ibuprofen 400mg + Paracetamol 325mg',
+      category: 'NSAID / Analgesic',
+      dosage_form: 'Tablet',
+      strength: '400mg / 325mg',
+      indications: 'Dental pain, joint arthritis flare-up, muscular pain, postoperative inflammation',
+      precautions: 'Always take after food. Do not use in patients with active stomach ulcers or severe asthma.',
+      side_effects: 'Heartburn, nausea, epigastric distress, fluid retention.',
+      contraindications: 'Active gastrointestinal ulceration/bleeding, severe renal impairment, 3rd trimester pregnancy.',
+      jan_price: 11.00,
+      mkt_price: 45.00,
+      essential: 1,
+      rx_req: 0
+    }
+  ];
+
+  for (const med of essentialMedicines) {
+    insertMed.run(
+      med.name, med.generic_name, med.category, med.dosage_form, med.strength,
+      med.indications, med.precautions, med.side_effects, med.contraindications,
+      med.jan_price, med.mkt_price, med.essential, med.rx_req
+    );
+  }
+  console.log(`Successfully seeded ${essentialMedicines.length} essential generic medicines into catalog!`);
 }
 
 module.exports = db;
+
