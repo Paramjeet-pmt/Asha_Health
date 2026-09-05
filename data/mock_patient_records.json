@@ -1,0 +1,4052 @@
+[
+  {
+    "patient_id": 1,
+    "abha_id": "ABHA-2026-1000-4000",
+    "full_name": "Priya Sharma",
+    "age": 18,
+    "gender": "Female",
+    "village_locality": "Kalyanpur",
+    "registered_contact": "+91 9810000000",
+    "maternal_or_ncd_category": "Maternal ANC Care",
+    "risk_classification": "HIGH",
+    "longitudinal_vitals_history": [
+      {
+        "recorded_date": "2026-08-13",
+        "systolic_bp": 113,
+        "diastolic_bp": 72,
+        "pulse_bpm": 76,
+        "blood_glucose_random": 103,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 10.2,
+        "recorded_by_asha_id": "ASHA-KLY-01"
+      },
+      {
+        "recorded_date": "2026-08-16",
+        "systolic_bp": 116,
+        "diastolic_bp": 74,
+        "pulse_bpm": 80,
+        "blood_glucose_random": 111,
+        "spo2_percentage": 97,
+        "hemoglobin_g_dl": 10.2,
+        "recorded_by_asha_id": "ASHA-KLY-01"
+      },
+      {
+        "recorded_date": "2026-08-19",
+        "systolic_bp": 119,
+        "diastolic_bp": 76,
+        "pulse_bpm": 84,
+        "blood_glucose_random": 119,
+        "spo2_percentage": 98,
+        "hemoglobin_g_dl": 10.2,
+        "recorded_by_asha_id": "ASHA-KLY-01"
+      },
+      {
+        "recorded_date": "2026-08-22",
+        "systolic_bp": 122,
+        "diastolic_bp": 78,
+        "pulse_bpm": 88,
+        "blood_glucose_random": 127,
+        "spo2_percentage": 95,
+        "hemoglobin_g_dl": 10.2,
+        "recorded_by_asha_id": "ASHA-KLY-01"
+      },
+      {
+        "recorded_date": "2026-08-25",
+        "systolic_bp": 125,
+        "diastolic_bp": 80,
+        "pulse_bpm": 92,
+        "blood_glucose_random": 135,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 10.2,
+        "recorded_by_asha_id": "ASHA-KLY-01"
+      }
+    ],
+    "active_prescriptions": [
+      {
+        "medicine": "Iron & Folic Acid (IFA)",
+        "dosage": "100mg",
+        "frequency": "Daily after meal",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      },
+      {
+        "medicine": "Calcium Carbonate",
+        "dosage": "500mg",
+        "frequency": "Twice daily",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      }
+    ],
+    "last_consultation_date": "2026-09-02",
+    "synced_offline_status": true
+  },
+  {
+    "patient_id": 2,
+    "abha_id": "ABHA-2026-1037-4019",
+    "full_name": "Ramesh Kumar",
+    "age": 21,
+    "gender": "Male",
+    "village_locality": "Sector 4 PHC",
+    "registered_contact": "+91 9810012345",
+    "maternal_or_ncd_category": "General Rural OPD",
+    "risk_classification": "LOW",
+    "longitudinal_vitals_history": [
+      {
+        "recorded_date": "2026-08-13",
+        "systolic_bp": 115,
+        "diastolic_bp": 73,
+        "pulse_bpm": 77,
+        "blood_glucose_random": 108,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 11,
+        "recorded_by_asha_id": "ASHA-KLY-02"
+      },
+      {
+        "recorded_date": "2026-08-16",
+        "systolic_bp": 118,
+        "diastolic_bp": 75,
+        "pulse_bpm": 81,
+        "blood_glucose_random": 116,
+        "spo2_percentage": 97,
+        "hemoglobin_g_dl": 11,
+        "recorded_by_asha_id": "ASHA-KLY-02"
+      },
+      {
+        "recorded_date": "2026-08-19",
+        "systolic_bp": 121,
+        "diastolic_bp": 77,
+        "pulse_bpm": 85,
+        "blood_glucose_random": 124,
+        "spo2_percentage": 98,
+        "hemoglobin_g_dl": 11,
+        "recorded_by_asha_id": "ASHA-KLY-02"
+      },
+      {
+        "recorded_date": "2026-08-22",
+        "systolic_bp": 124,
+        "diastolic_bp": 79,
+        "pulse_bpm": 89,
+        "blood_glucose_random": 132,
+        "spo2_percentage": 95,
+        "hemoglobin_g_dl": 11,
+        "recorded_by_asha_id": "ASHA-KLY-02"
+      },
+      {
+        "recorded_date": "2026-08-25",
+        "systolic_bp": 127,
+        "diastolic_bp": 81,
+        "pulse_bpm": 93,
+        "blood_glucose_random": 140,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 11,
+        "recorded_by_asha_id": "ASHA-KLY-02"
+      }
+    ],
+    "active_prescriptions": [
+      {
+        "medicine": "Iron & Folic Acid (IFA)",
+        "dosage": "100mg",
+        "frequency": "Daily after meal",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      },
+      {
+        "medicine": "Calcium Carbonate",
+        "dosage": "500mg",
+        "frequency": "Twice daily",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      }
+    ],
+    "last_consultation_date": "2026-09-02",
+    "synced_offline_status": true
+  },
+  {
+    "patient_id": 3,
+    "abha_id": "ABHA-2026-1074-4038",
+    "full_name": "Sunita Devi",
+    "age": 24,
+    "gender": "Female",
+    "village_locality": "Rampur Kalan",
+    "registered_contact": "+91 9810024690",
+    "maternal_or_ncd_category": "Maternal ANC Care",
+    "risk_classification": "LOW",
+    "longitudinal_vitals_history": [
+      {
+        "recorded_date": "2026-08-13",
+        "systolic_bp": 117,
+        "diastolic_bp": 74,
+        "pulse_bpm": 78,
+        "blood_glucose_random": 113,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 11.8,
+        "recorded_by_asha_id": "ASHA-KLY-03"
+      },
+      {
+        "recorded_date": "2026-08-16",
+        "systolic_bp": 120,
+        "diastolic_bp": 76,
+        "pulse_bpm": 82,
+        "blood_glucose_random": 121,
+        "spo2_percentage": 97,
+        "hemoglobin_g_dl": 11.8,
+        "recorded_by_asha_id": "ASHA-KLY-03"
+      },
+      {
+        "recorded_date": "2026-08-19",
+        "systolic_bp": 123,
+        "diastolic_bp": 78,
+        "pulse_bpm": 86,
+        "blood_glucose_random": 129,
+        "spo2_percentage": 98,
+        "hemoglobin_g_dl": 11.8,
+        "recorded_by_asha_id": "ASHA-KLY-03"
+      },
+      {
+        "recorded_date": "2026-08-22",
+        "systolic_bp": 126,
+        "diastolic_bp": 80,
+        "pulse_bpm": 90,
+        "blood_glucose_random": 137,
+        "spo2_percentage": 95,
+        "hemoglobin_g_dl": 11.8,
+        "recorded_by_asha_id": "ASHA-KLY-03"
+      },
+      {
+        "recorded_date": "2026-08-25",
+        "systolic_bp": 129,
+        "diastolic_bp": 82,
+        "pulse_bpm": 94,
+        "blood_glucose_random": 145,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 11.8,
+        "recorded_by_asha_id": "ASHA-KLY-03"
+      }
+    ],
+    "active_prescriptions": [
+      {
+        "medicine": "Iron & Folic Acid (IFA)",
+        "dosage": "100mg",
+        "frequency": "Daily after meal",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      },
+      {
+        "medicine": "Calcium Carbonate",
+        "dosage": "500mg",
+        "frequency": "Twice daily",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      }
+    ],
+    "last_consultation_date": "2026-09-02",
+    "synced_offline_status": true
+  },
+  {
+    "patient_id": 4,
+    "abha_id": "ABHA-2026-1111-4057",
+    "full_name": "Aarav Patel",
+    "age": 27,
+    "gender": "Male",
+    "village_locality": "Brijnagar",
+    "registered_contact": "+91 9810037035",
+    "maternal_or_ncd_category": "General Rural OPD",
+    "risk_classification": "MEDIUM",
+    "longitudinal_vitals_history": [
+      {
+        "recorded_date": "2026-08-13",
+        "systolic_bp": 119,
+        "diastolic_bp": 75,
+        "pulse_bpm": 79,
+        "blood_glucose_random": 118,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 12.6,
+        "recorded_by_asha_id": "ASHA-KLY-04"
+      },
+      {
+        "recorded_date": "2026-08-16",
+        "systolic_bp": 122,
+        "diastolic_bp": 77,
+        "pulse_bpm": 83,
+        "blood_glucose_random": 126,
+        "spo2_percentage": 97,
+        "hemoglobin_g_dl": 12.6,
+        "recorded_by_asha_id": "ASHA-KLY-04"
+      },
+      {
+        "recorded_date": "2026-08-19",
+        "systolic_bp": 125,
+        "diastolic_bp": 79,
+        "pulse_bpm": 87,
+        "blood_glucose_random": 134,
+        "spo2_percentage": 98,
+        "hemoglobin_g_dl": 12.6,
+        "recorded_by_asha_id": "ASHA-KLY-04"
+      },
+      {
+        "recorded_date": "2026-08-22",
+        "systolic_bp": 128,
+        "diastolic_bp": 81,
+        "pulse_bpm": 91,
+        "blood_glucose_random": 142,
+        "spo2_percentage": 95,
+        "hemoglobin_g_dl": 12.6,
+        "recorded_by_asha_id": "ASHA-KLY-04"
+      },
+      {
+        "recorded_date": "2026-08-25",
+        "systolic_bp": 131,
+        "diastolic_bp": 83,
+        "pulse_bpm": 95,
+        "blood_glucose_random": 150,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 12.6,
+        "recorded_by_asha_id": "ASHA-KLY-04"
+      }
+    ],
+    "active_prescriptions": [
+      {
+        "medicine": "Iron & Folic Acid (IFA)",
+        "dosage": "100mg",
+        "frequency": "Daily after meal",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      },
+      {
+        "medicine": "Calcium Carbonate",
+        "dosage": "500mg",
+        "frequency": "Twice daily",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      }
+    ],
+    "last_consultation_date": "2026-09-02",
+    "synced_offline_status": true
+  },
+  {
+    "patient_id": 5,
+    "abha_id": "ABHA-2026-1148-4076",
+    "full_name": "Meena Kumari",
+    "age": 30,
+    "gender": "Female",
+    "village_locality": "Shantipur",
+    "registered_contact": "+91 9810049380",
+    "maternal_or_ncd_category": "Maternal ANC Care",
+    "risk_classification": "LOW",
+    "longitudinal_vitals_history": [
+      {
+        "recorded_date": "2026-08-13",
+        "systolic_bp": 121,
+        "diastolic_bp": 76,
+        "pulse_bpm": 80,
+        "blood_glucose_random": 123,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 10.2,
+        "recorded_by_asha_id": "ASHA-KLY-05"
+      },
+      {
+        "recorded_date": "2026-08-16",
+        "systolic_bp": 124,
+        "diastolic_bp": 78,
+        "pulse_bpm": 84,
+        "blood_glucose_random": 131,
+        "spo2_percentage": 97,
+        "hemoglobin_g_dl": 10.2,
+        "recorded_by_asha_id": "ASHA-KLY-05"
+      },
+      {
+        "recorded_date": "2026-08-19",
+        "systolic_bp": 127,
+        "diastolic_bp": 80,
+        "pulse_bpm": 88,
+        "blood_glucose_random": 139,
+        "spo2_percentage": 98,
+        "hemoglobin_g_dl": 10.2,
+        "recorded_by_asha_id": "ASHA-KLY-05"
+      },
+      {
+        "recorded_date": "2026-08-22",
+        "systolic_bp": 130,
+        "diastolic_bp": 82,
+        "pulse_bpm": 92,
+        "blood_glucose_random": 147,
+        "spo2_percentage": 95,
+        "hemoglobin_g_dl": 10.2,
+        "recorded_by_asha_id": "ASHA-KLY-05"
+      },
+      {
+        "recorded_date": "2026-08-25",
+        "systolic_bp": 133,
+        "diastolic_bp": 84,
+        "pulse_bpm": 96,
+        "blood_glucose_random": 155,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 10.2,
+        "recorded_by_asha_id": "ASHA-KLY-05"
+      }
+    ],
+    "active_prescriptions": [
+      {
+        "medicine": "Iron & Folic Acid (IFA)",
+        "dosage": "100mg",
+        "frequency": "Daily after meal",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      },
+      {
+        "medicine": "Calcium Carbonate",
+        "dosage": "500mg",
+        "frequency": "Twice daily",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      }
+    ],
+    "last_consultation_date": "2026-09-02",
+    "synced_offline_status": true
+  },
+  {
+    "patient_id": 6,
+    "abha_id": "ABHA-2026-1185-4095",
+    "full_name": "Mohammad Imran",
+    "age": 33,
+    "gender": "Male",
+    "village_locality": "Mohanpur",
+    "registered_contact": "+91 9810061725",
+    "maternal_or_ncd_category": "General Rural OPD",
+    "risk_classification": "LOW",
+    "longitudinal_vitals_history": [
+      {
+        "recorded_date": "2026-08-13",
+        "systolic_bp": 123,
+        "diastolic_bp": 77,
+        "pulse_bpm": 81,
+        "blood_glucose_random": 128,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 11,
+        "recorded_by_asha_id": "ASHA-KLY-01"
+      },
+      {
+        "recorded_date": "2026-08-16",
+        "systolic_bp": 126,
+        "diastolic_bp": 79,
+        "pulse_bpm": 85,
+        "blood_glucose_random": 136,
+        "spo2_percentage": 97,
+        "hemoglobin_g_dl": 11,
+        "recorded_by_asha_id": "ASHA-KLY-01"
+      },
+      {
+        "recorded_date": "2026-08-19",
+        "systolic_bp": 129,
+        "diastolic_bp": 81,
+        "pulse_bpm": 89,
+        "blood_glucose_random": 144,
+        "spo2_percentage": 98,
+        "hemoglobin_g_dl": 11,
+        "recorded_by_asha_id": "ASHA-KLY-01"
+      },
+      {
+        "recorded_date": "2026-08-22",
+        "systolic_bp": 132,
+        "diastolic_bp": 83,
+        "pulse_bpm": 93,
+        "blood_glucose_random": 152,
+        "spo2_percentage": 95,
+        "hemoglobin_g_dl": 11,
+        "recorded_by_asha_id": "ASHA-KLY-01"
+      },
+      {
+        "recorded_date": "2026-08-25",
+        "systolic_bp": 135,
+        "diastolic_bp": 85,
+        "pulse_bpm": 97,
+        "blood_glucose_random": 160,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 11,
+        "recorded_by_asha_id": "ASHA-KLY-01"
+      }
+    ],
+    "active_prescriptions": [
+      {
+        "medicine": "Iron & Folic Acid (IFA)",
+        "dosage": "100mg",
+        "frequency": "Daily after meal",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      },
+      {
+        "medicine": "Calcium Carbonate",
+        "dosage": "500mg",
+        "frequency": "Twice daily",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      }
+    ],
+    "last_consultation_date": "2026-09-02",
+    "synced_offline_status": true
+  },
+  {
+    "patient_id": 7,
+    "abha_id": "ABHA-2026-1222-4114",
+    "full_name": "Kavita Joshi",
+    "age": 36,
+    "gender": "Female",
+    "village_locality": "Kalyanpur",
+    "registered_contact": "+91 9810074070",
+    "maternal_or_ncd_category": "General Rural OPD",
+    "risk_classification": "MEDIUM",
+    "longitudinal_vitals_history": [
+      {
+        "recorded_date": "2026-08-13",
+        "systolic_bp": 125,
+        "diastolic_bp": 78,
+        "pulse_bpm": 82,
+        "blood_glucose_random": 133,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 11.8,
+        "recorded_by_asha_id": "ASHA-KLY-02"
+      },
+      {
+        "recorded_date": "2026-08-16",
+        "systolic_bp": 128,
+        "diastolic_bp": 80,
+        "pulse_bpm": 86,
+        "blood_glucose_random": 141,
+        "spo2_percentage": 97,
+        "hemoglobin_g_dl": 11.8,
+        "recorded_by_asha_id": "ASHA-KLY-02"
+      },
+      {
+        "recorded_date": "2026-08-19",
+        "systolic_bp": 131,
+        "diastolic_bp": 82,
+        "pulse_bpm": 90,
+        "blood_glucose_random": 149,
+        "spo2_percentage": 98,
+        "hemoglobin_g_dl": 11.8,
+        "recorded_by_asha_id": "ASHA-KLY-02"
+      },
+      {
+        "recorded_date": "2026-08-22",
+        "systolic_bp": 134,
+        "diastolic_bp": 84,
+        "pulse_bpm": 94,
+        "blood_glucose_random": 157,
+        "spo2_percentage": 95,
+        "hemoglobin_g_dl": 11.8,
+        "recorded_by_asha_id": "ASHA-KLY-02"
+      },
+      {
+        "recorded_date": "2026-08-25",
+        "systolic_bp": 137,
+        "diastolic_bp": 86,
+        "pulse_bpm": 98,
+        "blood_glucose_random": 165,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 11.8,
+        "recorded_by_asha_id": "ASHA-KLY-02"
+      }
+    ],
+    "active_prescriptions": [
+      {
+        "medicine": "Iron & Folic Acid (IFA)",
+        "dosage": "100mg",
+        "frequency": "Daily after meal",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      },
+      {
+        "medicine": "Calcium Carbonate",
+        "dosage": "500mg",
+        "frequency": "Twice daily",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      }
+    ],
+    "last_consultation_date": "2026-09-02",
+    "synced_offline_status": true
+  },
+  {
+    "patient_id": 8,
+    "abha_id": "ABHA-2026-1259-4133",
+    "full_name": "Rajendra Prasad",
+    "age": 39,
+    "gender": "Male",
+    "village_locality": "Sector 4 PHC",
+    "registered_contact": "+91 9810086415",
+    "maternal_or_ncd_category": "General Rural OPD",
+    "risk_classification": "HIGH",
+    "longitudinal_vitals_history": [
+      {
+        "recorded_date": "2026-08-13",
+        "systolic_bp": 127,
+        "diastolic_bp": 79,
+        "pulse_bpm": 83,
+        "blood_glucose_random": 138,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 12.6,
+        "recorded_by_asha_id": "ASHA-KLY-03"
+      },
+      {
+        "recorded_date": "2026-08-16",
+        "systolic_bp": 130,
+        "diastolic_bp": 81,
+        "pulse_bpm": 87,
+        "blood_glucose_random": 146,
+        "spo2_percentage": 97,
+        "hemoglobin_g_dl": 12.6,
+        "recorded_by_asha_id": "ASHA-KLY-03"
+      },
+      {
+        "recorded_date": "2026-08-19",
+        "systolic_bp": 133,
+        "diastolic_bp": 83,
+        "pulse_bpm": 91,
+        "blood_glucose_random": 154,
+        "spo2_percentage": 98,
+        "hemoglobin_g_dl": 12.6,
+        "recorded_by_asha_id": "ASHA-KLY-03"
+      },
+      {
+        "recorded_date": "2026-08-22",
+        "systolic_bp": 136,
+        "diastolic_bp": 85,
+        "pulse_bpm": 95,
+        "blood_glucose_random": 162,
+        "spo2_percentage": 95,
+        "hemoglobin_g_dl": 12.6,
+        "recorded_by_asha_id": "ASHA-KLY-03"
+      },
+      {
+        "recorded_date": "2026-08-25",
+        "systolic_bp": 139,
+        "diastolic_bp": 87,
+        "pulse_bpm": 99,
+        "blood_glucose_random": 170,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 12.6,
+        "recorded_by_asha_id": "ASHA-KLY-03"
+      }
+    ],
+    "active_prescriptions": [
+      {
+        "medicine": "Iron & Folic Acid (IFA)",
+        "dosage": "100mg",
+        "frequency": "Daily after meal",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      },
+      {
+        "medicine": "Calcium Carbonate",
+        "dosage": "500mg",
+        "frequency": "Twice daily",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      }
+    ],
+    "last_consultation_date": "2026-09-02",
+    "synced_offline_status": true
+  },
+  {
+    "patient_id": 9,
+    "abha_id": "ABHA-2026-1296-4152",
+    "full_name": "Geeta Rani",
+    "age": 42,
+    "gender": "Female",
+    "village_locality": "Rampur Kalan",
+    "registered_contact": "+91 9810098760",
+    "maternal_or_ncd_category": "General Rural OPD",
+    "risk_classification": "LOW",
+    "longitudinal_vitals_history": [
+      {
+        "recorded_date": "2026-08-13",
+        "systolic_bp": 129,
+        "diastolic_bp": 80,
+        "pulse_bpm": 84,
+        "blood_glucose_random": 143,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 10.2,
+        "recorded_by_asha_id": "ASHA-KLY-04"
+      },
+      {
+        "recorded_date": "2026-08-16",
+        "systolic_bp": 132,
+        "diastolic_bp": 82,
+        "pulse_bpm": 88,
+        "blood_glucose_random": 151,
+        "spo2_percentage": 97,
+        "hemoglobin_g_dl": 10.2,
+        "recorded_by_asha_id": "ASHA-KLY-04"
+      },
+      {
+        "recorded_date": "2026-08-19",
+        "systolic_bp": 135,
+        "diastolic_bp": 84,
+        "pulse_bpm": 92,
+        "blood_glucose_random": 159,
+        "spo2_percentage": 98,
+        "hemoglobin_g_dl": 10.2,
+        "recorded_by_asha_id": "ASHA-KLY-04"
+      },
+      {
+        "recorded_date": "2026-08-22",
+        "systolic_bp": 138,
+        "diastolic_bp": 86,
+        "pulse_bpm": 96,
+        "blood_glucose_random": 167,
+        "spo2_percentage": 95,
+        "hemoglobin_g_dl": 10.2,
+        "recorded_by_asha_id": "ASHA-KLY-04"
+      },
+      {
+        "recorded_date": "2026-08-25",
+        "systolic_bp": 141,
+        "diastolic_bp": 88,
+        "pulse_bpm": 100,
+        "blood_glucose_random": 175,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 10.2,
+        "recorded_by_asha_id": "ASHA-KLY-04"
+      }
+    ],
+    "active_prescriptions": [
+      {
+        "medicine": "Iron & Folic Acid (IFA)",
+        "dosage": "100mg",
+        "frequency": "Daily after meal",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      },
+      {
+        "medicine": "Calcium Carbonate",
+        "dosage": "500mg",
+        "frequency": "Twice daily",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      }
+    ],
+    "last_consultation_date": "2026-09-02",
+    "synced_offline_status": true
+  },
+  {
+    "patient_id": 10,
+    "abha_id": "ABHA-2026-1333-4171",
+    "full_name": "Vijay Singh",
+    "age": 45,
+    "gender": "Male",
+    "village_locality": "Brijnagar",
+    "registered_contact": "+91 9810111105",
+    "maternal_or_ncd_category": "General Rural OPD",
+    "risk_classification": "MEDIUM",
+    "longitudinal_vitals_history": [
+      {
+        "recorded_date": "2026-08-13",
+        "systolic_bp": 131,
+        "diastolic_bp": 81,
+        "pulse_bpm": 85,
+        "blood_glucose_random": 148,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 11,
+        "recorded_by_asha_id": "ASHA-KLY-05"
+      },
+      {
+        "recorded_date": "2026-08-16",
+        "systolic_bp": 134,
+        "diastolic_bp": 83,
+        "pulse_bpm": 89,
+        "blood_glucose_random": 156,
+        "spo2_percentage": 97,
+        "hemoglobin_g_dl": 11,
+        "recorded_by_asha_id": "ASHA-KLY-05"
+      },
+      {
+        "recorded_date": "2026-08-19",
+        "systolic_bp": 137,
+        "diastolic_bp": 85,
+        "pulse_bpm": 93,
+        "blood_glucose_random": 164,
+        "spo2_percentage": 98,
+        "hemoglobin_g_dl": 11,
+        "recorded_by_asha_id": "ASHA-KLY-05"
+      },
+      {
+        "recorded_date": "2026-08-22",
+        "systolic_bp": 140,
+        "diastolic_bp": 87,
+        "pulse_bpm": 97,
+        "blood_glucose_random": 172,
+        "spo2_percentage": 95,
+        "hemoglobin_g_dl": 11,
+        "recorded_by_asha_id": "ASHA-KLY-05"
+      },
+      {
+        "recorded_date": "2026-08-25",
+        "systolic_bp": 143,
+        "diastolic_bp": 89,
+        "pulse_bpm": 101,
+        "blood_glucose_random": 180,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 11,
+        "recorded_by_asha_id": "ASHA-KLY-05"
+      }
+    ],
+    "active_prescriptions": [
+      {
+        "medicine": "Iron & Folic Acid (IFA)",
+        "dosage": "100mg",
+        "frequency": "Daily after meal",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      },
+      {
+        "medicine": "Calcium Carbonate",
+        "dosage": "500mg",
+        "frequency": "Twice daily",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      }
+    ],
+    "last_consultation_date": "2026-09-02",
+    "synced_offline_status": true
+  },
+  {
+    "patient_id": 11,
+    "abha_id": "ABHA-2026-1370-4190",
+    "full_name": "Anjali Verma",
+    "age": 48,
+    "gender": "Female",
+    "village_locality": "Shantipur",
+    "registered_contact": "+91 9810123450",
+    "maternal_or_ncd_category": "Hypertension & Type 2 Diabetes",
+    "risk_classification": "LOW",
+    "longitudinal_vitals_history": [
+      {
+        "recorded_date": "2026-08-13",
+        "systolic_bp": 133,
+        "diastolic_bp": 82,
+        "pulse_bpm": 86,
+        "blood_glucose_random": 153,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 11.8,
+        "recorded_by_asha_id": "ASHA-KLY-01"
+      },
+      {
+        "recorded_date": "2026-08-16",
+        "systolic_bp": 136,
+        "diastolic_bp": 84,
+        "pulse_bpm": 90,
+        "blood_glucose_random": 161,
+        "spo2_percentage": 97,
+        "hemoglobin_g_dl": 11.8,
+        "recorded_by_asha_id": "ASHA-KLY-01"
+      },
+      {
+        "recorded_date": "2026-08-19",
+        "systolic_bp": 139,
+        "diastolic_bp": 86,
+        "pulse_bpm": 94,
+        "blood_glucose_random": 169,
+        "spo2_percentage": 98,
+        "hemoglobin_g_dl": 11.8,
+        "recorded_by_asha_id": "ASHA-KLY-01"
+      },
+      {
+        "recorded_date": "2026-08-22",
+        "systolic_bp": 142,
+        "diastolic_bp": 88,
+        "pulse_bpm": 98,
+        "blood_glucose_random": 177,
+        "spo2_percentage": 95,
+        "hemoglobin_g_dl": 11.8,
+        "recorded_by_asha_id": "ASHA-KLY-01"
+      },
+      {
+        "recorded_date": "2026-08-25",
+        "systolic_bp": 145,
+        "diastolic_bp": 90,
+        "pulse_bpm": 72,
+        "blood_glucose_random": 185,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 11.8,
+        "recorded_by_asha_id": "ASHA-KLY-01"
+      }
+    ],
+    "active_prescriptions": [
+      {
+        "medicine": "Iron & Folic Acid (IFA)",
+        "dosage": "100mg",
+        "frequency": "Daily after meal",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      },
+      {
+        "medicine": "Calcium Carbonate",
+        "dosage": "500mg",
+        "frequency": "Twice daily",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      }
+    ],
+    "last_consultation_date": "2026-09-02",
+    "synced_offline_status": true
+  },
+  {
+    "patient_id": 12,
+    "abha_id": "ABHA-2026-1407-4209",
+    "full_name": "Deepak Yadav",
+    "age": 51,
+    "gender": "Male",
+    "village_locality": "Mohanpur",
+    "registered_contact": "+91 9810135795",
+    "maternal_or_ncd_category": "Hypertension & Type 2 Diabetes",
+    "risk_classification": "LOW",
+    "longitudinal_vitals_history": [
+      {
+        "recorded_date": "2026-08-13",
+        "systolic_bp": 135,
+        "diastolic_bp": 83,
+        "pulse_bpm": 87,
+        "blood_glucose_random": 158,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 12.6,
+        "recorded_by_asha_id": "ASHA-KLY-02"
+      },
+      {
+        "recorded_date": "2026-08-16",
+        "systolic_bp": 138,
+        "diastolic_bp": 85,
+        "pulse_bpm": 91,
+        "blood_glucose_random": 166,
+        "spo2_percentage": 97,
+        "hemoglobin_g_dl": 12.6,
+        "recorded_by_asha_id": "ASHA-KLY-02"
+      },
+      {
+        "recorded_date": "2026-08-19",
+        "systolic_bp": 141,
+        "diastolic_bp": 87,
+        "pulse_bpm": 95,
+        "blood_glucose_random": 174,
+        "spo2_percentage": 98,
+        "hemoglobin_g_dl": 12.6,
+        "recorded_by_asha_id": "ASHA-KLY-02"
+      },
+      {
+        "recorded_date": "2026-08-22",
+        "systolic_bp": 144,
+        "diastolic_bp": 89,
+        "pulse_bpm": 99,
+        "blood_glucose_random": 182,
+        "spo2_percentage": 95,
+        "hemoglobin_g_dl": 12.6,
+        "recorded_by_asha_id": "ASHA-KLY-02"
+      },
+      {
+        "recorded_date": "2026-08-25",
+        "systolic_bp": 147,
+        "diastolic_bp": 91,
+        "pulse_bpm": 73,
+        "blood_glucose_random": 190,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 12.6,
+        "recorded_by_asha_id": "ASHA-KLY-02"
+      }
+    ],
+    "active_prescriptions": [
+      {
+        "medicine": "Iron & Folic Acid (IFA)",
+        "dosage": "100mg",
+        "frequency": "Daily after meal",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      },
+      {
+        "medicine": "Calcium Carbonate",
+        "dosage": "500mg",
+        "frequency": "Twice daily",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      }
+    ],
+    "last_consultation_date": "2026-09-02",
+    "synced_offline_status": true
+  },
+  {
+    "patient_id": 13,
+    "abha_id": "ABHA-2026-1444-4228",
+    "full_name": "Sushila Bai",
+    "age": 54,
+    "gender": "Female",
+    "village_locality": "Kalyanpur",
+    "registered_contact": "+91 9810148140",
+    "maternal_or_ncd_category": "Hypertension & Type 2 Diabetes",
+    "risk_classification": "MEDIUM",
+    "longitudinal_vitals_history": [
+      {
+        "recorded_date": "2026-08-13",
+        "systolic_bp": 137,
+        "diastolic_bp": 84,
+        "pulse_bpm": 88,
+        "blood_glucose_random": 163,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 10.2,
+        "recorded_by_asha_id": "ASHA-KLY-03"
+      },
+      {
+        "recorded_date": "2026-08-16",
+        "systolic_bp": 140,
+        "diastolic_bp": 86,
+        "pulse_bpm": 92,
+        "blood_glucose_random": 171,
+        "spo2_percentage": 97,
+        "hemoglobin_g_dl": 10.2,
+        "recorded_by_asha_id": "ASHA-KLY-03"
+      },
+      {
+        "recorded_date": "2026-08-19",
+        "systolic_bp": 143,
+        "diastolic_bp": 88,
+        "pulse_bpm": 96,
+        "blood_glucose_random": 179,
+        "spo2_percentage": 98,
+        "hemoglobin_g_dl": 10.2,
+        "recorded_by_asha_id": "ASHA-KLY-03"
+      },
+      {
+        "recorded_date": "2026-08-22",
+        "systolic_bp": 146,
+        "diastolic_bp": 90,
+        "pulse_bpm": 100,
+        "blood_glucose_random": 187,
+        "spo2_percentage": 95,
+        "hemoglobin_g_dl": 10.2,
+        "recorded_by_asha_id": "ASHA-KLY-03"
+      },
+      {
+        "recorded_date": "2026-08-25",
+        "systolic_bp": 149,
+        "diastolic_bp": 92,
+        "pulse_bpm": 74,
+        "blood_glucose_random": 195,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 10.2,
+        "recorded_by_asha_id": "ASHA-KLY-03"
+      }
+    ],
+    "active_prescriptions": [
+      {
+        "medicine": "Iron & Folic Acid (IFA)",
+        "dosage": "100mg",
+        "frequency": "Daily after meal",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      },
+      {
+        "medicine": "Calcium Carbonate",
+        "dosage": "500mg",
+        "frequency": "Twice daily",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      }
+    ],
+    "last_consultation_date": "2026-09-02",
+    "synced_offline_status": true
+  },
+  {
+    "patient_id": 14,
+    "abha_id": "ABHA-2026-1481-4247",
+    "full_name": "Ashok Gupta",
+    "age": 57,
+    "gender": "Male",
+    "village_locality": "Sector 4 PHC",
+    "registered_contact": "+91 9810160485",
+    "maternal_or_ncd_category": "Hypertension & Type 2 Diabetes",
+    "risk_classification": "LOW",
+    "longitudinal_vitals_history": [
+      {
+        "recorded_date": "2026-08-13",
+        "systolic_bp": 139,
+        "diastolic_bp": 85,
+        "pulse_bpm": 89,
+        "blood_glucose_random": 168,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 11,
+        "recorded_by_asha_id": "ASHA-KLY-04"
+      },
+      {
+        "recorded_date": "2026-08-16",
+        "systolic_bp": 142,
+        "diastolic_bp": 87,
+        "pulse_bpm": 93,
+        "blood_glucose_random": 176,
+        "spo2_percentage": 97,
+        "hemoglobin_g_dl": 11,
+        "recorded_by_asha_id": "ASHA-KLY-04"
+      },
+      {
+        "recorded_date": "2026-08-19",
+        "systolic_bp": 145,
+        "diastolic_bp": 89,
+        "pulse_bpm": 97,
+        "blood_glucose_random": 184,
+        "spo2_percentage": 98,
+        "hemoglobin_g_dl": 11,
+        "recorded_by_asha_id": "ASHA-KLY-04"
+      },
+      {
+        "recorded_date": "2026-08-22",
+        "systolic_bp": 148,
+        "diastolic_bp": 91,
+        "pulse_bpm": 101,
+        "blood_glucose_random": 192,
+        "spo2_percentage": 95,
+        "hemoglobin_g_dl": 11,
+        "recorded_by_asha_id": "ASHA-KLY-04"
+      },
+      {
+        "recorded_date": "2026-08-25",
+        "systolic_bp": 111,
+        "diastolic_bp": 93,
+        "pulse_bpm": 75,
+        "blood_glucose_random": 200,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 11,
+        "recorded_by_asha_id": "ASHA-KLY-04"
+      }
+    ],
+    "active_prescriptions": [
+      {
+        "medicine": "Iron & Folic Acid (IFA)",
+        "dosage": "100mg",
+        "frequency": "Daily after meal",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      },
+      {
+        "medicine": "Calcium Carbonate",
+        "dosage": "500mg",
+        "frequency": "Twice daily",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      }
+    ],
+    "last_consultation_date": "2026-09-02",
+    "synced_offline_status": true
+  },
+  {
+    "patient_id": 15,
+    "abha_id": "ABHA-2026-1518-4266",
+    "full_name": "Pooja Tiwari",
+    "age": 60,
+    "gender": "Female",
+    "village_locality": "Rampur Kalan",
+    "registered_contact": "+91 9810172830",
+    "maternal_or_ncd_category": "Hypertension & Type 2 Diabetes",
+    "risk_classification": "HIGH",
+    "longitudinal_vitals_history": [
+      {
+        "recorded_date": "2026-08-13",
+        "systolic_bp": 141,
+        "diastolic_bp": 86,
+        "pulse_bpm": 90,
+        "blood_glucose_random": 173,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 11.8,
+        "recorded_by_asha_id": "ASHA-KLY-05"
+      },
+      {
+        "recorded_date": "2026-08-16",
+        "systolic_bp": 144,
+        "diastolic_bp": 88,
+        "pulse_bpm": 94,
+        "blood_glucose_random": 181,
+        "spo2_percentage": 97,
+        "hemoglobin_g_dl": 11.8,
+        "recorded_by_asha_id": "ASHA-KLY-05"
+      },
+      {
+        "recorded_date": "2026-08-19",
+        "systolic_bp": 147,
+        "diastolic_bp": 90,
+        "pulse_bpm": 98,
+        "blood_glucose_random": 189,
+        "spo2_percentage": 98,
+        "hemoglobin_g_dl": 11.8,
+        "recorded_by_asha_id": "ASHA-KLY-05"
+      },
+      {
+        "recorded_date": "2026-08-22",
+        "systolic_bp": 110,
+        "diastolic_bp": 92,
+        "pulse_bpm": 72,
+        "blood_glucose_random": 197,
+        "spo2_percentage": 95,
+        "hemoglobin_g_dl": 11.8,
+        "recorded_by_asha_id": "ASHA-KLY-05"
+      },
+      {
+        "recorded_date": "2026-08-25",
+        "systolic_bp": 113,
+        "diastolic_bp": 94,
+        "pulse_bpm": 76,
+        "blood_glucose_random": 95,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 11.8,
+        "recorded_by_asha_id": "ASHA-KLY-05"
+      }
+    ],
+    "active_prescriptions": [
+      {
+        "medicine": "Iron & Folic Acid (IFA)",
+        "dosage": "100mg",
+        "frequency": "Daily after meal",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      },
+      {
+        "medicine": "Calcium Carbonate",
+        "dosage": "500mg",
+        "frequency": "Twice daily",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      }
+    ],
+    "last_consultation_date": "2026-09-02",
+    "synced_offline_status": true
+  },
+  {
+    "patient_id": 16,
+    "abha_id": "ABHA-2026-1555-4285",
+    "full_name": "Suresh Chand",
+    "age": 63,
+    "gender": "Male",
+    "village_locality": "Brijnagar",
+    "registered_contact": "+91 9810185175",
+    "maternal_or_ncd_category": "Hypertension & Type 2 Diabetes",
+    "risk_classification": "MEDIUM",
+    "longitudinal_vitals_history": [
+      {
+        "recorded_date": "2026-08-13",
+        "systolic_bp": 143,
+        "diastolic_bp": 87,
+        "pulse_bpm": 91,
+        "blood_glucose_random": 178,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 12.6,
+        "recorded_by_asha_id": "ASHA-KLY-01"
+      },
+      {
+        "recorded_date": "2026-08-16",
+        "systolic_bp": 146,
+        "diastolic_bp": 89,
+        "pulse_bpm": 95,
+        "blood_glucose_random": 186,
+        "spo2_percentage": 97,
+        "hemoglobin_g_dl": 12.6,
+        "recorded_by_asha_id": "ASHA-KLY-01"
+      },
+      {
+        "recorded_date": "2026-08-19",
+        "systolic_bp": 149,
+        "diastolic_bp": 91,
+        "pulse_bpm": 99,
+        "blood_glucose_random": 194,
+        "spo2_percentage": 98,
+        "hemoglobin_g_dl": 12.6,
+        "recorded_by_asha_id": "ASHA-KLY-01"
+      },
+      {
+        "recorded_date": "2026-08-22",
+        "systolic_bp": 112,
+        "diastolic_bp": 93,
+        "pulse_bpm": 73,
+        "blood_glucose_random": 202,
+        "spo2_percentage": 95,
+        "hemoglobin_g_dl": 12.6,
+        "recorded_by_asha_id": "ASHA-KLY-01"
+      },
+      {
+        "recorded_date": "2026-08-25",
+        "systolic_bp": 115,
+        "diastolic_bp": 70,
+        "pulse_bpm": 77,
+        "blood_glucose_random": 100,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 12.6,
+        "recorded_by_asha_id": "ASHA-KLY-01"
+      }
+    ],
+    "active_prescriptions": [
+      {
+        "medicine": "Iron & Folic Acid (IFA)",
+        "dosage": "100mg",
+        "frequency": "Daily after meal",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      },
+      {
+        "medicine": "Calcium Carbonate",
+        "dosage": "500mg",
+        "frequency": "Twice daily",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      }
+    ],
+    "last_consultation_date": "2026-09-02",
+    "synced_offline_status": true
+  },
+  {
+    "patient_id": 17,
+    "abha_id": "ABHA-2026-1592-4304",
+    "full_name": "Reena Rawat",
+    "age": 66,
+    "gender": "Female",
+    "village_locality": "Shantipur",
+    "registered_contact": "+91 9810197520",
+    "maternal_or_ncd_category": "Hypertension & Type 2 Diabetes",
+    "risk_classification": "LOW",
+    "longitudinal_vitals_history": [
+      {
+        "recorded_date": "2026-08-13",
+        "systolic_bp": 145,
+        "diastolic_bp": 88,
+        "pulse_bpm": 92,
+        "blood_glucose_random": 183,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 10.2,
+        "recorded_by_asha_id": "ASHA-KLY-02"
+      },
+      {
+        "recorded_date": "2026-08-16",
+        "systolic_bp": 148,
+        "diastolic_bp": 90,
+        "pulse_bpm": 96,
+        "blood_glucose_random": 191,
+        "spo2_percentage": 97,
+        "hemoglobin_g_dl": 10.2,
+        "recorded_by_asha_id": "ASHA-KLY-02"
+      },
+      {
+        "recorded_date": "2026-08-19",
+        "systolic_bp": 111,
+        "diastolic_bp": 92,
+        "pulse_bpm": 100,
+        "blood_glucose_random": 199,
+        "spo2_percentage": 98,
+        "hemoglobin_g_dl": 10.2,
+        "recorded_by_asha_id": "ASHA-KLY-02"
+      },
+      {
+        "recorded_date": "2026-08-22",
+        "systolic_bp": 114,
+        "diastolic_bp": 94,
+        "pulse_bpm": 74,
+        "blood_glucose_random": 97,
+        "spo2_percentage": 95,
+        "hemoglobin_g_dl": 10.2,
+        "recorded_by_asha_id": "ASHA-KLY-02"
+      },
+      {
+        "recorded_date": "2026-08-25",
+        "systolic_bp": 117,
+        "diastolic_bp": 71,
+        "pulse_bpm": 78,
+        "blood_glucose_random": 105,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 10.2,
+        "recorded_by_asha_id": "ASHA-KLY-02"
+      }
+    ],
+    "active_prescriptions": [
+      {
+        "medicine": "Iron & Folic Acid (IFA)",
+        "dosage": "100mg",
+        "frequency": "Daily after meal",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      },
+      {
+        "medicine": "Calcium Carbonate",
+        "dosage": "500mg",
+        "frequency": "Twice daily",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      }
+    ],
+    "last_consultation_date": "2026-09-02",
+    "synced_offline_status": true
+  },
+  {
+    "patient_id": 18,
+    "abha_id": "ABHA-2026-1629-4323",
+    "full_name": "Manoj Mishra",
+    "age": 69,
+    "gender": "Male",
+    "village_locality": "Mohanpur",
+    "registered_contact": "+91 9810209865",
+    "maternal_or_ncd_category": "Hypertension & Type 2 Diabetes",
+    "risk_classification": "LOW",
+    "longitudinal_vitals_history": [
+      {
+        "recorded_date": "2026-08-13",
+        "systolic_bp": 147,
+        "diastolic_bp": 89,
+        "pulse_bpm": 93,
+        "blood_glucose_random": 188,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 11,
+        "recorded_by_asha_id": "ASHA-KLY-03"
+      },
+      {
+        "recorded_date": "2026-08-16",
+        "systolic_bp": 110,
+        "diastolic_bp": 91,
+        "pulse_bpm": 97,
+        "blood_glucose_random": 196,
+        "spo2_percentage": 97,
+        "hemoglobin_g_dl": 11,
+        "recorded_by_asha_id": "ASHA-KLY-03"
+      },
+      {
+        "recorded_date": "2026-08-19",
+        "systolic_bp": 113,
+        "diastolic_bp": 93,
+        "pulse_bpm": 101,
+        "blood_glucose_random": 204,
+        "spo2_percentage": 98,
+        "hemoglobin_g_dl": 11,
+        "recorded_by_asha_id": "ASHA-KLY-03"
+      },
+      {
+        "recorded_date": "2026-08-22",
+        "systolic_bp": 116,
+        "diastolic_bp": 70,
+        "pulse_bpm": 75,
+        "blood_glucose_random": 102,
+        "spo2_percentage": 95,
+        "hemoglobin_g_dl": 11,
+        "recorded_by_asha_id": "ASHA-KLY-03"
+      },
+      {
+        "recorded_date": "2026-08-25",
+        "systolic_bp": 119,
+        "diastolic_bp": 72,
+        "pulse_bpm": 79,
+        "blood_glucose_random": 110,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 11,
+        "recorded_by_asha_id": "ASHA-KLY-03"
+      }
+    ],
+    "active_prescriptions": [
+      {
+        "medicine": "Iron & Folic Acid (IFA)",
+        "dosage": "100mg",
+        "frequency": "Daily after meal",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      },
+      {
+        "medicine": "Calcium Carbonate",
+        "dosage": "500mg",
+        "frequency": "Twice daily",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      }
+    ],
+    "last_consultation_date": "2026-09-02",
+    "synced_offline_status": true
+  },
+  {
+    "patient_id": 19,
+    "abha_id": "ABHA-2026-1666-4342",
+    "full_name": "Shanti Devi",
+    "age": 72,
+    "gender": "Female",
+    "village_locality": "Kalyanpur",
+    "registered_contact": "+91 9810222210",
+    "maternal_or_ncd_category": "Hypertension & Type 2 Diabetes",
+    "risk_classification": "MEDIUM",
+    "longitudinal_vitals_history": [
+      {
+        "recorded_date": "2026-08-13",
+        "systolic_bp": 149,
+        "diastolic_bp": 90,
+        "pulse_bpm": 94,
+        "blood_glucose_random": 193,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 11.8,
+        "recorded_by_asha_id": "ASHA-KLY-04"
+      },
+      {
+        "recorded_date": "2026-08-16",
+        "systolic_bp": 112,
+        "diastolic_bp": 92,
+        "pulse_bpm": 98,
+        "blood_glucose_random": 201,
+        "spo2_percentage": 97,
+        "hemoglobin_g_dl": 11.8,
+        "recorded_by_asha_id": "ASHA-KLY-04"
+      },
+      {
+        "recorded_date": "2026-08-19",
+        "systolic_bp": 115,
+        "diastolic_bp": 94,
+        "pulse_bpm": 72,
+        "blood_glucose_random": 99,
+        "spo2_percentage": 98,
+        "hemoglobin_g_dl": 11.8,
+        "recorded_by_asha_id": "ASHA-KLY-04"
+      },
+      {
+        "recorded_date": "2026-08-22",
+        "systolic_bp": 118,
+        "diastolic_bp": 71,
+        "pulse_bpm": 76,
+        "blood_glucose_random": 107,
+        "spo2_percentage": 95,
+        "hemoglobin_g_dl": 11.8,
+        "recorded_by_asha_id": "ASHA-KLY-04"
+      },
+      {
+        "recorded_date": "2026-08-25",
+        "systolic_bp": 121,
+        "diastolic_bp": 73,
+        "pulse_bpm": 80,
+        "blood_glucose_random": 115,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 11.8,
+        "recorded_by_asha_id": "ASHA-KLY-04"
+      }
+    ],
+    "active_prescriptions": [
+      {
+        "medicine": "Iron & Folic Acid (IFA)",
+        "dosage": "100mg",
+        "frequency": "Daily after meal",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      },
+      {
+        "medicine": "Calcium Carbonate",
+        "dosage": "500mg",
+        "frequency": "Twice daily",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      }
+    ],
+    "last_consultation_date": "2026-09-02",
+    "synced_offline_status": true
+  },
+  {
+    "patient_id": 20,
+    "abha_id": "ABHA-2026-1703-4361",
+    "full_name": "Santosh Sharma",
+    "age": 75,
+    "gender": "Male",
+    "village_locality": "Sector 4 PHC",
+    "registered_contact": "+91 9810234555",
+    "maternal_or_ncd_category": "Hypertension & Type 2 Diabetes",
+    "risk_classification": "LOW",
+    "longitudinal_vitals_history": [
+      {
+        "recorded_date": "2026-08-13",
+        "systolic_bp": 111,
+        "diastolic_bp": 91,
+        "pulse_bpm": 95,
+        "blood_glucose_random": 198,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 12.6,
+        "recorded_by_asha_id": "ASHA-KLY-05"
+      },
+      {
+        "recorded_date": "2026-08-16",
+        "systolic_bp": 114,
+        "diastolic_bp": 93,
+        "pulse_bpm": 99,
+        "blood_glucose_random": 96,
+        "spo2_percentage": 97,
+        "hemoglobin_g_dl": 12.6,
+        "recorded_by_asha_id": "ASHA-KLY-05"
+      },
+      {
+        "recorded_date": "2026-08-19",
+        "systolic_bp": 117,
+        "diastolic_bp": 70,
+        "pulse_bpm": 73,
+        "blood_glucose_random": 104,
+        "spo2_percentage": 98,
+        "hemoglobin_g_dl": 12.6,
+        "recorded_by_asha_id": "ASHA-KLY-05"
+      },
+      {
+        "recorded_date": "2026-08-22",
+        "systolic_bp": 120,
+        "diastolic_bp": 72,
+        "pulse_bpm": 77,
+        "blood_glucose_random": 112,
+        "spo2_percentage": 95,
+        "hemoglobin_g_dl": 12.6,
+        "recorded_by_asha_id": "ASHA-KLY-05"
+      },
+      {
+        "recorded_date": "2026-08-25",
+        "systolic_bp": 123,
+        "diastolic_bp": 74,
+        "pulse_bpm": 81,
+        "blood_glucose_random": 120,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 12.6,
+        "recorded_by_asha_id": "ASHA-KLY-05"
+      }
+    ],
+    "active_prescriptions": [
+      {
+        "medicine": "Iron & Folic Acid (IFA)",
+        "dosage": "100mg",
+        "frequency": "Daily after meal",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      },
+      {
+        "medicine": "Calcium Carbonate",
+        "dosage": "500mg",
+        "frequency": "Twice daily",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      }
+    ],
+    "last_consultation_date": "2026-09-02",
+    "synced_offline_status": true
+  },
+  {
+    "patient_id": 21,
+    "abha_id": "ABHA-2026-1740-4380",
+    "full_name": "Priya Sharma (2)",
+    "age": 78,
+    "gender": "Female",
+    "village_locality": "Rampur Kalan",
+    "registered_contact": "+91 9810246900",
+    "maternal_or_ncd_category": "Hypertension & Type 2 Diabetes",
+    "risk_classification": "LOW",
+    "longitudinal_vitals_history": [
+      {
+        "recorded_date": "2026-08-13",
+        "systolic_bp": 113,
+        "diastolic_bp": 92,
+        "pulse_bpm": 96,
+        "blood_glucose_random": 203,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 10.2,
+        "recorded_by_asha_id": "ASHA-KLY-01"
+      },
+      {
+        "recorded_date": "2026-08-16",
+        "systolic_bp": 116,
+        "diastolic_bp": 94,
+        "pulse_bpm": 100,
+        "blood_glucose_random": 101,
+        "spo2_percentage": 97,
+        "hemoglobin_g_dl": 10.2,
+        "recorded_by_asha_id": "ASHA-KLY-01"
+      },
+      {
+        "recorded_date": "2026-08-19",
+        "systolic_bp": 119,
+        "diastolic_bp": 71,
+        "pulse_bpm": 74,
+        "blood_glucose_random": 109,
+        "spo2_percentage": 98,
+        "hemoglobin_g_dl": 10.2,
+        "recorded_by_asha_id": "ASHA-KLY-01"
+      },
+      {
+        "recorded_date": "2026-08-22",
+        "systolic_bp": 122,
+        "diastolic_bp": 73,
+        "pulse_bpm": 78,
+        "blood_glucose_random": 117,
+        "spo2_percentage": 95,
+        "hemoglobin_g_dl": 10.2,
+        "recorded_by_asha_id": "ASHA-KLY-01"
+      },
+      {
+        "recorded_date": "2026-08-25",
+        "systolic_bp": 125,
+        "diastolic_bp": 75,
+        "pulse_bpm": 82,
+        "blood_glucose_random": 125,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 10.2,
+        "recorded_by_asha_id": "ASHA-KLY-01"
+      }
+    ],
+    "active_prescriptions": [
+      {
+        "medicine": "Iron & Folic Acid (IFA)",
+        "dosage": "100mg",
+        "frequency": "Daily after meal",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      },
+      {
+        "medicine": "Calcium Carbonate",
+        "dosage": "500mg",
+        "frequency": "Twice daily",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      }
+    ],
+    "last_consultation_date": "2026-09-02",
+    "synced_offline_status": true
+  },
+  {
+    "patient_id": 22,
+    "abha_id": "ABHA-2026-1777-4399",
+    "full_name": "Ramesh Kumar (2)",
+    "age": 81,
+    "gender": "Male",
+    "village_locality": "Brijnagar",
+    "registered_contact": "+91 9810259245",
+    "maternal_or_ncd_category": "Hypertension & Type 2 Diabetes",
+    "risk_classification": "HIGH",
+    "longitudinal_vitals_history": [
+      {
+        "recorded_date": "2026-08-13",
+        "systolic_bp": 115,
+        "diastolic_bp": 93,
+        "pulse_bpm": 97,
+        "blood_glucose_random": 98,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 11,
+        "recorded_by_asha_id": "ASHA-KLY-02"
+      },
+      {
+        "recorded_date": "2026-08-16",
+        "systolic_bp": 118,
+        "diastolic_bp": 70,
+        "pulse_bpm": 101,
+        "blood_glucose_random": 106,
+        "spo2_percentage": 97,
+        "hemoglobin_g_dl": 11,
+        "recorded_by_asha_id": "ASHA-KLY-02"
+      },
+      {
+        "recorded_date": "2026-08-19",
+        "systolic_bp": 121,
+        "diastolic_bp": 72,
+        "pulse_bpm": 75,
+        "blood_glucose_random": 114,
+        "spo2_percentage": 98,
+        "hemoglobin_g_dl": 11,
+        "recorded_by_asha_id": "ASHA-KLY-02"
+      },
+      {
+        "recorded_date": "2026-08-22",
+        "systolic_bp": 124,
+        "diastolic_bp": 74,
+        "pulse_bpm": 79,
+        "blood_glucose_random": 122,
+        "spo2_percentage": 95,
+        "hemoglobin_g_dl": 11,
+        "recorded_by_asha_id": "ASHA-KLY-02"
+      },
+      {
+        "recorded_date": "2026-08-25",
+        "systolic_bp": 127,
+        "diastolic_bp": 76,
+        "pulse_bpm": 83,
+        "blood_glucose_random": 130,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 11,
+        "recorded_by_asha_id": "ASHA-KLY-02"
+      }
+    ],
+    "active_prescriptions": [
+      {
+        "medicine": "Iron & Folic Acid (IFA)",
+        "dosage": "100mg",
+        "frequency": "Daily after meal",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      },
+      {
+        "medicine": "Calcium Carbonate",
+        "dosage": "500mg",
+        "frequency": "Twice daily",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      }
+    ],
+    "last_consultation_date": "2026-09-02",
+    "synced_offline_status": true
+  },
+  {
+    "patient_id": 23,
+    "abha_id": "ABHA-2026-1814-4418",
+    "full_name": "Sunita Devi (2)",
+    "age": 19,
+    "gender": "Female",
+    "village_locality": "Shantipur",
+    "registered_contact": "+91 9810271590",
+    "maternal_or_ncd_category": "Maternal ANC Care",
+    "risk_classification": "LOW",
+    "longitudinal_vitals_history": [
+      {
+        "recorded_date": "2026-08-13",
+        "systolic_bp": 117,
+        "diastolic_bp": 94,
+        "pulse_bpm": 98,
+        "blood_glucose_random": 103,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 11.8,
+        "recorded_by_asha_id": "ASHA-KLY-03"
+      },
+      {
+        "recorded_date": "2026-08-16",
+        "systolic_bp": 120,
+        "diastolic_bp": 71,
+        "pulse_bpm": 72,
+        "blood_glucose_random": 111,
+        "spo2_percentage": 97,
+        "hemoglobin_g_dl": 11.8,
+        "recorded_by_asha_id": "ASHA-KLY-03"
+      },
+      {
+        "recorded_date": "2026-08-19",
+        "systolic_bp": 123,
+        "diastolic_bp": 73,
+        "pulse_bpm": 76,
+        "blood_glucose_random": 119,
+        "spo2_percentage": 98,
+        "hemoglobin_g_dl": 11.8,
+        "recorded_by_asha_id": "ASHA-KLY-03"
+      },
+      {
+        "recorded_date": "2026-08-22",
+        "systolic_bp": 126,
+        "diastolic_bp": 75,
+        "pulse_bpm": 80,
+        "blood_glucose_random": 127,
+        "spo2_percentage": 95,
+        "hemoglobin_g_dl": 11.8,
+        "recorded_by_asha_id": "ASHA-KLY-03"
+      },
+      {
+        "recorded_date": "2026-08-25",
+        "systolic_bp": 129,
+        "diastolic_bp": 77,
+        "pulse_bpm": 84,
+        "blood_glucose_random": 135,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 11.8,
+        "recorded_by_asha_id": "ASHA-KLY-03"
+      }
+    ],
+    "active_prescriptions": [
+      {
+        "medicine": "Iron & Folic Acid (IFA)",
+        "dosage": "100mg",
+        "frequency": "Daily after meal",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      },
+      {
+        "medicine": "Calcium Carbonate",
+        "dosage": "500mg",
+        "frequency": "Twice daily",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      }
+    ],
+    "last_consultation_date": "2026-09-02",
+    "synced_offline_status": true
+  },
+  {
+    "patient_id": 24,
+    "abha_id": "ABHA-2026-1851-4437",
+    "full_name": "Aarav Patel (2)",
+    "age": 22,
+    "gender": "Male",
+    "village_locality": "Mohanpur",
+    "registered_contact": "+91 9810283935",
+    "maternal_or_ncd_category": "General Rural OPD",
+    "risk_classification": "LOW",
+    "longitudinal_vitals_history": [
+      {
+        "recorded_date": "2026-08-13",
+        "systolic_bp": 119,
+        "diastolic_bp": 70,
+        "pulse_bpm": 99,
+        "blood_glucose_random": 108,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 12.6,
+        "recorded_by_asha_id": "ASHA-KLY-04"
+      },
+      {
+        "recorded_date": "2026-08-16",
+        "systolic_bp": 122,
+        "diastolic_bp": 72,
+        "pulse_bpm": 73,
+        "blood_glucose_random": 116,
+        "spo2_percentage": 97,
+        "hemoglobin_g_dl": 12.6,
+        "recorded_by_asha_id": "ASHA-KLY-04"
+      },
+      {
+        "recorded_date": "2026-08-19",
+        "systolic_bp": 125,
+        "diastolic_bp": 74,
+        "pulse_bpm": 77,
+        "blood_glucose_random": 124,
+        "spo2_percentage": 98,
+        "hemoglobin_g_dl": 12.6,
+        "recorded_by_asha_id": "ASHA-KLY-04"
+      },
+      {
+        "recorded_date": "2026-08-22",
+        "systolic_bp": 128,
+        "diastolic_bp": 76,
+        "pulse_bpm": 81,
+        "blood_glucose_random": 132,
+        "spo2_percentage": 95,
+        "hemoglobin_g_dl": 12.6,
+        "recorded_by_asha_id": "ASHA-KLY-04"
+      },
+      {
+        "recorded_date": "2026-08-25",
+        "systolic_bp": 131,
+        "diastolic_bp": 78,
+        "pulse_bpm": 85,
+        "blood_glucose_random": 140,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 12.6,
+        "recorded_by_asha_id": "ASHA-KLY-04"
+      }
+    ],
+    "active_prescriptions": [
+      {
+        "medicine": "Iron & Folic Acid (IFA)",
+        "dosage": "100mg",
+        "frequency": "Daily after meal",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      },
+      {
+        "medicine": "Calcium Carbonate",
+        "dosage": "500mg",
+        "frequency": "Twice daily",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      }
+    ],
+    "last_consultation_date": "2026-09-02",
+    "synced_offline_status": true
+  },
+  {
+    "patient_id": 25,
+    "abha_id": "ABHA-2026-1888-4456",
+    "full_name": "Meena Kumari (2)",
+    "age": 25,
+    "gender": "Female",
+    "village_locality": "Kalyanpur",
+    "registered_contact": "+91 9810296280",
+    "maternal_or_ncd_category": "Maternal ANC Care",
+    "risk_classification": "MEDIUM",
+    "longitudinal_vitals_history": [
+      {
+        "recorded_date": "2026-08-13",
+        "systolic_bp": 121,
+        "diastolic_bp": 71,
+        "pulse_bpm": 100,
+        "blood_glucose_random": 113,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 10.2,
+        "recorded_by_asha_id": "ASHA-KLY-05"
+      },
+      {
+        "recorded_date": "2026-08-16",
+        "systolic_bp": 124,
+        "diastolic_bp": 73,
+        "pulse_bpm": 74,
+        "blood_glucose_random": 121,
+        "spo2_percentage": 97,
+        "hemoglobin_g_dl": 10.2,
+        "recorded_by_asha_id": "ASHA-KLY-05"
+      },
+      {
+        "recorded_date": "2026-08-19",
+        "systolic_bp": 127,
+        "diastolic_bp": 75,
+        "pulse_bpm": 78,
+        "blood_glucose_random": 129,
+        "spo2_percentage": 98,
+        "hemoglobin_g_dl": 10.2,
+        "recorded_by_asha_id": "ASHA-KLY-05"
+      },
+      {
+        "recorded_date": "2026-08-22",
+        "systolic_bp": 130,
+        "diastolic_bp": 77,
+        "pulse_bpm": 82,
+        "blood_glucose_random": 137,
+        "spo2_percentage": 95,
+        "hemoglobin_g_dl": 10.2,
+        "recorded_by_asha_id": "ASHA-KLY-05"
+      },
+      {
+        "recorded_date": "2026-08-25",
+        "systolic_bp": 133,
+        "diastolic_bp": 79,
+        "pulse_bpm": 86,
+        "blood_glucose_random": 145,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 10.2,
+        "recorded_by_asha_id": "ASHA-KLY-05"
+      }
+    ],
+    "active_prescriptions": [
+      {
+        "medicine": "Iron & Folic Acid (IFA)",
+        "dosage": "100mg",
+        "frequency": "Daily after meal",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      },
+      {
+        "medicine": "Calcium Carbonate",
+        "dosage": "500mg",
+        "frequency": "Twice daily",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      }
+    ],
+    "last_consultation_date": "2026-09-02",
+    "synced_offline_status": true
+  },
+  {
+    "patient_id": 26,
+    "abha_id": "ABHA-2026-1925-4475",
+    "full_name": "Mohammad Imran (2)",
+    "age": 28,
+    "gender": "Male",
+    "village_locality": "Sector 4 PHC",
+    "registered_contact": "+91 9810308625",
+    "maternal_or_ncd_category": "General Rural OPD",
+    "risk_classification": "LOW",
+    "longitudinal_vitals_history": [
+      {
+        "recorded_date": "2026-08-13",
+        "systolic_bp": 123,
+        "diastolic_bp": 72,
+        "pulse_bpm": 101,
+        "blood_glucose_random": 118,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 11,
+        "recorded_by_asha_id": "ASHA-KLY-01"
+      },
+      {
+        "recorded_date": "2026-08-16",
+        "systolic_bp": 126,
+        "diastolic_bp": 74,
+        "pulse_bpm": 75,
+        "blood_glucose_random": 126,
+        "spo2_percentage": 97,
+        "hemoglobin_g_dl": 11,
+        "recorded_by_asha_id": "ASHA-KLY-01"
+      },
+      {
+        "recorded_date": "2026-08-19",
+        "systolic_bp": 129,
+        "diastolic_bp": 76,
+        "pulse_bpm": 79,
+        "blood_glucose_random": 134,
+        "spo2_percentage": 98,
+        "hemoglobin_g_dl": 11,
+        "recorded_by_asha_id": "ASHA-KLY-01"
+      },
+      {
+        "recorded_date": "2026-08-22",
+        "systolic_bp": 132,
+        "diastolic_bp": 78,
+        "pulse_bpm": 83,
+        "blood_glucose_random": 142,
+        "spo2_percentage": 95,
+        "hemoglobin_g_dl": 11,
+        "recorded_by_asha_id": "ASHA-KLY-01"
+      },
+      {
+        "recorded_date": "2026-08-25",
+        "systolic_bp": 135,
+        "diastolic_bp": 80,
+        "pulse_bpm": 87,
+        "blood_glucose_random": 150,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 11,
+        "recorded_by_asha_id": "ASHA-KLY-01"
+      }
+    ],
+    "active_prescriptions": [
+      {
+        "medicine": "Iron & Folic Acid (IFA)",
+        "dosage": "100mg",
+        "frequency": "Daily after meal",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      },
+      {
+        "medicine": "Calcium Carbonate",
+        "dosage": "500mg",
+        "frequency": "Twice daily",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      }
+    ],
+    "last_consultation_date": "2026-09-02",
+    "synced_offline_status": true
+  },
+  {
+    "patient_id": 27,
+    "abha_id": "ABHA-2026-1962-4494",
+    "full_name": "Kavita Joshi (2)",
+    "age": 31,
+    "gender": "Female",
+    "village_locality": "Rampur Kalan",
+    "registered_contact": "+91 9810320970",
+    "maternal_or_ncd_category": "Maternal ANC Care",
+    "risk_classification": "LOW",
+    "longitudinal_vitals_history": [
+      {
+        "recorded_date": "2026-08-13",
+        "systolic_bp": 125,
+        "diastolic_bp": 73,
+        "pulse_bpm": 72,
+        "blood_glucose_random": 123,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 11.8,
+        "recorded_by_asha_id": "ASHA-KLY-02"
+      },
+      {
+        "recorded_date": "2026-08-16",
+        "systolic_bp": 128,
+        "diastolic_bp": 75,
+        "pulse_bpm": 76,
+        "blood_glucose_random": 131,
+        "spo2_percentage": 97,
+        "hemoglobin_g_dl": 11.8,
+        "recorded_by_asha_id": "ASHA-KLY-02"
+      },
+      {
+        "recorded_date": "2026-08-19",
+        "systolic_bp": 131,
+        "diastolic_bp": 77,
+        "pulse_bpm": 80,
+        "blood_glucose_random": 139,
+        "spo2_percentage": 98,
+        "hemoglobin_g_dl": 11.8,
+        "recorded_by_asha_id": "ASHA-KLY-02"
+      },
+      {
+        "recorded_date": "2026-08-22",
+        "systolic_bp": 134,
+        "diastolic_bp": 79,
+        "pulse_bpm": 84,
+        "blood_glucose_random": 147,
+        "spo2_percentage": 95,
+        "hemoglobin_g_dl": 11.8,
+        "recorded_by_asha_id": "ASHA-KLY-02"
+      },
+      {
+        "recorded_date": "2026-08-25",
+        "systolic_bp": 137,
+        "diastolic_bp": 81,
+        "pulse_bpm": 88,
+        "blood_glucose_random": 155,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 11.8,
+        "recorded_by_asha_id": "ASHA-KLY-02"
+      }
+    ],
+    "active_prescriptions": [
+      {
+        "medicine": "Iron & Folic Acid (IFA)",
+        "dosage": "100mg",
+        "frequency": "Daily after meal",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      },
+      {
+        "medicine": "Calcium Carbonate",
+        "dosage": "500mg",
+        "frequency": "Twice daily",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      }
+    ],
+    "last_consultation_date": "2026-09-02",
+    "synced_offline_status": true
+  },
+  {
+    "patient_id": 28,
+    "abha_id": "ABHA-2026-1999-4513",
+    "full_name": "Rajendra Prasad (2)",
+    "age": 34,
+    "gender": "Male",
+    "village_locality": "Brijnagar",
+    "registered_contact": "+91 9810333315",
+    "maternal_or_ncd_category": "General Rural OPD",
+    "risk_classification": "MEDIUM",
+    "longitudinal_vitals_history": [
+      {
+        "recorded_date": "2026-08-13",
+        "systolic_bp": 127,
+        "diastolic_bp": 74,
+        "pulse_bpm": 73,
+        "blood_glucose_random": 128,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 12.6,
+        "recorded_by_asha_id": "ASHA-KLY-03"
+      },
+      {
+        "recorded_date": "2026-08-16",
+        "systolic_bp": 130,
+        "diastolic_bp": 76,
+        "pulse_bpm": 77,
+        "blood_glucose_random": 136,
+        "spo2_percentage": 97,
+        "hemoglobin_g_dl": 12.6,
+        "recorded_by_asha_id": "ASHA-KLY-03"
+      },
+      {
+        "recorded_date": "2026-08-19",
+        "systolic_bp": 133,
+        "diastolic_bp": 78,
+        "pulse_bpm": 81,
+        "blood_glucose_random": 144,
+        "spo2_percentage": 98,
+        "hemoglobin_g_dl": 12.6,
+        "recorded_by_asha_id": "ASHA-KLY-03"
+      },
+      {
+        "recorded_date": "2026-08-22",
+        "systolic_bp": 136,
+        "diastolic_bp": 80,
+        "pulse_bpm": 85,
+        "blood_glucose_random": 152,
+        "spo2_percentage": 95,
+        "hemoglobin_g_dl": 12.6,
+        "recorded_by_asha_id": "ASHA-KLY-03"
+      },
+      {
+        "recorded_date": "2026-08-25",
+        "systolic_bp": 139,
+        "diastolic_bp": 82,
+        "pulse_bpm": 89,
+        "blood_glucose_random": 160,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 12.6,
+        "recorded_by_asha_id": "ASHA-KLY-03"
+      }
+    ],
+    "active_prescriptions": [
+      {
+        "medicine": "Iron & Folic Acid (IFA)",
+        "dosage": "100mg",
+        "frequency": "Daily after meal",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      },
+      {
+        "medicine": "Calcium Carbonate",
+        "dosage": "500mg",
+        "frequency": "Twice daily",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      }
+    ],
+    "last_consultation_date": "2026-09-02",
+    "synced_offline_status": true
+  },
+  {
+    "patient_id": 29,
+    "abha_id": "ABHA-2026-2036-4532",
+    "full_name": "Geeta Rani (2)",
+    "age": 37,
+    "gender": "Female",
+    "village_locality": "Shantipur",
+    "registered_contact": "+91 9810345660",
+    "maternal_or_ncd_category": "General Rural OPD",
+    "risk_classification": "HIGH",
+    "longitudinal_vitals_history": [
+      {
+        "recorded_date": "2026-08-13",
+        "systolic_bp": 129,
+        "diastolic_bp": 75,
+        "pulse_bpm": 74,
+        "blood_glucose_random": 133,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 10.2,
+        "recorded_by_asha_id": "ASHA-KLY-04"
+      },
+      {
+        "recorded_date": "2026-08-16",
+        "systolic_bp": 132,
+        "diastolic_bp": 77,
+        "pulse_bpm": 78,
+        "blood_glucose_random": 141,
+        "spo2_percentage": 97,
+        "hemoglobin_g_dl": 10.2,
+        "recorded_by_asha_id": "ASHA-KLY-04"
+      },
+      {
+        "recorded_date": "2026-08-19",
+        "systolic_bp": 135,
+        "diastolic_bp": 79,
+        "pulse_bpm": 82,
+        "blood_glucose_random": 149,
+        "spo2_percentage": 98,
+        "hemoglobin_g_dl": 10.2,
+        "recorded_by_asha_id": "ASHA-KLY-04"
+      },
+      {
+        "recorded_date": "2026-08-22",
+        "systolic_bp": 138,
+        "diastolic_bp": 81,
+        "pulse_bpm": 86,
+        "blood_glucose_random": 157,
+        "spo2_percentage": 95,
+        "hemoglobin_g_dl": 10.2,
+        "recorded_by_asha_id": "ASHA-KLY-04"
+      },
+      {
+        "recorded_date": "2026-08-25",
+        "systolic_bp": 141,
+        "diastolic_bp": 83,
+        "pulse_bpm": 90,
+        "blood_glucose_random": 165,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 10.2,
+        "recorded_by_asha_id": "ASHA-KLY-04"
+      }
+    ],
+    "active_prescriptions": [
+      {
+        "medicine": "Iron & Folic Acid (IFA)",
+        "dosage": "100mg",
+        "frequency": "Daily after meal",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      },
+      {
+        "medicine": "Calcium Carbonate",
+        "dosage": "500mg",
+        "frequency": "Twice daily",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      }
+    ],
+    "last_consultation_date": "2026-09-02",
+    "synced_offline_status": true
+  },
+  {
+    "patient_id": 30,
+    "abha_id": "ABHA-2026-2073-4551",
+    "full_name": "Vijay Singh (2)",
+    "age": 40,
+    "gender": "Male",
+    "village_locality": "Mohanpur",
+    "registered_contact": "+91 9810358005",
+    "maternal_or_ncd_category": "General Rural OPD",
+    "risk_classification": "LOW",
+    "longitudinal_vitals_history": [
+      {
+        "recorded_date": "2026-08-13",
+        "systolic_bp": 131,
+        "diastolic_bp": 76,
+        "pulse_bpm": 75,
+        "blood_glucose_random": 138,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 11,
+        "recorded_by_asha_id": "ASHA-KLY-05"
+      },
+      {
+        "recorded_date": "2026-08-16",
+        "systolic_bp": 134,
+        "diastolic_bp": 78,
+        "pulse_bpm": 79,
+        "blood_glucose_random": 146,
+        "spo2_percentage": 97,
+        "hemoglobin_g_dl": 11,
+        "recorded_by_asha_id": "ASHA-KLY-05"
+      },
+      {
+        "recorded_date": "2026-08-19",
+        "systolic_bp": 137,
+        "diastolic_bp": 80,
+        "pulse_bpm": 83,
+        "blood_glucose_random": 154,
+        "spo2_percentage": 98,
+        "hemoglobin_g_dl": 11,
+        "recorded_by_asha_id": "ASHA-KLY-05"
+      },
+      {
+        "recorded_date": "2026-08-22",
+        "systolic_bp": 140,
+        "diastolic_bp": 82,
+        "pulse_bpm": 87,
+        "blood_glucose_random": 162,
+        "spo2_percentage": 95,
+        "hemoglobin_g_dl": 11,
+        "recorded_by_asha_id": "ASHA-KLY-05"
+      },
+      {
+        "recorded_date": "2026-08-25",
+        "systolic_bp": 143,
+        "diastolic_bp": 84,
+        "pulse_bpm": 91,
+        "blood_glucose_random": 170,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 11,
+        "recorded_by_asha_id": "ASHA-KLY-05"
+      }
+    ],
+    "active_prescriptions": [
+      {
+        "medicine": "Iron & Folic Acid (IFA)",
+        "dosage": "100mg",
+        "frequency": "Daily after meal",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      },
+      {
+        "medicine": "Calcium Carbonate",
+        "dosage": "500mg",
+        "frequency": "Twice daily",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      }
+    ],
+    "last_consultation_date": "2026-09-02",
+    "synced_offline_status": true
+  },
+  {
+    "patient_id": 31,
+    "abha_id": "ABHA-2026-2110-4570",
+    "full_name": "Anjali Verma (2)",
+    "age": 43,
+    "gender": "Female",
+    "village_locality": "Kalyanpur",
+    "registered_contact": "+91 9810370350",
+    "maternal_or_ncd_category": "General Rural OPD",
+    "risk_classification": "MEDIUM",
+    "longitudinal_vitals_history": [
+      {
+        "recorded_date": "2026-08-13",
+        "systolic_bp": 133,
+        "diastolic_bp": 77,
+        "pulse_bpm": 76,
+        "blood_glucose_random": 143,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 11.8,
+        "recorded_by_asha_id": "ASHA-KLY-01"
+      },
+      {
+        "recorded_date": "2026-08-16",
+        "systolic_bp": 136,
+        "diastolic_bp": 79,
+        "pulse_bpm": 80,
+        "blood_glucose_random": 151,
+        "spo2_percentage": 97,
+        "hemoglobin_g_dl": 11.8,
+        "recorded_by_asha_id": "ASHA-KLY-01"
+      },
+      {
+        "recorded_date": "2026-08-19",
+        "systolic_bp": 139,
+        "diastolic_bp": 81,
+        "pulse_bpm": 84,
+        "blood_glucose_random": 159,
+        "spo2_percentage": 98,
+        "hemoglobin_g_dl": 11.8,
+        "recorded_by_asha_id": "ASHA-KLY-01"
+      },
+      {
+        "recorded_date": "2026-08-22",
+        "systolic_bp": 142,
+        "diastolic_bp": 83,
+        "pulse_bpm": 88,
+        "blood_glucose_random": 167,
+        "spo2_percentage": 95,
+        "hemoglobin_g_dl": 11.8,
+        "recorded_by_asha_id": "ASHA-KLY-01"
+      },
+      {
+        "recorded_date": "2026-08-25",
+        "systolic_bp": 145,
+        "diastolic_bp": 85,
+        "pulse_bpm": 92,
+        "blood_glucose_random": 175,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 11.8,
+        "recorded_by_asha_id": "ASHA-KLY-01"
+      }
+    ],
+    "active_prescriptions": [
+      {
+        "medicine": "Iron & Folic Acid (IFA)",
+        "dosage": "100mg",
+        "frequency": "Daily after meal",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      },
+      {
+        "medicine": "Calcium Carbonate",
+        "dosage": "500mg",
+        "frequency": "Twice daily",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      }
+    ],
+    "last_consultation_date": "2026-09-02",
+    "synced_offline_status": true
+  },
+  {
+    "patient_id": 32,
+    "abha_id": "ABHA-2026-2147-4589",
+    "full_name": "Deepak Yadav (2)",
+    "age": 46,
+    "gender": "Male",
+    "village_locality": "Sector 4 PHC",
+    "registered_contact": "+91 9810382695",
+    "maternal_or_ncd_category": "Hypertension & Type 2 Diabetes",
+    "risk_classification": "LOW",
+    "longitudinal_vitals_history": [
+      {
+        "recorded_date": "2026-08-13",
+        "systolic_bp": 135,
+        "diastolic_bp": 78,
+        "pulse_bpm": 77,
+        "blood_glucose_random": 148,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 12.6,
+        "recorded_by_asha_id": "ASHA-KLY-02"
+      },
+      {
+        "recorded_date": "2026-08-16",
+        "systolic_bp": 138,
+        "diastolic_bp": 80,
+        "pulse_bpm": 81,
+        "blood_glucose_random": 156,
+        "spo2_percentage": 97,
+        "hemoglobin_g_dl": 12.6,
+        "recorded_by_asha_id": "ASHA-KLY-02"
+      },
+      {
+        "recorded_date": "2026-08-19",
+        "systolic_bp": 141,
+        "diastolic_bp": 82,
+        "pulse_bpm": 85,
+        "blood_glucose_random": 164,
+        "spo2_percentage": 98,
+        "hemoglobin_g_dl": 12.6,
+        "recorded_by_asha_id": "ASHA-KLY-02"
+      },
+      {
+        "recorded_date": "2026-08-22",
+        "systolic_bp": 144,
+        "diastolic_bp": 84,
+        "pulse_bpm": 89,
+        "blood_glucose_random": 172,
+        "spo2_percentage": 95,
+        "hemoglobin_g_dl": 12.6,
+        "recorded_by_asha_id": "ASHA-KLY-02"
+      },
+      {
+        "recorded_date": "2026-08-25",
+        "systolic_bp": 147,
+        "diastolic_bp": 86,
+        "pulse_bpm": 93,
+        "blood_glucose_random": 180,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 12.6,
+        "recorded_by_asha_id": "ASHA-KLY-02"
+      }
+    ],
+    "active_prescriptions": [
+      {
+        "medicine": "Iron & Folic Acid (IFA)",
+        "dosage": "100mg",
+        "frequency": "Daily after meal",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      },
+      {
+        "medicine": "Calcium Carbonate",
+        "dosage": "500mg",
+        "frequency": "Twice daily",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      }
+    ],
+    "last_consultation_date": "2026-09-02",
+    "synced_offline_status": true
+  },
+  {
+    "patient_id": 33,
+    "abha_id": "ABHA-2026-2184-4608",
+    "full_name": "Sushila Bai (2)",
+    "age": 49,
+    "gender": "Female",
+    "village_locality": "Rampur Kalan",
+    "registered_contact": "+91 9810395040",
+    "maternal_or_ncd_category": "Hypertension & Type 2 Diabetes",
+    "risk_classification": "LOW",
+    "longitudinal_vitals_history": [
+      {
+        "recorded_date": "2026-08-13",
+        "systolic_bp": 137,
+        "diastolic_bp": 79,
+        "pulse_bpm": 78,
+        "blood_glucose_random": 153,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 10.2,
+        "recorded_by_asha_id": "ASHA-KLY-03"
+      },
+      {
+        "recorded_date": "2026-08-16",
+        "systolic_bp": 140,
+        "diastolic_bp": 81,
+        "pulse_bpm": 82,
+        "blood_glucose_random": 161,
+        "spo2_percentage": 97,
+        "hemoglobin_g_dl": 10.2,
+        "recorded_by_asha_id": "ASHA-KLY-03"
+      },
+      {
+        "recorded_date": "2026-08-19",
+        "systolic_bp": 143,
+        "diastolic_bp": 83,
+        "pulse_bpm": 86,
+        "blood_glucose_random": 169,
+        "spo2_percentage": 98,
+        "hemoglobin_g_dl": 10.2,
+        "recorded_by_asha_id": "ASHA-KLY-03"
+      },
+      {
+        "recorded_date": "2026-08-22",
+        "systolic_bp": 146,
+        "diastolic_bp": 85,
+        "pulse_bpm": 90,
+        "blood_glucose_random": 177,
+        "spo2_percentage": 95,
+        "hemoglobin_g_dl": 10.2,
+        "recorded_by_asha_id": "ASHA-KLY-03"
+      },
+      {
+        "recorded_date": "2026-08-25",
+        "systolic_bp": 149,
+        "diastolic_bp": 87,
+        "pulse_bpm": 94,
+        "blood_glucose_random": 185,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 10.2,
+        "recorded_by_asha_id": "ASHA-KLY-03"
+      }
+    ],
+    "active_prescriptions": [
+      {
+        "medicine": "Iron & Folic Acid (IFA)",
+        "dosage": "100mg",
+        "frequency": "Daily after meal",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      },
+      {
+        "medicine": "Calcium Carbonate",
+        "dosage": "500mg",
+        "frequency": "Twice daily",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      }
+    ],
+    "last_consultation_date": "2026-09-02",
+    "synced_offline_status": true
+  },
+  {
+    "patient_id": 34,
+    "abha_id": "ABHA-2026-2221-4627",
+    "full_name": "Ashok Gupta (2)",
+    "age": 52,
+    "gender": "Male",
+    "village_locality": "Brijnagar",
+    "registered_contact": "+91 9810407385",
+    "maternal_or_ncd_category": "Hypertension & Type 2 Diabetes",
+    "risk_classification": "MEDIUM",
+    "longitudinal_vitals_history": [
+      {
+        "recorded_date": "2026-08-13",
+        "systolic_bp": 139,
+        "diastolic_bp": 80,
+        "pulse_bpm": 79,
+        "blood_glucose_random": 158,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 11,
+        "recorded_by_asha_id": "ASHA-KLY-04"
+      },
+      {
+        "recorded_date": "2026-08-16",
+        "systolic_bp": 142,
+        "diastolic_bp": 82,
+        "pulse_bpm": 83,
+        "blood_glucose_random": 166,
+        "spo2_percentage": 97,
+        "hemoglobin_g_dl": 11,
+        "recorded_by_asha_id": "ASHA-KLY-04"
+      },
+      {
+        "recorded_date": "2026-08-19",
+        "systolic_bp": 145,
+        "diastolic_bp": 84,
+        "pulse_bpm": 87,
+        "blood_glucose_random": 174,
+        "spo2_percentage": 98,
+        "hemoglobin_g_dl": 11,
+        "recorded_by_asha_id": "ASHA-KLY-04"
+      },
+      {
+        "recorded_date": "2026-08-22",
+        "systolic_bp": 148,
+        "diastolic_bp": 86,
+        "pulse_bpm": 91,
+        "blood_glucose_random": 182,
+        "spo2_percentage": 95,
+        "hemoglobin_g_dl": 11,
+        "recorded_by_asha_id": "ASHA-KLY-04"
+      },
+      {
+        "recorded_date": "2026-08-25",
+        "systolic_bp": 111,
+        "diastolic_bp": 88,
+        "pulse_bpm": 95,
+        "blood_glucose_random": 190,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 11,
+        "recorded_by_asha_id": "ASHA-KLY-04"
+      }
+    ],
+    "active_prescriptions": [
+      {
+        "medicine": "Iron & Folic Acid (IFA)",
+        "dosage": "100mg",
+        "frequency": "Daily after meal",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      },
+      {
+        "medicine": "Calcium Carbonate",
+        "dosage": "500mg",
+        "frequency": "Twice daily",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      }
+    ],
+    "last_consultation_date": "2026-09-02",
+    "synced_offline_status": true
+  },
+  {
+    "patient_id": 35,
+    "abha_id": "ABHA-2026-2258-4646",
+    "full_name": "Pooja Tiwari (2)",
+    "age": 55,
+    "gender": "Female",
+    "village_locality": "Shantipur",
+    "registered_contact": "+91 9810419730",
+    "maternal_or_ncd_category": "Hypertension & Type 2 Diabetes",
+    "risk_classification": "LOW",
+    "longitudinal_vitals_history": [
+      {
+        "recorded_date": "2026-08-13",
+        "systolic_bp": 141,
+        "diastolic_bp": 81,
+        "pulse_bpm": 80,
+        "blood_glucose_random": 163,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 11.8,
+        "recorded_by_asha_id": "ASHA-KLY-05"
+      },
+      {
+        "recorded_date": "2026-08-16",
+        "systolic_bp": 144,
+        "diastolic_bp": 83,
+        "pulse_bpm": 84,
+        "blood_glucose_random": 171,
+        "spo2_percentage": 97,
+        "hemoglobin_g_dl": 11.8,
+        "recorded_by_asha_id": "ASHA-KLY-05"
+      },
+      {
+        "recorded_date": "2026-08-19",
+        "systolic_bp": 147,
+        "diastolic_bp": 85,
+        "pulse_bpm": 88,
+        "blood_glucose_random": 179,
+        "spo2_percentage": 98,
+        "hemoglobin_g_dl": 11.8,
+        "recorded_by_asha_id": "ASHA-KLY-05"
+      },
+      {
+        "recorded_date": "2026-08-22",
+        "systolic_bp": 110,
+        "diastolic_bp": 87,
+        "pulse_bpm": 92,
+        "blood_glucose_random": 187,
+        "spo2_percentage": 95,
+        "hemoglobin_g_dl": 11.8,
+        "recorded_by_asha_id": "ASHA-KLY-05"
+      },
+      {
+        "recorded_date": "2026-08-25",
+        "systolic_bp": 113,
+        "diastolic_bp": 89,
+        "pulse_bpm": 96,
+        "blood_glucose_random": 195,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 11.8,
+        "recorded_by_asha_id": "ASHA-KLY-05"
+      }
+    ],
+    "active_prescriptions": [
+      {
+        "medicine": "Iron & Folic Acid (IFA)",
+        "dosage": "100mg",
+        "frequency": "Daily after meal",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      },
+      {
+        "medicine": "Calcium Carbonate",
+        "dosage": "500mg",
+        "frequency": "Twice daily",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      }
+    ],
+    "last_consultation_date": "2026-09-02",
+    "synced_offline_status": true
+  },
+  {
+    "patient_id": 36,
+    "abha_id": "ABHA-2026-2295-4665",
+    "full_name": "Suresh Chand (2)",
+    "age": 58,
+    "gender": "Male",
+    "village_locality": "Mohanpur",
+    "registered_contact": "+91 9810432075",
+    "maternal_or_ncd_category": "Hypertension & Type 2 Diabetes",
+    "risk_classification": "HIGH",
+    "longitudinal_vitals_history": [
+      {
+        "recorded_date": "2026-08-13",
+        "systolic_bp": 143,
+        "diastolic_bp": 82,
+        "pulse_bpm": 81,
+        "blood_glucose_random": 168,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 12.6,
+        "recorded_by_asha_id": "ASHA-KLY-01"
+      },
+      {
+        "recorded_date": "2026-08-16",
+        "systolic_bp": 146,
+        "diastolic_bp": 84,
+        "pulse_bpm": 85,
+        "blood_glucose_random": 176,
+        "spo2_percentage": 97,
+        "hemoglobin_g_dl": 12.6,
+        "recorded_by_asha_id": "ASHA-KLY-01"
+      },
+      {
+        "recorded_date": "2026-08-19",
+        "systolic_bp": 149,
+        "diastolic_bp": 86,
+        "pulse_bpm": 89,
+        "blood_glucose_random": 184,
+        "spo2_percentage": 98,
+        "hemoglobin_g_dl": 12.6,
+        "recorded_by_asha_id": "ASHA-KLY-01"
+      },
+      {
+        "recorded_date": "2026-08-22",
+        "systolic_bp": 112,
+        "diastolic_bp": 88,
+        "pulse_bpm": 93,
+        "blood_glucose_random": 192,
+        "spo2_percentage": 95,
+        "hemoglobin_g_dl": 12.6,
+        "recorded_by_asha_id": "ASHA-KLY-01"
+      },
+      {
+        "recorded_date": "2026-08-25",
+        "systolic_bp": 115,
+        "diastolic_bp": 90,
+        "pulse_bpm": 97,
+        "blood_glucose_random": 200,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 12.6,
+        "recorded_by_asha_id": "ASHA-KLY-01"
+      }
+    ],
+    "active_prescriptions": [
+      {
+        "medicine": "Iron & Folic Acid (IFA)",
+        "dosage": "100mg",
+        "frequency": "Daily after meal",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      },
+      {
+        "medicine": "Calcium Carbonate",
+        "dosage": "500mg",
+        "frequency": "Twice daily",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      }
+    ],
+    "last_consultation_date": "2026-09-02",
+    "synced_offline_status": true
+  },
+  {
+    "patient_id": 37,
+    "abha_id": "ABHA-2026-2332-4684",
+    "full_name": "Reena Rawat (2)",
+    "age": 61,
+    "gender": "Female",
+    "village_locality": "Kalyanpur",
+    "registered_contact": "+91 9810444420",
+    "maternal_or_ncd_category": "Hypertension & Type 2 Diabetes",
+    "risk_classification": "MEDIUM",
+    "longitudinal_vitals_history": [
+      {
+        "recorded_date": "2026-08-13",
+        "systolic_bp": 145,
+        "diastolic_bp": 83,
+        "pulse_bpm": 82,
+        "blood_glucose_random": 173,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 10.2,
+        "recorded_by_asha_id": "ASHA-KLY-02"
+      },
+      {
+        "recorded_date": "2026-08-16",
+        "systolic_bp": 148,
+        "diastolic_bp": 85,
+        "pulse_bpm": 86,
+        "blood_glucose_random": 181,
+        "spo2_percentage": 97,
+        "hemoglobin_g_dl": 10.2,
+        "recorded_by_asha_id": "ASHA-KLY-02"
+      },
+      {
+        "recorded_date": "2026-08-19",
+        "systolic_bp": 111,
+        "diastolic_bp": 87,
+        "pulse_bpm": 90,
+        "blood_glucose_random": 189,
+        "spo2_percentage": 98,
+        "hemoglobin_g_dl": 10.2,
+        "recorded_by_asha_id": "ASHA-KLY-02"
+      },
+      {
+        "recorded_date": "2026-08-22",
+        "systolic_bp": 114,
+        "diastolic_bp": 89,
+        "pulse_bpm": 94,
+        "blood_glucose_random": 197,
+        "spo2_percentage": 95,
+        "hemoglobin_g_dl": 10.2,
+        "recorded_by_asha_id": "ASHA-KLY-02"
+      },
+      {
+        "recorded_date": "2026-08-25",
+        "systolic_bp": 117,
+        "diastolic_bp": 91,
+        "pulse_bpm": 98,
+        "blood_glucose_random": 95,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 10.2,
+        "recorded_by_asha_id": "ASHA-KLY-02"
+      }
+    ],
+    "active_prescriptions": [
+      {
+        "medicine": "Iron & Folic Acid (IFA)",
+        "dosage": "100mg",
+        "frequency": "Daily after meal",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      },
+      {
+        "medicine": "Calcium Carbonate",
+        "dosage": "500mg",
+        "frequency": "Twice daily",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      }
+    ],
+    "last_consultation_date": "2026-09-02",
+    "synced_offline_status": true
+  },
+  {
+    "patient_id": 38,
+    "abha_id": "ABHA-2026-2369-4703",
+    "full_name": "Manoj Mishra (2)",
+    "age": 64,
+    "gender": "Male",
+    "village_locality": "Sector 4 PHC",
+    "registered_contact": "+91 9810456765",
+    "maternal_or_ncd_category": "Hypertension & Type 2 Diabetes",
+    "risk_classification": "LOW",
+    "longitudinal_vitals_history": [
+      {
+        "recorded_date": "2026-08-13",
+        "systolic_bp": 147,
+        "diastolic_bp": 84,
+        "pulse_bpm": 83,
+        "blood_glucose_random": 178,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 11,
+        "recorded_by_asha_id": "ASHA-KLY-03"
+      },
+      {
+        "recorded_date": "2026-08-16",
+        "systolic_bp": 110,
+        "diastolic_bp": 86,
+        "pulse_bpm": 87,
+        "blood_glucose_random": 186,
+        "spo2_percentage": 97,
+        "hemoglobin_g_dl": 11,
+        "recorded_by_asha_id": "ASHA-KLY-03"
+      },
+      {
+        "recorded_date": "2026-08-19",
+        "systolic_bp": 113,
+        "diastolic_bp": 88,
+        "pulse_bpm": 91,
+        "blood_glucose_random": 194,
+        "spo2_percentage": 98,
+        "hemoglobin_g_dl": 11,
+        "recorded_by_asha_id": "ASHA-KLY-03"
+      },
+      {
+        "recorded_date": "2026-08-22",
+        "systolic_bp": 116,
+        "diastolic_bp": 90,
+        "pulse_bpm": 95,
+        "blood_glucose_random": 202,
+        "spo2_percentage": 95,
+        "hemoglobin_g_dl": 11,
+        "recorded_by_asha_id": "ASHA-KLY-03"
+      },
+      {
+        "recorded_date": "2026-08-25",
+        "systolic_bp": 119,
+        "diastolic_bp": 92,
+        "pulse_bpm": 99,
+        "blood_glucose_random": 100,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 11,
+        "recorded_by_asha_id": "ASHA-KLY-03"
+      }
+    ],
+    "active_prescriptions": [
+      {
+        "medicine": "Iron & Folic Acid (IFA)",
+        "dosage": "100mg",
+        "frequency": "Daily after meal",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      },
+      {
+        "medicine": "Calcium Carbonate",
+        "dosage": "500mg",
+        "frequency": "Twice daily",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      }
+    ],
+    "last_consultation_date": "2026-09-02",
+    "synced_offline_status": true
+  },
+  {
+    "patient_id": 39,
+    "abha_id": "ABHA-2026-2406-4722",
+    "full_name": "Shanti Devi (2)",
+    "age": 67,
+    "gender": "Female",
+    "village_locality": "Rampur Kalan",
+    "registered_contact": "+91 9810469110",
+    "maternal_or_ncd_category": "Hypertension & Type 2 Diabetes",
+    "risk_classification": "LOW",
+    "longitudinal_vitals_history": [
+      {
+        "recorded_date": "2026-08-13",
+        "systolic_bp": 149,
+        "diastolic_bp": 85,
+        "pulse_bpm": 84,
+        "blood_glucose_random": 183,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 11.8,
+        "recorded_by_asha_id": "ASHA-KLY-04"
+      },
+      {
+        "recorded_date": "2026-08-16",
+        "systolic_bp": 112,
+        "diastolic_bp": 87,
+        "pulse_bpm": 88,
+        "blood_glucose_random": 191,
+        "spo2_percentage": 97,
+        "hemoglobin_g_dl": 11.8,
+        "recorded_by_asha_id": "ASHA-KLY-04"
+      },
+      {
+        "recorded_date": "2026-08-19",
+        "systolic_bp": 115,
+        "diastolic_bp": 89,
+        "pulse_bpm": 92,
+        "blood_glucose_random": 199,
+        "spo2_percentage": 98,
+        "hemoglobin_g_dl": 11.8,
+        "recorded_by_asha_id": "ASHA-KLY-04"
+      },
+      {
+        "recorded_date": "2026-08-22",
+        "systolic_bp": 118,
+        "diastolic_bp": 91,
+        "pulse_bpm": 96,
+        "blood_glucose_random": 97,
+        "spo2_percentage": 95,
+        "hemoglobin_g_dl": 11.8,
+        "recorded_by_asha_id": "ASHA-KLY-04"
+      },
+      {
+        "recorded_date": "2026-08-25",
+        "systolic_bp": 121,
+        "diastolic_bp": 93,
+        "pulse_bpm": 100,
+        "blood_glucose_random": 105,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 11.8,
+        "recorded_by_asha_id": "ASHA-KLY-04"
+      }
+    ],
+    "active_prescriptions": [
+      {
+        "medicine": "Iron & Folic Acid (IFA)",
+        "dosage": "100mg",
+        "frequency": "Daily after meal",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      },
+      {
+        "medicine": "Calcium Carbonate",
+        "dosage": "500mg",
+        "frequency": "Twice daily",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      }
+    ],
+    "last_consultation_date": "2026-09-02",
+    "synced_offline_status": true
+  },
+  {
+    "patient_id": 40,
+    "abha_id": "ABHA-2026-2443-4741",
+    "full_name": "Santosh Sharma (2)",
+    "age": 70,
+    "gender": "Male",
+    "village_locality": "Brijnagar",
+    "registered_contact": "+91 9810481455",
+    "maternal_or_ncd_category": "Hypertension & Type 2 Diabetes",
+    "risk_classification": "MEDIUM",
+    "longitudinal_vitals_history": [
+      {
+        "recorded_date": "2026-08-13",
+        "systolic_bp": 111,
+        "diastolic_bp": 86,
+        "pulse_bpm": 85,
+        "blood_glucose_random": 188,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 12.6,
+        "recorded_by_asha_id": "ASHA-KLY-05"
+      },
+      {
+        "recorded_date": "2026-08-16",
+        "systolic_bp": 114,
+        "diastolic_bp": 88,
+        "pulse_bpm": 89,
+        "blood_glucose_random": 196,
+        "spo2_percentage": 97,
+        "hemoglobin_g_dl": 12.6,
+        "recorded_by_asha_id": "ASHA-KLY-05"
+      },
+      {
+        "recorded_date": "2026-08-19",
+        "systolic_bp": 117,
+        "diastolic_bp": 90,
+        "pulse_bpm": 93,
+        "blood_glucose_random": 204,
+        "spo2_percentage": 98,
+        "hemoglobin_g_dl": 12.6,
+        "recorded_by_asha_id": "ASHA-KLY-05"
+      },
+      {
+        "recorded_date": "2026-08-22",
+        "systolic_bp": 120,
+        "diastolic_bp": 92,
+        "pulse_bpm": 97,
+        "blood_glucose_random": 102,
+        "spo2_percentage": 95,
+        "hemoglobin_g_dl": 12.6,
+        "recorded_by_asha_id": "ASHA-KLY-05"
+      },
+      {
+        "recorded_date": "2026-08-25",
+        "systolic_bp": 123,
+        "diastolic_bp": 94,
+        "pulse_bpm": 101,
+        "blood_glucose_random": 110,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 12.6,
+        "recorded_by_asha_id": "ASHA-KLY-05"
+      }
+    ],
+    "active_prescriptions": [
+      {
+        "medicine": "Iron & Folic Acid (IFA)",
+        "dosage": "100mg",
+        "frequency": "Daily after meal",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      },
+      {
+        "medicine": "Calcium Carbonate",
+        "dosage": "500mg",
+        "frequency": "Twice daily",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      }
+    ],
+    "last_consultation_date": "2026-09-02",
+    "synced_offline_status": true
+  },
+  {
+    "patient_id": 41,
+    "abha_id": "ABHA-2026-2480-4760",
+    "full_name": "Priya Sharma (3)",
+    "age": 73,
+    "gender": "Female",
+    "village_locality": "Shantipur",
+    "registered_contact": "+91 9810493800",
+    "maternal_or_ncd_category": "Hypertension & Type 2 Diabetes",
+    "risk_classification": "LOW",
+    "longitudinal_vitals_history": [
+      {
+        "recorded_date": "2026-08-13",
+        "systolic_bp": 113,
+        "diastolic_bp": 87,
+        "pulse_bpm": 86,
+        "blood_glucose_random": 193,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 10.2,
+        "recorded_by_asha_id": "ASHA-KLY-01"
+      },
+      {
+        "recorded_date": "2026-08-16",
+        "systolic_bp": 116,
+        "diastolic_bp": 89,
+        "pulse_bpm": 90,
+        "blood_glucose_random": 201,
+        "spo2_percentage": 97,
+        "hemoglobin_g_dl": 10.2,
+        "recorded_by_asha_id": "ASHA-KLY-01"
+      },
+      {
+        "recorded_date": "2026-08-19",
+        "systolic_bp": 119,
+        "diastolic_bp": 91,
+        "pulse_bpm": 94,
+        "blood_glucose_random": 99,
+        "spo2_percentage": 98,
+        "hemoglobin_g_dl": 10.2,
+        "recorded_by_asha_id": "ASHA-KLY-01"
+      },
+      {
+        "recorded_date": "2026-08-22",
+        "systolic_bp": 122,
+        "diastolic_bp": 93,
+        "pulse_bpm": 98,
+        "blood_glucose_random": 107,
+        "spo2_percentage": 95,
+        "hemoglobin_g_dl": 10.2,
+        "recorded_by_asha_id": "ASHA-KLY-01"
+      },
+      {
+        "recorded_date": "2026-08-25",
+        "systolic_bp": 125,
+        "diastolic_bp": 70,
+        "pulse_bpm": 72,
+        "blood_glucose_random": 115,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 10.2,
+        "recorded_by_asha_id": "ASHA-KLY-01"
+      }
+    ],
+    "active_prescriptions": [
+      {
+        "medicine": "Iron & Folic Acid (IFA)",
+        "dosage": "100mg",
+        "frequency": "Daily after meal",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      },
+      {
+        "medicine": "Calcium Carbonate",
+        "dosage": "500mg",
+        "frequency": "Twice daily",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      }
+    ],
+    "last_consultation_date": "2026-09-02",
+    "synced_offline_status": true
+  },
+  {
+    "patient_id": 42,
+    "abha_id": "ABHA-2026-2517-4779",
+    "full_name": "Ramesh Kumar (3)",
+    "age": 76,
+    "gender": "Male",
+    "village_locality": "Mohanpur",
+    "registered_contact": "+91 9810506145",
+    "maternal_or_ncd_category": "Hypertension & Type 2 Diabetes",
+    "risk_classification": "LOW",
+    "longitudinal_vitals_history": [
+      {
+        "recorded_date": "2026-08-13",
+        "systolic_bp": 115,
+        "diastolic_bp": 88,
+        "pulse_bpm": 87,
+        "blood_glucose_random": 198,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 11,
+        "recorded_by_asha_id": "ASHA-KLY-02"
+      },
+      {
+        "recorded_date": "2026-08-16",
+        "systolic_bp": 118,
+        "diastolic_bp": 90,
+        "pulse_bpm": 91,
+        "blood_glucose_random": 96,
+        "spo2_percentage": 97,
+        "hemoglobin_g_dl": 11,
+        "recorded_by_asha_id": "ASHA-KLY-02"
+      },
+      {
+        "recorded_date": "2026-08-19",
+        "systolic_bp": 121,
+        "diastolic_bp": 92,
+        "pulse_bpm": 95,
+        "blood_glucose_random": 104,
+        "spo2_percentage": 98,
+        "hemoglobin_g_dl": 11,
+        "recorded_by_asha_id": "ASHA-KLY-02"
+      },
+      {
+        "recorded_date": "2026-08-22",
+        "systolic_bp": 124,
+        "diastolic_bp": 94,
+        "pulse_bpm": 99,
+        "blood_glucose_random": 112,
+        "spo2_percentage": 95,
+        "hemoglobin_g_dl": 11,
+        "recorded_by_asha_id": "ASHA-KLY-02"
+      },
+      {
+        "recorded_date": "2026-08-25",
+        "systolic_bp": 127,
+        "diastolic_bp": 71,
+        "pulse_bpm": 73,
+        "blood_glucose_random": 120,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 11,
+        "recorded_by_asha_id": "ASHA-KLY-02"
+      }
+    ],
+    "active_prescriptions": [
+      {
+        "medicine": "Iron & Folic Acid (IFA)",
+        "dosage": "100mg",
+        "frequency": "Daily after meal",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      },
+      {
+        "medicine": "Calcium Carbonate",
+        "dosage": "500mg",
+        "frequency": "Twice daily",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      }
+    ],
+    "last_consultation_date": "2026-09-02",
+    "synced_offline_status": true
+  },
+  {
+    "patient_id": 43,
+    "abha_id": "ABHA-2026-2554-4798",
+    "full_name": "Sunita Devi (3)",
+    "age": 79,
+    "gender": "Female",
+    "village_locality": "Kalyanpur",
+    "registered_contact": "+91 9810518490",
+    "maternal_or_ncd_category": "Hypertension & Type 2 Diabetes",
+    "risk_classification": "HIGH",
+    "longitudinal_vitals_history": [
+      {
+        "recorded_date": "2026-08-13",
+        "systolic_bp": 117,
+        "diastolic_bp": 89,
+        "pulse_bpm": 88,
+        "blood_glucose_random": 203,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 11.8,
+        "recorded_by_asha_id": "ASHA-KLY-03"
+      },
+      {
+        "recorded_date": "2026-08-16",
+        "systolic_bp": 120,
+        "diastolic_bp": 91,
+        "pulse_bpm": 92,
+        "blood_glucose_random": 101,
+        "spo2_percentage": 97,
+        "hemoglobin_g_dl": 11.8,
+        "recorded_by_asha_id": "ASHA-KLY-03"
+      },
+      {
+        "recorded_date": "2026-08-19",
+        "systolic_bp": 123,
+        "diastolic_bp": 93,
+        "pulse_bpm": 96,
+        "blood_glucose_random": 109,
+        "spo2_percentage": 98,
+        "hemoglobin_g_dl": 11.8,
+        "recorded_by_asha_id": "ASHA-KLY-03"
+      },
+      {
+        "recorded_date": "2026-08-22",
+        "systolic_bp": 126,
+        "diastolic_bp": 70,
+        "pulse_bpm": 100,
+        "blood_glucose_random": 117,
+        "spo2_percentage": 95,
+        "hemoglobin_g_dl": 11.8,
+        "recorded_by_asha_id": "ASHA-KLY-03"
+      },
+      {
+        "recorded_date": "2026-08-25",
+        "systolic_bp": 129,
+        "diastolic_bp": 72,
+        "pulse_bpm": 74,
+        "blood_glucose_random": 125,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 11.8,
+        "recorded_by_asha_id": "ASHA-KLY-03"
+      }
+    ],
+    "active_prescriptions": [
+      {
+        "medicine": "Iron & Folic Acid (IFA)",
+        "dosage": "100mg",
+        "frequency": "Daily after meal",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      },
+      {
+        "medicine": "Calcium Carbonate",
+        "dosage": "500mg",
+        "frequency": "Twice daily",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      }
+    ],
+    "last_consultation_date": "2026-09-02",
+    "synced_offline_status": true
+  },
+  {
+    "patient_id": 44,
+    "abha_id": "ABHA-2026-2591-4817",
+    "full_name": "Aarav Patel (3)",
+    "age": 82,
+    "gender": "Male",
+    "village_locality": "Sector 4 PHC",
+    "registered_contact": "+91 9810530835",
+    "maternal_or_ncd_category": "Hypertension & Type 2 Diabetes",
+    "risk_classification": "LOW",
+    "longitudinal_vitals_history": [
+      {
+        "recorded_date": "2026-08-13",
+        "systolic_bp": 119,
+        "diastolic_bp": 90,
+        "pulse_bpm": 89,
+        "blood_glucose_random": 98,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 12.6,
+        "recorded_by_asha_id": "ASHA-KLY-04"
+      },
+      {
+        "recorded_date": "2026-08-16",
+        "systolic_bp": 122,
+        "diastolic_bp": 92,
+        "pulse_bpm": 93,
+        "blood_glucose_random": 106,
+        "spo2_percentage": 97,
+        "hemoglobin_g_dl": 12.6,
+        "recorded_by_asha_id": "ASHA-KLY-04"
+      },
+      {
+        "recorded_date": "2026-08-19",
+        "systolic_bp": 125,
+        "diastolic_bp": 94,
+        "pulse_bpm": 97,
+        "blood_glucose_random": 114,
+        "spo2_percentage": 98,
+        "hemoglobin_g_dl": 12.6,
+        "recorded_by_asha_id": "ASHA-KLY-04"
+      },
+      {
+        "recorded_date": "2026-08-22",
+        "systolic_bp": 128,
+        "diastolic_bp": 71,
+        "pulse_bpm": 101,
+        "blood_glucose_random": 122,
+        "spo2_percentage": 95,
+        "hemoglobin_g_dl": 12.6,
+        "recorded_by_asha_id": "ASHA-KLY-04"
+      },
+      {
+        "recorded_date": "2026-08-25",
+        "systolic_bp": 131,
+        "diastolic_bp": 73,
+        "pulse_bpm": 75,
+        "blood_glucose_random": 130,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 12.6,
+        "recorded_by_asha_id": "ASHA-KLY-04"
+      }
+    ],
+    "active_prescriptions": [
+      {
+        "medicine": "Iron & Folic Acid (IFA)",
+        "dosage": "100mg",
+        "frequency": "Daily after meal",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      },
+      {
+        "medicine": "Calcium Carbonate",
+        "dosage": "500mg",
+        "frequency": "Twice daily",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      }
+    ],
+    "last_consultation_date": "2026-09-02",
+    "synced_offline_status": true
+  },
+  {
+    "patient_id": 45,
+    "abha_id": "ABHA-2026-2628-4836",
+    "full_name": "Meena Kumari (3)",
+    "age": 20,
+    "gender": "Female",
+    "village_locality": "Rampur Kalan",
+    "registered_contact": "+91 9810543180",
+    "maternal_or_ncd_category": "Maternal ANC Care",
+    "risk_classification": "LOW",
+    "longitudinal_vitals_history": [
+      {
+        "recorded_date": "2026-08-13",
+        "systolic_bp": 121,
+        "diastolic_bp": 91,
+        "pulse_bpm": 90,
+        "blood_glucose_random": 103,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 10.2,
+        "recorded_by_asha_id": "ASHA-KLY-05"
+      },
+      {
+        "recorded_date": "2026-08-16",
+        "systolic_bp": 124,
+        "diastolic_bp": 93,
+        "pulse_bpm": 94,
+        "blood_glucose_random": 111,
+        "spo2_percentage": 97,
+        "hemoglobin_g_dl": 10.2,
+        "recorded_by_asha_id": "ASHA-KLY-05"
+      },
+      {
+        "recorded_date": "2026-08-19",
+        "systolic_bp": 127,
+        "diastolic_bp": 70,
+        "pulse_bpm": 98,
+        "blood_glucose_random": 119,
+        "spo2_percentage": 98,
+        "hemoglobin_g_dl": 10.2,
+        "recorded_by_asha_id": "ASHA-KLY-05"
+      },
+      {
+        "recorded_date": "2026-08-22",
+        "systolic_bp": 130,
+        "diastolic_bp": 72,
+        "pulse_bpm": 72,
+        "blood_glucose_random": 127,
+        "spo2_percentage": 95,
+        "hemoglobin_g_dl": 10.2,
+        "recorded_by_asha_id": "ASHA-KLY-05"
+      },
+      {
+        "recorded_date": "2026-08-25",
+        "systolic_bp": 133,
+        "diastolic_bp": 74,
+        "pulse_bpm": 76,
+        "blood_glucose_random": 135,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 10.2,
+        "recorded_by_asha_id": "ASHA-KLY-05"
+      }
+    ],
+    "active_prescriptions": [
+      {
+        "medicine": "Iron & Folic Acid (IFA)",
+        "dosage": "100mg",
+        "frequency": "Daily after meal",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      },
+      {
+        "medicine": "Calcium Carbonate",
+        "dosage": "500mg",
+        "frequency": "Twice daily",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      }
+    ],
+    "last_consultation_date": "2026-09-02",
+    "synced_offline_status": true
+  },
+  {
+    "patient_id": 46,
+    "abha_id": "ABHA-2026-2665-4855",
+    "full_name": "Mohammad Imran (3)",
+    "age": 23,
+    "gender": "Male",
+    "village_locality": "Brijnagar",
+    "registered_contact": "+91 9810555525",
+    "maternal_or_ncd_category": "General Rural OPD",
+    "risk_classification": "MEDIUM",
+    "longitudinal_vitals_history": [
+      {
+        "recorded_date": "2026-08-13",
+        "systolic_bp": 123,
+        "diastolic_bp": 92,
+        "pulse_bpm": 91,
+        "blood_glucose_random": 108,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 11,
+        "recorded_by_asha_id": "ASHA-KLY-01"
+      },
+      {
+        "recorded_date": "2026-08-16",
+        "systolic_bp": 126,
+        "diastolic_bp": 94,
+        "pulse_bpm": 95,
+        "blood_glucose_random": 116,
+        "spo2_percentage": 97,
+        "hemoglobin_g_dl": 11,
+        "recorded_by_asha_id": "ASHA-KLY-01"
+      },
+      {
+        "recorded_date": "2026-08-19",
+        "systolic_bp": 129,
+        "diastolic_bp": 71,
+        "pulse_bpm": 99,
+        "blood_glucose_random": 124,
+        "spo2_percentage": 98,
+        "hemoglobin_g_dl": 11,
+        "recorded_by_asha_id": "ASHA-KLY-01"
+      },
+      {
+        "recorded_date": "2026-08-22",
+        "systolic_bp": 132,
+        "diastolic_bp": 73,
+        "pulse_bpm": 73,
+        "blood_glucose_random": 132,
+        "spo2_percentage": 95,
+        "hemoglobin_g_dl": 11,
+        "recorded_by_asha_id": "ASHA-KLY-01"
+      },
+      {
+        "recorded_date": "2026-08-25",
+        "systolic_bp": 135,
+        "diastolic_bp": 75,
+        "pulse_bpm": 77,
+        "blood_glucose_random": 140,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 11,
+        "recorded_by_asha_id": "ASHA-KLY-01"
+      }
+    ],
+    "active_prescriptions": [
+      {
+        "medicine": "Iron & Folic Acid (IFA)",
+        "dosage": "100mg",
+        "frequency": "Daily after meal",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      },
+      {
+        "medicine": "Calcium Carbonate",
+        "dosage": "500mg",
+        "frequency": "Twice daily",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      }
+    ],
+    "last_consultation_date": "2026-09-02",
+    "synced_offline_status": true
+  },
+  {
+    "patient_id": 47,
+    "abha_id": "ABHA-2026-2702-4874",
+    "full_name": "Kavita Joshi (3)",
+    "age": 26,
+    "gender": "Female",
+    "village_locality": "Shantipur",
+    "registered_contact": "+91 9810567870",
+    "maternal_or_ncd_category": "Maternal ANC Care",
+    "risk_classification": "LOW",
+    "longitudinal_vitals_history": [
+      {
+        "recorded_date": "2026-08-13",
+        "systolic_bp": 125,
+        "diastolic_bp": 93,
+        "pulse_bpm": 92,
+        "blood_glucose_random": 113,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 11.8,
+        "recorded_by_asha_id": "ASHA-KLY-02"
+      },
+      {
+        "recorded_date": "2026-08-16",
+        "systolic_bp": 128,
+        "diastolic_bp": 70,
+        "pulse_bpm": 96,
+        "blood_glucose_random": 121,
+        "spo2_percentage": 97,
+        "hemoglobin_g_dl": 11.8,
+        "recorded_by_asha_id": "ASHA-KLY-02"
+      },
+      {
+        "recorded_date": "2026-08-19",
+        "systolic_bp": 131,
+        "diastolic_bp": 72,
+        "pulse_bpm": 100,
+        "blood_glucose_random": 129,
+        "spo2_percentage": 98,
+        "hemoglobin_g_dl": 11.8,
+        "recorded_by_asha_id": "ASHA-KLY-02"
+      },
+      {
+        "recorded_date": "2026-08-22",
+        "systolic_bp": 134,
+        "diastolic_bp": 74,
+        "pulse_bpm": 74,
+        "blood_glucose_random": 137,
+        "spo2_percentage": 95,
+        "hemoglobin_g_dl": 11.8,
+        "recorded_by_asha_id": "ASHA-KLY-02"
+      },
+      {
+        "recorded_date": "2026-08-25",
+        "systolic_bp": 137,
+        "diastolic_bp": 76,
+        "pulse_bpm": 78,
+        "blood_glucose_random": 145,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 11.8,
+        "recorded_by_asha_id": "ASHA-KLY-02"
+      }
+    ],
+    "active_prescriptions": [
+      {
+        "medicine": "Iron & Folic Acid (IFA)",
+        "dosage": "100mg",
+        "frequency": "Daily after meal",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      },
+      {
+        "medicine": "Calcium Carbonate",
+        "dosage": "500mg",
+        "frequency": "Twice daily",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      }
+    ],
+    "last_consultation_date": "2026-09-02",
+    "synced_offline_status": true
+  },
+  {
+    "patient_id": 48,
+    "abha_id": "ABHA-2026-2739-4893",
+    "full_name": "Rajendra Prasad (3)",
+    "age": 29,
+    "gender": "Male",
+    "village_locality": "Mohanpur",
+    "registered_contact": "+91 9810580215",
+    "maternal_or_ncd_category": "General Rural OPD",
+    "risk_classification": "LOW",
+    "longitudinal_vitals_history": [
+      {
+        "recorded_date": "2026-08-13",
+        "systolic_bp": 127,
+        "diastolic_bp": 94,
+        "pulse_bpm": 93,
+        "blood_glucose_random": 118,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 12.6,
+        "recorded_by_asha_id": "ASHA-KLY-03"
+      },
+      {
+        "recorded_date": "2026-08-16",
+        "systolic_bp": 130,
+        "diastolic_bp": 71,
+        "pulse_bpm": 97,
+        "blood_glucose_random": 126,
+        "spo2_percentage": 97,
+        "hemoglobin_g_dl": 12.6,
+        "recorded_by_asha_id": "ASHA-KLY-03"
+      },
+      {
+        "recorded_date": "2026-08-19",
+        "systolic_bp": 133,
+        "diastolic_bp": 73,
+        "pulse_bpm": 101,
+        "blood_glucose_random": 134,
+        "spo2_percentage": 98,
+        "hemoglobin_g_dl": 12.6,
+        "recorded_by_asha_id": "ASHA-KLY-03"
+      },
+      {
+        "recorded_date": "2026-08-22",
+        "systolic_bp": 136,
+        "diastolic_bp": 75,
+        "pulse_bpm": 75,
+        "blood_glucose_random": 142,
+        "spo2_percentage": 95,
+        "hemoglobin_g_dl": 12.6,
+        "recorded_by_asha_id": "ASHA-KLY-03"
+      },
+      {
+        "recorded_date": "2026-08-25",
+        "systolic_bp": 139,
+        "diastolic_bp": 77,
+        "pulse_bpm": 79,
+        "blood_glucose_random": 150,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 12.6,
+        "recorded_by_asha_id": "ASHA-KLY-03"
+      }
+    ],
+    "active_prescriptions": [
+      {
+        "medicine": "Iron & Folic Acid (IFA)",
+        "dosage": "100mg",
+        "frequency": "Daily after meal",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      },
+      {
+        "medicine": "Calcium Carbonate",
+        "dosage": "500mg",
+        "frequency": "Twice daily",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      }
+    ],
+    "last_consultation_date": "2026-09-02",
+    "synced_offline_status": true
+  },
+  {
+    "patient_id": 49,
+    "abha_id": "ABHA-2026-2776-4912",
+    "full_name": "Geeta Rani (3)",
+    "age": 32,
+    "gender": "Female",
+    "village_locality": "Kalyanpur",
+    "registered_contact": "+91 9810592560",
+    "maternal_or_ncd_category": "Maternal ANC Care",
+    "risk_classification": "MEDIUM",
+    "longitudinal_vitals_history": [
+      {
+        "recorded_date": "2026-08-13",
+        "systolic_bp": 129,
+        "diastolic_bp": 70,
+        "pulse_bpm": 94,
+        "blood_glucose_random": 123,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 10.2,
+        "recorded_by_asha_id": "ASHA-KLY-04"
+      },
+      {
+        "recorded_date": "2026-08-16",
+        "systolic_bp": 132,
+        "diastolic_bp": 72,
+        "pulse_bpm": 98,
+        "blood_glucose_random": 131,
+        "spo2_percentage": 97,
+        "hemoglobin_g_dl": 10.2,
+        "recorded_by_asha_id": "ASHA-KLY-04"
+      },
+      {
+        "recorded_date": "2026-08-19",
+        "systolic_bp": 135,
+        "diastolic_bp": 74,
+        "pulse_bpm": 72,
+        "blood_glucose_random": 139,
+        "spo2_percentage": 98,
+        "hemoglobin_g_dl": 10.2,
+        "recorded_by_asha_id": "ASHA-KLY-04"
+      },
+      {
+        "recorded_date": "2026-08-22",
+        "systolic_bp": 138,
+        "diastolic_bp": 76,
+        "pulse_bpm": 76,
+        "blood_glucose_random": 147,
+        "spo2_percentage": 95,
+        "hemoglobin_g_dl": 10.2,
+        "recorded_by_asha_id": "ASHA-KLY-04"
+      },
+      {
+        "recorded_date": "2026-08-25",
+        "systolic_bp": 141,
+        "diastolic_bp": 78,
+        "pulse_bpm": 80,
+        "blood_glucose_random": 155,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 10.2,
+        "recorded_by_asha_id": "ASHA-KLY-04"
+      }
+    ],
+    "active_prescriptions": [
+      {
+        "medicine": "Iron & Folic Acid (IFA)",
+        "dosage": "100mg",
+        "frequency": "Daily after meal",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      },
+      {
+        "medicine": "Calcium Carbonate",
+        "dosage": "500mg",
+        "frequency": "Twice daily",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      }
+    ],
+    "last_consultation_date": "2026-09-02",
+    "synced_offline_status": true
+  },
+  {
+    "patient_id": 50,
+    "abha_id": "ABHA-2026-2813-4931",
+    "full_name": "Vijay Singh (3)",
+    "age": 35,
+    "gender": "Male",
+    "village_locality": "Sector 4 PHC",
+    "registered_contact": "+91 9810604905",
+    "maternal_or_ncd_category": "General Rural OPD",
+    "risk_classification": "HIGH",
+    "longitudinal_vitals_history": [
+      {
+        "recorded_date": "2026-08-13",
+        "systolic_bp": 131,
+        "diastolic_bp": 71,
+        "pulse_bpm": 95,
+        "blood_glucose_random": 128,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 11,
+        "recorded_by_asha_id": "ASHA-KLY-05"
+      },
+      {
+        "recorded_date": "2026-08-16",
+        "systolic_bp": 134,
+        "diastolic_bp": 73,
+        "pulse_bpm": 99,
+        "blood_glucose_random": 136,
+        "spo2_percentage": 97,
+        "hemoglobin_g_dl": 11,
+        "recorded_by_asha_id": "ASHA-KLY-05"
+      },
+      {
+        "recorded_date": "2026-08-19",
+        "systolic_bp": 137,
+        "diastolic_bp": 75,
+        "pulse_bpm": 73,
+        "blood_glucose_random": 144,
+        "spo2_percentage": 98,
+        "hemoglobin_g_dl": 11,
+        "recorded_by_asha_id": "ASHA-KLY-05"
+      },
+      {
+        "recorded_date": "2026-08-22",
+        "systolic_bp": 140,
+        "diastolic_bp": 77,
+        "pulse_bpm": 77,
+        "blood_glucose_random": 152,
+        "spo2_percentage": 95,
+        "hemoglobin_g_dl": 11,
+        "recorded_by_asha_id": "ASHA-KLY-05"
+      },
+      {
+        "recorded_date": "2026-08-25",
+        "systolic_bp": 143,
+        "diastolic_bp": 79,
+        "pulse_bpm": 81,
+        "blood_glucose_random": 160,
+        "spo2_percentage": 96,
+        "hemoglobin_g_dl": 11,
+        "recorded_by_asha_id": "ASHA-KLY-05"
+      }
+    ],
+    "active_prescriptions": [
+      {
+        "medicine": "Iron & Folic Acid (IFA)",
+        "dosage": "100mg",
+        "frequency": "Daily after meal",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      },
+      {
+        "medicine": "Calcium Carbonate",
+        "dosage": "500mg",
+        "frequency": "Twice daily",
+        "duration": "30 Days",
+        "adherence_status": "COMPLIANT"
+      }
+    ],
+    "last_consultation_date": "2026-09-02",
+    "synced_offline_status": true
+  }
+]
