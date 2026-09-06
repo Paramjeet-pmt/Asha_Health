@@ -45,3 +45,9 @@ body {
   background: rgba(0, 127, 109, 0.5);
 }
 
+main.logo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
