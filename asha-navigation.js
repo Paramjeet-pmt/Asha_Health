@@ -216,18 +216,23 @@
     else if (p.includes('my_health') || p.includes('health-records') || p.includes('my-health')) activeKey = 'records';
     else if (p.includes('dashboard')) activeKey = 'home';
 
-    // Calculate relative root path
-    let patientRoot = '/patient/';
-    if (location.protocol === 'file:') {
-      if (p.includes('/patient/dashboard/') || p.includes('/patient/appointment/') || p.includes('/patient/talktodoctor/') || p.includes('/patient/my_health/')) {
-        patientRoot = '../';
-      }
+    // Calculate relative root path (works across http, localhost, Live Server and file:/// on any OS)
+    const normalizedPath = (location.pathname || '').toLowerCase().replace(/\\/g, '/');
+    let prefix = '../';
+
+    if (normalizedPath.includes('/patient/') || normalizedPath.includes('patient/')) {
+      // We are inside a patient subfolder (e.g., patient/dashboard, patient/Talktodoctor)
+      prefix = '../';
+    } else if (normalizedPath.includes('/auth/')) {
+      prefix = '../../patient/';
+    } else {
+      prefix = './patient/';
     }
 
-    const homeUrl = patientRoot + 'dashboard/index.html';
-    const doctorUrl = patientRoot + 'Talktodoctor/talk-to-doctor.html';
-    const appointmentUrl = patientRoot + 'appointment/appointment.html';
-    const recordsUrl = patientRoot + 'my_health/my-health.html';
+    const homeUrl = prefix + 'dashboard/index.html';
+    const doctorUrl = prefix + 'Talktodoctor/talk-to-doctor.html';
+    const appointmentUrl = prefix + 'appointment/appointment.html';
+    const recordsUrl = prefix + 'my_health/my-health.html';
 
     // Inject Unified Navigation CSS
     if (!document.getElementById('asha-unified-nav-styles')) {
