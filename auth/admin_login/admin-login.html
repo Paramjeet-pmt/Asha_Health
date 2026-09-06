@@ -162,35 +162,58 @@
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({ email, password })
                     });
-                    const data = await res.json();
 
-                    if (!res.ok) {
-                        alertBox.className = 'p-3 rounded-lg text-xs font-semibold bg-red-50 text-red-800 border border-red-200 block';
-                        alertBox.textContent = data.error || 'Authentication failed. Please check credentials.';
-                        submitBtn.disabled = false;
+                    if (res.ok) {
+                        const data = await res.json();
+                        localStorage.setItem('asha_token', data.token);
+                        localStorage.setItem('asha_user', JSON.stringify(data.user));
+
+                        alertBox.className = 'p-3 rounded-lg text-xs font-semibold bg-green-50 text-green-800 border border-green-200 block';
+                        alertBox.textContent = `Success! Logged in as ${data.user.role}: ${data.user.name}. Redirecting...`;
+
+                        setTimeout(() => {
+                            const target = data.redirectUrl ? data.redirectUrl.replace(/^\//, '../../') : '../../admin/command_center/command-center.html';
+                            window.location.href = target;
+                        }, 500);
                         return;
                     }
 
-                    localStorage.setItem('asha_token', data.token);
-                    localStorage.setItem('asha_user', JSON.stringify(data.user));
+                    // Fallback for static/GitHub Pages environment
+                    if (res.status === 404 || location.hostname.includes('github.io') || location.protocol === 'file:') {
+                        throw new Error('Static host fallback');
+                    }
+
+                    const errData = await res.json().catch(() => ({}));
+                    alertBox.className = 'p-3 rounded-lg text-xs font-semibold bg-red-50 text-red-800 border border-red-200 block';
+                    alertBox.textContent = errData.error || 'Authentication failed. Please check credentials.';
+                    submitBtn.disabled = false;
+                } catch (err) {
+                    // Fallback for static environment (GitHub Pages, Live Server, file:)
+                    let role = 'ADMIN';
+                    let target = '../../admin/command_center/command-center.html';
+                    let name = 'District Admin';
+                    if (email.includes('doctor')) {
+                        role = 'DOCTOR';
+                        target = '../../patient/doctor_queue/doctor-queue.html';
+                        name = 'Dr. Rajesh Kumar';
+                    } else if (email.includes('worker')) {
+                        role = 'WORKER';
+                        target = '../../workers/frontline_hub/frontline-hub.html';
+                        name = 'Sunita Devi (ASHA)';
+                    } else if (email.includes('patient')) {
+                        role = 'PATIENT';
+                        target = '../../patient/dashboard/index.html';
+                        name = 'Priya Sharma';
+                    }
+                    localStorage.setItem('asha_token', 'demo-token-' + role.toLowerCase());
+                    localStorage.setItem('asha_user', JSON.stringify({ id: 1, name, email, role }));
 
                     alertBox.className = 'p-3 rounded-lg text-xs font-semibold bg-green-50 text-green-800 border border-green-200 block';
-                    alertBox.textContent = `Success! Logged in as ${data.user.role}: ${data.user.name}. Redirecting...`;
+                    alertBox.textContent = `Welcome ${name}! (${role}). Redirecting...`;
 
                     setTimeout(() => {
-                        window.location.href = data.redirectUrl;
-                    }, 600);
-                } catch (err) {
-                    // Fallback for static environment
-                    if (email.includes('admin')) {
-                        window.location.href = '../../admin/command_center/command-center.html';
-                    } else if (email.includes('doctor')) {
-                        window.location.href = '../../patient/doctor_queue/doctor-queue.html';
-                    } else if (email.includes('worker')) {
-                        window.location.href = '../../workers/frontline_hub/frontline-hub.html';
-                    } else {
-                        window.location.href = '../../patient/dashboard/index.html';
-                    }
+                        window.location.href = target;
+                    }, 500);
                 }
             });
         </script>
@@ -206,9 +229,7 @@
                     class="font-label-sm text-label-sm">Profile</span></a></div>
     </nav>
 
-
-
-    <script ="../../asha-navigation.js"></script>
+    <script src="../../asha-navigation.js"></script>
 </body>
 
 </html>
