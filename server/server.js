@@ -26,6 +26,9 @@ app.get(['/admin/doctors', '/admin/doctors/'], (req, res) => res.redirect('/auth
 app.get('/appointment', (req, res) => res.redirect('/patient/appointment/appointment.html'));
 app.get('/precautions', (req, res) => res.redirect('/patient/Precautions/index.html'));
 app.get('/patient/precautions', (req, res) => res.redirect('/patient/Precautions/index.html'));
+app.get(['/auth/patient_login_variant_2/patient_login_v2.html', '/auth/patient_login_v2.html'], (req, res) => res.redirect('/auth/patient_login_variant_2/patient-login-alternative.html'));
+app.get('/doctor/add-patient', (req, res) => res.redirect('/doctor/doctor/dashboard/doctor_dashboard.html?action=add-patient'));
+app.get('/doctor/schedule', (req, res) => res.redirect('/doctor/doctor/dashboard/doctor_dashboard.html?action=schedule'));
 
 // Serve static frontend files from repository root
 app.use(express.static(path.join(__dirname, '..')));
@@ -440,6 +443,135 @@ app.post('/api/doctor/quick-triage', (req, res) => {
 // -------------------------------------------------------------
 // 3. DOCTOR FLOW APIS (④ Patient Details ⑪ & Priority Cases ⑫)
 // -------------------------------------------------------------
+
+// POST /api/doctor/admit-patient (Doctor Walk-In Patient Registration & Queue Admission)
+app.post(['/api/doctor/admit-patient', '/api/patients'], (req, res) => {
+  try {
+    const { name, age, gender, phone, village, risk_level, symptoms, priority, vitals_bp, vitals_pulse, vitals_spo2, direct_queue } = req.body;
+    if (!name) {
+      return res.status(400).json({ error: 'Patient name is required' });
+    }
+
+    const abhaId = `ABHA-${Math.floor(1000 + Math.random() * 9000)}-${Math.floor(1000 + Math.random() * 9000)}-${Math.floor(1000 + Math.random() * 9000)}`;
+    let cleanRisk = (risk_level || 'LOW').toUpperCase();
+    if (cleanRisk === 'MODERATE') cleanRisk = 'MEDIUM';
+    if (!['LOW', 'MEDIUM', 'HIGH', 'CRITICAL'].includes(cleanRisk)) {
+      cleanRisk = 'LOW';
+    }
+
+    const cleanPriority = (priority || (cleanRisk === 'CRITICAL' ? 'EMERGENCY' : (cleanRisk === 'HIGH' ? 'URGENT' : 'ROUTINE'))).toUpperCase();
+    const cleanSymptoms = symptoms || 'Walk-in clinical consultation';
+
+    // 1. Insert into patients table
+    const insertPatient = db.prepare(`
+      INSERT INTO patients (abha_id, name, age, gender, village, risk_level, primary_condition, contact_number)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+    `);
+    const patientResult = insertPatient.run(
+      abhaId,
+      name,
+      age ? parseInt(age) : 30,
+      gender || 'Other',
+      village || 'Local Community',
+      cleanRisk,
+      cleanSymptoms,
+      phone || null
+    );
+    const patientId = Number(patientResult.lastInsertRowid);
+
+    // 2. Automatically admit to Doctor Live OPD Queue unless explicitly false
+    let queueId = null;
+    if (direct_queue !== false) {
+      const insertQueue = db.prepare(`
+        INSERT INTO doctor_queue (patient_id, priority, symptoms, vitals_bp, vitals_pulse, vitals_spo2, status)
+        VALUES (?, ?, ?, ?, ?, ?, 'WAITING')
+      `);
+      const queueResult = insertQueue.run(
+        patientId,
+        cleanPriority,
+        cleanSymptoms,
+        vitals_bp || '120/80',
+        vitals_pulse ? parseInt(vitals_pulse) : 78,
+        vitals_spo2 ? parseInt(vitals_spo2) : 98
+      );
+      queueId = Number(queueResult.lastInsertRowid);
+    }
+
+    res.status(201).json({
+      success: true,
+      message: `Patient ${name} registered successfully and admitted to OPD Queue`,
+      patientId,
+      queueId,
+      patient: {
+        id: patientId,
+        abha_id: abhaId,
+        name,
+        age: age ? parseInt(age) : 30,
+        gender: gender || 'Other',
+        village: village || 'Local Community',
+        risk_level: cleanRisk
+      },
+      queue_id: queueId,
+      priority: cleanPriority
+    });
+  } catch (err) {
+    console.error('Failed to admit patient:', err);
+    res.status(500).json({ error: 'Failed to admit patient' });
+  }
+});
+
+// POST /api/doctor/schedule-slot (Doctor schedules direct follow-up consultation)
+app.post('/api/doctor/schedule-slot', (req, res) => {
+  try {
+    const { patient_name, doctor_name, appointment_date, time_slot, consultation_type, reason, notes } = req.body;
+    if (!patient_name) {
+      return res.status(400).json({ error: 'Patient name is required' });
+    }
+
+    const bookingRef = `DOC-SCH-${Math.floor(1000 + Math.random() * 9000)}`;
+    const docName = doctor_name || 'Dr. Ananya Sharma';
+    const apptDate = appointment_date || new Date().toISOString().split('T')[0];
+    const slotTime = time_slot || '11:00 AM';
+    const cType = consultation_type || 'clinic';
+    const clinicalReason = reason || notes || 'Doctor Follow-Up Consultation';
+
+    const stmt = db.prepare(`
+      INSERT INTO appointments (
+        booking_ref, patient_name, doctor_name, doctor_specialty,
+        appointment_date, time_slot, consultation_type, reason, total_fee, status
+      ) VALUES (?, ?, ?, 'General Physician', ?, ?, ?, ?, 0, 'CONFIRMED')
+    `);
+
+    const result = stmt.run(bookingRef, patient_name, docName, apptDate, slotTime, cType, clinicalReason);
+
+    res.status(201).json({
+      success: true,
+      message: `Follow-up slot scheduled for ${patient_name} on ${apptDate} (${slotTime})`,
+      bookingRef,
+      booking_reference: bookingRef,
+      appointmentId: Number(result.lastInsertRowid)
+    });
+  } catch (err) {
+    console.error('Failed to schedule doctor slot:', err);
+    res.status(500).json({ error: 'Failed to schedule doctor slot' });
+  }
+});
+
+// PATCH /api/doctor/schedule (Doctor updates OPD working shifts & timing)
+app.patch('/api/doctor/schedule', (req, res) => {
+  try {
+    const { schedule, location } = req.body;
+    if (schedule) {
+      db.prepare('UPDATE doctors SET schedule = ? WHERE id = 1 OR doc_id = "DOC-1001"').run(schedule);
+    }
+    if (location) {
+      db.prepare('UPDATE doctors SET location = ? WHERE id = 1 OR doc_id = "DOC-1001"').run(location);
+    }
+    res.json({ success: true, message: 'Doctor schedule preferences updated', schedule, location });
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to update schedule' });
+  }
+});
 
 // GET /api/doctor/queue (Priority Triage Cases)
 app.get('/api/doctor/queue', (req, res) => {
