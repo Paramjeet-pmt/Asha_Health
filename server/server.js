@@ -29,6 +29,8 @@ app.get('/patient/precautions', (req, res) => res.redirect('/patient/Precautions
 app.get(['/auth/patient_login_variant_2/patient_login_v2.html', '/auth/patient_login_v2.html'], (req, res) => res.redirect('/auth/patient_login_variant_2/patient-login-alternative.html'));
 app.get('/doctor/add-patient', (req, res) => res.redirect('/doctor/doctor/dashboard/doctor_dashboard.html?action=add-patient'));
 app.get('/doctor/schedule', (req, res) => res.redirect('/doctor/doctor/dashboard/doctor_dashboard.html?action=schedule'));
+app.get(['/doctor/inbox', '/doctor/messages'], (req, res) => res.redirect('/doctor/doctor/inbox/inbox.html'));
+app.get('/doctor/consultations', (req, res) => res.redirect('/doctor/doctor/inbox/inbox.html'));
 
 // Serve static frontend files from repository root
 app.use(express.static(path.join(__dirname, '..')));
@@ -570,6 +572,170 @@ app.patch('/api/doctor/schedule', (req, res) => {
     res.json({ success: true, message: 'Doctor schedule preferences updated', schedule, location });
   } catch (err) {
     res.status(500).json({ error: 'Failed to update schedule' });
+  }
+});
+
+// Dynamic In-Memory + DB Integrated Doctor Clinical Inbox
+const doctorInboxThreads = [
+  {
+    threadId: 'TH-101',
+    patientId: 1,
+    patientName: 'Ramesh Kumar',
+    age: 48,
+    gender: 'Male',
+    village: 'Kalyanpur',
+    riskLevel: 'CRITICAL',
+    priority: 'EMERGENCY',
+    vitals: { bp: '138/88', pulse: 96, spo2: 93 },
+    unreadCount: 1,
+    lastActivity: '10 mins ago',
+    channel: 'Video Teleconsult Request',
+    messages: [
+      { sender: 'patient', text: 'Doctor sahiba, I am having sudden chest tightness and SpO2 dropped to 93%. Should I take my nebulizer?', time: '10:45 AM' },
+      { sender: 'doctor', text: 'Ramesh ji, please sit upright immediately and take 2 puffs of your inhaler. Keep the SpO2 probe on your finger.', time: '10:48 AM' },
+      { sender: 'patient', text: 'Took 2 puffs now. Pulse is 96. Breathing feels a bit easier but still dizzy.', time: '10:52 AM' }
+    ]
+  },
+  {
+    threadId: 'TH-102',
+    patientId: 2,
+    patientName: 'Sunita Devi',
+    age: 32,
+    gender: 'Female',
+    village: 'Rampur',
+    riskLevel: 'HIGH',
+    priority: 'URGENT',
+    vitals: { bp: '118/76', pulse: 82, spo2: 98 },
+    unreadCount: 1,
+    lastActivity: '25 mins ago',
+    channel: 'ANC Care & Lab Review',
+    messages: [
+      { sender: 'patient', text: 'Namaste Doctor. Hemoglobin test report came as 10.2 g/dL. Should I continue with the double dose of Iron tablets?', time: '10:20 AM' },
+      { sender: 'doctor', text: 'Namaste Sunita ji. 10.2 g/dL is improving. Continue Iron + Folic Acid once daily after lunch with lemon water.', time: '10:30 AM' }
+    ]
+  },
+  {
+    threadId: 'TH-103',
+    patientId: 3,
+    patientName: 'Pooja Verma',
+    age: 28,
+    gender: 'Female',
+    village: 'Bishnupur',
+    riskLevel: 'MEDIUM',
+    priority: 'ROUTINE',
+    vitals: { bp: '120/80', pulse: 74, spo2: 99 },
+    unreadCount: 0,
+    lastActivity: '1 hour ago',
+    channel: 'Post-migraine Review',
+    messages: [
+      { sender: 'patient', text: 'Headache has reduced by 80% after taking the prescribed Paracetamol and resting in dark room. Thank you doctor!', time: '09:40 AM' },
+      { sender: 'doctor', text: 'Glad to hear that, Pooja. Stay well hydrated and let me know if throbbing reoccurs.', time: '09:45 AM' }
+    ]
+  },
+  {
+    threadId: 'TH-104',
+    patientId: 4,
+    patientName: 'Vikram Singh',
+    age: 54,
+    gender: 'Male',
+    village: 'Shivpur',
+    riskLevel: 'HIGH',
+    priority: 'URGENT',
+    vitals: { bp: '152/96', pulse: 88, spo2: 97 },
+    unreadCount: 2,
+    lastActivity: '2 hours ago',
+    channel: 'Hypertension Follow-Up',
+    messages: [
+      { sender: 'patient', text: 'Doctor, morning BP measured 152/96 mmHg at village health sub-center. Feeling mild heaviness in nape of neck.', time: '08:50 AM' }
+    ]
+  },
+  {
+    threadId: 'TH-105',
+    patientId: 5,
+    patientName: 'Meena Bai',
+    age: 62,
+    gender: 'Female',
+    village: 'Govindpur',
+    riskLevel: 'LOW',
+    priority: 'ROUTINE',
+    vitals: { bp: '126/82', pulse: 76, spo2: 98 },
+    unreadCount: 0,
+    lastActivity: 'Yesterday',
+    channel: 'Jan Aushadhi Prescription Refill',
+    messages: [
+      { sender: 'patient', text: 'Calcium tablets finished. Need 30 days refill token for Kalyanpur Jan Aushadhi Kendra.', time: 'Yesterday' },
+      { sender: 'doctor', text: 'Refill approved and generated in system. You can collect it from the store with your ABHA ID.', time: 'Yesterday' }
+    ]
+  }
+];
+
+// GET /api/doctor/inbox (Fetch all patient chat & teleconsultation threads)
+app.get(['/api/doctor/inbox', '/api/doctor/messages'], (req, res) => {
+  try {
+    const unreadTotal = doctorInboxThreads.reduce((acc, t) => acc + (t.unreadCount || 0), 0);
+    const urgentCount = doctorInboxThreads.filter(t => t.priority === 'EMERGENCY' || t.priority === 'URGENT').length;
+    res.json({
+      success: true,
+      stats: {
+        totalThreads: doctorInboxThreads.length,
+        unreadTotal,
+        urgentCount
+      },
+      threads: doctorInboxThreads
+    });
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to fetch doctor inbox' });
+  }
+});
+
+// POST /api/doctor/inbox/reply (Doctor sends clinical message/advice to patient)
+app.post(['/api/doctor/inbox/reply', '/api/doctor/messages'], (req, res) => {
+  try {
+    const { threadId, patientName, text } = req.body;
+    if (!text || !text.trim()) {
+      return res.status(400).json({ error: 'Message text is required' });
+    }
+
+    let thread = doctorInboxThreads.find(t => t.threadId === threadId || (patientName && t.patientName.toLowerCase() === patientName.toLowerCase()));
+    
+    if (!thread) {
+      thread = {
+        threadId: `TH-${Date.now()}`,
+        patientId: Date.now(),
+        patientName: patientName || 'Patient',
+        age: 35,
+        gender: 'Other',
+        village: 'Local Community',
+        riskLevel: 'MEDIUM',
+        priority: 'ROUTINE',
+        vitals: { bp: '120/80', pulse: 78, spo2: 98 },
+        unreadCount: 0,
+        lastActivity: 'Just now',
+        channel: 'Teleconsult Chat',
+        messages: []
+      };
+      doctorInboxThreads.unshift(thread);
+    }
+
+    const now = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    const newMsg = {
+      sender: 'doctor',
+      text: text.trim(),
+      time: now
+    };
+
+    thread.messages.push(newMsg);
+    thread.lastActivity = 'Just now';
+    thread.unreadCount = 0;
+
+    res.status(201).json({
+      success: true,
+      message: 'Clinical response sent to patient',
+      reply: newMsg,
+      thread
+    });
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to send clinical reply' });
   }
 });
 

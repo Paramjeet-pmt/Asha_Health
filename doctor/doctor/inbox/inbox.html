@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
+  <title>ASHA Healthcare - Doctor Clinical Inbox & Telehealth Hub</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface": "#f9f9ff",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-low": "#f0f3ff",
+            "surface-container": "#e7eeff",
+            "surface-container-high": "#dee8ff",
+            "surface-variant": "#d8e3fb",
+            "on-surface": "#111c2d",
+            "on-surface-variant": "#414750",
+            "primary": "#005394",
+            "primary-container": "#2b6cb0",
+            "on-primary": "#ffffff",
+            "secondary": "#006a61",
+            "secondary-container": "#86f2e4",
+            "tertiary": "#005e3f",
+            "error": "#ba1a1a",
+            "outline": "#727782",
+            "inverse-surface": "#263143"
+          },
+          fontFamily: {
+            sans: ["Manrope", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9ff;
+      font-family: 'Manrope', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .pb-safe { padding-bottom: env(safe-area-inset-bottom, 0px); }
+    .pt-safe { padding-top: env(safe-area-inset-top, 0px); }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    
+    /* Dedicated GPU Layer for unified fixed bottom bar */
+    .doctor-unified-bottom-nav {
+      position: fixed !important;
+      bottom: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      width: 100% !important;
+      z-index: 9999 !important;
+      transform: translateZ(0) !important;
+      -webkit-transform: translateZ(0) !important;
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface flex flex-col h-screen overflow-hidden">
+
+  <!-- Top App Bar Header -->
+  <header class="sticky top-0 z-40 bg-surface/95 backdrop-blur-xl border-b border-surface-variant/40 pt-safe shrink-0">
+    <div class="h-16 px-4 max-w-6xl mx-auto flex items-center justify-between gap-3">
+      <div class="flex items-center gap-2.5">
+        <a href="../dashboard/doctor_dashboard.html" class="w-10 h-10 rounded-xl bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-on-surface transition-colors cursor-pointer" title="Back to Dashboard">
+          <span class="material-symbols-outlined text-[22px]">arrow_back</span>
+        </a>
+        <div>
+          <div class="flex items-center gap-2">
+            <h1 class="font-bold text-[17px] text-on-surface tracking-tight leading-none">Clinical Inbox & Teleconsults</h1>
+            <span class="px-2 py-0.5 rounded-full bg-tertiary/10 text-tertiary text-[10px] font-bold uppercase tracking-wider flex items-center gap-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span> Live
+            </span>
+          </div>
+          <p class="text-[11px] text-on-surface-variant leading-tight mt-0.5">Dr. Ananya Sharma • Chamber 104</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <span class="hidden sm:inline-flex text-[11px] bg-secondary-container/40 text-secondary font-semibold px-2.5 py-1 rounded-full items-center gap-1">
+          <span class="material-symbols-outlined text-[14px]">videocam</span> Telehealth Online
+        </span>
+        <button onclick="refreshInboxData()" class="w-9 h-9 rounded-xl bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-primary transition-all active:scale-95 cursor-pointer" title="Refresh messages">
+          <span id="refreshIcon" class="material-symbols-outlined text-[20px]">refresh</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Viewport (Split into Conversations List & Active Consultation Workspace) -->
+  <main class="flex-1 flex overflow-hidden max-w-6xl mx-auto w-full pb-20">
+    
+    <!-- LEFT PANE: Conversations List -->
+    <aside id="inboxListPane" class="w-full md:w-80 lg:w-96 border-r border-surface-variant/40 flex flex-col bg-surface-container-lowest shrink-0 transition-all duration-300">
+      
+      <!-- Search & Triage Filter Bar -->
+      <div class="p-3 border-b border-surface-variant/40 space-y-2.5">
+        <div class="relative">
+          <span class="material-symbols-outlined absolute left-3 top-2.5 text-outline text-[18px]">search</span>
+          <input id="inboxSearchInput" oninput="filterInboxThreads()" type="text" placeholder="Search patient name, condition..." class="w-full pl-9 pr-3 py-2 rounded-xl bg-surface-container-low border border-outline/20 text-[13px] text-on-surface focus:outline-primary placeholder:text-on-surface-variant/60">
+        </div>
+        
+        <!-- Filter Tabs -->
+        <div class="flex items-center gap-1 overflow-x-auto no-scrollbar pb-0.5">
+          <button onclick="setInboxFilter('all', this)" class="filter-pill active px-3 py-1 rounded-lg text-[11px] font-bold bg-primary text-on-primary shrink-0 transition-all cursor-pointer">All (<span id="countAll">5</span>)</button>
+          <button onclick="setInboxFilter('urgent', this)" class="filter-pill px-3 py-1 rounded-lg text-[11px] font-semibold bg-surface-container text-on-surface-variant hover:text-on-surface shrink-0 transition-all cursor-pointer">Urgent (<span id="countUrgent">2</span>)</button>
+          <button onclick="setInboxFilter('routine', this)" class="filter-pill px-3 py-1 rounded-lg text-[11px] font-semibold bg-surface-container text-on-surface-variant hover:text-on-surface shrink-0 transition-all cursor-pointer">Follow-Up</button>
+        </div>
+      </div>
+
+      <!-- Thread Items -->
+      <div id="threadListContainer" class="flex-1 overflow-y-auto divide-y divide-surface-variant/20">
+        <!-- Rendered by JS -->
+      </div>
+    </aside>
+
+    <!-- RIGHT PANE: Active Consultation Chat Workspace -->
+    <section id="inboxDetailPane" class="hidden md:flex flex-1 flex-col bg-surface overflow-hidden relative">
+      
+      <!-- Active Patient Header Banner -->
+      <div id="activePatientHeader" class="p-3.5 bg-surface-container-lowest border-b border-surface-variant/40 flex items-center justify-between gap-3 shrink-0">
+        <div class="flex items-center gap-2.5 min-w-0">
+          <button onclick="backToListMobile()" class="md:hidden w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-on-surface cursor-pointer">
+            <span class="material-symbols-outlined text-[20px]">arrow_back</span>
+          </button>
+          <div id="activeAvatar" class="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-sm shrink-0">
+            RK
+          </div>
+          <div class="min-w-0">
+            <div class="flex items-center gap-1.5 flex-wrap">
+              <h2 id="activePatientName" class="font-bold text-[15px] text-on-surface truncate">Ramesh Kumar</h2>
+              <span id="activeRiskBadge" class="text-[10px] font-bold px-1.5 py-0.2 rounded bg-error text-on-error">CRITICAL</span>
+              <span id="activePriorityBadge" class="text-[10px] font-semibold px-1.5 py-0.2 rounded bg-error/10 text-error">EMERGENCY</span>
+            </div>
+            <p id="activeMeta" class="text-[11px] text-on-surface-variant truncate">48y • Male • Kalyanpur • SpO2 93% • BP 138/88</p>
+          </div>
+        </div>
+
+        <!-- Quick Consultation Action Buttons -->
+        <div class="flex items-center gap-1.5 shrink-0">
+          <button onclick="startTeleconsultCall('audio')" class="p-2 rounded-xl bg-surface-container hover:bg-surface-container-high text-primary transition-all cursor-pointer" title="Audio Call Patient">
+            <span class="material-symbols-outlined text-[20px]">call</span>
+          </button>
+          <button onclick="startTeleconsultCall('video')" class="px-3 py-1.5 rounded-xl bg-primary text-on-primary hover:bg-primary-container font-semibold text-[12px] flex items-center gap-1.5 shadow-sm active:scale-95 transition-all cursor-pointer" title="Start Telehealth Video Consultation">
+            <span class="material-symbols-outlined text-[18px]">videocam</span>
+            <span class="hidden sm:inline">Video Call</span>
+          </button>
+          <button onclick="openPatientEHR()" class="p-2 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-primary transition-all cursor-pointer" title="View Full EHR">
+            <span class="material-symbols-outlined text-[20px]">clinical_notes</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Vitals Quick Bar -->
+      <div id="activeVitalsBar" class="px-4 py-2 bg-surface-container-low border-b border-surface-variant/30 flex items-center gap-4 text-[11px] overflow-x-auto no-scrollbar shrink-0">
+        <span class="font-semibold text-on-surface-variant">Live Intake Vitals:</span>
+        <span class="flex items-center gap-1 text-on-surface font-semibold"><span class="material-symbols-outlined text-[14px] text-primary">blood_pressure</span> BP: <strong id="vitalBp">138/88</strong></span>
+        <span class="flex items-center gap-1 text-on-surface font-semibold"><span class="material-symbols-outlined text-[14px] text-error">favorite</span> Pulse: <strong id="vitalPulse">96 bpm</strong></span>
+        <span class="flex items-center gap-1 text-on-surface font-semibold"><span class="material-symbols-outlined text-[14px] text-secondary">air</span> SpO2: <strong id="vitalSpo2">93%</strong></span>
+        <a href="javascript:void(0)" onclick="openPatientEHR()" class="ml-auto text-primary hover:underline font-semibold shrink-0">Open Clinical EHR →</a>
+      </div>
+
+      <!-- Messages Timeline -->
+      <div id="messagesTimeline" class="flex-1 overflow-y-auto p-4 space-y-3.5 bg-surface-container-lowest/50">
+        <!-- Rendered by JS -->
+      </div>
+
+      <!-- Quick Advice Chips -->
+      <div class="px-3.5 py-1.5 bg-surface-container-low border-t border-surface-variant/30 flex items-center gap-1.5 overflow-x-auto no-scrollbar shrink-0">
+        <span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider shrink-0">Quick Advice:</span>
+        <button onclick="insertQuickAdvice('Sit upright immediately and take prescribed nebulizer 2 puffs.')" class="px-2.5 py-0.5 rounded-full bg-surface-container text-on-surface text-[11px] hover:bg-primary/10 hover:text-primary shrink-0 transition-colors cursor-pointer">Sit upright & Inhaler</button>
+        <button onclick="insertQuickAdvice('Take Paracetamol 650mg after meals. Keep yourself well hydrated.')" class="px-2.5 py-0.5 rounded-full bg-surface-container text-on-surface text-[11px] hover:bg-primary/10 hover:text-primary shrink-0 transition-colors cursor-pointer">Paracetamol 650mg</button>
+        <button onclick="insertQuickAdvice('Please report to the Primary Health Centre immediately for doctor evaluation.')" class="px-2.5 py-0.5 rounded-full bg-surface-container text-on-surface text-[11px] hover:bg-error/10 hover:text-error shrink-0 transition-colors cursor-pointer">Report to PHC</button>
+        <button onclick="insertQuickAdvice('e-Prescription refill confirmed and synced with Jan Aushadhi Kendra.')" class="px-2.5 py-0.5 rounded-full bg-surface-container text-on-surface text-[11px] hover:bg-tertiary/10 hover:text-tertiary shrink-0 transition-colors cursor-pointer">Refill Approved</button>
+      </div>
+
+      <!-- Message Input Bar -->
+      <form id="replyForm" onsubmit="handleSendReply(event)" class="p-3 bg-surface-container-lowest border-t border-surface-variant/40 flex items-center gap-2 shrink-0">
+        <button type="button" onclick="scheduleFollowUpFromChat()" class="p-2 rounded-xl text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors cursor-pointer" title="Schedule Follow-Up Slot">
+          <span class="material-symbols-outlined text-[20px]">calendar_month</span>
+        </button>
+        <input id="replyTextInput" required type="text" placeholder="Write clinical guidance or prescription advice to patient..." class="flex-1 px-3.5 py-2.5 rounded-xl bg-surface-container-low border border-outline/20 text-[13px] text-on-surface focus:outline-primary">
+        <button type="submit" id="btnSendReply" class="px-4 py-2.5 rounded-xl bg-primary text-on-primary font-bold text-[13px] hover:bg-primary-container active:scale-95 transition-all flex items-center gap-1 shadow-sm cursor-pointer">
+          <span>Send</span>
+          <span class="material-symbols-outlined text-[16px]">send</span>
+        </button>
+      </form>
+
+    </section>
+
+  </main>
+
+  <!-- Interactive Teleconsultation Video Call Modal -->
+  <div id="videoCallModal" class="fixed inset-0 z-50 bg-inverse-surface/80 backdrop-blur-md hidden flex items-center justify-center p-3">
+    <div class="bg-inverse-surface border border-white/10 rounded-2xl w-full max-w-2xl overflow-hidden shadow-2xl flex flex-col text-white">
+      
+      <!-- Video Call Header -->
+      <div class="p-4 bg-white/5 border-b border-white/10 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="w-3 h-3 rounded-full bg-emerald-400 animate-pulse"></div>
+          <div>
+            <h3 class="font-bold text-[15px] leading-tight" id="callPatientTitle">Telehealth Video Consult — Ramesh Kumar</h3>
+            <p class="text-[11px] text-white/70" id="callTimer">Connected: 00:00</p>
+          </div>
+        </div>
+        <span class="px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 text-[11px] font-bold border border-emerald-500/30">Encrypted Clinical Stream</span>
+      </div>
+
+      <!-- Video Feed Canvas -->
+      <div class="relative bg-slate-950 aspect-video flex items-center justify-center overflow-hidden">
+        
+        <!-- Simulated Patient Stream -->
+        <div class="flex flex-col items-center justify-center text-center p-6 space-y-3">
+          <div class="w-24 h-24 rounded-full bg-primary/30 border-2 border-primary/50 flex items-center justify-center text-primary text-3xl font-bold">
+            <span id="callPatientInitials">RK</span>
+          </div>
+          <div>
+            <p class="font-bold text-lg text-white" id="callPatientName">Ramesh Kumar</p>
+            <p class="text-xs text-slate-400">Rural Health Sub-Center • 4G Link Active</p>
+          </div>
+        </div>
+
+        <!-- Live Vitals HUD on Video -->
+        <div class="absolute top-3 left-3 bg-black/60 backdrop-blur-md p-2.5 rounded-xl border border-white/10 text-xs space-y-1">
+          <div class="flex items-center gap-1.5 text-emerald-400 font-bold"><span class="material-symbols-outlined text-[14px]">air</span> SpO2: <span id="callSpo2">93%</span></div>
+          <div class="flex items-center gap-1.5 text-amber-400 font-bold"><span class="material-symbols-outlined text-[14px]">favorite</span> Pulse: <span id="callPulse">96 bpm</span></div>
+          <div class="flex items-center gap-1.5 text-cyan-400 font-bold"><span class="material-symbols-outlined text-[14px]">speed</span> BP: <span id="callBp">138/88</span></div>
+        </div>
+
+        <!-- Self Doctor PIP -->
+        <div class="absolute bottom-3 right-3 w-28 aspect-video bg-slate-800 rounded-xl border border-white/20 overflow-hidden shadow-lg flex items-center justify-center">
+          <span class="text-[10px] text-slate-300 font-semibold flex items-center gap-1">
+            <span class="material-symbols-outlined text-[12px] text-emerald-400">videocam</span> Dr. Ananya
+          </span>
+        </div>
+      </div>
+
+      <!-- Video Call Controls -->
+      <div class="p-4 bg-white/5 border-t border-white/10 flex items-center justify-center gap-4">
+        <button onclick="toggleCallMic(this)" class="w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors cursor-pointer" title="Mute Microphone">
+          <span class="material-symbols-outlined text-[22px]">mic</span>
+        </button>
+        <button onclick="toggleCallCam(this)" class="w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors cursor-pointer" title="Toggle Camera">
+          <span class="material-symbols-outlined text-[22px]">videocam</span>
+        </button>
+        <button onclick="endTeleconsultCall()" class="w-14 h-14 rounded-full bg-red-600 hover:bg-red-700 flex items-center justify-center text-white transition-all shadow-lg active:scale-95 cursor-pointer" title="End Teleconsultation">
+          <span class="material-symbols-outlined text-[26px]">call_end</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Unified Doctor Bottom Navigation Bar (Centered & Stick-proof) -->
+  <nav class="doctor-unified-bottom-nav pb-safe bg-surface/95 backdrop-blur-xl border-t border-outline/10 shadow-[0_-2px_12px_rgba(0,0,0,0.06)]" aria-label="Doctor Portal Navigation">
+    <div class="flex justify-around items-center h-16 max-w-xl mx-auto px-2">
+      <a class="flex flex-col items-center justify-center flex-1 max-w-[72px] h-14 rounded-xl text-on-surface-variant hover:text-primary transition-all" href="../dashboard/doctor_dashboard.html" title="Dashboard">
+        <span class="material-symbols-outlined text-[22px]">grid_view</span>
+        <span class="text-[10px] font-semibold mt-0.5">Home</span>
+      </a>
+      <a class="flex flex-col items-center justify-center flex-1 max-w-[72px] h-14 rounded-xl text-on-surface-variant hover:text-primary transition-all" href="../../priority%20patient/index.html" title="Priority Queue">
+        <span class="material-symbols-outlined text-[22px]">queue</span>
+        <span class="text-[10px] font-semibold mt-0.5">Queue</span>
+      </a>
+      <a class="flex flex-col items-center justify-center flex-1 max-w-[72px] h-14 rounded-xl text-on-surface-variant hover:text-primary transition-all" href="../dashboard/doctor_dashboard.html?action=schedule" title="Schedule & Shifts">
+        <span class="material-symbols-outlined text-[22px]">calendar_today</span>
+        <span class="text-[10px] font-semibold mt-0.5">Schedule</span>
+      </a>
+      <a aria-current="page" class="flex flex-col items-center justify-center flex-1 max-w-[72px] h-14 rounded-xl text-primary font-bold transition-all" href="inbox.html" title="Clinical Inbox">
+        <span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1">chat_bubble</span>
+        <span class="text-[10px] font-bold mt-0.5">Inbox</span>
+      </a>
+      <a class="flex flex-col items-center justify-center flex-1 max-w-[72px] h-14 rounded-xl text-on-surface-variant hover:text-primary transition-all" href="../patient_detail/patient_detail.html" title="Patient EHR">
+        <span class="material-symbols-outlined text-[22px]">account_circle</span>
+        <span class="text-[10px] font-semibold mt-0.5">EHR</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- Interactive Logic -->
+  <script>
+    const API_BASE = (window.location.protocol === 'http:' || window.location.protocol === 'https:')
+      && window.location.port === '5000'
+      ? ''
+      : 'http://localhost:5000';
+
+    let allThreads = [];
+    let currentFilter = 'all';
+    let selectedThread = null;
+    let callInterval = null;
+    let callSeconds = 0;
+
+    async function loadInboxData() {
+      try {
+        const res = await fetch(`${API_BASE}/api/doctor/inbox`);
+        if (res.ok) {
+          const data = await res.json();
+          allThreads = data.threads || [];
+          updateFilterCounts();
+        }
+      } catch (err) {
+        console.warn('API error, using local fallback:', err);
+      }
+
+      // Check URL query parameters (e.g. ?patient=Ramesh%20Kumar&type=video)
+      const params = new URLSearchParams(window.location.search);
+      const targetPatient = params.get('patient');
+      const startVideoParam = params.get('type') === 'video';
+
+      renderThreadList();
+
+      if (targetPatient) {
+        const matched = allThreads.find(t => t.patientName.toLowerCase() === targetPatient.toLowerCase());
+        if (matched) {
+          selectThread(matched.threadId);
+        } else if (allThreads.length > 0) {
+          selectThread(allThreads[0].threadId);
+        }
+      } else if (allThreads.length > 0) {
+        selectThread(allThreads[0].threadId);
+      }
+
+      if (startVideoParam) {
+        setTimeout(() => startTeleconsultCall('video'), 300);
+      }
+    }
+
+    function updateFilterCounts() {
+      const elAll = document.getElementById('countAll');
+      const elUrgent = document.getElementById('countUrgent');
+      if (elAll) elAll.textContent = allThreads.length;
+      if (elUrgent) elUrgent.textContent = allThreads.filter(t => t.priority === 'EMERGENCY' || t.priority === 'URGENT').length;
+    }
+
+    function setInboxFilter(filter, btn) {
+      currentFilter = filter;
+      document.querySelectorAll('.filter-pill').forEach(b => {
+        b.className = 'filter-pill px-3 py-1 rounded-lg text-[11px] font-semibold bg-surface-container text-on-surface-variant hover:text-on-surface shrink-0 transition-all cursor-pointer';
+      });
+      btn.className = 'filter-pill active px-3 py-1 rounded-lg text-[11px] font-bold bg-primary text-on-primary shrink-0 transition-all cursor-pointer';
+      renderThreadList();
+    }
+
+    function filterInboxThreads() {
+      renderThreadList();
+    }
+
+    function renderThreadList() {
+      const container = document.getElementById('threadListContainer');
+      if (!container) return;
+
+      const q = (document.getElementById('inboxSearchInput')?.value || '').toLowerCase();
+
+      let filtered = allThreads.filter(t => {
+        if (currentFilter === 'urgent') return t.priority === 'EMERGENCY' || t.priority === 'URGENT';
+        if (currentFilter === 'routine') return t.priority === 'ROUTINE';
+        return true;
+      });
+
+      if (q) {
+        filtered = filtered.filter(t => 
+          t.patientName.toLowerCase().includes(q) || 
+          t.village.toLowerCase().includes(q) || 
+          (t.channel && t.channel.toLowerCase().includes(q))
+        );
+      }
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div class="p-8 text-center text-on-surface-variant">
+            <span class="material-symbols-outlined text-4xl text-outline mb-2">inbox</span>
+            <p class="text-xs">No conversations found.</p>
+          </div>
+        `;
+        return;
+      }
+
+      let html = '';
+      filtered.forEach(t => {
+        const isSelected = selectedThread && selectedThread.threadId === t.threadId;
+        const lastMsg = t.messages && t.messages.length > 0 ? t.messages[t.messages.length - 1].text : 'No messages';
+        const isEmergency = t.priority === 'EMERGENCY';
+        const isUrgent = t.priority === 'URGENT';
+        
+        const badgeColor = isEmergency 
+          ? 'bg-error text-on-error' 
+          : (isUrgent ? 'bg-amber-500 text-white' : 'bg-primary/10 text-primary');
+
+        const activeBg = isSelected ? 'bg-surface-container-high/60 border-l-4 border-primary' : 'hover:bg-surface-container-low';
+
+        html += `
+          <div onclick="selectThread('${t.threadId}')" class="p-3.5 cursor-pointer transition-all ${activeBg} flex items-start gap-3">
+            <div class="relative shrink-0">
+              <div class="w-11 h-11 rounded-full ${isSelected ? 'bg-primary text-on-primary' : 'bg-surface-container text-primary'} flex items-center justify-center font-bold text-sm">
+                ${getInitials(t.patientName)}
+              </div>
+              ${t.unreadCount > 0 ? '<span class="absolute -top-1 -right-1 w-4 h-4 bg-error text-on-error rounded-full text-[9px] font-bold flex items-center justify-center ring-2 ring-white">' + t.unreadCount + '</span>' : ''}
+            </div>
+
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center justify-between gap-1">
+                <span class="font-bold text-[13px] text-on-surface truncate">${t.patientName}</span>
+                <span class="text-[10px] text-on-surface-variant shrink-0">${t.lastActivity}</span>
+              </div>
+              <div class="flex items-center gap-1.5 mt-0.5">
+                <span class="text-[9px] font-bold px-1.5 py-0.2 rounded ${badgeColor}">${t.priority}</span>
+                <span class="text-[11px] text-on-surface-variant truncate">${t.channel || t.village}</span>
+              </div>
+              <p class="text-[11px] text-on-surface-variant truncate mt-1">${lastMsg}</p>
+            </div>
+          </div>
+        `;
+      });
+
+      container.innerHTML = html;
+    }
+
+    function selectThread(threadId) {
+      const thread = allThreads.find(t => t.threadId === threadId);
+      if (!thread) return;
+
+      selectedThread = thread;
+      thread.unreadCount = 0;
+
+      // Update right pane UI
+      document.getElementById('activePatientName').textContent = thread.patientName;
+      document.getElementById('activeAvatar').textContent = getInitials(thread.patientName);
+      document.getElementById('activeMeta').textContent = `${thread.age}y • ${thread.gender} • ${thread.village} • SpO2 ${thread.vitals?.spo2 || 98}% • BP ${thread.vitals?.bp || '120/80'}`;
+      
+      const riskEl = document.getElementById('activeRiskBadge');
+      riskEl.textContent = thread.riskLevel || 'MEDIUM';
+      riskEl.className = `text-[10px] font-bold px-1.5 py-0.2 rounded ${thread.riskLevel === 'CRITICAL' ? 'bg-error text-on-error' : (thread.riskLevel === 'HIGH' ? 'bg-purple-600 text-white' : 'bg-secondary text-on-secondary')}`;
+
+      const prioEl = document.getElementById('activePriorityBadge');
+      prioEl.textContent = thread.priority || 'ROUTINE';
+      prioEl.className = `text-[10px] font-semibold px-1.5 py-0.2 rounded ${thread.priority === 'EMERGENCY' ? 'bg-error/10 text-error' : 'bg-primary/10 text-primary'}`;
+
+      document.getElementById('vitalBp').textContent = thread.vitals?.bp || '120/80';
+      document.getElementById('vitalPulse').textContent = `${thread.vitals?.pulse || 78} bpm`;
+      document.getElementById('vitalSpo2').textContent = `${thread.vitals?.spo2 || 98}%`;
+
+      renderMessages();
+      renderThreadList();
+
+      // Mobile pane switch
+      if (window.innerWidth < 768) {
+        document.getElementById('inboxListPane').classList.add('hidden');
+        document.getElementById('inboxDetailPane').classList.remove('hidden');
+        document.getElementById('inboxDetailPane').classList.add('flex');
+      }
+    }
+
+    function backToListMobile() {
+      document.getElementById('inboxDetailPane').classList.add('hidden');
+      document.getElementById('inboxDetailPane').classList.remove('flex');
+      document.getElementById('inboxListPane').classList.remove('hidden');
+    }
+
+    function renderMessages() {
+      const container = document.getElementById('messagesTimeline');
+      if (!container || !selectedThread) return;
+
+      let html = `
+        <div class="text-center py-2">
+          <span class="text-[10px] font-bold px-2.5 py-1 rounded-full bg-surface-container text-on-surface-variant uppercase tracking-wider">
+            Clinical Teleconsult Session Active • ${selectedThread.village} PHC
+          </span>
+        </div>
+      `;
+
+      selectedThread.messages.forEach(m => {
+        const isDoc = m.sender === 'doctor';
+        if (isDoc) {
+          html += `
+            <div class="flex justify-end">
+              <div class="max-w-[80%] bg-primary text-on-primary rounded-2xl rounded-tr-xs p-3 shadow-sm space-y-1">
+                <div class="flex items-center justify-between gap-3">
+                  <span class="text-[11px] font-bold opacity-90 flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[13px]">stethoscope</span> Dr. Ananya Sharma
+                  </span>
+                  <span class="text-[10px] opacity-75">${m.time}</span>
+                </div>
+                <p class="text-[13px] leading-relaxed">${m.text}</p>
+              </div>
+            </div>
+          `;
+        } else {
+          html += `
+            <div class="flex justify-start">
+              <div class="max-w-[80%] bg-surface-container-low border border-surface-variant/40 rounded-2xl rounded-tl-xs p-3 shadow-sm space-y-1">
+                <div class="flex items-center justify-between gap-3">
+                  <span class="text-[11px] font-bold text-primary flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[13px]">person</span> ${selectedThread.patientName}
+                  </span>
+                  <span class="text-[10px] text-on-surface-variant">${m.time}</span>
+                </div>
+                <p class="text-[13px] text-on-surface leading-relaxed">${m.text}</p>
+              </div>
+            </div>
+          `;
+        }
+      });
+
+      container.innerHTML = html;
+      container.scrollTop = container.scrollHeight;
+    }
+
+    async function handleSendReply(e) {
+      e.preventDefault();
+      const input = document.getElementById('replyTextInput');
+      const text = input.value.trim();
+      if (!text || !selectedThread) return;
+
+      const now = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+      const newMsg = { sender: 'doctor', text, time: now };
+      selectedThread.messages.push(newMsg);
+      selectedThread.lastActivity = 'Just now';
+      input.value = '';
+      renderMessages();
+
+      try {
+        await fetch(`${API_BASE}/api/doctor/inbox/reply`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            threadId: selectedThread.threadId,
+            patientName: selectedThread.patientName,
+            text
+          })
+        });
+      } catch (err) {}
+    }
+
+    function insertQuickAdvice(text) {
+      const input = document.getElementById('replyTextInput');
+      if (input) {
+        input.value = text;
+        input.focus();
+      }
+    }
+
+    function openPatientEHR() {
+      if (!selectedThread) return;
+      window.location.href = `../patient_detail/patient_detail.html?id=${selectedThread.patientId}&name=${encodeURIComponent(selectedThread.patientName)}`;
+    }
+
+    function scheduleFollowUpFromChat() {
+      if (!selectedThread) return;
+      window.location.href = `../dashboard/doctor_dashboard.html?action=schedule&patient=${encodeURIComponent(selectedThread.patientName)}`;
+    }
+
+    // Video Consultation Simulator
+    function startTeleconsultCall(type) {
+      if (!selectedThread) return;
+      
+      const modal = document.getElementById('videoCallModal');
+      document.getElementById('callPatientTitle').textContent = `${type === 'video' ? 'Telehealth Video Consult' : 'Clinical Audio Call'} — ${selectedThread.patientName}`;
+      document.getElementById('callPatientName').textContent = selectedThread.patientName;
+      document.getElementById('callPatientInitials').textContent = getInitials(selectedThread.patientName);
+      document.getElementById('callSpo2').textContent = `${selectedThread.vitals?.spo2 || 98}%`;
+      document.getElementById('callPulse').textContent = `${selectedThread.vitals?.pulse || 80} bpm`;
+      document.getElementById('callBp').textContent = selectedThread.vitals?.bp || '120/80';
+
+      modal.classList.remove('hidden');
+
+      if ('speechSynthesis' in window) {
+        try {
+          const u = new SpeechSynthesisUtterance(`Connecting secure teleconsultation channel with patient ${selectedThread.patientName}.`);
+          u.rate = 1.05;
+          window.speechSynthesis.speak(u);
+        } catch(e) {}
+      }
+
+      callSeconds = 0;
+      clearInterval(callInterval);
+      callInterval = setInterval(() => {
+        callSeconds++;
+        const mins = String(Math.floor(callSeconds / 60)).padStart(2, '0');
+        const secs = String(callSeconds % 60).padStart(2, '0');
+        const timerEl = document.getElementById('callTimer');
+        if (timerEl) timerEl.textContent = `Connected: ${mins}:${secs}`;
+      }, 1000);
+    }
+
+    function endTeleconsultCall() {
+      clearInterval(callInterval);
+      const modal = document.getElementById('videoCallModal');
+      modal.classList.add('hidden');
+      if (selectedThread) {
+        const now = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        selectedThread.messages.push({
+          sender: 'doctor',
+          text: `[Teleconsultation Summary]: 12-lead vitals reviewed. Patient advised on medication adherence and hydration. Next review scheduled.`,
+          time: now
+        });
+        renderMessages();
+      }
+    }
+
+    function toggleCallMic(btn) {
+      btn.classList.toggle('bg-red-500/40');
+      btn.classList.toggle('text-red-300');
+    }
+
+    function toggleCallCam(btn) {
+      btn.classList.toggle('bg-red-500/40');
+      btn.classList.toggle('text-red-300');
+    }
+
+    function getInitials(name) {
+      if (!name) return 'PT';
+      const parts = name.trim().split(' ');
+      if (parts.length === 1) return parts[0].substring(0, 2).toUpperCase();
+      return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+    }
+
+    async function refreshInboxData() {
+      const icon = document.getElementById('refreshIcon');
+      if (icon) icon.classList.add('animate-spin');
+      await loadInboxData();
+      setTimeout(() => {
+        if (icon) icon.classList.remove('animate-spin');
+      }, 500);
+    }
+
+    document.addEventListener('DOMContentLoaded', loadInboxData);
+  </script>
+</body>
+</html>
