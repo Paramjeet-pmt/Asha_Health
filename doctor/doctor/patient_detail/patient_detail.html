@@ -1528,9 +1528,9 @@
         Health Profile
       </a>
 
-      <a href="../../../patient/appointment/appointment.html" class="side-link">
+      <a href="../dashboard/doctor_dashboard.html#appointments" class="side-link">
         <span>▣</span>
-        Appointments
+        Appointments &amp; Schedule
       </a>
 
       <a href="../../../patient/Precautions/index.html" class="side-link">
@@ -1665,8 +1665,8 @@
             ← Back to Dashboard
           </button>
 
-          <button class="btn btn-primary" onclick="window.location.href='../../../patient/appointment/appointment.html'">
-            ✚ Book Appointment
+          <button class="btn btn-primary" onclick="window.location.href='../dashboard/doctor_dashboard.html?action=schedule&patient=' + encodeURIComponent(document.getElementById('patientName')?.textContent?.trim() || 'Patient')">
+            ✚ Schedule Follow-Up
           </button>
 
         </div>

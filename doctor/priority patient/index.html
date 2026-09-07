@@ -909,7 +909,7 @@
                 Triage
             </button>
 
-            <button class="side-item" onclick="window.location.href='../../patient/appointment/appointment.html'">
+            <button class="side-item" onclick="window.location.href='../doctor/dashboard/doctor_dashboard.html#appointments'">
                 <i class="fa-solid fa-calendar-days"></i>
                 Visits
             </button>
@@ -1540,7 +1540,7 @@
         </button>
 
 
-        <button class="nav-item" onclick="window.location.href='../../patient/appointment/appointment.html'">
+        <button class="nav-item" onclick="window.location.href='../doctor/dashboard/doctor_dashboard.html#appointments'">
 
             <i class="fa-solid fa-users"></i>
 
@@ -1694,9 +1694,9 @@
         ========================================================== */
 
         function scheduleVisit(patient) {
-            showToast("Scheduling visit for " + patient);
+            showToast("Opening clinical slot scheduler for " + patient);
             setTimeout(() => {
-                window.location.href = `../../patient/appointment/appointment.html?patient=${encodeURIComponent(patient)}`;
+                window.location.href = `../doctor/dashboard/doctor_dashboard.html?action=schedule&patient=${encodeURIComponent(patient)}`;
             }, 350);
         }
 
