@@ -455,6 +455,11 @@
 
   <!-- Synchronization & Interactive Medicine Script -->
   <script>
+    const API_BASE = (window.location.protocol === 'http:' || window.location.protocol === 'https:')
+      && window.location.port === '5000'
+      ? ''
+      : 'http://localhost:5000';
+
     let isSyncing = false;
 
     function handleFindMedicationClick() {
@@ -470,7 +475,7 @@
       const confirmDispatch = confirm('🚨 CRITICAL EMERGENCY (SOS)\n\nDo you want to immediately dispatch an emergency triage alert to on-duty doctors and call Emergency Services (112)?');
       if (confirmDispatch) {
         try {
-          const res = await fetch('/api/doctor/quick-triage', {
+          const res = await fetch(`${API_BASE}/api/doctor/quick-triage`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
@@ -567,7 +572,7 @@
 
       // Asynchronously push to backend if available
       try {
-        fetch(`/api/patient/prescription/${medId}/toggle`, {
+        fetch(`${API_BASE}/api/patient/prescription/${medId}/toggle`, {
           method: "PATCH",
           headers: {
             "Content-Type": "application/json"
@@ -651,7 +656,7 @@
 
       try {
         // Call backend sync API for Patient #1 (Priya Sharma)
-        const res = await fetch("/api/patient/1/sync", {
+        const res = await fetch(`${API_BASE}/api/patient/1/sync`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json"
@@ -706,7 +711,7 @@
     // Fetch latest appointment from SQLite DB
     async function loadUpcomingAppointment() {
       try {
-        const res = await fetch('/api/appointments');
+        const res = await fetch(`${API_BASE}/api/appointments`);
         if (!res.ok) return;
         const appointments = await res.json();
         if (appointments && appointments.length > 0) {

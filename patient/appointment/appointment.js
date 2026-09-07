@@ -931,7 +931,12 @@ if (appointmentForm) {
                 submitBtn.innerHTML = '<span>⏳ Saving to Hospital DB...</span>';
             }
 
-            fetch('/api/appointments', {
+            const API_BASE = (window.location.protocol === 'http:' || window.location.protocol === 'https:')
+                && window.location.port === '5000'
+                ? ''
+                : 'http://localhost:5000';
+
+            fetch(`${API_BASE}/api/appointments`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
