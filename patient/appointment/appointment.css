@@ -897,6 +897,10 @@ a {
 }
 
 /* Gender radio segmented control */
+/* =========================================================
+   GENDER RADIO - FIXED CLICK AREA
+========================================================= */
+
 .gender-group {
     min-height: 44px;
     display: grid;
@@ -909,34 +913,43 @@ a {
 }
 
 .gender-group label {
-    display: grid;
-    place-items: center;
-    cursor: pointer;
+    position: relative;
+    display: block;
+    height: 36px;
     margin: 0;
+    cursor: pointer;
 }
 
-.gender-group input {
+.gender-group input[type="radio"] {
     position: absolute;
-    opacity: 0;
-}
-
-.gender-group span {
+    inset: 0;
     width: 100%;
     height: 100%;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.gender-group label span {
+    position: absolute;
+    inset: 0;
     display: grid;
     place-items: center;
     border-radius: 4px;
     color: var(--text-secondary);
     font-size: 13px;
     font-weight: 600;
-    transition: background .15s ease, color .15s ease;
+    transition: .15s ease, color .15s ease;
+    pointer-events: none;
 }
 
-.gender-group input:checked + span {
+.gender-group input[type="radio"]:checked + span {
     background: var(--primary);
     color: #ffffff;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
+
 
 /* =========================================================
    SUMMARY & PRICING CARD

@@ -1,0 +1,724 @@
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --background: #faf9fd;
+    --white: #ffffff;
+
+    --text: #0c0c12;
+    --secondary-text: #45444b;
+
+    --red: #c7191d;
+    --dark-red: #b51216;
+
+    --purple: #4b11a7;
+    --purple-light: #e8d9ff;
+
+    --blue: #003d68;
+    --blue-dark: #00375e;
+
+    --light-gray: #f1f0f5;
+    --border: #eceaf0;
+
+    --critical-bg: #fff0f1;
+    --high-risk-bg: #e8d9ff;
+
+    --radius: 26px;
+}
+
+body {
+    font-family: "Inter", Arial, sans-serif;
+    background: var(--background);
+    color: var(--text);
+}
+
+
+/* =====================================================
+   APP
+===================================================== */
+
+.app {
+    width: 100%;
+    max-width: 700px;
+    min-height: 100vh;
+    margin: auto;
+    background: var(--background);
+    position: relative;
+    padding-bottom: 95px;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.top-header {
+    background: #fbfaff;
+    padding: 25px 27px 16px;
+    border-bottom: 1px solid #f0eef4;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.02);
+}
+
+.header-top,
+.header-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-bottom {
+    margin-top: 27px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 5px;
+    font-weight: 700;
+    color: #20242a;
+}
+
+.logo-mark {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #087b82;
+    font-size: 25px;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+.sync-status {
+    border: none;
+    background: #ccfaf4;
+    color: #175a58;
+    border-radius: 30px;
+    padding: 11px 17px;
+    font-size: 17px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.sync-icon {
+    font-size: 21px;
+    font-weight: 700;
+}
+
+.doctor-avatar {
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: #eee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 31px;
+    border: 4px solid #eee;
+}
+
+.header-bottom h1 {
+    font-size: 38px;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+.role-button {
+    border: none;
+    background: #f0eff4;
+    padding: 11px 18px;
+    border-radius: 28px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    cursor: pointer;
+}
+
+
+/* =====================================================
+   MAIN
+===================================================== */
+
+.main-content {
+    padding: 38px 27px 30px;
+}
+
+.section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.section-heading h2 {
+    font-size: 38px;
+    line-height: 1.1;
+    letter-spacing: -1px;
+}
+
+.section-heading p {
+    font-size: 25px;
+    color: #45434a;
+    margin-top: 17px;
+}
+
+.filter-button {
+    width: 67px;
+    height: 67px;
+    border-radius: 50%;
+    border: none;
+    background: #f0eff4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    cursor: pointer;
+}
+
+.filter-button span {
+    height: 2px;
+    background: #111;
+    display: block;
+}
+
+.filter-button span:nth-child(1) {
+    width: 26px;
+}
+
+.filter-button span:nth-child(2) {
+    width: 18px;
+}
+
+.filter-button span:nth-child(3) {
+    width: 10px;
+}
+
+
+/* =====================================================
+   PRIORITY COUNTERS
+===================================================== */
+
+.priority-counters {
+    display: flex;
+    gap: 13px;
+    margin-top: 43px;
+
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.priority-counters::-webkit-scrollbar {
+    display: none;
+}
+
+.priority-counter {
+    min-width: 236px;
+    height: 195px;
+    padding: 29px;
+    border-radius: 27px;
+    flex-shrink: 0;
+}
+
+.priority-counter.critical {
+    background: var(--critical-bg);
+}
+
+.priority-counter.high-risk {
+    background: var(--high-risk-bg);
+}
+
+.priority-counter.follow-up {
+    background: #f0eff4;
+}
+
+.counter-title {
+    font-size: 24px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    white-space: nowrap;
+}
+
+.critical .counter-title {
+    color: var(--red);
+}
+
+.high-risk .counter-title {
+    color: #17005d;
+}
+
+.follow-up .counter-title {
+    color: #24232a;
+}
+
+.counter-icon {
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.priority-counter strong {
+    display: block;
+    font-size: 80px;
+    line-height: 1;
+    margin-top: 26px;
+}
+
+.critical strong {
+    color: var(--red);
+}
+
+.high-risk strong {
+    color: #17005d;
+}
+
+.follow-up strong {
+    color: #090909;
+}
+
+
+/* =====================================================
+   PATIENT LIST
+===================================================== */
+
+.patients-list {
+    margin-top: 54px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+
+/* =====================================================
+   PATIENT CARD
+===================================================== */
+
+.patient-card {
+    background: #fff;
+    border: 1px solid #f0eef2;
+    border-radius: 27px;
+    padding: 24px 28px 26px;
+    position: relative;
+    overflow: hidden;
+
+    box-shadow:
+        0 2px 4px rgba(0, 0, 0, 0.02),
+        0 8px 25px rgba(0, 0, 0, 0.02);
+}
+
+.critical-card {
+    padding-left: 39px;
+}
+
+.critical-border {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 10px;
+    background: var(--red);
+    border-radius: 0 10px 10px 0;
+}
+
+
+/* =====================================================
+   PATIENT HEADER
+===================================================== */
+
+.patient-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.patient-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.patient-avatar {
+    width: 78px;
+    height: 78px;
+    border-radius: 50%;
+    background: #bca78f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 42px;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.green-avatar {
+    background: #9bc4a3;
+}
+
+.patient-info h3 {
+    font-size: 29px;
+    font-weight: 500;
+    line-height: 1.1;
+}
+
+.patient-info p {
+    margin-top: 8px;
+    color: #414047;
+    font-size: 18px;
+}
+
+.status {
+    padding: 10px 17px;
+    border-radius: 22px;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+.critical-status {
+    color: #c5161c;
+    background: #ffdada;
+}
+
+.high-risk-status {
+    color: #5011a9;
+    background: #e9ddff;
+}
+
+
+/* =====================================================
+   CONDITION
+===================================================== */
+
+.condition {
+    font-size: 22px;
+    margin-top: 27px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+}
+
+.critical-text {
+    color: #b6191d;
+}
+
+.high-risk-text {
+    color: #4c12a6;
+}
+
+
+/* =====================================================
+   VITALS
+===================================================== */
+
+.vitals {
+    margin-top: 18px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background: #f6f5f9;
+    border-radius: 19px;
+    min-height: 103px;
+}
+
+.vital {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.vital + .vital::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 20%;
+    height: 60%;
+    width: 1px;
+    background: #dddbe2;
+}
+
+.vital-icon {
+    font-size: 27px;
+    line-height: 1;
+    margin-bottom: 8px;
+}
+
+.heart {
+    color: #111;
+}
+
+.oxygen {
+    color: #222;
+}
+
+.vital strong {
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.vital span {
+    font-size: 17px;
+    margin-left: 3px;
+}
+
+
+/* =====================================================
+   PATIENT ACTIONS
+===================================================== */
+
+.patient-actions {
+    display: grid;
+    grid-template-columns: 1fr 1.15fr;
+    gap: 13px;
+    margin-top: 27px;
+}
+
+.patient-actions button,
+.schedule-button {
+    height: 74px;
+    border: none;
+    border-radius: 19px;
+    font-family: inherit;
+    font-size: 21px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.patient-actions button:active,
+.schedule-button:active {
+    transform: scale(0.97);
+}
+
+.secondary-button {
+    background: #f0eff4;
+    color: #08080b;
+}
+
+.danger-button {
+    background: #ca171b;
+    color: #fff;
+
+    box-shadow:
+        0 5px 10px rgba(202, 23, 27, 0.22);
+}
+
+.schedule-button {
+    width: 100%;
+    margin-top: 27px;
+    background: #003f68;
+    color: white;
+
+    box-shadow:
+        0 6px 10px rgba(0, 50, 90, 0.18);
+}
+
+
+/* =====================================================
+   BOTTOM NAV
+===================================================== */
+
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 100%;
+    max-width: 700px;
+
+    height: 100px;
+
+    background: rgba(251, 250, 253, 0.98);
+    border-top: 1px solid #ebe9ef;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    z-index: 100;
+}
+
+.nav-item {
+    border: none;
+    background: transparent;
+    color: #1b1a20;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 6px;
+
+    font-family: inherit;
+    font-size: 17px;
+
+    cursor: pointer;
+}
+
+.nav-icon {
+    font-size: 29px;
+    line-height: 1;
+}
+
+.nav-item.active {
+    color: #18171c;
+}
+
+
+/* =====================================================
+   TOAST
+===================================================== */
+
+.toast {
+    position: fixed;
+    left: 50%;
+    bottom: 115px;
+    transform: translate(-50%, 20px);
+
+    background: #17171c;
+    color: white;
+
+    padding: 14px 23px;
+    border-radius: 30px;
+
+    font-size: 16px;
+
+    opacity: 0;
+    pointer-events: none;
+
+    transition:
+        opacity 0.3s,
+        transform 0.3s;
+
+    z-index: 200;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
+
+
+/* =====================================================
+   DESKTOP
+===================================================== */
+
+@media (min-width: 701px) {
+
+    body {
+        background: #e9e8ed;
+    }
+
+    .app {
+        min-height: 100vh;
+        box-shadow: 0 0 50px rgba(0, 0, 0, 0.08);
+    }
+
+}
+
+
+/* =====================================================
+   SMALL PHONES
+===================================================== */
+
+@media (max-width: 420px) {
+
+    .top-header {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .main-content {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .header-bottom h1 {
+        font-size: 32px;
+    }
+
+    .section-heading h2 {
+        font-size: 31px;
+    }
+
+    .section-heading p {
+        font-size: 19px;
+    }
+
+    .filter-button {
+        width: 58px;
+        height: 58px;
+    }
+
+    .priority-counter {
+        min-width: 220px;
+        height: 180px;
+    }
+
+    .patient-card {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .critical-card {
+        padding-left: 30px;
+    }
+
+    .patient-avatar {
+        width: 65px;
+        height: 65px;
+        font-size: 34px;
+    }
+
+    .patient-info h3 {
+        font-size: 23px;
+    }
+
+    .patient-info p {
+        font-size: 15px;
+    }
+
+    .status {
+        font-size: 12px;
+        padding: 8px 11px;
+    }
+
+    .condition {
+        font-size: 17px;
+    }
+
+    .vital strong {
+        font-size: 20px;
+    }
+
+    .vital span {
+        font-size: 14px;
+    }
+
+    .patient-actions button,
+    .schedule-button {
+        font-size: 16px;
+        height: 65px;
+    }
+
+}
