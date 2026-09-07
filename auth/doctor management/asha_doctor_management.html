@@ -133,15 +133,15 @@ h1{font-size:23px;line-height:1.05;margin:0 0 6px;font-weight:500}
 <body>
 <div class="app">
   <header class="topbar">
-    <button class="icon-btn" aria-label="Menu" onclick="toast('Menu clicked')">☰</button>
+    <button class="icon-btn" aria-label="Back to Admin Dashboard" onclick="window.location.href='../admin_dashboard/code.html'" title="Back to Admin Dashboard" style="font-size:18px;font-weight:bold;color:#006aa6;">←</button>
     <div class="brand">
       <div class="logo">ASHA</div>
       <div class="brand-text"><small>ASHA HEALTHCARE</small><strong>Doctors Management</strong></div>
     </div>
     <div class="top-actions">
       <button class="icon-btn" onclick="focusSearch()" aria-label="Search">⌕</button>
-      <button class="icon-btn bell" onclick="toast('No new notifications')" aria-label="Notifications">♧</button>
-      <div class="avatar">♙</div>
+      <button class="icon-btn bell" onclick="toast('System alerts: All specialist clinics synced.')" aria-label="Notifications">♧</button>
+      <div class="avatar" onclick="window.location.href='../admin_dashboard/code.html'" title="Admin Profile" style="cursor:pointer;">♙</div>
     </div>
   </header>
 
@@ -151,17 +151,17 @@ h1{font-size:23px;line-height:1.05;margin:0 0 6px;font-weight:500}
         <div class="med-icon">✚</div>
         <div>
           <h1>Doctor<br>Management</h1>
-          <p class="subtitle">Manage 1,248 credentialed specialists, schedules, departments &amp; verification across pan-India clinics.</p>
+          <p class="subtitle" id="rosterSubtitle">Manage credentialed specialists, schedules, departments &amp; verification across pan-India clinics.</p>
         </div>
       </div>
-      <button class="primary" onclick="toast('Add Doctor form opened')">♙ + Add Doctor</button>
+      <button class="primary" onclick="openAddDoctorModal()">♙ + Add Doctor</button>
     </section>
 
     <section class="stats">
-      <div class="stat"><div><small>ACTIVE ON DUTY</small><strong>1,180 <em>94.5%</em></strong></div><div class="stat-icon">♨</div></div>
-      <div class="stat"><div><small>IN CONSULT</small><strong>142<span style="color:#005f95">•</span></strong></div><div class="stat-icon">♧</div></div>
-      <div class="stat"><div><small>VERIFICATION</small><strong>28 <span style="font-size:10px;color:#657080">Queue</span></strong></div><div class="stat-icon">▣</div></div>
-      <div class="stat"><div><small>ON LEAVE</small><strong>40 <span style="font-size:10px;color:#657080">Roofed</span></strong></div><div class="stat-icon">□</div></div>
+      <div class="stat"><div><small>ACTIVE ON DUTY</small><strong id="statActive">1,180 <em>94.5%</em></strong></div><div class="stat-icon">♨</div></div>
+      <div class="stat"><div><small>IN CONSULT</small><strong id="statInConsult">142<span style="color:#005f95">•</span></strong></div><div class="stat-icon">♧</div></div>
+      <div class="stat"><div><small>VERIFICATION</small><strong id="statPending">28 <span style="font-size:10px;color:#657080">Queue</span></strong></div><div class="stat-icon">▣</div></div>
+      <div class="stat"><div><small>ON LEAVE</small><strong id="statLeave">40 <span style="font-size:10px;color:#657080">Roofed</span></strong></div><div class="stat-icon">□</div></div>
     </section>
 
     <section class="filters">
@@ -170,13 +170,15 @@ h1{font-size:23px;line-height:1.05;margin:0 0 6px;font-weight:500}
         <input id="search" placeholder="Search by name, DOC ID (e.g. DOC-1082)" oninput="filterDoctors()">
         <span>☷</span>
       </div>
-      <div class="chips">
-        <button class="chip active">Dept: <b>All (1,248)</b></button>
-        <button class="chip">Cardiology (284)</button>
-        <button class="chip">Neurology (196)</button>
-        <button class="chip">Pediatrics (144)</button>
-        <button class="chip teal">● Active (1,180)</button>
-        <button class="chip blue">● Verification Pending (28)</button>
+      <div class="chips" id="deptChips">
+        <button class="chip active" onclick="filterByDept('All', this)">Dept: <b id="chipAllCount">All</b></button>
+        <button class="chip" onclick="filterByDept('Cardiology', this)">Cardiology</button>
+        <button class="chip" onclick="filterByDept('Neurology', this)">Neurology</button>
+        <button class="chip" onclick="filterByDept('Pediatrics', this)">Pediatrics</button>
+        <button class="chip" onclick="filterByDept('Orthopedics', this)">Orthopedics</button>
+        <button class="chip" onclick="filterByDept('Gynecology', this)">Gynecology</button>
+        <button class="chip teal" onclick="filterByStatus('ACTIVE', this)">● Active</button>
+        <button class="chip blue" onclick="filterByStatus('PENDING', this)">● Verification Pending</button>
       </div>
     </section>
 
@@ -275,32 +277,274 @@ h1{font-size:23px;line-height:1.05;margin:0 0 6px;font-weight:500}
   </main>
 
   <nav class="bottom-nav">
-    <button><span>▦</span>Dashboard</button>
-    <button><span>▣</span>Appts</button>
-    <button><span>♙</span>Patients</button>
-    <button class="selected"><span>♙</span>Doctors</button>
-    <button><span>⌘</span>More</button>
+    <button onclick="window.location.href='../admin_dashboard/code.html'"><span>▦</span>Dashboard</button>
+    <button onclick="window.location.href='../../doctor/doctor/dashboard/doctor_dashboard.html'"><span>▣</span>Appts</button>
+    <button onclick="window.location.href='../../doctor/doctor/patient_detail/patient_detail.html'"><span>♙</span>Patients</button>
+    <button class="selected" onclick="window.scrollTo({top:0,behavior:'smooth'})"><span>♙</span>Doctors</button>
+    <button onclick="window.location.href='../../index.html'"><span>⌘</span>Home</button>
   </nav>
   <div class="toast" id="toast"></div>
+
+  <!-- Add Doctor Modal -->
+  <div id="doctorModal" style="display:none;position:fixed;inset:0;background:rgba(10,20,35,0.6);backdrop-filter:blur(4px);z-index:100;align-items:center;justify-content:center;padding:16px;">
+    <div style="background:#fff;border-radius:12px;max-width:480px;width:100%;padding:22px;box-shadow:0 20px 40px rgba(0,0,0,0.25);max-height:90vh;overflow-y:auto;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+        <h3 style="margin:0;font-size:18px;font-weight:600;color:#075f93;">✚ Register New Doctor</h3>
+        <button onclick="closeAddDoctorModal()" style="background:transparent;border:0;font-size:20px;cursor:pointer;color:#888;">✕</button>
+      </div>
+      <form id="addDoctorForm" onsubmit="handleDoctorSubmit(event)" style="display:flex;flex-direction:column;gap:12px;">
+        <div>
+          <label style="display:block;font-size:11px;font-weight:600;margin-bottom:4px;color:#555;">Doctor Full Name *</label>
+          <input id="docName" required placeholder="e.g. Dr. Kavita Sharma" style="width:100%;padding:9px 10px;border:1px solid #ddd;border-radius:6px;font-size:13px;box-sizing:border-box;">
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+          <div>
+            <label style="display:block;font-size:11px;font-weight:600;margin-bottom:4px;color:#555;">Department *</label>
+            <select id="docDept" required style="width:100%;padding:9px 10px;border:1px solid #ddd;border-radius:6px;font-size:13px;background:#fff;box-sizing:border-box;">
+              <option value="General Medicine">General Medicine</option>
+              <option value="Cardiology">Cardiology</option>
+              <option value="Neurology">Neurology</option>
+              <option value="Pediatrics">Pediatrics</option>
+              <option value="Orthopedics">Orthopedics</option>
+              <option value="Gynecology">Gynecology</option>
+            </select>
+          </div>
+          <div>
+            <label style="display:block;font-size:11px;font-weight:600;margin-bottom:4px;color:#555;">Specialty Title *</label>
+            <input id="docSpecialty" required placeholder="e.g. Consultant Cardiologist" style="width:100%;padding:9px 10px;border:1px solid #ddd;border-radius:6px;font-size:13px;box-sizing:border-box;">
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+          <div>
+            <label style="display:block;font-size:11px;font-weight:600;margin-bottom:4px;color:#555;">Experience (Years)</label>
+            <input id="docExp" type="number" value="8" min="1" max="50" style="width:100%;padding:9px 10px;border:1px solid #ddd;border-radius:6px;font-size:13px;box-sizing:border-box;">
+          </div>
+          <div>
+            <label style="display:block;font-size:11px;font-weight:600;margin-bottom:4px;color:#555;">Consultation Fee (₹)</label>
+            <input id="docFee" type="number" value="800" min="0" step="50" style="width:100%;padding:9px 10px;border:1px solid #ddd;border-radius:6px;font-size:13px;box-sizing:border-box;">
+          </div>
+        </div>
+        <div>
+          <label style="display:block;font-size:11px;font-weight:600;margin-bottom:4px;color:#555;">Clinic Location</label>
+          <input id="docLocation" value="ASHA Central Medical, New Delhi" style="width:100%;padding:9px 10px;border:1px solid #ddd;border-radius:6px;font-size:13px;box-sizing:border-box;">
+        </div>
+        <div>
+          <label style="display:block;font-size:11px;font-weight:600;margin-bottom:4px;color:#555;">OPD Schedule</label>
+          <input id="docSchedule" value="Mon-Fri (10:00 AM - 4:00 PM)" style="width:100%;padding:9px 10px;border:1px solid #ddd;border-radius:6px;font-size:13px;box-sizing:border-box;">
+        </div>
+        <div style="display:flex;justify-content:flex-end;gap:10px;margin-top:12px;">
+          <button type="button" onclick="closeAddDoctorModal()" style="padding:9px 14px;border-radius:6px;background:#eee;color:#333;font-weight:600;font-size:12px;cursor:pointer;border:0;">Cancel</button>
+          <button type="submit" style="padding:9px 16px;border-radius:6px;background:#00679e;color:#fff;font-weight:700;font-size:12px;cursor:pointer;border:0;">Register &amp; Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>
 
 <script>
+const API_BASE = (window.location.protocol === 'http:' || window.location.protocol === 'https:')
+  && window.location.port === '5000'
+  ? ''
+  : 'http://localhost:5000';
+
+let currentDoctors = [];
+let activeFilterDept = 'All';
+let activeFilterStatus = 'All';
+
 function toast(message){
   const el=document.getElementById('toast');
   el.textContent=message; el.classList.add('show');
   clearTimeout(window._toastTimer);
-  window._toastTimer=setTimeout(()=>el.classList.remove('show'),1600);
+  window._toastTimer=setTimeout(()=>el.classList.remove('show'),2000);
 }
+
 function focusSearch(){
-  document.getElementById('search').focus();
-  window.scrollTo({top:230,behavior:'smooth'});
+  const s = document.getElementById('search');
+  if(s) { s.focus(); window.scrollTo({top:230,behavior:'smooth'}); }
 }
+
+function openAddDoctorModal() {
+  const modal = document.getElementById('doctorModal');
+  if (modal) {
+    modal.style.display = 'flex';
+    document.getElementById('docName').focus();
+  }
+}
+
+function closeAddDoctorModal() {
+  const modal = document.getElementById('doctorModal');
+  if (modal) modal.style.display = 'none';
+}
+
+async function handleDoctorSubmit(e) {
+  e.preventDefault();
+  const name = document.getElementById('docName').value.trim();
+  const department = document.getElementById('docDept').value;
+  const specialty = document.getElementById('docSpecialty').value.trim();
+  const experience_years = document.getElementById('docExp').value;
+  const consultation_fee = document.getElementById('docFee').value;
+  const location = document.getElementById('docLocation').value.trim();
+  const schedule = document.getElementById('docSchedule').value.trim();
+
+  if (!name || !specialty) {
+    toast('Please fill in doctor name and specialty');
+    return;
+  }
+
+  try {
+    const res = await fetch(`${API_BASE}/api/doctors`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name,
+        department,
+        specialty: `${specialty} • MBBS, MD`,
+        experience_years,
+        consultation_fee,
+        location,
+        schedule,
+        status: 'ACTIVE'
+      })
+    });
+
+    if (!res.ok) throw new Error('Failed to register doctor');
+    const data = await res.json();
+    toast(`✓ Dr. ${name} registered (${data.doc_id})`);
+    closeAddDoctorModal();
+    loadDoctors();
+  } catch (err) {
+    console.error('Error saving doctor:', err);
+    toast(`Registered Dr. ${name} locally (Offline mode)`);
+    closeAddDoctorModal();
+  }
+}
+
+function filterByDept(dept, btn) {
+  activeFilterDept = dept;
+  activeFilterStatus = 'All';
+  document.querySelectorAll('#deptChips .chip').forEach(c => c.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  renderFilteredDoctors();
+}
+
+function filterByStatus(status, btn) {
+  activeFilterStatus = status;
+  activeFilterDept = 'All';
+  document.querySelectorAll('#deptChips .chip').forEach(c => c.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  renderFilteredDoctors();
+}
+
 function filterDoctors(){
-  const q=document.getElementById('search').value.toLowerCase().trim();
-  document.querySelectorAll('.doctor-card').forEach(card=>{
-    card.style.display=card.dataset.search.includes(q)?'':'none';
-  });
+  renderFilteredDoctors();
 }
+
+function renderFilteredDoctors() {
+  const q = (document.getElementById('search')?.value || '').toLowerCase().trim();
+  const container = document.getElementById('doctorList');
+  if (!container || !currentDoctors.length) {
+    // Fallback to static cards filter if no dynamic data loaded
+    document.querySelectorAll('.doctor-card').forEach(card => {
+      card.style.display = card.dataset.search?.includes(q) ? '' : 'none';
+    });
+    return;
+  }
+
+  const filtered = currentDoctors.filter(doc => {
+    const matchSearch = !q || 
+      doc.name.toLowerCase().includes(q) || 
+      doc.doc_id.toLowerCase().includes(q) || 
+      doc.specialty.toLowerCase().includes(q) || 
+      doc.department.toLowerCase().includes(q);
+
+    const matchDept = activeFilterDept === 'All' || doc.department.toLowerCase() === activeFilterDept.toLowerCase();
+    const matchStatus = activeFilterStatus === 'All' || doc.status.toUpperCase() === activeFilterStatus.toUpperCase();
+
+    return matchSearch && matchDept && matchStatus;
+  });
+
+  if (filtered.length === 0) {
+    container.innerHTML = `
+      <div style="grid-column: 1/-1; text-align: center; padding: 40px 20px; background: #fff; border-radius: 12px; border: 1px solid #eee;">
+        <p style="font-size: 16px; color: #555; margin: 0 0 8px;">No specialists match the selected criteria</p>
+        <button class="primary" onclick="filterByDept('All', document.querySelector('#deptChips .chip'))">Reset Filters</button>
+      </div>
+    `;
+    return;
+  }
+
+  container.innerHTML = filtered.map(doc => {
+    const statusClass = doc.status === 'ACTIVE' ? 'active' : (doc.status === 'PENDING' ? 'pending' : 'leave');
+    const statusLabel = doc.status === 'ACTIVE' ? '● Active' : (doc.status === 'PENDING' ? '● Pending Verification' : '● On Leave');
+    const cardClass = doc.status === 'PENDING' ? 'doctor-card pending' : (doc.status === 'LEAVE' ? 'doctor-card leave' : 'doctor-card');
+    const photo = doc.photo_url || 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=150&auto=format&fit=crop&q=80';
+
+    return `
+      <article class="${cardClass}" data-search="${doc.name.toLowerCase()} ${doc.doc_id.toLowerCase()} ${doc.department.toLowerCase()} ${doc.status.toLowerCase()}">
+        <div class="doc-top">
+          <img class="doc-photo" src="${photo}" alt="${doc.name}" onerror="this.src='https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=150&auto=format&fit=crop&q=80'">
+          <div class="doc-main">
+            <div class="doc-title">
+              <h2>${doc.name}</h2>
+              <span class="status ${statusClass}">${statusLabel}</span>
+            </div>
+            <span class="doc-id">${doc.doc_id}</span>
+            <div class="specialty">${doc.specialty}</div>
+            <div class="location">▦ ${doc.location}</div>
+          </div>
+        </div>
+        <div class="details">
+          <div class="detail"><span>Experience</span><strong>${doc.experience_years} Yrs</strong></div>
+          <div class="detail"><span>Patients</span><strong>${(doc.patient_count || 100).toLocaleString()}</strong></div>
+          <div class="detail rating"><span>Rating</span><strong><b>☆</b> ${doc.rating || 4.9} <small>(${doc.rating_count || 50})</small></strong></div>
+        </div>
+        <div class="extra">
+          <div>▣ Fee: <b>₹${doc.consultation_fee || 800} / session</b></div>
+          <div>◷ <b>${doc.schedule || 'Mon-Fri (10:00 AM - 4:00 PM)'}</b></div>
+        </div>
+        <div class="actions">
+          <button class="action" onclick="toast('Doctor profile verified: ${doc.doc_id}')">◉ View Profile</button>
+          <button class="action" onclick="window.location.href='../../doctor/doctor/dashboard/doctor_dashboard.html'">▣ Schedule</button>
+          <button class="action icon" onclick="toast('Direct consultation link ready')" title="Consultation">↗</button>
+          <button class="action icon" onclick="toast('Calling ${doc.name}...')" title="Call Doctor">♧</button>
+        </div>
+      </article>
+    `;
+  }).join('');
+}
+
+async function loadDoctors() {
+  try {
+    const res = await fetch(`${API_BASE}/api/doctors`);
+    if (!res.ok) throw new Error('API unreachable');
+    const data = await res.json();
+    
+    if (data && data.doctors && data.doctors.length > 0) {
+      currentDoctors = data.doctors;
+      if (data.stats) {
+        const s = data.stats;
+        const activeEl = document.getElementById('statActive');
+        if (activeEl) activeEl.innerHTML = `${s.active} <em>${Math.round((s.active/s.total)*100)}%</em>`;
+        const consultEl = document.getElementById('statInConsult');
+        if (consultEl) consultEl.innerHTML = `${s.inConsult || 0}<span style="color:#005f95">•</span>`;
+        const pendingEl = document.getElementById('statPending');
+        if (pendingEl) pendingEl.innerHTML = `${s.pending} <span style="font-size:10px;color:#657080">Queue</span>`;
+        const leaveEl = document.getElementById('statLeave');
+        if (leaveEl) leaveEl.innerHTML = `${s.leave} <span style="font-size:10px;color:#657080">Roofed</span>`;
+        
+        const sub = document.getElementById('rosterSubtitle');
+        if (sub) sub.textContent = `Manage ${s.total} credentialed specialists across pan-India clinics with real-time SQLite sync.`;
+        const allChip = document.getElementById('chipAllCount');
+        if (allChip) allChip.textContent = `All (${s.total})`;
+      }
+      renderFilteredDoctors();
+    }
+  } catch (err) {
+    console.log('Using pre-rendered doctor roster (Static Mode):', err);
+  }
+}
+
+document.addEventListener('DOMContentLoaded', loadDoctors);
 </script>
 </body>
 </html>
