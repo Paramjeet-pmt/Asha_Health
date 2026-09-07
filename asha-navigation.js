@@ -204,8 +204,8 @@
       p.includes('dashboard') ||
       p.includes('index.html');
 
-    // Do not show on auth / admin / worker / splash screens
-    if (!isPatientArea || noBack.has(current) || p.includes('/admin/') || p.includes('/workers/') || p.includes('/auth/')) {
+    // Do not show on doctor / auth / admin / worker / splash screens
+    if (!isPatientArea || noBack.has(current) || p.includes('/doctor/') || p.includes('/admin/') || p.includes('/workers/') || p.includes('/auth/')) {
       return;
     }
 

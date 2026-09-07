@@ -14,6 +14,7 @@
     <!-- Font Awesome -->
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
 
     <style>
 
@@ -537,46 +538,72 @@
            BOTTOM NAVIGATION
         ========================================================= */
 
-        .bottom-nav {
-            position: fixed;
-
-            left: 0;
-            right: 0;
-            bottom: 0;
-
-            height: 78px;
-
-            background: rgba(255,255,255,.97);
-
-            border-top: 1px solid #eeeeF3;
-
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-
-            z-index: 100;
+        .doctor-unified-bottom-nav {
+            position: fixed !important;
+            bottom: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            width: 100% !important;
+            height: calc(64px + env(safe-area-inset-bottom, 0px)) !important;
+            padding-bottom: env(safe-area-inset-bottom, 0px) !important;
+            background: rgba(255, 255, 255, 0.98) !important;
+            backdrop-filter: blur(16px) !important;
+            -webkit-backdrop-filter: blur(16px) !important;
+            border-top: 1px solid #d5e0ec !important;
+            box-shadow: 0 -2px 12px rgba(15, 23, 42, 0.06) !important;
+            z-index: 9999 !important;
+            transform: translateZ(0) !important;
+            -webkit-transform: translateZ(0) !important;
+            display: flex !important;
+            justify-content: center !important;
+            box-sizing: border-box !important;
         }
 
-        .nav-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-
-            gap: 6px;
-
-            color: #303039;
-
-            background: transparent;
-
-            font-size: 13px;
+        .doctor-nav-inner {
+            width: 100% !important;
+            max-width: 580px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: space-around !important;
+            height: 64px !important;
+            padding: 0 8px !important;
+            margin: 0 auto !important;
         }
 
-        .nav-item i {
-            font-size: 22px;
+        .doctor-nav-link {
+            flex: 1 1 0 !important;
+            max-width: 72px !important;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            justify-content: center !important;
+            height: 56px !important;
+            text-decoration: none !important;
+            color: #64748b !important;
+            font-family: inherit !important;
+            cursor: pointer !important;
+            transition: all 0.2s ease !important;
+            border-radius: 12px !important;
         }
 
-        .nav-item.active {
-            color: var(--navy);
+        .doctor-nav-link .material-symbols-outlined {
+            font-size: 22px !important;
+            display: block !important;
+        }
+
+        .doctor-nav-link span.label {
+            font-size: 10px !important;
+            font-weight: 600 !important;
+            margin-top: 3px !important;
+        }
+
+        .doctor-nav-link.active {
+            color: #063f67 !important;
+            font-weight: 700 !important;
+        }
+
+        .doctor-nav-link.active .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1 !important;
         }
 
         /* =========================================================
@@ -838,8 +865,8 @@
                 grid-column: auto;
             }
 
-            .bottom-nav {
-                display: none;
+            .bottom-nav, .doctor-unified-bottom-nav {
+                display: none !important;
             }
 
             .toast {
@@ -912,6 +939,11 @@
             <button class="side-item" onclick="window.location.href='../doctor/dashboard/doctor_dashboard.html#appointments'">
                 <i class="fa-solid fa-calendar-days"></i>
                 Visits
+            </button>
+
+            <button class="side-item" onclick="window.location.href='../doctor/inbox/inbox.html'">
+                <i class="fa-solid fa-comment-medical"></i>
+                Inbox
             </button>
 
             <button class="side-item" onclick="window.location.href='../../admin/command_center/command-center.html'">
@@ -1525,47 +1557,30 @@
     </main>
 
 
-    <!-- =========================================================
-         MOBILE BOTTOM NAV
-    ========================================================== -->
-
-    <nav class="bottom-nav">
-
-        <button class="nav-item" onclick="window.location.href='../doctor/dashboard/doctor_dashboard.html'">
-
-            <i class="fa-solid fa-border-all"></i>
-
-            <span>Home</span>
-
-        </button>
-
-
-        <button class="nav-item" onclick="window.location.href='../doctor/dashboard/doctor_dashboard.html#appointments'">
-
-            <i class="fa-solid fa-users"></i>
-
-            <span>Visits</span>
-
-        </button>
-
-
-        <button class="nav-item active">
-
-            <i class="fa-solid fa-triangle-exclamation"></i>
-
-            <span>Risk</span>
-
-        </button>
-
-
-        <button class="nav-item" onclick="loadLivePriorityQueue()">
-
-            <i class="fa-solid fa-cloud-arrow-up"></i>
-
-            <span>Sync</span>
-
-        </button>
-
+    <!-- Unified Doctor Bottom Navigation Bar (Centered & Stick-proof) -->
+    <nav class="doctor-unified-bottom-nav" aria-label="Doctor Portal Navigation">
+        <div class="doctor-nav-inner">
+            <a class="doctor-nav-link" href="../doctor/dashboard/doctor_dashboard.html" title="Dashboard">
+                <span class="material-symbols-outlined">grid_view</span>
+                <span class="label">Home</span>
+            </a>
+            <a class="doctor-nav-link active" href="index.html" title="Priority Queue">
+                <span class="material-symbols-outlined">queue</span>
+                <span class="label">Queue</span>
+            </a>
+            <a class="doctor-nav-link" href="../doctor/dashboard/doctor_dashboard.html?action=schedule" title="Schedule & Shifts">
+                <span class="material-symbols-outlined">calendar_today</span>
+                <span class="label">Schedule</span>
+            </a>
+            <a class="doctor-nav-link" href="../doctor/inbox/inbox.html" title="Clinical Inbox">
+                <span class="material-symbols-outlined">chat_bubble</span>
+                <span class="label">Inbox</span>
+            </a>
+            <a class="doctor-nav-link" href="../doctor/patient_detail/patient_detail.html" title="Patient EHR">
+                <span class="material-symbols-outlined">account_circle</span>
+                <span class="label">EHR</span>
+            </a>
+        </div>
     </nav>
 
 

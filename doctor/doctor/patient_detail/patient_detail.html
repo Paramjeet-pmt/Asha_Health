@@ -8,6 +8,7 @@
   />
 
   <title>Health Profile Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
 
   <style>
     /* =========================================================
@@ -842,48 +843,72 @@
        MOBILE BOTTOM NAV
     ========================================================= */
 
-    .bottom-nav {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-
-      height: 65px;
-
-      background: rgba(255,255,255,.96);
-      backdrop-filter: blur(12px);
-
-      border-top: 1px solid var(--border);
-
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-
-      z-index: 100;
+    .doctor-unified-bottom-nav {
+      position: fixed !important;
+      bottom: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      width: 100% !important;
+      height: calc(64px + env(safe-area-inset-bottom, 0px)) !important;
+      padding-bottom: env(safe-area-inset-bottom, 0px) !important;
+      background: rgba(255, 255, 255, 0.98) !important;
+      backdrop-filter: blur(16px) !important;
+      -webkit-backdrop-filter: blur(16px) !important;
+      border-top: 1px solid #d5e0ec !important;
+      box-shadow: 0 -2px 12px rgba(15, 23, 42, 0.06) !important;
+      z-index: 9999 !important;
+      transform: translateZ(0) !important;
+      -webkit-transform: translateZ(0) !important;
+      display: flex !important;
+      justify-content: center !important;
+      box-sizing: border-box !important;
     }
 
-    .nav-item {
-      background: transparent;
-
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-
-      gap: 3px;
-
-      color: #8b97a5;
-
-      font-size: 9px;
+    .doctor-nav-inner {
+      width: 100% !important;
+      max-width: 580px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-around !important;
+      height: 64px !important;
+      padding: 0 8px !important;
+      margin: 0 auto !important;
     }
 
-    .nav-item.active {
-      color: var(--primary);
-      font-weight: 700;
+    .doctor-nav-link {
+      flex: 1 1 0 !important;
+      max-width: 72px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      height: 56px !important;
+      text-decoration: none !important;
+      color: #64748b !important;
+      font-family: inherit !important;
+      cursor: pointer !important;
+      transition: all 0.2s ease !important;
+      border-radius: 12px !important;
     }
 
-    .nav-icon {
-      font-size: 17px;
-      line-height: 1;
+    .doctor-nav-link .material-symbols-outlined {
+      font-size: 22px !important;
+      display: block !important;
+    }
+
+    .doctor-nav-link span.label {
+      font-size: 10px !important;
+      font-weight: 600 !important;
+      margin-top: 3px !important;
+    }
+
+    .doctor-nav-link.active {
+      color: var(--primary) !important;
+      font-weight: 700 !important;
+    }
+
+    .doctor-nav-link.active .material-symbols-outlined {
+      font-variation-settings: 'FILL' 1 !important;
     }
 
     /* =========================================================
@@ -1072,8 +1097,8 @@
         font-size: 14px;
       }
 
-      .bottom-nav {
-        display: none;
+      .bottom-nav, .doctor-unified-bottom-nav {
+        display: none !important;
       }
     }
 
@@ -1536,6 +1561,11 @@
       <a href="../../../patient/Precautions/index.html" class="side-link">
         <span>💊</span>
         Prescriptions
+      </a>
+
+      <a href="../inbox/inbox.html" class="side-link">
+        <span>💬</span>
+        Inbox &amp; Teleconsults
       </a>
 
       <a href="#documents" class="side-link">
@@ -2503,33 +2533,30 @@
        MOBILE BOTTOM NAV
   ======================================================== -->
 
-  <nav class="bottom-nav">
-
-    <button class="nav-item active" onclick="scrollTopPage()">
-      <span class="nav-icon">⌂</span>
-      Home
-    </button>
-
-    <button class="nav-item" onclick="scrollToSection('health')">
-      <span class="nav-icon">♥</span>
-      Health
-    </button>
-
-    <button class="nav-item" onclick="scrollToSection('appointments')">
-      <span class="nav-icon">▣</span>
-      Visits
-    </button>
-
-    <button class="nav-item" onclick="scrollToSection('documents')">
-      <span class="nav-icon">▤</span>
-      Records
-    </button>
-
-    <button class="nav-item" onclick="showSettings()">
-      <span class="nav-icon">⚙</span>
-      More
-    </button>
-
+  <!-- Unified Doctor Bottom Navigation Bar (Centered & Stick-proof) -->
+  <nav class="doctor-unified-bottom-nav" aria-label="Doctor Portal Navigation">
+    <div class="doctor-nav-inner">
+      <a class="doctor-nav-link" href="../dashboard/doctor_dashboard.html" title="Dashboard">
+        <span class="material-symbols-outlined">grid_view</span>
+        <span class="label">Home</span>
+      </a>
+      <a class="doctor-nav-link" href="../../priority%20patient/index.html" title="Priority Queue">
+        <span class="material-symbols-outlined">queue</span>
+        <span class="label">Queue</span>
+      </a>
+      <a class="doctor-nav-link" href="../dashboard/doctor_dashboard.html?action=schedule" title="Schedule & Shifts">
+        <span class="material-symbols-outlined">calendar_today</span>
+        <span class="label">Schedule</span>
+      </a>
+      <a class="doctor-nav-link" href="../inbox/inbox.html" title="Clinical Inbox">
+        <span class="material-symbols-outlined">chat_bubble</span>
+        <span class="label">Inbox</span>
+      </a>
+      <a class="doctor-nav-link active" href="patient_detail.html" title="Patient EHR">
+        <span class="material-symbols-outlined">account_circle</span>
+        <span class="label">EHR</span>
+      </a>
+    </div>
   </nav>
 
 
