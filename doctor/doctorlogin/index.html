@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ASHA Healthcare - Doctor Login</title>
+
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
+</head>
+
+<body>
+
+  <main class="page">
+
+    <!-- Logo -->
+    <div class="logo-box">
+      <div class="logo">ASHA</div>
+      <span>HEALTHCARE</span>
+    </div>
+
+    <!-- Heading -->
+    <section class="welcome">
+      <h1>Welcome, Doctor</h1>
+      <p>Sign in to access your clinical dashboard</p>
+    </section>
+
+    <!-- Login Card -->
+    <section class="login-card">
+
+      <form id="loginForm">
+
+        <!-- Email -->
+        <div class="form-group">
+          <label for="email">Email or Doctor ID</label>
+
+          <div class="input-wrapper">
+            <i class="fa-solid fa-stethoscope input-icon"></i>
+
+            <input
+              type="text"
+              id="email"
+              name="email"
+              placeholder="Email or Doctor ID"
+              value="dr.chen@ashahealth.com"
+              autocomplete="username"
+            />
+          </div>
+
+          <small class="error" id="emailError"></small>
+        </div>
+
+        <!-- Password -->
+        <div class="form-group">
+          <label for="password">Security Passkey / Password</label>
+
+          <div class="input-wrapper">
+            <i class="fa-solid fa-lock input-icon"></i>
+
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Security Passkey / Password"
+              value="password123456"
+              autocomplete="current-password"
+            />
+
+            <button
+              type="button"
+              class="password-toggle"
+              id="togglePassword"
+              aria-label="Show password"
+            >
+              <i class="fa-regular fa-eye-slash"></i>
+            </button>
+          </div>
+
+          <small class="error" id="passwordError"></small>
+        </div>
+
+        <!-- Trusted Device / Forgot Password -->
+        <div class="login-options">
+
+          <label class="trusted-device">
+            <input type="checkbox" id="trustedDevice" checked />
+            <span class="custom-checkbox">
+              <i class="fa-solid fa-check"></i>
+            </span>
+            <span>Trusted Device (30d)</span>
+          </label>
+
+          <a href="#" id="forgotPassword">
+            Forgot Password?
+          </a>
+
+        </div>
+
+        <!-- Sign In -->
+        <button type="submit" class="sign-in-btn">
+          Sign In
+        </button>
+
+      </form>
+
+      <!-- Divider -->
+      <div class="divider">
+        <span></span>
+        <strong>HOSPITAL SINGLE SIGN-ON</strong>
+        <span></span>
+      </div>
+
+      <div class="or-divider">
+        <span></span>
+        <strong>OR</strong>
+        <span></span>
+      </div>
+
+      <!-- SSO -->
+      <button class="sso-btn" id="ssoButton">
+        <i class="fa-solid fa-building-columns"></i>
+        <span>Sign in with Hospital SSO</span>
+      </button>
+
+      <!-- Register -->
+      <p class="register-text">
+        New to ASHA Healthcare?
+        <a href="#" id="registerLink">Register as a Doctor</a>
+      </p>
+
+    </section>
+
+    <!-- Security -->
+    <div class="security">
+      <i class="fa-solid fa-shield-halved"></i>
+      <span>HIPAA Compliant • 256-bit TLS Encrypted</span>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <a href="#">Privacy Policy</a>
+      <span>•</span>
+      <a href="#">Terms of Service</a>
+      <span>•</span>
+      <a href="#">Help &amp; Support</a>
+    </footer>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

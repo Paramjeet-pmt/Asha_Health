@@ -6,11 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Asha Healthcare triage dashboard">
 
-    <title>Triage - Priority Patients</title>
+    <title>Triage Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
 
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<<<<<<< HEAD:doctor/priority_patient/index.html
 
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
@@ -1414,11 +1417,18 @@
         }
 
     </style>
+=======
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+>>>>>>> 1b6858f27fc76fa50713b06569eced5a01eca821:doctor/priority patient/index.html
 </head>
 
 
 <body>
 
+<<<<<<< HEAD:doctor/priority_patient/index.html
 
     <!-- =========================================================
          DESKTOP SIDEBAR
@@ -1530,30 +1540,69 @@
                     ></i>
 
                     <span>Syncing</span>
+=======
+<div class="app">
 
+    <!-- ================= HEADER ================= -->
+    <header class="top-header">
+
+        <div class="header-top">
+>>>>>>> 1b6858f27fc76fa50713b06569eced5a01eca821:doctor/priority patient/index.html
+
+            <div class="logo">
+                <div class="logo-mark">
+                    ✣
                 </div>
 
+<<<<<<< HEAD:doctor/priority_patient/index.html
 
                 <div class="profile">
+=======
+                <span>SYNC HEALTH</span>
+            </div>
+>>>>>>> 1b6858f27fc76fa50713b06569eced5a01eca821:doctor/priority patient/index.html
 
-                    <img
-                        src="https://randomuser.me/api/portraits/women/44.jpg"
-                        alt="Profile"
-                    >
+            <div class="header-actions">
 
+                <button class="sync-status" id="syncButton">
+                    <span class="sync-icon">↻</span>
+                    <span id="syncText">Syncing</span>
+                </button>
+
+                <div class="doctor-avatar">
+                    👩🏻‍⚕️
                 </div>
 
             </div>
 
-        </header>
+        </div>
+
+        <div class="header-bottom">
+
+            <h1>Triage</h1>
+
+            <button class="role-button" id="roleButton">
+                ↔
+                <span>Role</span>
+            </button>
+
+        </div>
+
+    </header>
 
 
+<<<<<<< HEAD:doctor/priority_patient/index.html
         <!-- =====================================================
              CONTENT
         ====================================================== -->
+=======
+    <!-- ================= MAIN ================= -->
+    <main class="main-content">
+>>>>>>> 1b6858f27fc76fa50713b06569eced5a01eca821:doctor/priority patient/index.html
 
-        <section class="content">
+        <section class="priority-section">
 
+<<<<<<< HEAD:doctor/priority_patient/index.html
 
             <!-- PAGE HEADING -->
 
@@ -1648,17 +1697,35 @@
                         aria-hidden="true"
                     ></i>
 
+=======
+            <div class="section-heading">
+
+                <div>
+                    <h2>Priority Patients</h2>
+                    <p>Requires immediate attention</p>
+                </div>
+
+                <button class="filter-button" id="filterButton">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+>>>>>>> 1b6858f27fc76fa50713b06569eced5a01eca821:doctor/priority patient/index.html
                 </button>
 
             </div>
 
 
+<<<<<<< HEAD:doctor/priority_patient/index.html
             <!-- =================================================
                  PRIORITY SUMMARY
             ================================================== -->
+=======
+            <!-- ================= PRIORITY COUNTERS ================= -->
+>>>>>>> 1b6858f27fc76fa50713b06569eced5a01eca821:doctor/priority patient/index.html
 
-            <div class="priority-wrapper">
+            <div class="priority-counters">
 
+<<<<<<< HEAD:doctor/priority_patient/index.html
                 <div class="priority-grid">
 
 
@@ -1688,8 +1755,18 @@
                         </span>
 
                     </button>
+=======
+                <div class="priority-counter critical">
 
+                    <div class="counter-title">
+                        <span class="counter-icon">✱</span>
+                        Critical
+                    </div>
+>>>>>>> 1b6858f27fc76fa50713b06569eced5a01eca821:doctor/priority patient/index.html
 
+                    <strong>3</strong>
+
+<<<<<<< HEAD:doctor/priority_patient/index.html
                     <button
                         class="priority-card high-risk"
                         data-filter="high-risk"
@@ -1716,8 +1793,21 @@
                         </span>
 
                     </button>
+=======
+                </div>
 
 
+                <div class="priority-counter high-risk">
+
+                    <div class="counter-title">
+                        <span class="counter-icon">△</span>
+                        High Risk
+                    </div>
+>>>>>>> 1b6858f27fc76fa50713b06569eced5a01eca821:doctor/priority patient/index.html
+
+                    <strong>7</strong>
+
+<<<<<<< HEAD:doctor/priority_patient/index.html
                     <button
                         class="priority-card follow-up"
                         data-filter="follow-up"
@@ -1741,12 +1831,26 @@
                         </span>
 
                     </button>
+=======
+                </div>
+
+
+                <div class="priority-counter follow-up">
+
+                    <div class="counter-title">
+                        <span class="counter-icon">▣</span>
+                        Follow-up
+                    </div>
+>>>>>>> 1b6858f27fc76fa50713b06569eced5a01eca821:doctor/priority patient/index.html
+
+                    <strong>12</strong>
 
                 </div>
 
             </div>
 
 
+<<<<<<< HEAD:doctor/priority_patient/index.html
             <!-- =================================================
                  PATIENT LIST
             ================================================== -->
@@ -1755,29 +1859,28 @@
                 class="patients"
                 id="patients"
             >
+=======
+            <!-- ================= PATIENT LIST ================= -->
 
+            <div class="patients-list" id="patientsList">
+>>>>>>> 1b6858f27fc76fa50713b06569eced5a01eca821:doctor/priority patient/index.html
 
-                <!-- =================================================
-                     PATIENT 1
-                ================================================== -->
+                <!-- Patient 1 -->
+                <article class="patient-card critical-card">
 
-                <article
-                    class="patient-card critical-card"
-                    data-priority="critical"
-                >
+                    <div class="critical-border"></div>
 
-                    <div class="patient-top">
+                    <div class="patient-header">
 
                         <div class="patient-info">
 
-                            <img
-                                class="patient-avatar"
-                                src="https://randomuser.me/api/portraits/women/65.jpg"
-                                alt="Sushila Devi"
-                            >
+                            <div class="patient-avatar">
+                                👵🏽
+                            </div>
 
 
                             <div>
+<<<<<<< HEAD:doctor/priority_patient/index.html
 
                                 <h3 class="patient-name">
                                     Sushila Devi
@@ -1788,18 +1891,22 @@
                                     68 Y • Female
                                 </p>
 
+=======
+                                <h3>Sushila Devi</h3>
+                                <p>68 Y • Female</p>
+>>>>>>> 1b6858f27fc76fa50713b06569eced5a01eca821:doctor/priority patient/index.html
                             </div>
 
                         </div>
 
-
-                        <span class="priority-badge critical">
+                        <span class="status critical-status">
                             CRITICAL
                         </span>
 
                     </div>
 
 
+<<<<<<< HEAD:doctor/priority_patient/index.html
                     <div class="condition critical">
 
                         <i
@@ -1811,31 +1918,37 @@
                             Chronic - Severe Hypertension
                         </span>
 
+=======
+                    <div class="condition critical-text">
+                        <span>♧</span>
+                        Chronic - Severe Hypertension
+>>>>>>> 1b6858f27fc76fa50713b06569eced5a01eca821:doctor/priority patient/index.html
                     </div>
 
+
+                    <!-- Vitals -->
 
                     <div class="vitals">
 
 
                         <div class="vital">
 
+<<<<<<< HEAD:doctor/priority_patient/index.html
                             <i
                                 class="fa-regular fa-heart vital-icon"
                                 style="color:#c1121f"
                                 aria-hidden="true"
                             ></i>
+=======
+                            <div class="vital-icon heart">
+                                ♡
+                            </div>
+>>>>>>> 1b6858f27fc76fa50713b06569eced5a01eca821:doctor/priority patient/index.html
 
 
                             <div>
-
-                                <span class="vital-value">
-                                    115
-                                </span>
-
-                                <span class="vital-unit">
-                                    bpm
-                                </span>
-
+                                <strong>115</strong>
+                                <span>bpm</span>
                             </div>
 
                         </div>
@@ -1843,22 +1956,21 @@
 
                         <div class="vital">
 
+<<<<<<< HEAD:doctor/priority_patient/index.html
                             <i
                                 class="fa-solid fa-wind vital-icon"
                                 aria-hidden="true"
                             ></i>
+=======
+                            <div class="vital-icon oxygen">
+                                ≋
+                            </div>
+>>>>>>> 1b6858f27fc76fa50713b06569eced5a01eca821:doctor/priority patient/index.html
 
 
                             <div>
-
-                                <span class="vital-value">
-                                    92
-                                </span>
-
-                                <span class="vital-unit">
-                                    %
-                                </span>
-
+                                <strong>92</strong>
+                                <span>%</span>
                             </div>
 
                         </div>
@@ -1866,19 +1978,21 @@
 
                         <div class="vital">
 
+<<<<<<< HEAD:doctor/priority_patient/index.html
                             <i
                                 class="fa-solid fa-heart-pulse vital-icon"
                                 style="color:#c1121f"
                                 aria-hidden="true"
                             ></i>
+=======
+                            <div class="vital-icon bp">
+                                ♧
+                            </div>
+>>>>>>> 1b6858f27fc76fa50713b06569eced5a01eca821:doctor/priority patient/index.html
 
 
                             <div>
-
-                                <span class="vital-value">
-                                    180/110
-                                </span>
-
+                                <strong>180/110</strong>
                             </div>
 
                         </div>
@@ -1886,9 +2000,12 @@
                     </div>
 
 
+                    <!-- Actions -->
+
                     <div class="patient-actions">
 
                         <button
+<<<<<<< HEAD:doctor/priority_patient/index.html
                             class="action-button ehr-button"
                             type="button"
                             data-action="ehr"
@@ -1900,12 +2017,17 @@
                                 aria-hidden="true"
                             ></i>
 
+=======
+                            class="secondary-button"
+                            onclick="viewEHR('Sushila Devi')"
+                        >
+                            ▣
+>>>>>>> 1b6858f27fc76fa50713b06569eced5a01eca821:doctor/priority patient/index.html
                             View EHR
-
                         </button>
 
-
                         <button
+<<<<<<< HEAD:doctor/priority_patient/index.html
                             class="action-button escalate-button"
                             type="button"
                             data-action="escalate"
@@ -1917,8 +2039,13 @@
                                 aria-hidden="true"
                             ></i>
 
+=======
+                            class="danger-button"
+                            onclick="escalatePatient('Sushila Devi')"
+                        >
+                            ☎
+>>>>>>> 1b6858f27fc76fa50713b06569eced5a01eca821:doctor/priority patient/index.html
                             Escalate (108)
-
                         </button>
 
                     </div>
@@ -1926,27 +2053,20 @@
                 </article>
 
 
-                <!-- =================================================
-                     PATIENT 2
-                ================================================== -->
+                <!-- Patient 2 -->
+                <article class="patient-card high-risk-card">
 
-                <article
-                    class="patient-card"
-                    data-priority="high-risk"
-                >
-
-                    <div class="patient-top">
+                    <div class="patient-header">
 
                         <div class="patient-info">
 
-                            <img
-                                class="patient-avatar"
-                                src="https://randomuser.me/api/portraits/women/32.jpg"
-                                alt="Meena Kumari"
-                            >
+                            <div class="patient-avatar green-avatar">
+                                👩🏻
+                            </div>
 
 
                             <div>
+<<<<<<< HEAD:doctor/priority_patient/index.html
 
                                 <h3 class="patient-name">
                                     Meena Kumari
@@ -1957,18 +2077,22 @@
                                     24 Y • Female • 32W Preg
                                 </p>
 
+=======
+                                <h3>Meena Kumari</h3>
+                                <p>24 Y • Female • 32W Preg</p>
+>>>>>>> 1b6858f27fc76fa50713b06569eced5a01eca821:doctor/priority patient/index.html
                             </div>
 
                         </div>
 
-
-                        <span class="priority-badge high-risk">
+                        <span class="status high-risk-status">
                             HIGH RISK
                         </span>
 
                     </div>
 
 
+<<<<<<< HEAD:doctor/priority_patient/index.html
                     <div class="condition high-risk">
 
                         <i
@@ -1980,30 +2104,36 @@
                             Maternal - Gestational Diabetes
                         </span>
 
+=======
+                    <div class="condition high-risk-text">
+                        <span>♟</span>
+                        Maternal - Gestational Diabetes
+>>>>>>> 1b6858f27fc76fa50713b06569eced5a01eca821:doctor/priority patient/index.html
                     </div>
 
+
+                    <!-- Vitals -->
 
                     <div class="vitals">
 
 
                         <div class="vital">
 
+<<<<<<< HEAD:doctor/priority_patient/index.html
                             <i
                                 class="fa-regular fa-heart vital-icon"
                                 aria-hidden="true"
                             ></i>
 
+=======
+                            <div class="vital-icon">
+                                ♡
+                            </div>
+>>>>>>> 1b6858f27fc76fa50713b06569eced5a01eca821:doctor/priority patient/index.html
 
                             <div>
-
-                                <span class="vital-value">
-                                    88
-                                </span>
-
-                                <span class="vital-unit">
-                                    bpm
-                                </span>
-
+                                <strong>88</strong>
+                                <span>bpm</span>
                             </div>
 
                         </div>
@@ -2011,18 +2141,20 @@
 
                         <div class="vital">
 
+<<<<<<< HEAD:doctor/priority_patient/index.html
                             <i
                                 class="fa-solid fa-heart-pulse vital-icon"
                                 aria-hidden="true"
                             ></i>
 
+=======
+                            <div class="vital-icon bp">
+                                ♧
+                            </div>
+>>>>>>> 1b6858f27fc76fa50713b06569eced5a01eca821:doctor/priority patient/index.html
 
                             <div>
-
-                                <span class="vital-value">
-                                    130/85
-                                </span>
-
+                                <strong>130/85</strong>
                             </div>
 
                         </div>
@@ -2030,22 +2162,21 @@
 
                         <div class="vital">
 
+<<<<<<< HEAD:doctor/priority_patient/index.html
                             <i
                                 class="fa-solid fa-droplet vital-icon"
                                 aria-hidden="true"
                             ></i>
 
+=======
+                            <div class="vital-icon glucose">
+                                ◇
+                            </div>
+>>>>>>> 1b6858f27fc76fa50713b06569eced5a01eca821:doctor/priority patient/index.html
 
                             <div>
-
-                                <span class="vital-value">
-                                    160
-                                </span>
-
-                                <span class="vital-unit">
-                                    mg/dL
-                                </span>
-
+                                <strong>160</strong>
+                                <span>mg/dL</span>
                             </div>
 
                         </div>
@@ -2053,6 +2184,7 @@
                     </div>
 
 
+<<<<<<< HEAD:doctor/priority_patient/index.html
                     <div class="patient-actions">
 
                         <button
@@ -2222,6 +2354,15 @@
                         </button>
 
                     </div>
+=======
+                    <button
+                        class="schedule-button"
+                        onclick="scheduleVisit('Meena Kumari')"
+                    >
+                        ▣
+                        Schedule Visit
+                    </button>
+>>>>>>> 1b6858f27fc76fa50713b06569eced5a01eca821:doctor/priority patient/index.html
 
                 </article>
 
@@ -2232,16 +2373,21 @@
     </main>
 
 
+<<<<<<< HEAD:doctor/priority_patient/index.html
     <!-- =========================================================
          MOBILE BOTTOM NAVIGATION
          This navigation appears only on mobile/tablet.
     ========================================================== -->
+=======
+    <!-- ================= BOTTOM NAVIGATION ================= -->
+>>>>>>> 1b6858f27fc76fa50713b06569eced5a01eca821:doctor/priority patient/index.html
 
     <nav
         class="bottom-nav"
         aria-label="Mobile navigation"
     >
 
+<<<<<<< HEAD:doctor/priority_patient/index.html
         <button
             class="nav-item"
             type="button"
@@ -2307,11 +2453,33 @@
                 Sync
             </span>
 
+=======
+        <button class="nav-item active" onclick="changeTab(this, 'Home')">
+            <span class="nav-icon">▦</span>
+            <span>Home</span>
+        </button>
+
+        <button class="nav-item" onclick="changeTab(this, 'Visits')">
+            <span class="nav-icon">♟</span>
+            <span>Visits</span>
+        </button>
+
+        <button class="nav-item" onclick="changeTab(this, 'Risk')">
+            <span class="nav-icon">△</span>
+            <span>Risk</span>
+        </button>
+
+        <button class="nav-item" onclick="changeTab(this, 'Sync')">
+            <span class="nav-icon">☁</span>
+            <span>Sync</span>
+>>>>>>> 1b6858f27fc76fa50713b06569eced5a01eca821:doctor/priority patient/index.html
         </button>
 
     </nav>
 
+</div>
 
+<<<<<<< HEAD:doctor/priority_patient/index.html
     <!-- =========================================================
          TOAST MESSAGE
     ========================================================== -->
@@ -2752,3 +2920,14 @@
 </body>
 
 </html>
+=======
+
+<!-- Toast notification -->
+<div class="toast" id="toast"></div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
+>>>>>>> 1b6858f27fc76fa50713b06569eced5a01eca821:doctor/priority patient/index.html
