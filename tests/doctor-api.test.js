@@ -183,6 +183,30 @@ async function runTests() {
     if (scheduleRedirect.status !== 302) throw new Error(`Expected 302 for /doctor/schedule, got ${scheduleRedirect.status}`);
   });
 
+  // 13. GET /api/doctor/inbox and POST /api/doctor/inbox/reply
+  await assert('GET /api/doctor/inbox & POST reply support clinical teleconsult messaging', async () => {
+    const res = await makeRequest('/api/doctor/inbox');
+    if (res.status !== 200) throw new Error(`Expected 200, got ${res.status}`);
+    if (!res.data.threads || !Array.isArray(res.data.threads)) throw new Error('Expected threads array');
+    if (!res.data.stats || typeof res.data.stats.totalThreads !== 'number') throw new Error('Expected stats');
+
+    const replyRes = await makeRequest('/api/doctor/inbox/reply', 'POST', {
+      threadId: 'TH-101',
+      patientName: 'Ramesh Kumar',
+      text: 'Take 2 puffs immediately and keep calm.'
+    });
+    if (replyRes.status !== 201) throw new Error(`Expected 201, got ${replyRes.status}`);
+    if (!replyRes.data.reply || replyRes.data.reply.sender !== 'doctor') throw new Error('Expected doctor reply');
+  });
+
+  // 14. Doctor inbox route shortcuts redirect properly
+  await assert('Friendly shortcut routes /doctor/inbox and /doctor/consultations return 302', async () => {
+    const inboxRedirect = await makeRequest('/doctor/inbox');
+    if (inboxRedirect.status !== 302) throw new Error(`/doctor/inbox returned ${inboxRedirect.status}`);
+    const consultRedirect = await makeRequest('/doctor/consultations');
+    if (consultRedirect.status !== 302) throw new Error(`/doctor/consultations returned ${consultRedirect.status}`);
+  });
+
   console.log('\n========================================');
   console.log(`Doctor Suite Results: ${passed} Passed, ${failed} Failed`);
   console.log('========================================\n');
