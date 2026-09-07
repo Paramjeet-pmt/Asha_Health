@@ -13,6 +13,20 @@ const JWT_SECRET = process.env.JWT_SECRET || 'asha_health_super_secret_jwt_key_2
 app.use(cors());
 app.use(express.json());
 
+// Friendly shortcuts so clicking or typing any common path always works
+app.get(['/doctor', '/doctor/'], (req, res) => res.redirect('/doctor/doctor/dashboard/doctor_dashboard.html'));
+app.get('/doctor/dashboard', (req, res) => res.redirect('/doctor/doctor/dashboard/doctor_dashboard.html'));
+app.get('/doctor/queue', (req, res) => res.redirect('/doctor/priority%20patient/index.html'));
+app.get('/doctor/patient', (req, res) => res.redirect('/doctor/doctor/patient_detail/patient_detail.html'));
+app.get(['/patient', '/patient/'], (req, res) => res.redirect('/patient/dashboard/index.html'));
+app.get('/dashboard', (req, res) => res.redirect('/patient/dashboard/index.html'));
+app.get('/admin', (req, res) => res.redirect('/admin/command_center/command-center.html'));
+app.get('/admin/dashboard', (req, res) => res.redirect('/auth/admin_dashboard/code.html'));
+app.get(['/admin/doctors', '/admin/doctors/'], (req, res) => res.redirect('/auth/doctor%20management/asha_doctor_management.html'));
+app.get('/appointment', (req, res) => res.redirect('/patient/appointment/appointment.html'));
+app.get('/precautions', (req, res) => res.redirect('/patient/Precautions/index.html'));
+app.get('/patient/precautions', (req, res) => res.redirect('/patient/Precautions/index.html'));
+
 // Serve static frontend files from repository root
 app.use(express.static(path.join(__dirname, '..')));
 
@@ -29,17 +43,6 @@ app.get('/', (req, res) => {
     return res.redirect('/patient/dashboard/index.html');
   }
 });
-
-// Friendly shortcuts so clicking or typing any common path always works
-app.get('/patient', (req, res) => res.redirect('/patient/dashboard/index.html'));
-app.get('/dashboard', (req, res) => res.redirect('/patient/dashboard/index.html'));
-app.get('/patient/dashboard', (req, res) => res.redirect('/patient/dashboard/index.html'));
-app.get('/patient/dashboard/dashboard.html', (req, res) => res.redirect('/patient/dashboard/index.html'));
-app.get('/admin', (req, res) => res.redirect('/admin/command_center/command-center.html'));
-app.get('/doctor', (req, res) => res.redirect('/patient/Talktodoctor/talk-to-doctor.html'));
-app.get('/appointment', (req, res) => res.redirect('/patient/appointment/appointment.html'));
-app.get('/precautions', (req, res) => res.redirect('/patient/Precautions/index.html'));
-app.get('/patient/precautions', (req, res) => res.redirect('/patient/Precautions/index.html'));
 
 // Helper: JWT verification middleware
 function authenticateToken(req, res, next) {
@@ -149,7 +152,7 @@ app.post('/api/auth/login', (req, res) => {
     // Role-based redirect routing
     const roleRedirects = {
       PATIENT: '/patient/dashboard/index.html',
-      DOCTOR: '/patient/doctor_queue/doctor-queue.html',
+      DOCTOR: '/doctor/doctor/dashboard/doctor_dashboard.html',
       WORKER: '/workers/frontline_hub/frontline-hub.html',
       ADMIN: '/admin/command_center/command-center.html'
     };
@@ -275,65 +278,6 @@ app.patch('/api/patient/prescription/:id/toggle', (req, res) => {
   }
 });
 
-// GET /api/doctors (Verified Doctor Directory)
-app.get('/api/doctors', (req, res) => {
-  try {
-    const doctors = [
-      {
-        id: 1,
-        name: 'Dr. Ananya Sharma',
-        specialty: 'General Physician',
-        experience: '10+ yrs',
-        hospital: 'District Hospital, Ward 4',
-        rating: 4.9,
-        reviewsCount: 340,
-        price: 500,
-        available: true,
-        modes: ['clinic', 'teleconsult']
-      },
-      {
-        id: 2,
-        name: 'Dr. Rajesh Verma',
-        specialty: 'Cardiologist',
-        experience: '14+ yrs',
-        hospital: 'Community Health Center',
-        rating: 4.8,
-        reviewsCount: 280,
-        price: 700,
-        available: true,
-        modes: ['clinic', 'teleconsult']
-      },
-      {
-        id: 3,
-        name: 'Dr. Sunita Patel',
-        specialty: 'Pediatrician',
-        experience: '8+ yrs',
-        hospital: 'Maternal & Child Health Wing',
-        rating: 4.95,
-        reviewsCount: 410,
-        price: 450,
-        available: true,
-        modes: ['clinic', 'teleconsult']
-      },
-      {
-        id: 4,
-        name: 'Dr. Amit Roy',
-        specialty: 'Orthopedic Surgeon',
-        experience: '12+ yrs',
-        hospital: 'Sub-District Trauma Center',
-        rating: 4.7,
-        reviewsCount: 195,
-        price: 600,
-        available: false,
-        modes: ['clinic']
-      }
-    ];
-    res.json(doctors);
-  } catch (err) {
-    res.status(500).json({ error: 'Failed to fetch doctors' });
-  }
-});
-
 // POST /api/appointments (Book & Save Patient Appointment in SQL)
 app.post('/api/appointments', (req, res) => {
   try {
@@ -447,6 +391,25 @@ app.get('/api/patient/:id/appointments', (req, res) => {
   }
 });
 
+// PATCH /api/appointments/:id/status (Update appointment status: CONFIRMED, IN_PROGRESS, COMPLETED, CANCELLED)
+app.patch('/api/appointments/:id/status', (req, res) => {
+  try {
+    const { status } = req.body;
+    if (!status) {
+      return res.status(400).json({ error: 'Status is required' });
+    }
+    const cleanStatus = status.toUpperCase();
+    const result = db.prepare('UPDATE appointments SET status = ? WHERE id = ? OR booking_ref = ?').run(cleanStatus, req.params.id, req.params.id);
+    if (result.changes === 0) {
+      return res.status(404).json({ error: 'Appointment not found' });
+    }
+    res.json({ message: `Appointment status updated to ${cleanStatus}`, updatedId: req.params.id, status: cleanStatus });
+  } catch (err) {
+    console.error('Failed to update appointment status:', err);
+    res.status(500).json({ error: 'Failed to update appointment status' });
+  }
+});
+
 // POST /api/doctor/quick-triage (Instant Emergency/Urgent Triage Request)
 app.post('/api/doctor/quick-triage', (req, res) => {
   try {
@@ -524,6 +487,130 @@ app.patch('/api/doctor/queue/:id', (req, res) => {
     res.json({ message: 'Status updated' });
   } catch (err) {
     res.status(500).json({ error: 'Failed to update queue status' });
+  }
+});
+
+// GET /api/doctors (Doctors Directory with filter support)
+app.get('/api/doctors', (req, res) => {
+  try {
+    const { department, status, search } = req.query;
+    let query = 'SELECT * FROM doctors WHERE 1=1';
+    const params = [];
+
+    if (department && department.toUpperCase() !== 'ALL') {
+      query += ' AND LOWER(department) = LOWER(?)';
+      params.push(department);
+    }
+    if (status && status.toUpperCase() !== 'ALL') {
+      query += ' AND LOWER(status) = LOWER(?)';
+      params.push(status);
+    }
+    if (search) {
+      query += ' AND (LOWER(name) LIKE LOWER(?) OR LOWER(doc_id) LIKE LOWER(?) OR LOWER(specialty) LIKE LOWER(?))';
+      params.push(`%${search}%`, `%${search}%`, `%${search}%`);
+    }
+
+    query += ' ORDER BY id ASC';
+    const rawDoctors = db.prepare(query).all(...params);
+
+    const doctors = rawDoctors.map(doc => ({
+      ...doc,
+      price: doc.consultation_fee,
+      hospital: doc.location,
+      experience: `${doc.experience_years}+ yrs`,
+      reviewsCount: doc.rating_count,
+      available: doc.status === 'ACTIVE',
+      modes: ['clinic', 'teleconsult']
+    }));
+
+    // Calculate summary statistics
+    const totalCount = db.prepare('SELECT COUNT(*) as count FROM doctors').get().count;
+    const activeCount = db.prepare("SELECT COUNT(*) as count FROM doctors WHERE status = 'ACTIVE'").get().count;
+    const pendingCount = db.prepare("SELECT COUNT(*) as count FROM doctors WHERE status = 'PENDING'").get().count;
+    const leaveCount = db.prepare("SELECT COUNT(*) as count FROM doctors WHERE status = 'LEAVE'").get().count;
+    const inConsultCount = db.prepare("SELECT COUNT(*) as count FROM doctors WHERE status = 'IN_CONSULT'").get().count;
+
+    if (req.query.format === 'array') {
+      return res.json(doctors);
+    }
+
+    res.json({
+      doctors,
+      stats: {
+        total: totalCount,
+        active: activeCount,
+        pending: pendingCount,
+        leave: leaveCount,
+        inConsult: inConsultCount
+      }
+    });
+  } catch (err) {
+    console.error('Failed to load doctors:', err);
+    res.status(500).json({ error: 'Failed to load doctors' });
+  }
+});
+
+// GET /api/admin/doctors (Alias for admin dashboard)
+app.get('/api/admin/doctors', (req, res) => res.redirect('/api/doctors'));
+
+// POST /api/doctors (Add new Doctor to Directory)
+app.post('/api/doctors', (req, res) => {
+  try {
+    const { name, specialty, department, qualifications, experience_years, consultation_fee, schedule, location, status } = req.body;
+    if (!name || !specialty) {
+      return res.status(400).json({ error: 'Doctor name and specialty are required' });
+    }
+
+    const randomSuffix = Math.floor(1000 + Math.random() * 9000);
+    const docId = `DOC-${randomSuffix}`;
+    const cleanDept = department || 'General Medicine';
+    const cleanExp = experience_years ? parseInt(experience_years) : 5;
+    const cleanFee = consultation_fee ? parseFloat(consultation_fee) : 800;
+    const cleanSchedule = schedule || 'Mon-Fri (10:00 AM - 4:00 PM)';
+    const cleanLocation = location || 'ASHA Clinic Network';
+    const cleanStatus = (status || 'ACTIVE').toUpperCase();
+    const photoUrl = 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=150&auto=format&fit=crop&q=80';
+
+    const stmt = db.prepare(`
+      INSERT INTO doctors (
+        doc_id, name, specialty, department, qualifications, experience_years,
+        patient_count, rating, rating_count, consultation_fee, schedule, location, status, photo_url
+      ) VALUES (?, ?, ?, ?, ?, ?, 0, 5.0, 1, ?, ?, ?, ?, ?)
+    `);
+
+    const result = stmt.run(
+      docId, name, specialty, cleanDept, qualifications || 'MBBS',
+      cleanExp, cleanFee, cleanSchedule, cleanLocation, cleanStatus, photoUrl
+    );
+
+    res.status(201).json({
+      success: true,
+      message: 'Doctor added successfully',
+      id: Number(result.lastInsertRowid),
+      doc_id: docId
+    });
+  } catch (err) {
+    console.error('Failed to add doctor:', err);
+    res.status(500).json({ error: 'Failed to add doctor' });
+  }
+});
+
+// PATCH /api/doctors/:id/status (Update doctor status)
+app.patch('/api/doctors/:id/status', (req, res) => {
+  try {
+    const { status } = req.body;
+    if (!status) {
+      return res.status(400).json({ error: 'Status is required' });
+    }
+    const cleanStatus = status.toUpperCase();
+    const result = db.prepare('UPDATE doctors SET status = ? WHERE id = ? OR doc_id = ?').run(cleanStatus, req.params.id, req.params.id);
+    if (result.changes === 0) {
+      return res.status(404).json({ error: 'Doctor not found' });
+    }
+    res.json({ message: `Doctor status updated to ${cleanStatus}`, status: cleanStatus });
+  } catch (err) {
+    console.error('Failed to update doctor status:', err);
+    res.status(500).json({ error: 'Failed to update doctor status' });
   }
 });
 

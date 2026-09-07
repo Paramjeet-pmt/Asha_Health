@@ -396,5 +396,148 @@ if (medCountStmt.get().count === 0) {
   console.log(`Successfully seeded ${essentialMedicines.length} essential generic medicines into catalog!`);
 }
 
+// -------------------------------------------------------------
+// Doctors Directory & Credentialing Table
+// -------------------------------------------------------------
+db.exec(`
+  CREATE TABLE IF NOT EXISTS doctors (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    doc_id TEXT UNIQUE NOT NULL,
+    name TEXT NOT NULL,
+    specialty TEXT NOT NULL,
+    department TEXT NOT NULL,
+    qualifications TEXT,
+    experience_years INTEGER DEFAULT 5,
+    patient_count INTEGER DEFAULT 100,
+    rating REAL DEFAULT 4.8,
+    rating_count INTEGER DEFAULT 50,
+    consultation_fee REAL DEFAULT 800,
+    schedule TEXT DEFAULT 'Mon-Fri (10:00 AM - 4:00 PM)',
+    location TEXT DEFAULT 'ASHA Central Medical, New Delhi',
+    status TEXT CHECK(status IN ('ACTIVE', 'PENDING', 'LEAVE', 'IN_CONSULT')) DEFAULT 'ACTIVE',
+    photo_url TEXT,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+  );
+`);
+
+const doctorCountStmt = db.prepare('SELECT COUNT(*) as count FROM doctors');
+if (doctorCountStmt.get().count === 0) {
+  console.log('Seeding initial credentialed doctors into directory...');
+  const insertDoctor = db.prepare(`
+    INSERT INTO doctors (
+      doc_id, name, specialty, department, qualifications, experience_years,
+      patient_count, rating, rating_count, consultation_fee, schedule, location, status, photo_url
+    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+  `);
+
+  const demoDoctors = [
+    {
+      doc_id: 'DOC-1001',
+      name: 'Dr. Ananya Sharma',
+      specialty: 'Chief Medical Officer • General Medicine',
+      department: 'General Medicine',
+      qualifications: 'MBBS, MD (General Medicine)',
+      experience_years: 10,
+      patient_count: 5120,
+      rating: 4.9,
+      rating_count: 620,
+      consultation_fee: 500,
+      schedule: 'Mon-Sat (9:00 AM - 5:00 PM)',
+      location: 'District Hospital, Ward 4',
+      status: 'ACTIVE',
+      photo_url: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=150&auto=format&fit=crop&q=80'
+    },
+    {
+      doc_id: 'DOC-1082',
+      name: 'Dr. Rajesh K. Varma',
+      specialty: 'Chief Cardiologist • DM, MD',
+      department: 'Cardiology',
+      qualifications: 'MBBS, MD (Internal Med), DM (Cardiology)',
+      experience_years: 16,
+      patient_count: 4280,
+      rating: 4.9,
+      rating_count: 512,
+      consultation_fee: 1500,
+      schedule: 'Mon-Fri (10:00 AM - 4:00 PM)',
+      location: 'ASHA Central Medical, New Delhi',
+      status: 'ACTIVE',
+      photo_url: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=150&auto=format&fit=crop&q=80'
+    },
+    {
+      doc_id: 'DOC-1094',
+      name: 'Dr. Sunita Deshmukh',
+      specialty: 'Sr. Neurologist • MBBS, MS',
+      department: 'Neurology',
+      qualifications: 'MBBS, MS, MCh (Neuro)',
+      experience_years: 12,
+      patient_count: 2940,
+      rating: 4.8,
+      rating_count: 340,
+      consultation_fee: 1200,
+      schedule: 'Tue-Sat (9:00 AM - 3:00 PM)',
+      location: 'ASHA City Clinic, Mumbai',
+      status: 'ACTIVE',
+      photo_url: 'https://images.unsplash.com/photo-1594824813686-2a07567ce2e9?w=150&auto=format&fit=crop&q=80'
+    },
+    {
+      doc_id: 'DOC-1120',
+      name: 'Dr. Arpan Sen',
+      specialty: 'Pediatrician & Child Specialist',
+      department: 'Pediatrics',
+      qualifications: 'MBBS, DCH, MD (Pediatrics)',
+      experience_years: 8,
+      patient_count: 1850,
+      rating: 4.7,
+      rating_count: 215,
+      consultation_fee: 800,
+      schedule: 'Mon-Sat (11:00 AM - 5:00 PM)',
+      location: 'ASHA Children’s Clinic, Bengaluru',
+      status: 'PENDING',
+      photo_url: 'https://images.unsplash.com/photo-1537368910025-700350fe46c7?w=150&auto=format&fit=crop&q=80'
+    },
+    {
+      doc_id: 'DOC-1145',
+      name: 'Dr. Meenakshi Sundar',
+      specialty: 'Orthopedic Surgeon • MS (Ortho)',
+      department: 'Orthopedics',
+      qualifications: 'MBBS, MS (Ortho), Fellowship in Joint Replacement',
+      experience_years: 14,
+      patient_count: 3120,
+      rating: 4.9,
+      rating_count: 420,
+      consultation_fee: 1400,
+      schedule: 'Mon-Fri (10:00 AM - 2:00 PM)',
+      location: 'ASHA Care Center, Chennai',
+      status: 'LEAVE',
+      photo_url: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=150&auto=format&fit=crop&q=80'
+    },
+    {
+      doc_id: 'DOC-1150',
+      name: 'Dr. Priya Nair',
+      specialty: 'Senior Obstetrician & Gynecologist',
+      department: 'Gynecology',
+      qualifications: 'MBBS, DGO, MD (Obstetrics & Gynecology)',
+      experience_years: 11,
+      patient_count: 2450,
+      rating: 4.9,
+      rating_count: 390,
+      consultation_fee: 1000,
+      schedule: 'Mon-Sat (9:00 AM - 2:00 PM)',
+      location: 'ASHA Maternal Care Center, Kolkata',
+      status: 'ACTIVE',
+      photo_url: 'https://images.unsplash.com/photo-1651008376811-b90baee60c1f?w=150&auto=format&fit=crop&q=80'
+    }
+  ];
+
+  for (const doc of demoDoctors) {
+    insertDoctor.run(
+      doc.doc_id, doc.name, doc.specialty, doc.department, doc.qualifications,
+      doc.experience_years, doc.patient_count, doc.rating, doc.rating_count,
+      doc.consultation_fee, doc.schedule, doc.location, doc.status, doc.photo_url
+    );
+  }
+  console.log(`Successfully seeded ${demoDoctors.length} doctors into directory!`);
+}
+
 module.exports = db;
 
