@@ -102,6 +102,16 @@
 
         </div>
 
+        <!-- LIVE BACKEND CLINICAL PRECAUTIONS & GENERIC DRUG SEARCH RESULTS -->
+        <div id="clinicalSearchResults" class="clinical-search-results" style="display: none; margin-top: 14px; margin-bottom: 20px;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+                <span style="font-size: 13px; font-weight: bold; color: var(--primary); display: flex; align-items: center; gap: 6px;">
+                    <span>💊</span> Verified Clinical Precautions & Jan Aushadhi Drugs
+                </span>
+                <span id="clinicalResultsCount" style="font-size: 11px; background: var(--teal-light); color: var(--primary-dark); padding: 2px 8px; border-radius: 12px; font-weight: 600;">0 found</span>
+            </div>
+            <div id="clinicalCardsList" style="display: flex; flex-direction: column; gap: 10px;"></div>
+        </div>
 
         <!-- FILTERS -->
 
@@ -963,7 +973,89 @@
 
     }
 
-    searchInput.addEventListener("input", filterContent);
+    let searchDebounceTimer = null;
+
+    searchInput.addEventListener("input", function() {
+        filterContent();
+
+        // Query Live Backend Medications & Precautions Catalog
+        clearTimeout(searchDebounceTimer);
+        const query = (this.value || '').trim();
+        searchDebounceTimer = setTimeout(() => {
+            queryClinicalPrecautions(query);
+        }, 250);
+    });
+
+    async function queryClinicalPrecautions(searchTerm) {
+        const resultsContainer = document.getElementById('clinicalSearchResults');
+        const cardsList = document.getElementById('clinicalCardsList');
+        const countBadge = document.getElementById('clinicalResultsCount');
+
+        if (!searchTerm || searchTerm.length < 2) {
+            if (resultsContainer) resultsContainer.style.display = 'none';
+            return;
+        }
+
+        try {
+            const [medsRes, precRes] = await Promise.all([
+                fetch(`/api/medications?q=${encodeURIComponent(searchTerm)}`),
+                fetch(`/api/medications/search/precautions?condition=${encodeURIComponent(searchTerm)}`)
+            ]);
+
+            const medsData = medsRes.ok ? await medsRes.json() : { data: [] };
+            const precData = precRes.ok ? await precRes.json() : { data: [] };
+
+            // Merge unique matches by id
+            const combined = [...(medsData.data || [])];
+            (precData.data || []).forEach(p => {
+                if (!combined.some(m => m.id === p.id)) combined.push(p);
+            });
+
+            if (combined.length === 0) {
+                if (resultsContainer) resultsContainer.style.display = 'none';
+                return;
+            }
+
+            if (resultsContainer) resultsContainer.style.display = 'block';
+            if (countBadge) countBadge.textContent = `${combined.length} clinical matches`;
+
+            if (cardsList) {
+                cardsList.innerHTML = combined.map(item => `
+                    <div style="background: #fff; border: 1px solid var(--border); border-left: 4px solid var(--primary); border-radius: 12px; padding: 14px; box-shadow: 0 2px 6px rgba(0,0,0,0.04);">
+                        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px;">
+                            <div>
+                                <h4 style="font-size: 14px; font-weight: bold; color: var(--navy); margin-bottom: 2px;">${item.name || item.generic_name}</h4>
+                                <span style="font-size: 11px; color: var(--primary); font-weight: 600;">Generic: ${item.generic_name || 'Standard'} • ${item.dosage_form || 'Formulation'}</span>
+                            </div>
+                            ${item.jan_aushadhi_price ? `
+                                <div style="text-align: right;">
+                                    <span style="font-size: 13px; font-weight: bold; color: #16a34a;">₹${item.jan_aushadhi_price}</span>
+                                    <div style="font-size: 9px; color: var(--muted); text-decoration: line-through;">Mkt: ₹${item.market_price || ''}</div>
+                                </div>
+                            ` : ''}
+                        </div>
+                        
+                        <div style="background: #fffbeb; border: 1px solid #fef3c7; border-radius: 8px; padding: 8px; margin-top: 8px; font-size: 11px; color: #92400e; line-height: 1.4;">
+                            <strong>⚠️ Important Precaution:</strong> ${item.precautions || 'Administer only as advised by Medical Officer.'}
+                        </div>
+
+                        ${item.contraindications ? `
+                            <div style="background: #fef2f2; border: 1px solid #fee2e2; border-radius: 8px; padding: 8px; margin-top: 6px; font-size: 11px; color: #991b1b; line-height: 1.4;">
+                                <strong>🚫 Contraindications:</strong> ${item.contraindications}
+                            </div>
+                        ` : ''}
+
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px; font-size: 10px; color: var(--muted);">
+                            <span>Indication: ${item.indications ? item.indications.substring(0, 48) + '...' : 'General Clinical Care'}</span>
+                            <span style="background: var(--teal-light); color: var(--primary-dark); padding: 2px 6px; border-radius: 6px; font-weight: bold;">Jan Aushadhi Generic</span>
+                        </div>
+                    </div>
+                `).join('');
+            }
+        } catch(err) {
+            console.log('Backend clinical search offline:', err);
+        }
+    }
 
 
     /* =========================
@@ -1003,21 +1095,18 @@
         const plus =
             precaution.querySelector(".plus");
 
-        plus.addEventListener("click", function () {
-
-            precaution.classList.toggle("open");
-
-        });
+        if (plus) {
+            plus.addEventListener("click", function () {
+                precaution.classList.toggle("open");
+            });
+        }
 
     });
 
 
     /* =========================
-       REMINDER CHECKBOXES
+       REMINDER CHECKBOXES & LIVE BACKEND PRESCRIPTIONS
     ========================= */
-
-    const tasks =
-        document.querySelectorAll(".task");
 
     const activeCount =
         document.getElementById("activeCount");
@@ -1025,8 +1114,9 @@
     function updateTaskCount() {
 
         let checkedCount = 0;
+        const currentTasks = document.querySelectorAll(".task");
 
-        tasks.forEach(function (task) {
+        currentTasks.forEach(function (task) {
 
             const checkbox =
                 task.querySelector(".checkbox");
@@ -1034,64 +1124,101 @@
             const status =
                 task.querySelector(".task-status");
 
-            if (checkbox.checked) {
-
-                checkedCount++;
-
-                status.textContent = "Done";
-
-                status.classList.remove("due");
-
-                status.classList.add("done");
-
-            } else {
-
-                status.classList.remove("done");
-
-                status.classList.add("due");
-
+            if (checkbox && status) {
+                if (checkbox.checked) {
+                    checkedCount++;
+                    status.textContent = "Done";
+                    status.classList.remove("due");
+                    status.classList.add("done");
+                } else {
+                    status.classList.remove("done");
+                    status.classList.add("due");
+                }
             }
 
         });
 
-        activeCount.textContent =
-            checkedCount + " Active";
+        if (activeCount) {
+            activeCount.textContent = checkedCount + " Active";
+        }
 
     }
 
-    document
-        .querySelectorAll(".checkbox")
-        .forEach(function (checkbox) {
-
-            checkbox.addEventListener(
-                "change",
-                updateTaskCount
-            );
-
+    function attachTaskCheckboxListeners() {
+        document.querySelectorAll(".checkbox").forEach(function (checkbox) {
+            checkbox.removeEventListener("change", updateTaskCount);
+            checkbox.addEventListener("change", updateTaskCount);
         });
+        updateTaskCount();
+    }
+
+    // Load Priya Sharma's live prescriptions from backend SQLite DB
+    async function loadLivePatientPrescriptions() {
+        try {
+            const res = await fetch('/api/patient/1/records');
+            if (!res.ok) return;
+            const data = await res.json();
+            if (data.prescriptions && data.prescriptions.length > 0) {
+                const tasksContainer = document.querySelector('.tasks');
+                if (!tasksContainer) return;
+
+                tasksContainer.innerHTML = data.prescriptions.map((p, idx) => `
+                    <div class="task">
+                        <input class="checkbox" type="checkbox" id="task-chk-${p.id}" ${p.status === 'TAKEN' ? 'checked' : ''} data-id="${p.id}">
+                        <div class="task-info">
+                            <div class="task-title">${p.medicine_name} (${p.dosage})</div>
+                            <div class="task-subtitle">${p.frequency} • ${p.duration || 'Daily Routine'}</div>
+                        </div>
+                        <span class="task-status ${p.status === 'TAKEN' ? 'done' : 'due'}">${p.status === 'TAKEN' ? 'Done' : 'Due'}</span>
+                    </div>
+                `).join('');
+
+                attachTaskCheckboxListeners();
+            }
+        } catch(err) {
+            console.log('Using local fallback reminders:', err);
+        }
+    }
+
+    attachTaskCheckboxListeners();
+    loadLivePatientPrescriptions();
 
 
     /* =========================
-       EMERGENCY CALL
+       EMERGENCY CALL & SOS BACKEND DISPATCH
     ========================= */
 
     const emergencyBtn =
         document.getElementById("emergencyBtn");
 
-    emergencyBtn.addEventListener("click", function () {
+    if (emergencyBtn) {
+        emergencyBtn.addEventListener("click", async function () {
 
-        const confirmCall =
-            confirm(
-                "Call emergency services (112)?"
-            );
+            const confirmCall =
+                confirm(
+                    "🚨 CRITICAL EMERGENCY (SOS)\n\nDo you want to immediately dispatch an emergency triage alert to on-duty doctors and dial National Ambulance (112)?"
+                );
 
-        if (confirmCall) {
+            if (confirmCall) {
+                try {
+                    await fetch('/api/doctor/quick-triage', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            patient_id: 1,
+                            symptoms: 'CRITICAL SOS EMERGENCY Triggered from Patient Precautions Portal',
+                            priority: 'EMERGENCY'
+                        })
+                    });
+                } catch(e) {
+                    console.log('Emergency registered locally');
+                }
 
-            window.location.href = "tel:112";
+                window.location.href = "tel:112";
+            }
 
-        }
-
-    });
+        });
+    }
 
 
     /* =========================
@@ -1101,13 +1228,12 @@
     const contactBtn =
         document.getElementById("contactBtn");
 
-    contactBtn.addEventListener("click", function () {
-
-        alert(
-            "Please contact your healthcare professional or nearest healthcare facility for medical advice."
-        );
-
-    });
+    if (contactBtn) {
+        contactBtn.addEventListener("click", function () {
+            // Redirect to Talk to Doctor consultation room
+            window.location.href = '../Talktodoctor/talk-to-doctor.html';
+        });
+    }
 
 
     /* =========================
@@ -1125,12 +1251,12 @@
                 this.closest(".recommend-card");
 
             const title =
-                card.querySelector("h3").textContent;
+                card.querySelector("h3") ? card.querySelector("h3").textContent : 'Precaution Detail';
 
             alert(
-                "More information about " +
+                "Clinical Guidance: " +
                 title +
-                " will be available here."
+                "\n\nAlways consult your local ASHA health worker or medical officer for personalized medical evaluation."
             );
 
         });
@@ -1145,23 +1271,19 @@
     const notificationBtn =
         document.getElementById("notificationBtn");
 
-    notificationBtn.addEventListener("click", function () {
-
-        alert(
-            "You have 2 new healthcare reminders."
-        );
-
-    });
-
-    /* =========================
-       INITIAL TASK COUNT
-    ========================= */
-
-    updateTaskCount();
+    if (notificationBtn) {
+        notificationBtn.addEventListener("click", function () {
+            alert(
+                "ASHA Health Notifications:\n\n1. Maternal ANC Checkup scheduled for Thursday.\n2. Daily Iron Folic Acid dose pending for tonight."
+            );
+        });
+    }
 
 </script>
+
+<!-- Unified Bottom Patient Navigation Bar -->
+<script src="../../asha-navigation.js"></script>
 
 </body>
 
 </html>
-```

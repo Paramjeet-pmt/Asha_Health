@@ -295,7 +295,12 @@
 
                 <div class="section-header">
                     <h2>Active Medications</h2>
-                    <span class="view-all" onclick="showMessage('All active prescriptions synced from hospital')">Sync Status: Live</span>
+                    <div style="display: flex; gap: 8px; align-items: center;">
+                        <button onclick="window.location.href='../Precautions/index.html'" style="background: #EAF6F2; color: #007F6D; border: 1px solid #C7DCD7; padding: 4px 10px; border-radius: 9999px; font-size: 0.75rem; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 4px;">
+                            <i class="fa-solid fa-shield-halved"></i> Precaution Guide
+                        </button>
+                        <span class="view-all" onclick="showMessage('All active prescriptions synced from hospital')">Live</span>
+                    </div>
                 </div>
 
                 <!-- Dynamic Medicine List -->

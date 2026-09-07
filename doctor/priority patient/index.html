@@ -1,0 +1,1891 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Triage - Priority Patients</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+
+        /* =========================================================
+           GLOBAL
+        ========================================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy: #063f67;
+            --navy-dark: #053552;
+
+            --text: #111111;
+            --muted: #6b6b73;
+
+            --bg: #f9f9fc;
+            --card: #ffffff;
+
+            --critical: #c1121f;
+            --critical-light: #fff0f0;
+
+            --risk: #4c1d95;
+            --risk-light: #eee4ff;
+
+            --follow: #454553;
+            --follow-light: #eeeeF3;
+
+            --border: #ececf2;
+
+            --radius-lg: 24px;
+            --radius-md: 18px;
+            --radius-sm: 12px;
+
+            --shadow: 0 3px 14px rgba(0,0,0,0.04);
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+        }
+
+        button {
+            font-family: inherit;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* =========================================================
+           DESKTOP SIDEBAR
+        ========================================================= */
+
+        .sidebar {
+            display: none;
+        }
+
+        /* =========================================================
+           MAIN APPLICATION
+        ========================================================= */
+
+        .app {
+            width: 100%;
+            min-height: 100vh;
+            padding-bottom: 85px;
+        }
+
+        /* =========================================================
+           HEADER
+        ========================================================= */
+
+        .top-header {
+            height: 86px;
+            padding: 18px 22px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            background: #ffffff;
+            border-bottom: 1px solid #eeeeF2;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .brand-logo {
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            object-fit: contain;
+        }
+
+        .sync-area {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .sync-status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            background: #d9fff7;
+            color: #187b70;
+
+            padding: 10px 15px;
+            border-radius: 30px;
+
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .sync-icon {
+            font-size: 17px;
+        }
+
+        .profile {
+            width: 46px;
+            height: 46px;
+
+            border-radius: 50%;
+            overflow: hidden;
+
+            border: 3px solid #eeeeF2;
+        }
+
+        .profile img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* =========================================================
+           CONTENT
+        ========================================================= */
+
+        .content {
+            padding: 24px 22px;
+            max-width: 1300px;
+            margin: auto;
+        }
+
+        .page-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 28px;
+        }
+
+        .page-title {
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .role-button {
+            background: #eeeef4;
+            padding: 11px 17px;
+            border-radius: 30px;
+
+            display: flex;
+            align-items: center;
+            gap: 9px;
+
+            font-size: 15px;
+            color: #30303a;
+        }
+
+        .heading-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            margin-bottom: 22px;
+        }
+
+        .section-title {
+            font-size: 29px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .section-subtitle {
+            color: var(--muted);
+            font-size: 17px;
+        }
+
+        .filter-button {
+            width: 48px;
+            height: 48px;
+
+            background: #eeeef4;
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 18px;
+        }
+
+        /* =========================================================
+           PRIORITY SUMMARY
+        ========================================================= */
+
+        .priority-wrapper {
+            overflow-x: auto;
+            margin: 0 -22px;
+            padding: 0 22px 8px;
+
+            scrollbar-width: none;
+        }
+
+        .priority-wrapper::-webkit-scrollbar {
+            display: none;
+        }
+
+        .priority-grid {
+            display: flex;
+            gap: 12px;
+            min-width: max-content;
+        }
+
+        .priority-card {
+            width: 235px;
+            min-height: 194px;
+
+            padding: 28px 26px;
+
+            border-radius: var(--radius-lg);
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .priority-card.critical {
+            background: var(--critical-light);
+            color: var(--critical);
+        }
+
+        .priority-card.high-risk {
+            background: var(--risk-light);
+            color: var(--risk);
+        }
+
+        .priority-card.follow-up {
+            background: var(--follow-light);
+            color: var(--follow);
+        }
+
+        .priority-label {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+
+            font-size: 17px;
+            font-weight: 600;
+        }
+
+        .priority-label i {
+            font-size: 20px;
+        }
+
+        .priority-number {
+            font-size: 62px;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        /* =========================================================
+           PATIENT LIST
+        ========================================================= */
+
+        .patients {
+            margin-top: 34px;
+
+            display: grid;
+            gap: 20px;
+        }
+
+        .patient-card {
+            background: var(--card);
+            border: 1px solid #eeeeF3;
+
+            border-radius: var(--radius-lg);
+
+            padding: 22px;
+
+            position: relative;
+
+            box-shadow: var(--shadow);
+
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+        .patient-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.07);
+        }
+
+        .patient-card.critical-card {
+            border-left: 10px solid var(--critical);
+        }
+
+        .patient-top {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+
+            gap: 15px;
+        }
+
+        .patient-info {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+        }
+
+        .patient-avatar {
+            width: 62px;
+            height: 62px;
+
+            border-radius: 50%;
+
+            object-fit: cover;
+
+            flex-shrink: 0;
+        }
+
+        .patient-name {
+            font-size: 23px;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .patient-meta {
+            color: #44444c;
+            font-size: 15px;
+        }
+
+        .priority-badge {
+            padding: 8px 13px;
+
+            border-radius: 20px;
+
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: .5px;
+
+            white-space: nowrap;
+        }
+
+        .priority-badge.critical {
+            color: var(--critical);
+            background: #ffdada;
+        }
+
+        .priority-badge.high-risk {
+            color: var(--risk);
+            background: #eee3ff;
+        }
+
+        /* =========================================================
+           CONDITION
+        ========================================================= */
+
+        .condition {
+            margin-top: 20px;
+
+            display: flex;
+            align-items: center;
+            gap: 9px;
+
+            font-size: 17px;
+            font-weight: 500;
+        }
+
+        .condition.critical {
+            color: var(--critical);
+        }
+
+        .condition.high-risk {
+            color: var(--risk);
+        }
+
+        .condition i {
+            font-size: 18px;
+        }
+
+        /* =========================================================
+           VITALS
+        ========================================================= */
+
+        .vitals {
+            margin-top: 18px;
+
+            background: #f4f4f8;
+
+            border-radius: 16px;
+
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+
+            overflow: hidden;
+        }
+
+        .vital {
+            min-height: 82px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            gap: 6px;
+
+            position: relative;
+        }
+
+        .vital:not(:last-child)::after {
+            content: "";
+
+            position: absolute;
+
+            right: 0;
+            top: 20%;
+
+            height: 60%;
+            width: 1px;
+
+            background: #dddde5;
+        }
+
+        .vital-icon {
+            font-size: 20px;
+        }
+
+        .vital-value {
+            font-size: 19px;
+        }
+
+        .vital-unit {
+            font-size: 14px;
+            color: #55555d;
+        }
+
+        /* =========================================================
+           PATIENT ACTIONS
+        ========================================================= */
+
+        .patient-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+
+            margin-top: 18px;
+        }
+
+        .action-button {
+            min-height: 58px;
+
+            border-radius: 16px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            gap: 10px;
+
+            font-size: 16px;
+            font-weight: 600;
+
+            transition: .2s ease;
+        }
+
+        .ehr-button {
+            background: #f0f0f5;
+            color: #16161a;
+        }
+
+        .ehr-button:hover {
+            background: #e4e4eb;
+        }
+
+        .escalate-button {
+            background: #c81419;
+            color: white;
+
+            box-shadow: 0 4px 8px rgba(200,20,25,.2);
+        }
+
+        .escalate-button:hover {
+            background: #aa1015;
+        }
+
+        .schedule-button {
+            grid-column: 1 / -1;
+
+            background: var(--navy);
+            color: white;
+        }
+
+        .schedule-button:hover {
+            background: var(--navy-dark);
+        }
+
+        /* =========================================================
+           BOTTOM NAVIGATION
+        ========================================================= */
+
+        .bottom-nav {
+            position: fixed;
+
+            left: 0;
+            right: 0;
+            bottom: 0;
+
+            height: 78px;
+
+            background: rgba(255,255,255,.97);
+
+            border-top: 1px solid #eeeeF3;
+
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+
+            z-index: 100;
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            gap: 6px;
+
+            color: #303039;
+
+            background: transparent;
+
+            font-size: 13px;
+        }
+
+        .nav-item i {
+            font-size: 22px;
+        }
+
+        .nav-item.active {
+            color: var(--navy);
+        }
+
+        /* =========================================================
+           TOAST
+        ========================================================= */
+
+        .toast {
+            position: fixed;
+
+            bottom: 95px;
+            left: 50%;
+
+            transform: translateX(-50%) translateY(20px);
+
+            background: #222229;
+            color: white;
+
+            padding: 13px 20px;
+
+            border-radius: 30px;
+
+            font-size: 14px;
+
+            opacity: 0;
+            pointer-events: none;
+
+            transition: .3s ease;
+
+            z-index: 200;
+
+            white-space: nowrap;
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        /* =========================================================
+           ROLE MENU
+        ========================================================= */
+
+        .role-container {
+            position: relative;
+        }
+
+        .role-menu {
+            position: absolute;
+
+            top: 55px;
+            right: 0;
+
+            background: white;
+
+            border: 1px solid var(--border);
+
+            border-radius: 14px;
+
+            box-shadow: 0 8px 30px rgba(0,0,0,.1);
+
+            min-width: 160px;
+
+            padding: 7px;
+
+            display: none;
+
+            z-index: 50;
+        }
+
+        .role-menu.show {
+            display: block;
+        }
+
+        .role-option {
+            padding: 11px 13px;
+
+            border-radius: 9px;
+
+            background: transparent;
+
+            width: 100%;
+
+            text-align: left;
+
+            font-size: 14px;
+        }
+
+        .role-option:hover {
+            background: #f3f3f7;
+        }
+
+        /* =========================================================
+           TABLET
+        ========================================================= */
+
+        @media (min-width: 600px) {
+
+            .content {
+                padding: 32px;
+            }
+
+            .top-header {
+                padding: 18px 32px;
+            }
+
+            .priority-wrapper {
+                margin: 0;
+                padding: 0;
+            }
+
+            .priority-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .priority-card {
+                width: auto;
+            }
+
+            .patients {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .patient-card:first-child {
+                grid-column: 1 / -1;
+            }
+
+            .bottom-nav {
+                height: 82px;
+            }
+        }
+
+        /* =========================================================
+           DESKTOP
+        ========================================================= */
+
+        @media (min-width: 1000px) {
+
+            body {
+                display: flex;
+            }
+
+            /* Sidebar */
+
+            .sidebar {
+                display: flex;
+
+                width: 230px;
+                min-height: 100vh;
+
+                position: fixed;
+                left: 0;
+                top: 0;
+                bottom: 0;
+
+                background: white;
+
+                border-right: 1px solid #eeeeF2;
+
+                flex-direction: column;
+
+                padding: 28px 18px;
+
+                z-index: 200;
+            }
+
+            .sidebar-logo {
+                width: 50px;
+                height: 50px;
+
+                object-fit: contain;
+
+                margin: 0 auto 40px;
+            }
+
+            .side-nav {
+                display: flex;
+                flex-direction: column;
+
+                gap: 8px;
+            }
+
+            .side-item {
+                width: 100%;
+
+                padding: 14px 15px;
+
+                border-radius: 13px;
+
+                background: transparent;
+
+                display: flex;
+                align-items: center;
+
+                gap: 13px;
+
+                font-size: 14px;
+
+                color: #45454e;
+
+                text-align: left;
+            }
+
+            .side-item i {
+                width: 22px;
+
+                font-size: 18px;
+            }
+
+            .side-item:hover,
+            .side-item.active {
+                background: #edf5fa;
+                color: var(--navy);
+                font-weight: 600;
+            }
+
+            .app {
+                margin-left: 230px;
+
+                width: calc(100% - 230px);
+
+                padding-bottom: 0;
+            }
+
+            .top-header {
+                height: 90px;
+
+                padding: 18px 45px;
+            }
+
+            .content {
+                padding: 40px 45px;
+
+                max-width: 1450px;
+            }
+
+            .page-title {
+                font-size: 36px;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .priority-grid {
+                gap: 20px;
+            }
+
+            .priority-card {
+                min-height: 190px;
+            }
+
+            .patients {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 24px;
+            }
+
+            .patient-card:first-child {
+                grid-column: auto;
+            }
+
+            .bottom-nav {
+                display: none;
+            }
+
+            .toast {
+                bottom: 30px;
+            }
+        }
+
+        /* =========================================================
+           LARGE DESKTOP
+        ========================================================= */
+
+        @media (min-width: 1400px) {
+
+            .sidebar {
+                width: 260px;
+            }
+
+            .app {
+                margin-left: 260px;
+                width: calc(100% - 260px);
+            }
+
+            .content {
+                padding: 45px 65px;
+            }
+
+            .patients {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .patient-card:first-child {
+                grid-column: span 2;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================================================
+         DESKTOP SIDEBAR
+    ========================================================== -->
+
+    <aside class="sidebar">
+
+        <img
+            class="sidebar-logo"
+            src="https://via.placeholder.com/100x100.png?text=SYNC"
+            alt="Sync Health"
+        >
+
+        <nav class="side-nav">
+
+            <button class="side-item">
+                <i class="fa-solid fa-house"></i>
+                Home
+            </button>
+
+            <button class="side-item">
+                <i class="fa-solid fa-users"></i>
+                Patients
+            </button>
+
+            <button class="side-item active">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                Triage
+            </button>
+
+            <button class="side-item">
+                <i class="fa-solid fa-calendar-days"></i>
+                Visits
+            </button>
+
+            <button class="side-item">
+                <i class="fa-solid fa-chart-line"></i>
+                Reports
+            </button>
+
+            <button class="side-item">
+                <i class="fa-solid fa-gear"></i>
+                Settings
+            </button>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- =========================================================
+         MAIN APPLICATION
+    ========================================================== -->
+
+    <main class="app">
+
+        <!-- HEADER -->
+
+        <header class="top-header">
+
+            <div class="brand">
+
+                <img
+                    class="brand-logo"
+                    src="https://via.placeholder.com/100x100.png?text=SH"
+                    alt="Sync Health"
+                >
+
+            </div>
+
+            <div class="sync-area">
+
+                <div class="sync-status" id="syncStatus">
+
+                    <i class="fa-solid fa-arrows-rotate sync-icon"></i>
+
+                    <span>Syncing</span>
+
+                </div>
+
+                <div class="profile">
+
+                    <img
+                        src="https://randomuser.me/api/portraits/women/44.jpg"
+                        alt="Profile"
+                    >
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- CONTENT -->
+
+        <section class="content">
+
+            <!-- PAGE HEADING -->
+
+            <div class="page-heading">
+
+                <h1 class="page-title">
+                    Triage
+                </h1>
+
+                <div class="role-container">
+
+                    <button
+                        class="role-button"
+                        id="roleButton"
+                    >
+                        <i class="fa-solid fa-right-left"></i>
+                        Role
+                    </button>
+
+                    <div
+                        class="role-menu"
+                        id="roleMenu"
+                    >
+
+                        <button class="role-option">
+                            Doctor
+                        </button>
+
+                        <button class="role-option">
+                            Nurse
+                        </button>
+
+                        <button class="role-option">
+                            Administrator
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- SECTION HEADING -->
+
+            <div class="heading-row">
+
+                <div>
+
+                    <h2 class="section-title">
+                        Priority Patients
+                    </h2>
+
+                    <p class="section-subtitle">
+                        Requires immediate attention
+                    </p>
+
+                </div>
+
+                <button
+                    class="filter-button"
+                    id="filterButton"
+                    aria-label="Filter patients"
+                >
+                    <i class="fa-solid fa-filter"></i>
+                </button>
+
+            </div>
+
+
+            <!-- PRIORITY CARDS -->
+
+            <div class="priority-wrapper">
+
+                <div class="priority-grid">
+
+                    <div
+                        class="priority-card critical"
+                        data-filter="critical"
+                    >
+
+                        <div class="priority-label">
+
+                            <i class="fa-solid fa-star-of-life"></i>
+
+                            Critical
+
+                        </div>
+
+                        <div
+                            class="priority-number"
+                            id="criticalCount"
+                        >
+                            3
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        class="priority-card high-risk"
+                        data-filter="high-risk"
+                    >
+
+                        <div class="priority-label">
+
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+
+                            High Risk
+
+                        </div>
+
+                        <div
+                            class="priority-number"
+                            id="highRiskCount"
+                        >
+                            7
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        class="priority-card follow-up"
+                        data-filter="follow-up"
+                    >
+
+                        <div class="priority-label">
+
+                            <i class="fa-regular fa-calendar-check"></i>
+
+                            Follow-up
+
+                        </div>
+
+                        <div class="priority-number">
+                            12
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PATIENTS -->
+
+            <div class="patients" id="patients">
+
+
+                <!-- =================================================
+                     PATIENT 1
+                ================================================== -->
+
+                <article
+                    class="patient-card critical-card"
+                    data-priority="critical"
+                >
+
+                    <div class="patient-top">
+
+                        <div class="patient-info">
+
+                            <img
+                                class="patient-avatar"
+                                src="https://randomuser.me/api/portraits/women/65.jpg"
+                                alt="Sushila Devi"
+                            >
+
+                            <div>
+
+                                <h3 class="patient-name">
+                                    Sushila Devi
+                                </h3>
+
+                                <p class="patient-meta">
+                                    68 Y • Female
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <span class="priority-badge critical">
+                            CRITICAL
+                        </span>
+
+                    </div>
+
+
+                    <div class="condition critical">
+
+                        <i class="fa-solid fa-heart-pulse"></i>
+
+                        Chronic - Severe Hypertension
+
+                    </div>
+
+
+                    <div class="vitals">
+
+                        <div class="vital">
+
+                            <i
+                                class="fa-regular fa-heart vital-icon"
+                                style="color:#c1121f"
+                            ></i>
+
+                            <div>
+
+                                <span class="vital-value">
+                                    115
+                                </span>
+
+                                <span class="vital-unit">
+                                    bpm
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="vital">
+
+                            <i
+                                class="fa-solid fa-wind vital-icon"
+                            ></i>
+
+                            <div>
+
+                                <span class="vital-value">
+                                    92
+                                </span>
+
+                                <span class="vital-unit">
+                                    %
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="vital">
+
+                            <i
+                                class="fa-solid fa-heart-pulse vital-icon"
+                                style="color:#c1121f"
+                            ></i>
+
+                            <div>
+
+                                <span class="vital-value">
+                                    180/110
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="patient-actions">
+
+                        <button
+                            class="action-button ehr-button"
+                            onclick="viewEHR('Sushila Devi')"
+                        >
+
+                            <i class="fa-regular fa-address-card"></i>
+
+                            View EHR
+
+                        </button>
+
+
+                        <button
+                            class="action-button escalate-button"
+                            onclick="escalatePatient('Sushila Devi')"
+                        >
+
+                            <i class="fa-solid fa-phone"></i>
+
+                            Escalate (108)
+
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+                <!-- =================================================
+                     PATIENT 2
+                ================================================== -->
+
+                <article
+                    class="patient-card"
+                    data-priority="high-risk"
+                >
+
+                    <div class="patient-top">
+
+                        <div class="patient-info">
+
+                            <img
+                                class="patient-avatar"
+                                src="https://randomuser.me/api/portraits/women/32.jpg"
+                                alt="Meena Kumari"
+                            >
+
+                            <div>
+
+                                <h3 class="patient-name">
+                                    Meena Kumari
+                                </h3>
+
+                                <p class="patient-meta">
+                                    24 Y • Female • 32W Preg
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <span class="priority-badge high-risk">
+                            HIGH RISK
+                        </span>
+
+                    </div>
+
+
+                    <div class="condition high-risk">
+
+                        <i class="fa-solid fa-person-pregnant"></i>
+
+                        Maternal - Gestational Diabetes
+
+                    </div>
+
+
+                    <div class="vitals">
+
+                        <div class="vital">
+
+                            <i class="fa-regular fa-heart vital-icon"></i>
+
+                            <div>
+
+                                <span class="vital-value">
+                                    88
+                                </span>
+
+                                <span class="vital-unit">
+                                    bpm
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="vital">
+
+                            <i class="fa-solid fa-heart-pulse vital-icon"></i>
+
+                            <div>
+
+                                <span class="vital-value">
+                                    130/85
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="vital">
+
+                            <i class="fa-solid fa-droplet vital-icon"></i>
+
+                            <div>
+
+                                <span class="vital-value">
+                                    160
+                                </span>
+
+                                <span class="vital-unit">
+                                    mg/dL
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="patient-actions">
+
+                        <button
+                            class="action-button schedule-button"
+                            onclick="scheduleVisit('Meena Kumari')"
+                        >
+
+                            <i class="fa-regular fa-calendar"></i>
+
+                            Schedule Visit
+
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+                <!-- =================================================
+                     ADDITIONAL PATIENT
+                ================================================== -->
+
+                <article
+                    class="patient-card"
+                    data-priority="follow-up"
+                >
+
+                    <div class="patient-top">
+
+                        <div class="patient-info">
+
+                            <img
+                                class="patient-avatar"
+                                src="https://randomuser.me/api/portraits/men/45.jpg"
+                                alt="Ramesh Kumar"
+                            >
+
+                            <div>
+
+                                <h3 class="patient-name">
+                                    Ramesh Kumar
+                                </h3>
+
+                                <p class="patient-meta">
+                                    56 Y • Male
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <span class="priority-badge high-risk">
+                            FOLLOW-UP
+                        </span>
+
+                    </div>
+
+
+                    <div class="condition high-risk">
+
+                        <i class="fa-solid fa-notes-medical"></i>
+
+                        Diabetes Follow-up
+
+                    </div>
+
+
+                    <div class="vitals">
+
+                        <div class="vital">
+
+                            <i class="fa-regular fa-heart vital-icon"></i>
+
+                            <div>
+                                <span class="vital-value">
+                                    82
+                                </span>
+
+                                <span class="vital-unit">
+                                    bpm
+                                </span>
+                            </div>
+
+                        </div>
+
+
+                        <div class="vital">
+
+                            <i class="fa-solid fa-heart-pulse vital-icon"></i>
+
+                            <div>
+                                <span class="vital-value">
+                                    128/82
+                                </span>
+                            </div>
+
+                        </div>
+
+
+                        <div class="vital">
+
+                            <i class="fa-solid fa-droplet vital-icon"></i>
+
+                            <div>
+                                <span class="vital-value">
+                                    118
+                                </span>
+
+                                <span class="vital-unit">
+                                    mg/dL
+                                </span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="patient-actions">
+
+                        <button
+                            class="action-button schedule-button"
+                            onclick="scheduleVisit('Ramesh Kumar')"
+                        >
+
+                            <i class="fa-regular fa-calendar"></i>
+
+                            Schedule Visit
+
+                        </button>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================================
+         MOBILE BOTTOM NAV
+    ========================================================== -->
+
+    <nav class="bottom-nav">
+
+        <button class="nav-item">
+
+            <i class="fa-solid fa-border-all"></i>
+
+            <span>Home</span>
+
+        </button>
+
+
+        <button class="nav-item">
+
+            <i class="fa-solid fa-users"></i>
+
+            <span>Visits</span>
+
+        </button>
+
+
+        <button class="nav-item active">
+
+            <i class="fa-solid fa-triangle-exclamation"></i>
+
+            <span>Risk</span>
+
+        </button>
+
+
+        <button class="nav-item">
+
+            <i class="fa-solid fa-cloud-arrow-up"></i>
+
+            <span>Sync</span>
+
+        </button>
+
+    </nav>
+
+
+    <!-- TOAST -->
+
+    <div
+        class="toast"
+        id="toast"
+    ></div>
+
+
+    <!-- =========================================================
+         JAVASCRIPT
+    ========================================================== -->
+
+    <script>
+
+        /* =========================================================
+           TOAST
+        ========================================================= */
+
+        function showToast(message) {
+
+            const toast = document.getElementById("toast");
+
+            toast.textContent = message;
+
+            toast.classList.add("show");
+
+            setTimeout(() => {
+
+                toast.classList.remove("show");
+
+            }, 2500);
+        }
+
+
+        /* =========================================================
+           ROLE MENU
+        ========================================================= */
+
+        const roleButton =
+            document.getElementById("roleButton");
+
+        const roleMenu =
+            document.getElementById("roleMenu");
+
+
+        roleButton.addEventListener("click", function (event) {
+
+            event.stopPropagation();
+
+            roleMenu.classList.toggle("show");
+
+        });
+
+
+        document.addEventListener("click", function () {
+
+            roleMenu.classList.remove("show");
+
+        });
+
+
+        document.querySelectorAll(".role-option")
+            .forEach(option => {
+
+                option.addEventListener("click", function () {
+
+                    showToast(
+                        "Role changed to " + this.textContent.trim()
+                    );
+
+                });
+
+            });
+
+
+        /* =========================================================
+           VIEW EHR
+        ========================================================== */
+
+        function viewEHR(patient) {
+
+            showToast(
+                "Opening EHR for " + patient
+            );
+
+            console.log(
+                "EHR requested for:",
+                patient
+            );
+
+        }
+
+
+        /* =========================================================
+           ESCALATE PATIENT
+        ========================================================== */
+
+        function escalatePatient(patient) {
+
+            const confirmed =
+                confirm(
+                    "Escalate " +
+                    patient +
+                    " to emergency services (108)?"
+                );
+
+            if (confirmed) {
+
+                showToast(
+                    "Emergency escalation initiated for " +
+                    patient
+                );
+
+                console.log(
+                    "Emergency call initiated for:",
+                    patient
+                );
+
+            }
+
+        }
+
+
+        /* =========================================================
+           SCHEDULE VISIT
+        ========================================================== */
+
+        function scheduleVisit(patient) {
+
+            showToast(
+                "Scheduling visit for " + patient
+            );
+
+            console.log(
+                "Schedule visit:",
+                patient
+            );
+
+        }
+
+
+        /* =========================================================
+           FILTER
+        ========================================================== */
+
+        const filterButton =
+            document.getElementById("filterButton");
+
+        let currentFilter = "all";
+
+
+        filterButton.addEventListener("click", function () {
+
+            if (currentFilter === "all") {
+
+                currentFilter = "critical";
+
+            } else if (currentFilter === "critical") {
+
+                currentFilter = "high-risk";
+
+            } else {
+
+                currentFilter = "all";
+
+            }
+
+            filterPatients(currentFilter);
+
+        });
+
+
+        function filterPatients(filter) {
+
+            const patients =
+                document.querySelectorAll(".patient-card");
+
+
+            patients.forEach(patient => {
+
+                if (
+                    filter === "all" ||
+                    patient.dataset.priority === filter
+                ) {
+
+                    patient.style.display = "";
+
+                } else {
+
+                    patient.style.display = "none";
+
+                }
+
+            });
+
+
+            if (filter === "all") {
+
+                showToast("Showing all priority patients");
+
+            } else {
+
+                showToast(
+                    "Showing " +
+                    filter.replace("-", " ") +
+                    " patients"
+                );
+
+            }
+
+        }
+
+
+        /* =========================================================
+           PRIORITY CARD CLICK
+        ========================================================== */
+
+        document
+            .querySelectorAll(".priority-card")
+            .forEach(card => {
+
+                card.addEventListener("click", function () {
+
+                    const filter =
+                        this.dataset.filter;
+
+                    filterPatients(filter);
+
+                });
+
+            });
+
+
+        /* =========================================================
+           BOTTOM NAVIGATION
+        ========================================================== */
+
+        document
+            .querySelectorAll(".nav-item")
+            .forEach(item => {
+
+                item.addEventListener("click", function () {
+
+                    document
+                        .querySelectorAll(".nav-item")
+                        .forEach(nav => {
+                            nav.classList.remove("active");
+                        });
+
+                    this.classList.add("active");
+
+                    const page =
+                        this.querySelector("span")
+                            .textContent;
+
+                    showToast(
+                        page + " selected"
+                    );
+
+                });
+
+            });
+
+
+        /* =========================================================
+           DESKTOP SIDEBAR NAVIGATION
+        ========================================================== */
+
+        document
+            .querySelectorAll(".side-item")
+            .forEach(item => {
+
+                item.addEventListener("click", function () {
+
+                    document
+                        .querySelectorAll(".side-item")
+                        .forEach(nav => {
+                            nav.classList.remove("active");
+                        });
+
+                    this.classList.add("active");
+
+                    showToast(
+                        this.textContent.trim() +
+                        " selected"
+                    );
+
+                });
+
+            });
+
+
+        /* =========================================================
+           SYNC STATUS
+        ========================================================== */
+
+        const syncStatus =
+            document.getElementById("syncStatus");
+
+        let syncing = true;
+
+
+        setTimeout(() => {
+
+            syncing = false;
+
+            syncStatus.innerHTML = `
+                <i class="fa-solid fa-circle-check"></i>
+                <span>Synced</span>
+            `;
+
+            syncStatus.style.background =
+                "#e4f8ed";
+
+            syncStatus.style.color =
+                "#197448";
+
+        }, 4000);
+
+
+    </script>
+
+</body>
+</html>

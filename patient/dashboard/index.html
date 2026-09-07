@@ -230,8 +230,8 @@
           Quick Actions
         </h2>
         <!-- Primary AI Action -->
-        <button
-          class="w-full flex items-center justify-between p-4 rounded-2xl bg-surface-container-low text-on-surface relative overflow-hidden shadow-sm group transition-transform active:scale-[0.98]">
+        <button onclick="window.location.href='../health_assistant/health-assistant.html'"
+          class="w-full flex items-center justify-between p-4 rounded-2xl bg-surface-container-low text-on-surface relative overflow-hidden shadow-sm group transition-transform active:scale-[0.98] cursor-pointer hover:bg-surface-container">
           <div class="absolute inset-0 bg-gradient-to-r from-ai-purple/5 to-ai-purple/10 pointer-events-none"></div>
           <div class="flex items-center gap-4 z-10">
             <div class="w-12 h-12 rounded-full bg-ai-purple/10 flex items-center justify-center text-ai-purple">
@@ -245,41 +245,54 @@
           </div>
           <span class="material-symbols-outlined text-ai-purple z-10 opacity-70">chevron_right</span>
         </button>
-        <!-- Quick Actions: Find Medication & SOS Emergency -->
+        <!-- Quick Actions: Precaution & SOS Emergency -->
         <div class="grid grid-cols-2 gap-3">
-          <button onclick="window.location.href='../appointment/appointment.html'"
-            class="flex flex-col gap-3 p-4 rounded-2xl bg-surface-container-low shadow-sm transition-transform active:scale-[0.98] items-start cursor-pointer hover:bg-surface-container">
-            <div class="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center">
-              <span class="material-symbols-outlined text-[20px]"
-                style="font-variation-settings: &quot;FILL&quot; 1">calendar_add_on</span>
+          <!-- Precaution Button -->
+          <button
+            id="find-medication-btn"
+            onclick="window.location.href='../Precautions/index.html'"
+            class="flex flex-col gap-2.5 p-4 rounded-2xl bg-surface-container-low shadow-sm transition-all active:scale-[0.98] items-start cursor-pointer hover:bg-surface-container border border-outline-variant/30 hover:border-primary/40 group">
+            <div class="w-11 h-11 rounded-full bg-primary/10 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-on-primary transition-colors">
+              <span
+                class="material-symbols-outlined text-[24px]"
+                style="font-variation-settings: 'FILL' 1">
+                health_and_safety
+              </span>
             </div>
-            <span
-              class="font-label-sm text-label-sm text-on-surface text-left leading-snug">Book<br />Appointment</span>
+            <div class="flex flex-col items-start text-left">
+              <span class="font-label-md text-label-md text-on-surface font-semibold leading-tight">
+                Precaution
+              </span>
+              <span class="font-label-sm text-[11px] text-on-surface-variant mt-1 leading-snug">
+                Safety precautions & medicines
+              </span>
+            </div>
           </button>
+<<<<<<< HEAD
           <button onclick="window.location.href='patient/Talktodoctor/talk-to-doctor.html';"
             class="flex flex-col gap-3 p-4 rounded-2xl bg-surface-container-low shadow-sm transition-transform active:scale-[0.98] items-start cursor-pointer hover:bg-surface-container">
             <div class="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center">
               <span class="material-symbols-outlined text-[20px]"
                 style="font-variation-settings: &quot;FILL&quot; 1">video_camera_front</span>
+=======
+
+          <!-- SOS Emergency Button -->
+          <button id="sos-emergency-btn" onclick="handleSosClick()" class="flex flex-col gap-2.5 p-4 rounded-2xl bg-error-container text-on-error-container shadow-sm transition-all active:scale-[0.98] items-start cursor-pointer hover:shadow-md border border-error/25 relative overflow-hidden group">
+            <div class="absolute -right-3 -top-3 w-16 h-16 bg-error/10 rounded-full blur-md pointer-events-none group-hover:scale-125 transition-transform"></div>
+            <div class="w-11 h-11 rounded-full bg-error text-on-error flex items-center justify-center shadow-sm">
+              <span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1">emergency</span>
+>>>>>>> bc3574d257a447d98babc7bd488f007886bfdad3
             </div>
-            <span class="font-label-sm text-label-sm text-on-surface text-left leading-snug">Talk to<br />Doctor</span>
-          </button>
-          <button onclick="window.location.href='../my_health/my-health.html'"
-            class="flex flex-col gap-3 p-4 rounded-2xl bg-surface-container-low shadow-sm transition-transform active:scale-[0.98] items-start cursor-pointer hover:bg-surface-container">
-            <div class="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center">
-              <span class="material-symbols-outlined text-[20px]"
-                style="font-variation-settings: &quot;FILL&quot; 1">medication</span>
+            <div class="flex flex-col items-start text-left z-10">
+              <div class="flex items-center gap-1.5">
+                <span class="font-label-md text-label-md font-bold text-error leading-tight">SOS Emergency</span>
+                <span class="relative flex h-2 w-2">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-error opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-error"></span>
+                </span>
+              </div>
+              <span class="font-label-sm text-[11px] text-on-error-container/80 mt-1 leading-snug">Immediate triage & ambulance alert</span>
             </div>
-            <span class="font-label-sm text-label-sm text-on-surface text-left leading-snug">Find<br />Medicine</span>
-          </button>
-          <button onclick="window.location.href='../my_health/my-health.html'"
-            class="flex flex-col gap-3 p-4 rounded-2xl bg-surface-container-low shadow-sm transition-transform active:scale-[0.98] items-start cursor-pointer hover:bg-surface-container">
-            <div class="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center">
-              <span class="material-symbols-outlined text-[20px]"
-                style="font-variation-settings: &quot;FILL&quot; 1">lab_profile</span>
-            </div>
-            <span class="font-label-sm text-label-sm text-on-surface text-left leading-snug">My
-              Health<br />Record</span>
           </button>
         </div>
       </div>
@@ -420,19 +433,19 @@
       </a>
 
       <a class="flex flex-col items-center justify-center w-full h-full text-on-surface-variant transition-colors asha-nav-item"
-        data-nav="doctor" href="/patient/Talktodoctor/talk-to-doctor.html" title="Talk to Doctor">
+        data-nav="doctor" href="../Talktodoctor/talk-to-doctor.html" title="Talk to Doctor">
         <span class="material-symbols-outlined">video_camera_front</span>
         <span class="text-[10px] font-semibold mt-1 asha-nav-label">Talk to Doctor</span>
       </a>
 
       <a class="flex flex-col items-center justify-center w-full h-full text-on-surface-variant transition-colors asha-nav-item"
-        data-nav="appointment" href="/patient/appointment/appointment.html" title="Book Appointment">
+        data-nav="appointment" href="../appointment/appointment.html" title="Book Appointment">
         <span class="material-symbols-outlined">calendar_add_on</span>
         <span class="text-[10px] font-semibold mt-1 asha-nav-label">Appointment</span>
       </a>
 
       <a class="flex flex-col items-center justify-center w-full h-full text-on-surface-variant transition-colors asha-nav-item"
-        data-nav="records" href="/patient/my_health/my-health.html" title="My Health Record">
+        data-nav="records" href="../my_health/my-health.html" title="My Health Record">
         <span class="material-symbols-outlined">health_and_safety</span>
         <span class="text-[10px] font-semibold mt-1 asha-nav-label">My Health</span>
       </a>
@@ -453,8 +466,8 @@
     let isSyncing = false;
 
     function handleFindMedicationClick() {
-      // Navigate to patient prescription & medicine adherence records
-      window.location.href = '../my_health/my-health.html';
+      // Navigate to patient precautions & medication safety portal
+      window.location.href = '../Precautions/index.html';
     }
 
     async function handleSosClick() {

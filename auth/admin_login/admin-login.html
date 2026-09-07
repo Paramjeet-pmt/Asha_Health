@@ -1,221 +1,1672 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
-        name="viewport">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
-        rel="stylesheet">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-        rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script
-        id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "primary": "#007F6D", "primary-light": "#00A884", "primary-dark": "#006052", "background": "#F4FAF8", "surface": "#FFFFFF", "surface-soft": "#EAF6F2", "text-primary": "#163B35", "text-secondary": "#60736E", "text-muted": "#84948F", "border": "#DCEAE6", "border-dark": "#C7DCD7", "success": "#168A68", "warning": "#E59A23", "danger": "#D64545", "info": "#2878B5", "on-primary": "#ffffff", "error": "#D64545", "primary-fixed": "#EAF6F2", "primary-fixed-dim": "#C7DCD7", "secondary-container": "#EAF6F2", "surface-dim": "#EAF6F2", "surface-container": "#EAF6F2", "outline": "#DCEAE6", "error-container": "#FDE8E8", "on-surface": "#163B35", "nexus-warm-bg": "#F4FAF8", "surface-variant": "#EAF6F2", "state-critical": "#D64545", "nexus-warm-surface": "#FFFFFF", "surface-tint": "#006052", "surface-bright": "#FFFFFF", "secondary-fixed": "#EAF6F2", "primary-container": "#006052", "outline-variant": "#C7DCD7", "surface-container-lowest": "#ffffff", "on-tertiary-container": "#163B35", "tertiary-container": "#EAF6F2", "nexus-pro-accent": "#006052", "nexus-pro-bg": "#F4FAF8", "on-background": "#163B35", "on-secondary-container": "#006052", "surface-container-low": "#F4FAF8", "secondary": "#00A884", "on-surface-variant": "#60736E", "inverse-primary": "#00A884", "surface-container-highest": "#C7DCD7", "surface-container-high": "#DCEAE6", "tertiary": "#006052", "on-primary-container": "#FFFFFF", "on-tertiary": "#ffffff", "state-online": "#168A68", "state-offline": "#84948F" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "margin-desktop": "40px", "margin-mobile": "16px", "gutter-sm": "12px", "touch-target": "48px", "gutter-md": "20px", "unit": "4px" }, "fontFamily": { "label-md": ["Geist"], "body-lg": ["Geist"], "headline-lg": ["Geist"], "headline-md": ["Geist"], "body-md": ["Geist"], "label-sm": ["Geist"], "headline-lg-mobile": ["Geist"], "display-lg": ["Geist"] }, "fontSize": { "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600" }], "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }], "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }], "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }], "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }], "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }], "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }] } } } };</script>
-    <link rel="stylesheet" href="../../theme.css">
-    <link rel="stylesheet" href="admin-login.css">
+    <meta charset="UTF-8">
+
+```
+<meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+
+<title>ASHA - Official Login</title>
+
+<!-- Google Fonts -->
+<link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    rel="stylesheet">
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap"
+    rel="stylesheet">
+
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<script>
+    tailwind.config = {
+        darkMode: "class",
+
+        theme: {
+            extend: {
+
+                colors: {
+                    primary: "#007F6D",
+                    "primary-light": "#00A884",
+                    "primary-dark": "#006052",
+
+                    background: "#F4FAF8",
+                    surface: "#FFFFFF",
+                    "surface-soft": "#EAF6F2",
+
+                    "text-primary": "#163B35",
+                    "text-secondary": "#60736E",
+                    "text-muted": "#84948F",
+
+                    border: "#DCEAE6",
+                    "border-dark": "#C7DCD7",
+
+                    success: "#168A68",
+                    warning: "#E59A23",
+                    danger: "#D64545",
+                    info: "#2878B5",
+
+                    "on-primary": "#ffffff",
+
+                    "primary-fixed": "#EAF6F2",
+                    "primary-fixed-dim": "#C7DCD7",
+
+                    "secondary-container": "#EAF6F2",
+                    "surface-dim": "#EAF6F2",
+                    "surface-container": "#EAF6F2",
+
+                    outline: "#DCEAE6",
+                    "error-container": "#FDE8E8",
+
+                    "on-surface": "#163B35",
+                    "surface-variant": "#EAF6F2",
+
+                    "state-critical": "#D64545",
+
+                    "surface-tint": "#006052",
+                    "surface-bright": "#FFFFFF",
+
+                    secondary: "#00A884",
+                    "on-surface-variant": "#60736E",
+
+                    tertiary: "#006052",
+                    "tertiary-container": "#EAF6F2",
+
+                    "on-tertiary-container": "#163B35",
+
+                    "state-online": "#168A68",
+                    "state-offline": "#84948F"
+                },
+
+                borderRadius: {
+                    DEFAULT: "0.25rem",
+                    lg: "0.5rem",
+                    xl: "0.75rem",
+                    full: "9999px"
+                },
+
+                spacing: {
+                    "margin-desktop": "40px",
+                    "margin-mobile": "16px",
+                    "gutter-sm": "12px",
+                    "touch-target": "48px",
+                    "gutter-md": "20px",
+                    unit: "4px"
+                },
+
+                fontFamily: {
+                    geist: ["Geist", "sans-serif"]
+                }
+            }
+        }
+    };
+</script>
+
+<style>
+
+    /* ==============================
+       BASE
+    ============================== */
+
+    * {
+        box-sizing: border-box;
+    }
+
+    html,
+    body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        min-height: 100%;
+    }
+
+    body {
+        font-family: "Geist", sans-serif;
+        background: #F4FAF8;
+        color: #163B35;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    button,
+    input {
+        font-family: inherit;
+    }
+
+    .pb-safe {
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+    }
+
+    .pt-safe {
+        padding-top: env(safe-area-inset-top, 0px);
+    }
+
+
+    /* ==============================
+       HEADER
+    ============================== */
+
+    .top-header {
+        height: 64px;
+        background: rgba(255, 255, 255, 0.90);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        box-shadow: 0 1px 8px rgba(0, 0, 0, 0.04);
+
+        display: flex;
+        align-items: center;
+
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+
+        z-index: 50;
+    }
+
+    .header-inner {
+        width: 100%;
+        height: 64px;
+
+        padding: 0 16px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .header-left {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .back-button {
+        width: 40px;
+        height: 40px;
+
+        border: none;
+        border-radius: 50%;
+
+        background: transparent;
+
+        color: #60736E;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        cursor: pointer;
+
+        transition: 0.2s ease;
+    }
+
+    .back-button:hover {
+        background: #EAF6F2;
+        color: #007F6D;
+    }
+
+    .back-button:active {
+        transform: scale(0.95);
+    }
+
+    .brand-logo {
+        height: 32px;
+        width: auto;
+        object-fit: contain;
+    }
+
+    .home-text {
+        font-size: 20px;
+        font-weight: 600;
+        color: #007F6D;
+    }
+
+    .header-right {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .language-button {
+        height: 34px;
+
+        padding: 0 10px;
+
+        border: none;
+        border-radius: 999px;
+
+        background: #EAF6F2;
+
+        color: #60736E;
+
+        display: flex;
+        align-items: center;
+        gap: 5px;
+
+        font-size: 13px;
+        font-weight: 600;
+
+        cursor: pointer;
+    }
+
+    .profile-circle {
+        width: 34px;
+        height: 34px;
+
+        border-radius: 50%;
+
+        background: #007F6D;
+
+        color: white;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+
+    /* ==============================
+       MAIN
+    ============================== */
+
+    .main-content {
+        width: 100%;
+        min-height: 100vh;
+
+        padding-top: 64px;
+        padding-bottom: 100px;
+        padding-left: 16px;
+        padding-right: 16px;
+
+        background: #F4FAF8;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .login-wrapper {
+        width: 100%;
+        max-width: 440px;
+
+        padding: 32px 0;
+    }
+
+
+    /* ==============================
+       LOGIN CARD
+    ============================== */
+
+    .login-card {
+        width: 100%;
+
+        background: #FFFFFF;
+
+        border-radius: 14px;
+
+        padding: 28px;
+
+        box-shadow:
+            0 8px 30px rgba(22, 59, 53, 0.08),
+            0 2px 8px rgba(22, 59, 53, 0.04);
+
+        position: relative;
+        overflow: hidden;
+    }
+
+    .card-decoration {
+        position: absolute;
+
+        top: 0;
+        left: 0;
+        right: 0;
+
+        height: 80px;
+
+        background: linear-gradient(
+            to bottom,
+            rgba(234, 246, 242, 0.8),
+            rgba(234, 246, 242, 0)
+        );
+
+        pointer-events: none;
+    }
+
+
+    /* ==============================
+       LOGIN HEADER
+    ============================== */
+
+    .login-header {
+        position: relative;
+        z-index: 2;
+
+        display: flex;
+        flex-direction: column;
+
+        align-items: center;
+        text-align: center;
+
+        gap: 10px;
+
+        margin-bottom: 22px;
+    }
+
+    .shield-icon {
+        width: 64px;
+        height: 64px;
+
+        border-radius: 50%;
+
+        background: #EAF6F2;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        color: #006052;
+
+        box-shadow: 0 3px 10px rgba(0, 96, 82, 0.10);
+
+        margin-bottom: 4px;
+    }
+
+    .login-title {
+        margin: 0;
+
+        font-size: 25px;
+        line-height: 32px;
+
+        font-weight: 600;
+
+        color: #163B35;
+    }
+
+    .login-subtitle {
+        margin: 0;
+
+        font-size: 15px;
+        line-height: 23px;
+
+        color: #60736E;
+    }
+
+
+    /* ==============================
+       ALERT
+    ============================== */
+
+    #auth-alert {
+        display: none;
+
+        width: 100%;
+
+        padding: 12px;
+
+        border-radius: 8px;
+
+        margin-bottom: 16px;
+
+        font-size: 12px;
+        font-weight: 600;
+
+        line-height: 18px;
+    }
+
+
+    /* ==============================
+       DEMO ACCOUNTS
+    ============================== */
+
+    .demo-box {
+        background: rgba(234, 246, 242, 0.70);
+
+        border: 1px solid rgba(199, 220, 215, 0.7);
+
+        border-radius: 10px;
+
+        padding: 12px;
+
+        margin-bottom: 20px;
+    }
+
+    .demo-title {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+
+        color: #007F6D;
+
+        font-size: 11px;
+        font-weight: 700;
+
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+
+        margin-bottom: 8px;
+    }
+
+    .demo-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7px;
+    }
+
+    .demo-button {
+        padding: 7px 11px;
+
+        border-radius: 6px;
+
+        background: #FFFFFF;
+
+        border: 1px solid rgba(199, 220, 215, 0.8);
+
+        color: #163B35;
+
+        font-size: 12px;
+        font-weight: 500;
+
+        cursor: pointer;
+
+        transition: all 0.2s ease;
+    }
+
+    .demo-button:hover {
+        background: #007F6D;
+        color: #FFFFFF;
+
+        border-color: #007F6D;
+    }
+
+
+    /* ==============================
+       FORM
+    ============================== */
+
+    .login-form {
+        position: relative;
+        z-index: 2;
+
+        display: flex;
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+    .input-wrapper {
+        width: 100%;
+
+        position: relative;
+    }
+
+    .input-icon {
+        position: absolute;
+
+        left: 12px;
+        top: 50%;
+
+        transform: translateY(-50%);
+
+        color: #60736E;
+
+        pointer-events: none;
+
+        font-size: 20px;
+    }
+
+    .login-input {
+        width: 100%;
+        height: 48px;
+
+        padding: 0 42px;
+
+        border: 1px solid transparent;
+
+        border-radius: 8px;
+
+        background: #EAF6F2;
+
+        color: #163B35;
+
+        font-size: 15px;
+
+        outline: none;
+
+        transition: all 0.2s ease;
+    }
+
+    .login-input::placeholder {
+        color: rgba(96, 115, 110, 0.65);
+    }
+
+    .login-input:focus {
+        background: #FFFFFF;
+
+        border-color: #007F6D;
+
+        box-shadow: 0 0 0 2px rgba(0, 127, 109, 0.12);
+    }
+
+    .password-toggle {
+        position: absolute;
+
+        right: 10px;
+        top: 50%;
+
+        transform: translateY(-50%);
+
+        width: 32px;
+        height: 32px;
+
+        border: none;
+        background: transparent;
+
+        color: #60736E;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        cursor: pointer;
+
+        border-radius: 50%;
+    }
+
+    .password-toggle:hover {
+        color: #007F6D;
+        background: #EAF6F2;
+    }
+
+
+    /* ==============================
+       FORGOT PASSWORD
+    ============================== */
+
+    .forgot-wrapper {
+        display: flex;
+        justify-content: flex-end;
+
+        margin-top: -3px;
+    }
+
+    .forgot-button {
+        border: none;
+        background: transparent;
+
+        color: #007F6D;
+
+        font-size: 12px;
+        font-weight: 600;
+
+        cursor: pointer;
+
+        padding: 4px 0;
+    }
+
+    .forgot-button:hover {
+        color: #006052;
+        text-decoration: underline;
+    }
+
+
+    /* ==============================
+       LOGIN BUTTON
+    ============================== */
+
+    .login-button-wrapper {
+        margin-top: 5px;
+    }
+
+    .login-button {
+        width: 100%;
+        height: 48px;
+
+        border: none;
+        border-radius: 8px;
+
+        background: #007F6D;
+
+        color: #FFFFFF;
+
+        font-size: 14px;
+        font-weight: 600;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        gap: 8px;
+
+        cursor: pointer;
+
+        box-shadow: 0 3px 8px rgba(0, 127, 109, 0.18);
+
+        transition: all 0.2s ease;
+    }
+
+    .login-button:hover {
+        background: #006052;
+
+        box-shadow: 0 5px 12px rgba(0, 127, 109, 0.25);
+
+        transform: translateY(-1px);
+    }
+
+    .login-button:active {
+        transform: translateY(0);
+    }
+
+    .login-button:disabled {
+        opacity: 0.65;
+
+        cursor: not-allowed;
+
+        transform: none;
+
+        box-shadow: none;
+    }
+
+    .login-button .material-symbols-outlined {
+        font-size: 20px;
+    }
+
+
+    /* ==============================
+       SECURITY MESSAGE
+    ============================== */
+
+    .security-box {
+        margin-top: 22px;
+
+        padding: 14px;
+
+        display: flex;
+        align-items: flex-start;
+
+        gap: 10px;
+
+        border-radius: 8px;
+
+        background: rgba(253, 232, 232, 0.35);
+
+        border: 1px solid #FDE8E8;
+    }
+
+    .security-icon {
+        color: #D64545;
+
+        font-size: 20px;
+
+        flex-shrink: 0;
+    }
+
+    .security-text {
+        margin: 0;
+
+        font-size: 11px;
+        line-height: 17px;
+
+        color: #60736E;
+    }
+
+
+    /* ==============================
+       BOTTOM NAVIGATION
+    ============================== */
+
+    .bottom-nav {
+        position: fixed;
+
+        bottom: 0;
+        left: 0;
+        right: 0;
+
+        height: 80px;
+
+        background: rgba(255, 255, 255, 0.94);
+
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+
+        box-shadow: 0 -1px 8px rgba(0, 0, 0, 0.04);
+
+        z-index: 50;
+    }
+
+    .nav-inner {
+        height: 100%;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        gap: 60px;
+
+        padding: 0 16px;
+    }
+
+    .nav-item {
+        width: 48px;
+        height: 60px;
+
+        display: flex;
+        flex-direction: column;
+
+        align-items: center;
+        justify-content: center;
+
+        gap: 2px;
+
+        text-decoration: none;
+
+        color: #60736E;
+
+        font-size: 11px;
+        font-weight: 500;
+
+        transition: 0.2s ease;
+    }
+
+    .nav-item:hover {
+        color: #007F6D;
+    }
+
+    .nav-item .material-symbols-outlined {
+        font-size: 23px;
+    }
+
+
+    /* ==============================
+       TABLET / DESKTOP
+    ============================== */
+
+    @media (min-width: 640px) {
+
+        .header-inner {
+            padding: 0 28px;
+        }
+
+        .main-content {
+            padding-left: 24px;
+            padding-right: 24px;
+        }
+
+        .login-card {
+            padding: 32px;
+        }
+
+        .login-title {
+            font-size: 27px;
+        }
+
+        .bottom-nav {
+            display: none;
+        }
+
+        .main-content {
+            padding-bottom: 30px;
+        }
+    }
+
+
+    @media (min-width: 1024px) {
+
+        .header-inner {
+            padding: 0 40px;
+        }
+
+        .main-content {
+            padding-left: 40px;
+            padding-right: 40px;
+        }
+
+        .login-wrapper {
+            max-width: 460px;
+        }
+    }
+
+
+    /* ==============================
+       SMALL MOBILE
+    ============================== */
+
+    @media (max-width: 380px) {
+
+        .login-card {
+            padding: 22px 18px;
+        }
+
+        .login-title {
+            font-size: 22px;
+            line-height: 29px;
+        }
+
+        .login-subtitle {
+            font-size: 14px;
+        }
+
+        .home-text {
+            display: none;
+        }
+
+        .demo-button {
+            font-size: 11px;
+            padding: 6px 8px;
+        }
+    }
+
+</style>
+```
+
 </head>
 
-<body class="bg-nexus-warm-bg text-on-surface font-body-md">
-    <header
-        class="fixed top-0 w-full z-50 bg-nexus-warm-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] pt-safe">
-        <div class="h-16 px-margin-mobile flex items-center justify-between">
-            <div class="flex items-center gap-gutter-sm"><button
-                    class="flex items-center justify-center w-touch-target h-touch-target rounded-full hover:bg-surface-variant/50 text-on-surface-variant transition-all duration-200 active:scale-95 focus:outline-none cursor-pointer"
-                    aria-label="Go back" onclick="window.history.back()"><span
-                        class="material-symbols-outlined text-[24px]">arrow_back</span></button><img src="../../logo/logo.png"
-                    alt="ASHA Brand Logo" class="h-8 w-auto object-contain"
-                    ="https://lh3.googleusercontent.com/aida-public/AB6AXuAJ_BxXZCVdgrRfhriRbP2d38vWNuCl4wpUWbwTg4pKJEr2kh0dYzZue60fSgWSEJMk1yYGoGCc58iEGuM_ZlDkJtWoK_UinjUu_Ojrcl8tO2GQ6bPKY0wnz9Q43Cb9YbTR9g0yR6IahQPv5lI6JFcCJZ4epKVdyRYLbSq7jIu9NkndlL7QTKbdlrjCg1fKmSeoLHERq8BYRQGjIV2u808wuf-1q3bB0-KXLMlJ-PhJ4eAeK2sBAP29"><span
-                    class="font-headline-md text-headline-md text-primary">Home</span></div>
-            <div class="flex items-center gap-gutter-sm"><button
-                    class="flex items-center gap-1 px-3 py-1 rounded-full bg-surface-variant/50 text-on-surface-variant font-label-md"><span
-                        class="material-symbols-outlined text-[18px]">language</span><span class="">EN</span></button>
-                <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span
-                        class="material-symbols-outlined text-on-primary text-[18px]">person</span></div>
-            </div>
-        </div>
-    </header>
-    <main class="relative w-full pt-16 pb-24 px-margin-mobile bg-nexus-warm-bg">
-        <div class="flex flex-col w-full px-margin-mobile py-8 justify-center min-h-[calc(100vh-140px)]">
-            <div
-                class="bg-surface-container-lowest rounded-xl shadow-lg p-6 flex flex-col gap-6 relative overflow-hidden w-full max-w-sm mx-auto">
-                <!-- Decorative Header Shape -->
-                <div
-                    class="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-secondary-container/50 to-transparent">
-                </div>
-                <div class="flex flex-col items-center text-center gap-3 relative z-10 pt-2">
-                    <div
-                        class="w-16 h-16 rounded-full bg-tertiary-container flex items-center justify-center shadow-md mb-2">
-                        <span class="material-symbols-outlined text-on-tertiary-container text-[32px]">shield</span>
-                    </div>
-                    <h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">District / State
-                        Official Login</h1>
-                    <p class="font-body-md text-body-md text-on-surface-variant">Enter credentials to access secure
-                        dashboard.</p>
-                </div>
-                <!-- Alert Box -->
-                <div id="auth-alert" class="hidden p-3 rounded-lg text-xs font-semibold"></div>
+<body>
 
-                <!-- Demo Credentials Helper -->
-                <div class="bg-surface-container-high/60 p-3 rounded-xl flex flex-col gap-2 border border-outline-variant/30">
-                    <span class="text-[11px] font-bold text-primary uppercase tracking-wider flex items-center gap-1">
-                        <span class="material-symbols-outlined text-[14px]">key</span> 1-Click Demo Accounts:
+```
+<!-- ==============================
+     HEADER
+============================== -->
+
+<header class="top-header pt-safe">
+
+    <div class="header-inner">
+
+        <div class="header-left">
+
+            <button
+                class="back-button"
+                aria-label="Go back"
+                onclick="window.history.back()">
+
+                <span class="material-symbols-outlined">
+                    arrow_back
+                </span>
+
+            </button>
+
+
+            <img
+                src="../../logo/logo.png"
+                alt="ASHA Brand Logo"
+                class="brand-logo"
+                onerror="this.style.display='none';">
+
+
+            <span class="home-text">
+                Home
+            </span>
+
+        </div>
+
+
+        <div class="header-right">
+
+            <button class="language-button">
+
+                <span class="material-symbols-outlined" style="font-size:18px;">
+                    language
+                </span>
+
+                <span>
+                    EN
+                </span>
+
+            </button>
+
+
+            <div class="profile-circle">
+
+                <span
+                    class="material-symbols-outlined"
+                    style="font-size:18px;">
+
+                    person
+
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<!-- ==============================
+     MAIN
+============================== -->
+
+<main class="main-content">
+
+    <div class="login-wrapper">
+
+        <div class="login-card">
+
+
+            <!-- Decorative Header -->
+
+            <div class="card-decoration"></div>
+
+
+            <!-- ==============================
+                 LOGIN HEADER
+            ============================== -->
+
+            <div class="login-header">
+
+                <div class="shield-icon">
+
+                    <span
+                        class="material-symbols-outlined"
+                        style="font-size:32px;">
+
+                        shield
+
                     </span>
-                    <div class="flex flex-wrap gap-1.5">
-                        <button type="button" onclick="fillDemo('admin@asha.org', 'admin123')" class="px-2.5 py-1 rounded-md bg-surface text-on-surface text-xs font-medium hover:bg-primary hover:text-white transition-colors border border-outline-variant/40 shadow-sm">
-                            🛡️ Admin
-                        </button>
-                        <button type="button" onclick="fillDemo('doctor@asha.org', 'doctor123')" class="px-2.5 py-1 rounded-md bg-surface text-on-surface text-xs font-medium hover:bg-primary hover:text-white transition-colors border border-outline-variant/40 shadow-sm">
-                            🩺 Doctor
-                        </button>
-                        <button type="button" onclick="fillDemo('worker@asha.org', 'worker123')" class="px-2.5 py-1 rounded-md bg-surface text-on-surface text-xs font-medium hover:bg-primary hover:text-white transition-colors border border-outline-variant/40 shadow-sm">
-                            🔬 Lab / Worker
-                        </button>
-                    </div>
+
                 </div>
 
-                <form id="login-form" class="flex flex-col gap-4 w-full relative z-10">
-                    <!-- Official ID / Email Input -->
-                    <div class="relative w-full">
-                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                            <span class="material-symbols-outlined text-on-surface-variant text-[20px]">badge</span>
-                        </div>
-                        <input
-                            class="w-full h-12 pl-10 pr-4 bg-surface-container-highest text-on-surface font-body-md rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:bg-surface-container-lowest transition-colors placeholder:text-on-surface-variant/60"
-                            id="official-id" name="official-id" placeholder="Official ID / Email" required=""
-                            type="text" value="admin@asha.org">
-                    </div>
-                    <!-- Password Input -->
-                    <div class="relative w-full">
-                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                            <span class="material-symbols-outlined text-on-surface-variant text-[20px]">lock</span>
-                        </div>
-                        <input
-                            class="w-full h-12 pl-10 pr-12 bg-surface-container-highest text-on-surface font-body-md rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:bg-surface-container-lowest transition-colors placeholder:text-on-surface-variant/60"
-                            id="password" name="password" placeholder="Password" required="" type="password" value="admin123">
-                        <button
-                            class="absolute inset-y-0 right-0 pr-3 flex items-center text-on-surface-variant hover:text-primary transition-colors focus:outline-none"
-                            onclick="togglePassword()" type="button">
-                            <span class="material-symbols-outlined text-[20px]"
-                                id="toggle-password-icon">visibility</span>
-                        </button>
-                    </div>
-                    <div class="flex justify-end w-full">
-                        <button
-                            class="font-label-sm text-label-sm text-primary hover:text-primary-fixed-dim transition-colors focus:outline-none"
-                            type="button">Forgot Password?</button>
-                    </div>
-                    <div class="flex flex-col gap-3 mt-2">
-                        <button id="submit-btn"
-                            class="w-full h-touch-target bg-on-secondary-fixed text-on-primary font-label-md rounded-lg flex items-center justify-center gap-2 hover:bg-on-secondary-fixed-variant transition-colors shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-on-secondary-fixed"
-                            type="submit">
-                            <span class="material-symbols-outlined text-[20px]">login</span>
-                            Secure Login
-                        </button>
-                    </div>
-                </form>
-                <div
-                    class="mt-4 bg-error-container/20 rounded-lg p-4 flex gap-3 items-start relative z-10 border border-error-container">
-                    <span class="material-symbols-outlined text-error text-[20px] mt-0.5">security_update_warning</span>
-                    <p class="font-label-sm text-label-sm text-on-surface-variant leading-relaxed">
-                        Authorized access only. This system contains sensitive health data. Passwords stored with BCrypt salt hashing.
-                    </p>
-                </div>
+
+                <h1 class="login-title">
+                    District / State Official Login
+                </h1>
+
+
+                <p class="login-subtitle">
+                    Enter credentials to access secure dashboard.
+                </p>
+
             </div>
+
+
+
+            <!-- ==============================
+                 ALERT BOX
+            ============================== -->
+
+            <div id="auth-alert"></div>
+
+
+
+            <!-- ==============================
+                 DEMO ACCOUNTS
+            ============================== -->
+
+            <div class="demo-box">
+
+                <div class="demo-title">
+
+                    <span
+                        class="material-symbols-outlined"
+                        style="font-size:14px;">
+
+                        key
+
+                    </span>
+
+                    1-Click Demo Accounts
+
+                </div>
+
+
+                <div class="demo-buttons">
+
+                    <button
+                        type="button"
+                        class="demo-button"
+                        onclick="fillDemo('admin@asha.org', 'admin123')">
+
+                        🛡️ Admin
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="demo-button"
+                        onclick="fillDemo('doctor@asha.org', 'doctor123')">
+
+                        🩺 Doctor
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="demo-button"
+                        onclick="fillDemo('worker@asha.org', 'worker123')">
+
+                        🔬 Lab / Worker
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ==============================
+                 LOGIN FORM
+            ============================== -->
+
+            <form
+                id="login-form"
+                class="login-form">
+
+
+                <!-- Official ID -->
+
+                <div class="input-wrapper">
+
+                    <span class="material-symbols-outlined input-icon">
+                        badge
+                    </span>
+
+
+                    <input
+                        id="official-id"
+                        name="official-id"
+                        class="login-input"
+                        placeholder="Official ID / Email"
+                        type="text"
+                        value="admin@asha.org"
+                        autocomplete="username"
+                        required>
+
+                </div>
+
+
+
+                <!-- Password -->
+
+                <div class="input-wrapper">
+
+                    <span class="material-symbols-outlined input-icon">
+                        lock
+                    </span>
+
+
+                    <input
+                        id="password"
+                        name="password"
+                        class="login-input"
+                        placeholder="Password"
+                        type="password"
+                        value="admin123"
+                        autocomplete="current-password"
+                        required>
+
+
+                    <button
+                        class="password-toggle"
+                        onclick="togglePassword()"
+                        type="button"
+                        aria-label="Show password">
+
+                        <span
+                            class="material-symbols-outlined"
+                            id="toggle-password-icon">
+
+                            visibility
+
+                        </span>
+
+                    </button>
+
+                </div>
+
+
+
+                <!-- Forgot Password -->
+
+                <div class="forgot-wrapper">
+
+                    <button
+                        class="forgot-button"
+                        type="button"
+                        onclick="forgotPassword()">
+
+                        Forgot Password?
+
+                    </button>
+
+                </div>
+
+
+
+                <!-- ==============================
+                     LOGIN BUTTON
+                ============================== -->
+
+                <div class="login-button-wrapper">
+
+                    <button
+                        id="submit-btn"
+                        class="login-button"
+                        type="submit">
+
+                        <span
+                            class="material-symbols-outlined">
+
+                            login
+
+                        </span>
+
+                        <span>
+                            Login
+                        </span>
+
+                    </button>
+
+                </div>
+
+            </form>
+
+
+
+            <!-- ==============================
+                 SECURITY NOTICE
+            ============================== -->
+
+            <div class="security-box">
+
+                <span
+                    class="material-symbols-outlined security-icon">
+
+                    security_update_warning
+
+                </span>
+
+
+                <p class="security-text">
+
+                    Authorized access only. This system contains
+                    sensitive health data. Passwords stored with
+                    BCrypt salt hashing.
+
+                </p>
+
+            </div>
+
         </div>
-        <script>
-            function fillDemo(email, pwd) {
-                document.getElementById('official-id').value = email;
-                document.getElementById('password').value = pwd;
+
+    </div>
+
+</main>
+
+
+
+<!-- ==============================
+     BOTTOM NAV
+============================== -->
+
+<nav class="bottom-nav pb-safe">
+
+    <div class="nav-inner">
+
+        <a
+            class="nav-item"
+            href="#">
+
+            <span class="material-symbols-outlined">
+                medical_services
+            </span>
+
+            <span>
+                Services
+            </span>
+
+        </a>
+
+
+        <a
+            class="nav-item"
+            href="#">
+
+            <span class="material-symbols-outlined">
+                account_circle
+            </span>
+
+            <span>
+                Profile
+            </span>
+
+        </a>
+
+    </div>
+
+</nav>
+
+
+
+<!-- ==============================
+     JAVASCRIPT
+============================== -->
+
+<script>
+
+    /* ==============================
+       DEMO ACCOUNT
+    ============================== */
+
+    function fillDemo(email, pwd) {
+
+        document.getElementById("official-id").value = email;
+
+        document.getElementById("password").value = pwd;
+
+        document.getElementById("official-id").focus();
+
+    }
+
+
+
+    /* ==============================
+       PASSWORD TOGGLE
+    ============================== */
+
+    function togglePassword() {
+
+        const passwordInput =
+            document.getElementById("password");
+
+        const icon =
+            document.getElementById("toggle-password-icon");
+
+
+        if (passwordInput.type === "password") {
+
+            passwordInput.type = "text";
+
+            icon.textContent = "visibility_off";
+
+        } else {
+
+            passwordInput.type = "password";
+
+            icon.textContent = "visibility";
+
+        }
+
+    }
+
+
+
+    /* ==============================
+       FORGOT PASSWORD
+    ============================== */
+
+    function forgotPassword() {
+
+        const alertBox =
+            document.getElementById("auth-alert");
+
+
+        alertBox.style.display = "block";
+
+        alertBox.style.background = "#EAF6F2";
+
+        alertBox.style.color = "#006052";
+
+        alertBox.style.border =
+            "1px solid #C7DCD7";
+
+        alertBox.textContent =
+            "Please contact your system administrator to reset your password.";
+
+    }
+
+
+
+    /* ==============================
+       LOGIN
+    ============================== */
+
+    document
+        .getElementById("login-form")
+        .addEventListener("submit", async function (e) {
+
+            e.preventDefault();
+
+
+            const email =
+                document
+                    .getElementById("official-id")
+                    .value
+                    .trim();
+
+
+            const password =
+                document
+                    .getElementById("password")
+                    .value;
+
+
+            const alertBox =
+                document.getElementById("auth-alert");
+
+
+            const submitBtn =
+                document.getElementById("submit-btn");
+
+
+
+            /* Loading */
+
+            alertBox.style.display = "block";
+
+            alertBox.style.background = "#EFF6FF";
+
+            alertBox.style.color = "#1E40AF";
+
+            alertBox.style.border =
+                "1px solid #BFDBFE";
+
+            alertBox.textContent =
+                "Authenticating...";
+
+
+            submitBtn.disabled = true;
+
+            submitBtn.innerHTML = `
+                <span
+                    class="material-symbols-outlined"
+                    style="font-size:20px;">
+
+                    progress_activity
+
+                </span>
+
+                <span>
+                    Signing in...
+                </span>
+            `;
+
+
+
+            try {
+
+                /* ==============================
+                   BACKEND LOGIN
+                ============================== */
+
+                const res =
+                    await fetch(
+                        "/api/auth/login",
+                        {
+                            method: "POST",
+
+                            headers: {
+                                "Content-Type":
+                                    "application/json"
+                            },
+
+                            body: JSON.stringify({
+                                email: email,
+                                password: password
+                            })
+                        }
+                    );
+
+
+
+                /* ==============================
+                   SUCCESS
+                ============================== */
+
+                if (res.ok) {
+
+                    const data =
+                        await res.json();
+
+
+                    localStorage.setItem(
+                        "asha_token",
+                        data.token
+                    );
+
+
+                    localStorage.setItem(
+                        "asha_user",
+                        JSON.stringify(data.user)
+                    );
+
+
+
+                    alertBox.style.background =
+                        "#ECFDF5";
+
+                    alertBox.style.color =
+                        "#047857";
+
+                    alertBox.style.border =
+                        "1px solid #A7F3D0";
+
+
+                    alertBox.textContent =
+                        `Success! Logged in as ${data.user.role}: ${data.user.name}. Redirecting...`;
+
+
+
+                    setTimeout(function () {
+
+                        const target =
+                            data.redirectUrl
+                                ? data.redirectUrl.replace(
+                                    /^\//,
+                                    "../../"
+                                )
+                                : "../../admin/command_center/command-center.html";
+
+
+                        window.location.href =
+                            target;
+
+                    }, 500);
+
+
+                    return;
+
+                }
+
+
+
+                /* ==============================
+                   STATIC HOST FALLBACK
+                ============================== */
+
+                if (
+                    res.status === 404 ||
+                    location.hostname.includes("github.io") ||
+                    location.protocol === "file:"
+                ) {
+
+                    throw new Error(
+                        "Static host fallback"
+                    );
+
+                }
+
+
+
+                const errData =
+                    await res
+                        .json()
+                        .catch(() => ({}));
+
+
+                alertBox.style.background =
+                    "#FEF2F2";
+
+                alertBox.style.color =
+                    "#B91C1C";
+
+                alertBox.style.border =
+                    "1px solid #FECACA";
+
+
+                alertBox.textContent =
+                    errData.error ||
+                    "Authentication failed. Please check credentials.";
+
+
+                resetLoginButton();
+
             }
 
-            function togglePassword() {
-                const passwordInput = document.getElementById('password');
-                const icon = document.getElementById('toggle-password-icon');
 
-                if (passwordInput.type === 'password') {
-                    passwordInput.type = 'text';
-                    icon.textContent = 'visibility_off';
-                } else {
-                    passwordInput.type = 'password';
-                    icon.textContent = 'visibility';
+            /* ==============================
+               DEMO FALLBACK
+            ============================== */
+
+            catch (err) {
+
+                let role = "ADMIN";
+
+                let target =
+                    "../../admin/command_center/command-center.html";
+
+                let name =
+                    "District Admin";
+
+
+
+                if (email.includes("doctor")) {
+
+                    role = "DOCTOR";
+
+                    target =
+                        "../../patient/doctor_queue/doctor-queue.html";
+
+                    name =
+                        "Dr. Rajesh Kumar";
+
                 }
+
+
+                else if (email.includes("worker")) {
+
+                    role = "WORKER";
+
+                    target =
+                        "../../workers/frontline_hub/frontline-hub.html";
+
+                    name =
+                        "Sunita Devi (ASHA)";
+
+                }
+
+
+                else if (email.includes("patient")) {
+
+                    role = "PATIENT";
+
+                    target =
+                        "../../patient/dashboard/index.html";
+
+                    name =
+                        "Priya Sharma";
+
+                }
+
+
+
+                /* Store demo login */
+
+                localStorage.setItem(
+                    "asha_token",
+                    "demo-token-" +
+                    role.toLowerCase()
+                );
+
+
+                localStorage.setItem(
+                    "asha_user",
+                    JSON.stringify({
+                        id: 1,
+                        name: name,
+                        email: email,
+                        role: role
+                    })
+                );
+
+
+
+                /* Success message */
+
+                alertBox.style.background =
+                    "#ECFDF5";
+
+                alertBox.style.color =
+                    "#047857";
+
+                alertBox.style.border =
+                    "1px solid #A7F3D0";
+
+
+                alertBox.textContent =
+                    `Welcome ${name}! (${role}). Redirecting...`;
+
+
+
+                setTimeout(function () {
+
+                    window.location.href =
+                        target;
+
+                }, 500);
+
             }
 
-            // Backend Auth Integration
-            document.getElementById('login-form').addEventListener('submit', async function(e) {
-                e.preventDefault();
-                const email = document.getElementById('official-id').value.trim();
-                const password = document.getElementById('password').value;
-                const alertBox = document.getElementById('auth-alert');
-                const submitBtn = document.getElementById('submit-btn');
-
-                alertBox.className = 'p-3 rounded-lg text-xs font-semibold bg-blue-50 text-blue-800 border border-blue-200 block';
-                alertBox.textContent = 'Authenticating with BCrypt cryptography...';
-                submitBtn.disabled = true;
-
-                try {
-                    const res = await fetch('/api/auth/login', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ email, password })
-                    });
-                    const data = await res.json();
-
-                    if (!res.ok) {
-                        alertBox.className = 'p-3 rounded-lg text-xs font-semibold bg-red-50 text-red-800 border border-red-200 block';
-                        alertBox.textContent = data.error || 'Authentication failed. Please check credentials.';
-                        submitBtn.disabled = false;
-                        return;
-                    }
-
-                    localStorage.setItem('asha_token', data.token);
-                    localStorage.setItem('asha_user', JSON.stringify(data.user));
-
-                    alertBox.className = 'p-3 rounded-lg text-xs font-semibold bg-green-50 text-green-800 border border-green-200 block';
-                    alertBox.textContent = `Success! Logged in as ${data.user.role}: ${data.user.name}. Redirecting...`;
-
-                    setTimeout(() => {
-                        window.location.href = data.redirectUrl;
-                    }, 600);
-                } catch (err) {
-                    // Fallback for static environment
-                    if (email.includes('admin')) {
-                        window.location.href = '../../admin/command_center/command-center.html';
-                    } else if (email.includes('doctor')) {
-                        window.location.href = '../../patient/doctor_queue/doctor-queue.html';
-                    } else if (email.includes('worker')) {
-                        window.location.href = '../../workers/frontline_hub/frontline-hub.html';
-                    } else {
-                        window.location.href = '../../patient/dashboard/index.html';
-                    }
-                }
-            });
-        </script>
-    </main>
-    <nav class="fixed bottom-0 w-full z-50 bg-nexus-warm-surface/90 backdrop-blur-xl pb-safe shadow-[0_-1px_8px_rgba(0,0,0,0.04)]"
-        data-active-classes="text-primary scale-110">
-        <div class="flex justify-around items-center h-20 px-margin-mobile"><a
-                class="flex flex-col items-center justify-center w-touch-target h-touch-target transition-all duration-200 text-on-secondary-fixed-variant"
-                data-path="services" href="#"><span class="material-symbols-outlined">medical_services</span><span
-                    class="font-label-sm text-label-sm">Services</span></a><a
-                class="flex flex-col items-center justify-center w-touch-target h-touch-target transition-all duration-200 text-on-secondary-fixed-variant"
-                data-path="profile" href="#"><span class="material-symbols-outlined">account_circle</span><span
-                    class="font-label-sm text-label-sm">Profile</span></a></div>
-    </nav>
+        });
 
 
 
-    <script ="../../asha-navigation.js"></script>
+    /* ==============================
+       RESET LOGIN BUTTON
+    ============================== */
+
+    function resetLoginButton() {
+
+        const submitBtn =
+            document.getElementById("submit-btn");
+
+
+        submitBtn.disabled = false;
+
+
+        submitBtn.innerHTML = `
+
+            <span
+                class="material-symbols-outlined">
+
+                login
+
+            </span>
+
+            <span>
+                Login
+            </span>
+
+        `;
+
+    }
+
+</script>
+
+
+<!-- Existing Navigation JS -->
+<script src="../../asha-navigation.js"></script>
+```
+
 </body>
 
 </html>
-
-
-
-
-
-
-

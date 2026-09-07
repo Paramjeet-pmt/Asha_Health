@@ -38,6 +38,8 @@ app.get('/patient/dashboard/dashboard.html', (req, res) => res.redirect('/patien
 app.get('/admin', (req, res) => res.redirect('/admin/command_center/command-center.html'));
 app.get('/doctor', (req, res) => res.redirect('/patient/Talktodoctor/talk-to-doctor.html'));
 app.get('/appointment', (req, res) => res.redirect('/patient/appointment/appointment.html'));
+app.get('/precautions', (req, res) => res.redirect('/patient/Precautions/index.html'));
+app.get('/patient/precautions', (req, res) => res.redirect('/patient/Precautions/index.html'));
 
 // Helper: JWT verification middleware
 function authenticateToken(req, res, next) {
