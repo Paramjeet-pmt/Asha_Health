@@ -1,0 +1,2718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+  />
+
+  <title>Health Profile Dashboard</title>
+
+  <style>
+    /* =========================================================
+       RESET
+    ========================================================= */
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --primary: #0077b6;
+      --primary-dark: #005f91;
+      --primary-light: #eaf7fc;
+
+      --green: #0ca678;
+      --green-light: #e8faf4;
+
+      --red: #dc2626;
+      --red-light: #fff0f0;
+
+      --orange: #f59e0b;
+      --orange-light: #fff8e7;
+
+      --blue-light: #eef8ff;
+
+      --text: #172033;
+      --muted: #718096;
+      --border: #e5eaf0;
+
+      --background: #f5f8fb;
+      --white: #ffffff;
+
+      --radius-sm: 7px;
+      --radius-md: 10px;
+      --radius-lg: 14px;
+
+      --shadow:
+        0 1px 3px rgba(15, 23, 42, 0.05),
+        0 4px 12px rgba(15, 23, 42, 0.03);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+
+      background: var(--background);
+      color: var(--text);
+      font-size: 15px;
+      line-height: 1.45;
+      min-height: 100vh;
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
+    }
+
+    button {
+      border: 0;
+      cursor: pointer;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* =========================================================
+       APP SHELL
+    ========================================================= */
+
+    .app {
+      width: 100%;
+      min-height: 100vh;
+    }
+
+    .main {
+      width: 100%;
+      max-width: 1500px;
+      margin: auto;
+    }
+
+    /* =========================================================
+       TOP NAVIGATION
+    ========================================================= */
+
+    .topbar {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      height: 58px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      padding: 0 18px;
+
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+
+      color: var(--primary);
+      font-size: 17px;
+      font-weight: 800;
+    }
+
+    .brand-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+
+      background: var(--primary);
+      color: white;
+
+      display: grid;
+      place-items: center;
+
+      font-size: 15px;
+    }
+
+    .top-actions {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .top-btn {
+      width: 34px;
+      height: 34px;
+
+      background: #f4f7fa;
+      color: #536273;
+
+      border-radius: 50%;
+
+      display: grid;
+      place-items: center;
+
+      font-size: 14px;
+    }
+
+    /* =========================================================
+       DESKTOP SIDEBAR
+    ========================================================= */
+
+    .sidebar {
+      display: none;
+    }
+
+    /* =========================================================
+       CONTENT
+    ========================================================= */
+
+    .content {
+      padding: 16px 12px 90px;
+    }
+
+    .page-heading {
+      margin-bottom: 14px;
+    }
+
+    .page-heading h1 {
+      font-size: 22px;
+      font-weight: 750;
+      letter-spacing: -0.3px;
+    }
+
+    .page-heading p {
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    /* =========================================================
+       PROFILE HEADER
+    ========================================================= */
+
+    .profile-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+
+      padding: 17px;
+
+      box-shadow: var(--shadow);
+      margin-bottom: 12px;
+    }
+
+    .profile-top {
+      display: flex;
+      align-items: flex-start;
+      gap: 13px;
+    }
+
+    .avatar {
+      width: 58px;
+      height: 58px;
+
+      border-radius: 50%;
+      overflow: hidden;
+
+      flex: 0 0 auto;
+
+      background:
+        linear-gradient(135deg, #d9e9f4, #f7c9ad);
+
+      display: grid;
+      place-items: center;
+
+      border: 2px solid white;
+      box-shadow: 0 2px 8px rgba(0,0,0,.08);
+    }
+
+    .avatar span {
+      font-size: 24px;
+    }
+
+    .profile-info {
+      min-width: 0;
+      flex: 1;
+    }
+
+    .profile-name-row {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .profile-name {
+      font-size: 17px;
+      font-weight: 750;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+
+      padding: 3px 7px;
+
+      border-radius: 999px;
+
+      font-size: 9px;
+      font-weight: 700;
+      color: var(--green);
+      background: var(--green-light);
+    }
+
+    .profile-subtitle {
+      color: var(--muted);
+      font-size: 11px;
+      margin-top: 2px;
+    }
+
+    .profile-meta {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 7px 15px;
+      margin-top: 13px;
+    }
+
+    .meta-label {
+      color: #8a96a5;
+      font-size: 9px;
+    }
+
+    .meta-value {
+      font-size: 11px;
+      font-weight: 600;
+      margin-top: 1px;
+    }
+
+    .profile-actions {
+      display: flex;
+      gap: 7px;
+      margin-top: 15px;
+    }
+
+    /* =========================================================
+       BUTTONS
+    ========================================================= */
+
+    .btn {
+      min-height: 35px;
+      border-radius: 7px;
+
+      padding: 0 13px;
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+
+      font-size: 11px;
+      font-weight: 650;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+    }
+
+    .btn-outline {
+      background: white;
+      border: 1px solid var(--border);
+      color: #475569;
+    }
+
+    .btn-danger {
+      background: var(--red);
+      color: white;
+    }
+
+    /* =========================================================
+       CARDS
+    ========================================================= */
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+
+      padding: 14px;
+
+      margin-bottom: 12px;
+
+      box-shadow: var(--shadow);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      margin-bottom: 12px;
+    }
+
+    .card-title {
+      font-size: 13px;
+      font-weight: 750;
+    }
+
+    .card-subtitle {
+      color: var(--muted);
+      font-size: 9px;
+      margin-top: 2px;
+    }
+
+    .edit-link {
+      color: var(--primary);
+      font-size: 9px;
+      font-weight: 700;
+    }
+
+    /* =========================================================
+       INFORMATION ROWS
+    ========================================================= */
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    .info-item {
+      min-width: 0;
+    }
+
+    .info-label {
+      color: #8a96a5;
+      font-size: 9px;
+      margin-bottom: 2px;
+    }
+
+    .info-value {
+      color: #293548;
+      font-size: 11px;
+      font-weight: 550;
+      word-break: break-word;
+    }
+
+    .info-value a {
+      color: var(--primary);
+    }
+
+    /* =========================================================
+       BADGES
+    ========================================================= */
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+
+      border-radius: 999px;
+      padding: 3px 7px;
+
+      font-size: 8px;
+      font-weight: 700;
+    }
+
+    .badge-blue {
+      background: var(--blue-light);
+      color: var(--primary);
+    }
+
+    .badge-green {
+      background: var(--green-light);
+      color: var(--green);
+    }
+
+    .badge-red {
+      background: var(--red-light);
+      color: var(--red);
+    }
+
+    .badge-orange {
+      background: var(--orange-light);
+      color: #c27803;
+    }
+
+    /* =========================================================
+       HEALTH PROFILE
+    ========================================================= */
+
+    .health-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+
+      margin-bottom: 11px;
+    }
+
+    .stat-box {
+      background: #f8fbfd;
+      border: 1px solid #e9f0f5;
+      border-radius: 9px;
+      padding: 10px;
+    }
+
+    .stat-label {
+      color: #7b8795;
+      font-size: 9px;
+    }
+
+    .stat-value {
+      font-size: 17px;
+      font-weight: 800;
+      margin-top: 2px;
+    }
+
+    .stat-unit {
+      color: #7b8795;
+      font-size: 9px;
+    }
+
+    .health-item {
+      padding: 9px 0;
+      border-top: 1px solid #eef1f4;
+    }
+
+    .health-item:first-child {
+      border-top: 0;
+    }
+
+    .health-item-title {
+      font-size: 10px;
+      font-weight: 700;
+    }
+
+    .health-item-text {
+      font-size: 9px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    /* =========================================================
+       EMERGENCY CARD
+    ========================================================= */
+
+    .emergency-card {
+      background: var(--red-light);
+      border-color: #ffd6d6;
+    }
+
+    .emergency-card .card-title {
+      color: #991b1b;
+    }
+
+    .emergency-person {
+      background: rgba(255,255,255,.65);
+      border: 1px solid #ffdede;
+
+      border-radius: 8px;
+      padding: 9px;
+
+      margin-top: 7px;
+    }
+
+    .emergency-name {
+      font-size: 11px;
+      font-weight: 750;
+      color: #8f1d1d;
+    }
+
+    .emergency-details {
+      font-size: 9px;
+      color: #7b4a4a;
+      margin-top: 3px;
+    }
+
+    .emergency-btn {
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    /* =========================================================
+       APPOINTMENTS
+    ========================================================= */
+
+    .appointment {
+      border: 1px solid #e7edf2;
+      border-radius: 9px;
+      padding: 10px;
+
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .doctor-icon {
+      width: 36px;
+      height: 36px;
+
+      border-radius: 9px;
+
+      background: var(--blue-light);
+      color: var(--primary);
+
+      display: grid;
+      place-items: center;
+
+      flex: 0 0 auto;
+    }
+
+    .appointment-info {
+      min-width: 0;
+      flex: 1;
+    }
+
+    .appointment-name {
+      font-size: 11px;
+      font-weight: 750;
+    }
+
+    .appointment-specialty {
+      font-size: 9px;
+      color: var(--muted);
+      margin-top: 1px;
+    }
+
+    .appointment-time {
+      font-size: 9px;
+      margin-top: 6px;
+      color: #4a5568;
+    }
+
+    .appointment-actions {
+      margin-top: 8px;
+      display: flex;
+      gap: 6px;
+    }
+
+    /* =========================================================
+       ACTIVITY TIMELINE
+    ========================================================= */
+
+    .timeline {
+      position: relative;
+    }
+
+    .timeline::before {
+      content: "";
+
+      position: absolute;
+      left: 8px;
+      top: 8px;
+      bottom: 8px;
+
+      width: 1px;
+
+      background: #dce5ec;
+    }
+
+    .activity {
+      display: flex;
+      gap: 10px;
+
+      position: relative;
+
+      padding-bottom: 13px;
+    }
+
+    .activity:last-child {
+      padding-bottom: 0;
+    }
+
+    .activity-dot {
+      width: 17px;
+      height: 17px;
+
+      flex: 0 0 auto;
+
+      border-radius: 50%;
+
+      background: white;
+      border: 2px solid var(--primary);
+
+      z-index: 2;
+    }
+
+    .activity-dot.green {
+      border-color: var(--green);
+    }
+
+    .activity-content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .activity-title {
+      font-size: 10px;
+      font-weight: 700;
+    }
+
+    .activity-date {
+      font-size: 8px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .activity-description {
+      font-size: 9px;
+      color: #64748b;
+      margin-top: 3px;
+    }
+
+    /* =========================================================
+       DOCUMENTS
+    ========================================================= */
+
+    .document-list {
+      display: grid;
+      gap: 7px;
+    }
+
+    .document {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+
+      padding: 8px;
+
+      border: 1px solid #e8edf1;
+      border-radius: 8px;
+    }
+
+    .document-icon {
+      width: 31px;
+      height: 31px;
+
+      border-radius: 7px;
+
+      display: grid;
+      place-items: center;
+
+      background: #eff8ff;
+      color: var(--primary);
+
+      flex: 0 0 auto;
+    }
+
+    .document-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .document-name {
+      font-size: 9px;
+      font-weight: 700;
+
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .document-date {
+      color: var(--muted);
+      font-size: 8px;
+      margin-top: 1px;
+    }
+
+    .document-status {
+      font-size: 8px;
+      color: var(--green);
+      background: var(--green-light);
+
+      padding: 3px 6px;
+      border-radius: 999px;
+    }
+
+    /* =========================================================
+       QUICK ACTIONS
+    ========================================================= */
+
+    .quick-actions {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+    }
+
+    .quick-action {
+      border: 1px solid #e4eaf0;
+      border-radius: 10px;
+
+      background: white;
+
+      padding: 12px 9px;
+
+      text-align: left;
+
+      transition: .2s;
+    }
+
+    .quick-action:hover {
+      border-color: #b9d9ea;
+      transform: translateY(-1px);
+    }
+
+    .quick-icon {
+      width: 28px;
+      height: 28px;
+
+      border-radius: 8px;
+
+      display: grid;
+      place-items: center;
+
+      background: var(--primary-light);
+      color: var(--primary);
+
+      margin-bottom: 7px;
+    }
+
+    .quick-action:nth-child(2) .quick-icon {
+      background: var(--green-light);
+      color: var(--green);
+    }
+
+    .quick-action:nth-child(3) .quick-icon {
+      background: #f1efff;
+      color: #6d5bd0;
+    }
+
+    .quick-action:nth-child(4) .quick-icon {
+      background: #fff4e7;
+      color: var(--orange);
+    }
+
+    .quick-title {
+      font-size: 9px;
+      font-weight: 750;
+    }
+
+    .quick-description {
+      color: var(--muted);
+      font-size: 8px;
+      margin-top: 2px;
+    }
+
+    /* =========================================================
+       PRIVACY NOTICE
+    ========================================================= */
+
+    .privacy {
+      background: #eef9ff;
+      border: 1px solid #d6effa;
+
+      border-radius: 10px;
+
+      padding: 11px;
+
+      display: flex;
+      gap: 8px;
+
+      color: #477083;
+
+      font-size: 9px;
+    }
+
+    .privacy-icon {
+      color: var(--primary);
+      flex: 0 0 auto;
+    }
+
+    /* =========================================================
+       MOBILE BOTTOM NAV
+    ========================================================= */
+
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+
+      height: 65px;
+
+      background: rgba(255,255,255,.96);
+      backdrop-filter: blur(12px);
+
+      border-top: 1px solid var(--border);
+
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+
+      z-index: 100;
+    }
+
+    .nav-item {
+      background: transparent;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      gap: 3px;
+
+      color: #8b97a5;
+
+      font-size: 9px;
+    }
+
+    .nav-item.active {
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .nav-icon {
+      font-size: 17px;
+      line-height: 1;
+    }
+
+    /* =========================================================
+       TABLET
+    ========================================================= */
+
+    @media (min-width: 600px) {
+
+      .content {
+        padding: 22px 20px 90px;
+      }
+
+      .profile-meta {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .info-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .health-stats {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .quick-actions {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .main-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        align-items: start;
+      }
+
+      .main-grid .card {
+        margin-bottom: 0;
+      }
+
+      .full-width {
+        grid-column: 1 / -1;
+      }
+    }
+
+    /* =========================================================
+       DESKTOP
+    ========================================================= */
+
+    @media (min-width: 900px) {
+
+      body {
+        font-size: 14px;
+      }
+
+      .app {
+        display: flex;
+      }
+
+      .sidebar {
+        display: flex;
+        position: fixed;
+
+        left: 0;
+        top: 0;
+        bottom: 0;
+
+        width: 220px;
+
+        background: white;
+        border-right: 1px solid var(--border);
+
+        flex-direction: column;
+
+        z-index: 200;
+      }
+
+      .sidebar-brand {
+        height: 70px;
+
+        display: flex;
+        align-items: center;
+
+        padding: 0 22px;
+
+        border-bottom: 1px solid var(--border);
+
+        color: var(--primary);
+        font-weight: 800;
+      }
+
+      .sidebar-menu {
+        padding: 16px 10px;
+      }
+
+      .side-link {
+        width: 100%;
+
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        padding: 11px 13px;
+
+        border-radius: 8px;
+
+        color: #64748b;
+
+        font-size: 12px;
+
+        margin-bottom: 3px;
+      }
+
+      .side-link.active {
+        background: var(--primary-light);
+        color: var(--primary);
+        font-weight: 700;
+      }
+
+      .sidebar-footer {
+        margin-top: auto;
+        padding: 15px;
+        border-top: 1px solid var(--border);
+      }
+
+      .main {
+        margin-left: 220px;
+        width: calc(100% - 220px);
+        max-width: none;
+      }
+
+      .topbar {
+        height: 65px;
+        padding: 0 30px;
+      }
+
+      .content {
+        max-width: 1200px;
+        margin: auto;
+
+        padding: 28px 28px 50px;
+      }
+
+      .page-heading h1 {
+        font-size: 27px;
+      }
+
+      .page-heading p {
+        font-size: 13px;
+      }
+
+      .profile-card {
+        padding: 22px;
+      }
+
+      .profile-top {
+        gap: 18px;
+      }
+
+      .avatar {
+        width: 72px;
+        height: 72px;
+      }
+
+      .profile-name {
+        font-size: 21px;
+      }
+
+      .profile-subtitle {
+        font-size: 12px;
+      }
+
+      .profile-meta {
+        margin-top: 15px;
+      }
+
+      .main-grid {
+        grid-template-columns: 1.15fr .85fr;
+        gap: 16px;
+      }
+
+      .card {
+        padding: 18px;
+      }
+
+      .card-title {
+        font-size: 14px;
+      }
+
+      .bottom-nav {
+        display: none;
+      }
+    }
+
+    /* =========================================================
+       LARGE DESKTOP
+    ========================================================= */
+
+    @media (min-width: 1200px) {
+
+      .content {
+        padding-left: 40px;
+        padding-right: 40px;
+      }
+
+      .main-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+
+      .profile-card,
+      .page-heading {
+        grid-column: 1 / -1;
+      }
+
+      .health-card {
+        grid-column: span 2;
+      }
+
+      .activity-card {
+        grid-column: span 2;
+      }
+    }
+
+    /* =========================================================
+       EXTRA LARGE PHONE TEXT / TOUCH TARGETS
+    ========================================================= */
+
+    @media (max-width: 599px) {
+
+      .btn {
+        min-height: 40px;
+      }
+
+      .profile-actions .btn {
+        flex: 1;
+      }
+
+      .info-value {
+        font-size: 12px;
+      }
+
+      .card {
+        padding: 15px;
+      }
+
+      .quick-action {
+        min-height: 105px;
+      }
+
+      .appointment {
+        padding: 12px;
+      }
+
+    }
+    /* =========================================================
+   MOBILE — LARGER, MORE READABLE TEXT
+========================================================= */
+
+@media (max-width: 599px) {
+
+  body {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .content {
+    padding: 18px 14px 90px;
+  }
+
+  /* Page heading */
+
+  .page-heading {
+    margin-bottom: 16px;
+  }
+
+  .page-heading h1 {
+    font-size: 26px;
+    line-height: 1.2;
+  }
+
+  .page-heading p {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-top: 5px;
+  }
+
+  /* Profile */
+
+  .profile-card {
+    padding: 18px;
+  }
+
+  .profile-top {
+    gap: 14px;
+  }
+
+  .avatar {
+    width: 64px;
+    height: 64px;
+  }
+
+  .avatar span {
+    font-size: 27px;
+  }
+
+  .profile-name {
+    font-size: 19px;
+  }
+
+  .profile-subtitle {
+    font-size: 13px;
+    margin-top: 4px;
+  }
+
+  .profile-meta {
+    gap: 11px 16px;
+    margin-top: 15px;
+  }
+
+  .meta-label {
+    font-size: 11px;
+  }
+
+  .meta-value {
+    font-size: 13px;
+    margin-top: 2px;
+  }
+
+  .profile-actions {
+    gap: 8px;
+    margin-top: 17px;
+  }
+
+  /* Buttons */
+
+  .btn {
+    min-height: 44px;
+    padding: 0 14px;
+    font-size: 13px;
+    border-radius: 8px;
+  }
+
+  /* Cards */
+
+  .card {
+    padding: 17px;
+    margin-bottom: 14px;
+  }
+
+  .card-header {
+    margin-bottom: 14px;
+  }
+
+  .card-title {
+    font-size: 16px;
+    line-height: 1.3;
+  }
+
+  .card-subtitle {
+    font-size: 11px;
+    line-height: 1.4;
+    margin-top: 3px;
+  }
+
+  .edit-link {
+    font-size: 11px;
+  }
+
+  /* Information */
+
+  .info-grid {
+    gap: 14px;
+  }
+
+  .info-label {
+    font-size: 11px;
+    margin-bottom: 3px;
+  }
+
+  .info-value {
+    font-size: 14px;
+    line-height: 1.45;
+  }
+
+  /* Badges */
+
+  .badge {
+    padding: 4px 8px;
+    font-size: 10px;
+  }
+
+  /* Health */
+
+  .health-stats {
+    gap: 9px;
+    margin-bottom: 13px;
+  }
+
+  .stat-box {
+    padding: 12px;
+  }
+
+  .stat-label {
+    font-size: 11px;
+  }
+
+  .stat-value {
+    font-size: 20px;
+    margin-top: 3px;
+  }
+
+  .stat-unit {
+    font-size: 11px;
+  }
+
+  .health-item {
+    padding: 11px 0;
+  }
+
+  .health-item-title {
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  .health-item-text {
+    font-size: 12px;
+    line-height: 1.5;
+    margin-top: 3px;
+  }
+
+  /* Emergency */
+
+  .emergency-person {
+    padding: 11px;
+    margin-top: 8px;
+  }
+
+  .emergency-name {
+    font-size: 14px;
+  }
+
+  .emergency-details {
+    font-size: 12px;
+    margin-top: 4px;
+  }
+
+  .emergency-btn {
+    margin-top: 12px;
+  }
+
+  /* Appointment */
+
+  .appointment {
+    padding: 13px;
+    gap: 12px;
+  }
+
+  .doctor-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    font-size: 19px;
+  }
+
+  .appointment-name {
+    font-size: 14px;
+  }
+
+  .appointment-specialty {
+    font-size: 12px;
+    margin-top: 2px;
+  }
+
+  .appointment-time {
+    font-size: 12px;
+    line-height: 1.45;
+    margin-top: 7px;
+  }
+
+  .appointment-actions {
+    margin-top: 11px;
+    gap: 7px;
+    flex-wrap: wrap;
+  }
+
+  .appointment-actions .btn {
+    min-height: 40px;
+    font-size: 12px;
+  }
+
+  /* Activity */
+
+  .timeline::before {
+    left: 9px;
+  }
+
+  .activity {
+    gap: 11px;
+    padding-bottom: 16px;
+  }
+
+  .activity-dot {
+    width: 19px;
+    height: 19px;
+  }
+
+  .activity-title {
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  .activity-date {
+    font-size: 10px;
+    margin-top: 3px;
+  }
+
+  .activity-description {
+    font-size: 11px;
+    line-height: 1.5;
+    margin-top: 4px;
+  }
+
+  /* Documents */
+
+  .document-list {
+    gap: 9px;
+  }
+
+  .document {
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .document-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 17px;
+  }
+
+  .document-name {
+    font-size: 12px;
+  }
+
+  .document-date {
+    font-size: 10px;
+    margin-top: 2px;
+  }
+
+  .document-status {
+    font-size: 10px;
+    padding: 4px 8px;
+  }
+
+  /* Quick actions */
+
+  .quick-actions {
+    gap: 9px;
+  }
+
+  .quick-action {
+    min-height: 125px;
+    padding: 14px 11px;
+  }
+
+  .quick-icon {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 8px;
+    font-size: 17px;
+  }
+
+  .quick-title {
+    font-size: 12px;
+    line-height: 1.35;
+  }
+
+  .quick-description {
+    font-size: 10px;
+    line-height: 1.45;
+    margin-top: 3px;
+  }
+
+  /* Privacy */
+
+  .privacy {
+    padding: 13px;
+    gap: 9px;
+    font-size: 11px;
+    line-height: 1.5;
+  }
+
+  .privacy strong {
+    font-size: 12px;
+  }
+
+  /* Mobile bottom navigation */
+
+  .bottom-nav {
+    height: 68px;
+  }
+
+  .nav-item {
+    gap: 4px;
+    font-size: 10px;
+  }
+
+  .nav-icon {
+    font-size: 19px;
+  }
+}
+  </style>
+</head>
+
+<body>
+
+<div class="app">
+
+  <!-- =======================================================
+       DESKTOP SIDEBAR
+  ======================================================== -->
+
+  <aside class="sidebar">
+
+    <div class="sidebar-brand">
+      <div class="brand-icon">✚</div>
+      <span style="margin-left:8px;">HealthCare</span>
+    </div>
+
+    <nav class="sidebar-menu">
+
+      <a href="#" class="side-link active">
+        <span>⌂</span>
+        Dashboard
+      </a>
+
+      <a href="#health" class="side-link">
+        <span>♥</span>
+        Health Profile
+      </a>
+
+      <a href="#appointments" class="side-link">
+        <span>▣</span>
+        Appointments
+      </a>
+
+      <a href="#activity" class="side-link">
+        <span>◷</span>
+        Activity
+      </a>
+
+      <a href="#documents" class="side-link">
+        <span>▤</span>
+        Documents
+      </a>
+
+    </nav>
+
+    <div class="sidebar-footer">
+
+      <a href="#" class="side-link">
+        <span>⚙</span>
+        Settings
+      </a>
+
+      <a href="#" class="side-link">
+        <span>?</span>
+        Help & Support
+      </a>
+
+    </div>
+
+  </aside>
+
+  <!-- =======================================================
+       MAIN
+  ======================================================== -->
+
+  <main class="main">
+
+    <!-- TOP BAR -->
+
+    <header class="topbar">
+
+      <div class="brand">
+        <div class="brand-icon">✚</div>
+        <span>HealthCare</span>
+      </div>
+
+      <div class="top-actions">
+
+        <button class="top-btn" title="Notifications">
+          ♢
+        </button>
+
+        <button class="top-btn" title="Profile">
+          K
+        </button>
+
+      </div>
+
+    </header>
+
+
+    <!-- PAGE CONTENT -->
+
+    <section class="content">
+
+      <div class="page-heading">
+
+        <h1>Patient Profile</h1>
+
+        <p>
+          View and manage your personal and healthcare information in one place.
+        </p>
+
+      </div>
+
+
+      <!-- ===================================================
+           PROFILE
+      ==================================================== -->
+
+      <section class="profile-card">
+
+        <div class="profile-top">
+
+          <div class="avatar">
+            <span>👨🏻</span>
+          </div>
+
+          <div class="profile-info">
+
+            <div class="profile-name-row">
+
+              <div class="profile-name">
+                Kiran Singh
+              </div>
+
+              <span class="status">
+                ● Active Patient
+              </span>
+
+            </div>
+
+            <div class="profile-subtitle">
+              Patient ID: PT-284731
+            </div>
+
+            <div class="profile-meta">
+
+              <div>
+                <div class="meta-label">Date of Birth</div>
+                <div class="meta-value">14 May 2007</div>
+              </div>
+
+              <div>
+                <div class="meta-label">Age</div>
+                <div class="meta-value">19 Years</div>
+              </div>
+
+              <div>
+                <div class="meta-label">Gender</div>
+                <div class="meta-value">Male</div>
+              </div>
+
+              <div>
+                <div class="meta-label">Blood Group</div>
+                <div class="meta-value">O+</div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="profile-actions">
+
+          <button class="btn btn-outline" onclick="editProfile()">
+            ✎ Edit Profile
+          </button>
+
+          <button class="btn btn-primary" onclick="bookAppointment()">
+            ✚ Book Appointment
+          </button>
+
+        </div>
+
+      </section>
+
+
+      <!-- ===================================================
+           MAIN GRID
+      ==================================================== -->
+
+      <div class="main-grid">
+
+
+        <!-- PERSONAL INFORMATION -->
+
+        <section class="card">
+
+          <div class="card-header">
+
+            <div>
+              <div class="card-title">
+                Personal Information
+              </div>
+
+              <div class="card-subtitle">
+                Basic information about you
+              </div>
+            </div>
+
+            <span class="badge badge-blue">
+              Edit Profile
+            </span>
+
+          </div>
+
+          <div class="info-grid">
+
+            <div class="info-item">
+              <div class="info-label">Full Name</div>
+              <div class="info-value">Kiran Singh</div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-label">Date of Birth</div>
+              <div class="info-value">14 May 2007</div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-label">Age</div>
+              <div class="info-value">19 Years</div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-label">Gender</div>
+              <div class="info-value">Male</div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-label">Mobile</div>
+              <div class="info-value">+91 98765 43210</div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-label">Email</div>
+              <div class="info-value">
+                kiran.singh@email.com
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-label">Preferred Language</div>
+              <div class="info-value">English (India)</div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-label">Blood Group</div>
+              <div class="info-value">
+                <span class="badge badge-red">O+ Positive</span>
+              </div>
+            </div>
+
+          </div>
+
+        </section>
+
+
+        <!-- CONTACT -->
+
+        <section class="card">
+
+          <div class="card-header">
+
+            <div>
+              <div class="card-title">
+                Contact Information
+              </div>
+
+              <div class="card-subtitle">
+                Communication details
+              </div>
+            </div>
+
+            <span class="badge badge-green">
+              Verified
+            </span>
+
+          </div>
+
+          <div class="info-grid">
+
+            <div class="info-item">
+
+              <div class="info-label">
+                Primary Phone
+              </div>
+
+              <div class="info-value">
+                +91 98765 43210
+                <span class="badge badge-green">Verified</span>
+              </div>
+
+            </div>
+
+            <div class="info-item">
+
+              <div class="info-label">
+                Email Address
+              </div>
+
+              <div class="info-value">
+                kiran.singh@email.com
+              </div>
+
+            </div>
+
+            <div class="info-item">
+
+              <div class="info-label">
+                Residential Address
+              </div>
+
+              <div class="info-value">
+                124 Green Meadows Residency,
+                Sector 42, Gurgaon
+              </div>
+
+            </div>
+
+            <div class="info-item">
+
+              <div class="info-label">
+                Emergency Contact
+              </div>
+
+              <div class="info-value">
+                Rajesh Singh · +91 98765 43211
+              </div>
+
+            </div>
+
+          </div>
+
+        </section>
+
+
+        <!-- =================================================
+             HEALTH PROFILE
+        ================================================== -->
+
+        <section class="card health-card" id="health">
+
+          <div class="card-header">
+
+            <div>
+
+              <div class="card-title">
+                Health Profile
+              </div>
+
+              <div class="card-subtitle">
+                Clinical metrics and ongoing medical status
+              </div>
+
+            </div>
+
+            <span class="badge badge-green">
+              Updated Today
+            </span>
+
+          </div>
+
+
+          <div class="health-stats">
+
+            <div class="stat-box">
+
+              <div class="stat-label">
+                Blood Group
+              </div>
+
+              <div class="stat-value">
+                O+
+              </div>
+
+              <div class="stat-unit">
+                Positive
+              </div>
+
+            </div>
+
+            <div class="stat-box">
+
+              <div class="stat-label">
+                Height
+              </div>
+
+              <div class="stat-value">
+                178
+              </div>
+
+              <div class="stat-unit">
+                cm
+              </div>
+
+            </div>
+
+            <div class="stat-box">
+
+              <div class="stat-label">
+                Weight
+              </div>
+
+              <div class="stat-value">
+                68
+              </div>
+
+              <div class="stat-unit">
+                kg
+              </div>
+
+            </div>
+
+            <div class="stat-box">
+
+              <div class="stat-label">
+                Last Checkup
+              </div>
+
+              <div class="stat-value">
+                28
+              </div>
+
+              <div class="stat-unit">
+                Aug 2026
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="health-item">
+
+            <div class="health-item-title">
+              ✓ No known drug allergies
+            </div>
+
+          </div>
+
+          <div class="health-item">
+
+            <div class="health-item-title">
+              Existing Health Conditions
+            </div>
+
+            <div class="health-item-text">
+              None reported
+            </div>
+
+          </div>
+
+          <div class="health-item">
+
+            <div class="health-item-title">
+              Current Medications
+            </div>
+
+            <div class="health-item-text">
+              None reported
+            </div>
+
+          </div>
+
+          <div class="health-item">
+
+            <div class="health-item-title">
+              Immunization Status
+            </div>
+
+            <div class="health-item-text">
+              COVID-19 vaccination completed · Up to date
+            </div>
+
+          </div>
+
+        </section>
+
+
+        <!-- =================================================
+             EMERGENCY
+        ================================================== -->
+
+        <section class="card emergency-card">
+
+          <div class="card-header">
+
+            <div>
+              <div class="card-title">
+                🚨 Emergency Information
+              </div>
+
+              <div class="card-subtitle">
+                Contact someone in an emergency
+              </div>
+            </div>
+
+            <span class="badge badge-red">
+              Emergency
+            </span>
+
+          </div>
+
+          <div class="emergency-person">
+
+            <div class="emergency-name">
+              Rajesh Singh
+            </div>
+
+            <div class="emergency-details">
+              Father · Primary Contact
+            </div>
+
+            <div class="emergency-details">
+              +91 98765 43211
+            </div>
+
+          </div>
+
+          <div class="emergency-person">
+
+            <div class="emergency-name">
+              Priyanka Mehta
+            </div>
+
+            <div class="emergency-details">
+              Mother · Secondary Contact
+            </div>
+
+            <div class="emergency-details">
+              +91 98765 43212
+            </div>
+
+          </div>
+
+          <button
+            class="btn btn-danger emergency-btn"
+            onclick="updateEmergency()"
+          >
+            Update Emergency Contact
+          </button>
+
+        </section>
+
+
+        <!-- =================================================
+             APPOINTMENTS
+        ================================================== -->
+
+        <section class="card" id="appointments">
+
+          <div class="card-header">
+
+            <div>
+              <div class="card-title">
+                Upcoming Appointment
+              </div>
+
+              <div class="card-subtitle">
+                Your next scheduled visit
+              </div>
+            </div>
+
+            <span class="badge badge-green">
+              Confirmed
+            </span>
+
+          </div>
+
+          <div class="appointment">
+
+            <div class="doctor-icon">
+              👩‍⚕️
+            </div>
+
+            <div class="appointment-info">
+
+              <div class="appointment-name">
+                Dr. Ananya Sharma
+              </div>
+
+              <div class="appointment-specialty">
+                General Physician
+              </div>
+
+              <div class="appointment-time">
+                📅 10 Sep 2026 · 10:30 AM
+              </div>
+
+              <div class="appointment-time">
+                📍 Apollo Healthcare, Gurgaon
+              </div>
+
+              <div class="appointment-actions">
+
+                <button
+                  class="btn btn-outline"
+                  onclick="rescheduleAppointment()"
+                >
+                  Reschedule
+                </button>
+
+                <button
+                  class="btn btn-primary"
+                  onclick="viewAppointment()"
+                >
+                  View Details
+                </button>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </section>
+
+
+        <!-- =================================================
+             ACTIVITY
+        ================================================== -->
+
+        <section class="card activity-card" id="activity">
+
+          <div class="card-header">
+
+            <div>
+
+              <div class="card-title">
+                Recent Health Activity
+              </div>
+
+              <div class="card-subtitle">
+                Timeline of diagnosis, visits and records
+              </div>
+
+            </div>
+
+            <span class="edit-link">
+              View All
+            </span>
+
+          </div>
+
+
+          <div class="timeline">
+
+            <div class="activity">
+
+              <div class="activity-dot green"></div>
+
+              <div class="activity-content">
+
+                <div class="activity-title">
+                  Annual Health Checkup Completed
+                </div>
+
+                <div class="activity-date">
+                  28 Aug 2026 · Apollo Healthcare
+                </div>
+
+                <div class="activity-description">
+                  Routine examination completed.
+                  All basic health parameters recorded.
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <div class="activity">
+
+              <div class="activity-dot"></div>
+
+              <div class="activity-content">
+
+                <div class="activity-title">
+                  Appointment Scheduled
+                </div>
+
+                <div class="activity-date">
+                  25 Aug 2026
+                </div>
+
+                <div class="activity-description">
+                  Appointment with Dr. Ananya Sharma
+                  for general physician consultation.
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <div class="activity">
+
+              <div class="activity-dot"></div>
+
+              <div class="activity-content">
+
+                <div class="activity-title">
+                  Prescription Updated
+                </div>
+
+                <div class="activity-date">
+                  18 Aug 2026
+                </div>
+
+                <div class="activity-description">
+                  Prescription information updated in
+                  patient records.
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <div class="activity">
+
+              <div class="activity-dot green"></div>
+
+              <div class="activity-content">
+
+                <div class="activity-title">
+                  Health Record Added
+                </div>
+
+                <div class="activity-date">
+                  10 Aug 2026
+                </div>
+
+                <div class="activity-description">
+                  Vaccination record verified and
+                  uploaded successfully.
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </section>
+
+
+        <!-- =================================================
+             DOCUMENTS
+        ================================================== -->
+
+        <section class="card" id="documents">
+
+          <div class="card-header">
+
+            <div>
+
+              <div class="card-title">
+                Important Documents
+              </div>
+
+              <div class="card-subtitle">
+                Medical records and files
+              </div>
+
+            </div>
+
+            <span class="edit-link">
+              View All
+            </span>
+
+          </div>
+
+
+          <div class="document-list">
+
+            <div class="document">
+
+              <div class="document-icon">
+                📄
+              </div>
+
+              <div class="document-info">
+
+                <div class="document-name">
+                  Blood Test Report - 24 Aug 2026
+                </div>
+
+                <div class="document-date">
+                  PDF · 1.2 MB
+                </div>
+
+              </div>
+
+              <span class="document-status">
+                View
+              </span>
+
+            </div>
+
+
+            <div class="document">
+
+              <div class="document-icon">
+                📄
+              </div>
+
+              <div class="document-info">
+
+                <div class="document-name">
+                  ECG Report - 20 Aug 2026
+                </div>
+
+                <div class="document-date">
+                  PDF · 860 KB
+                </div>
+
+              </div>
+
+              <span class="document-status">
+                View
+              </span>
+
+            </div>
+
+
+            <div class="document">
+
+              <div class="document-icon">
+                📄
+              </div>
+
+              <div class="document-info">
+
+                <div class="document-name">
+                  Complete Blood Count
+                </div>
+
+                <div class="document-date">
+                  PDF · 900 KB
+                </div>
+
+              </div>
+
+              <span class="document-status">
+                View
+              </span>
+
+            </div>
+
+
+            <div class="document">
+
+              <div class="document-icon">
+                📄
+              </div>
+
+              <div class="document-info">
+
+                <div class="document-name">
+                  Vaccination Certificate
+                </div>
+
+                <div class="document-date">
+                  PDF · 450 KB
+                </div>
+
+              </div>
+
+              <span class="document-status">
+                View
+              </span>
+
+            </div>
+
+          </div>
+
+        </section>
+
+
+        <!-- =================================================
+             QUICK ACTIONS
+        ================================================== -->
+
+        <section class="card full-width">
+
+          <div class="card-header">
+
+            <div>
+
+              <div class="card-title">
+                Healthcare Quick Actions
+              </div>
+
+              <div class="card-subtitle">
+                Frequently used services
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="quick-actions">
+
+            <button class="quick-action" onclick="bookAppointment()">
+
+              <div class="quick-icon">
+                📅
+              </div>
+
+              <div class="quick-title">
+                Book Appointment
+              </div>
+
+              <div class="quick-description">
+                Schedule a visit with your doctor
+              </div>
+
+            </button>
+
+
+            <button class="quick-action" onclick="viewRecords()">
+
+              <div class="quick-icon">
+                ▣
+              </div>
+
+              <div class="quick-title">
+                Health Records
+              </div>
+
+              <div class="quick-description">
+                View your medical records
+              </div>
+
+            </button>
+
+
+            <button class="quick-action" onclick="findDoctor()">
+
+              <div class="quick-icon">
+                👨‍⚕️
+              </div>
+
+              <div class="quick-title">
+                Find a Doctor
+              </div>
+
+              <div class="quick-description">
+                Browse healthcare specialists
+              </div>
+
+            </button>
+
+
+            <button class="quick-action" onclick="viewPrescriptions()">
+
+              <div class="quick-icon">
+                💊
+              </div>
+
+              <div class="quick-title">
+                Prescriptions
+              </div>
+
+              <div class="quick-description">
+                View active prescriptions
+              </div>
+
+            </button>
+
+          </div>
+
+        </section>
+
+
+        <!-- =================================================
+             PRIVACY
+        ================================================== -->
+
+        <section class="privacy full-width">
+
+          <div class="privacy-icon">
+            🔒
+          </div>
+
+          <div>
+            <strong>Your Privacy</strong><br />
+
+            Your personal and healthcare information is
+            protected securely. Only authorized healthcare
+            professionals can access your records.
+          </div>
+
+        </section>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =======================================================
+       MOBILE BOTTOM NAV
+  ======================================================== -->
+
+  <nav class="bottom-nav">
+
+    <button class="nav-item active" onclick="scrollTopPage()">
+      <span class="nav-icon">⌂</span>
+      Home
+    </button>
+
+    <button class="nav-item" onclick="scrollToSection('health')">
+      <span class="nav-icon">♥</span>
+      Health
+    </button>
+
+    <button class="nav-item" onclick="scrollToSection('appointments')">
+      <span class="nav-icon">▣</span>
+      Visits
+    </button>
+
+    <button class="nav-item" onclick="scrollToSection('documents')">
+      <span class="nav-icon">▤</span>
+      Records
+    </button>
+
+    <button class="nav-item" onclick="showSettings()">
+      <span class="nav-icon">⚙</span>
+      More
+    </button>
+
+  </nav>
+
+
+  <!-- =======================================================
+       JAVASCRIPT
+  ======================================================== -->
+
+  <script>
+
+    /* -----------------------------------------------
+       PROFILE
+    ------------------------------------------------ */
+
+    function editProfile() {
+      alert("Edit Profile clicked");
+    }
+
+
+    /* -----------------------------------------------
+       APPOINTMENT
+    ------------------------------------------------ */
+
+    function bookAppointment() {
+      alert("Opening appointment booking...");
+    }
+
+    function viewAppointment() {
+      alert("Opening appointment details...");
+    }
+
+    function rescheduleAppointment() {
+      alert("Opening appointment rescheduling...");
+    }
+
+
+    /* -----------------------------------------------
+       EMERGENCY
+    ------------------------------------------------ */
+
+    function updateEmergency() {
+      alert("Opening emergency contact settings...");
+    }
+
+
+    /* -----------------------------------------------
+       QUICK ACTIONS
+    ------------------------------------------------ */
+
+    function viewRecords() {
+      scrollToSection("documents");
+    }
+
+    function findDoctor() {
+      alert("Opening doctor search...");
+    }
+
+    function viewPrescriptions() {
+      alert("Opening prescriptions...");
+    }
+
+
+    /* -----------------------------------------------
+       NAVIGATION
+    ------------------------------------------------ */
+
+    function scrollToSection(id) {
+
+      const section = document.getElementById(id);
+
+      if (!section) return;
+
+      section.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+
+    }
+
+
+    function scrollTopPage() {
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+
+    }
+
+
+    function showSettings() {
+      alert("Settings menu");
+    }
+
+
+    /* -----------------------------------------------
+       ACTIVE MOBILE NAV
+    ------------------------------------------------ */
+
+    const navItems = document.querySelectorAll(".nav-item");
+
+    navItems.forEach(item => {
+
+      item.addEventListener("click", () => {
+
+        navItems.forEach(nav => {
+          nav.classList.remove("active");
+        });
+
+        item.classList.add("active");
+
+      });
+
+    });
+
+
+    /* -----------------------------------------------
+       DOCUMENT VIEW
+    ------------------------------------------------ */
+
+    document.querySelectorAll(".document").forEach(doc => {
+
+      doc.addEventListener("click", () => {
+
+        const name =
+          doc.querySelector(".document-name")?.textContent.trim();
+
+        if (name) {
+          alert("Opening: " + name);
+        }
+
+      });
+
+    });
+
+
+    /* -----------------------------------------------
+       SIMPLE SCROLL SPY
+    ------------------------------------------------ */
+
+    const sections = [
+      document.getElementById("health"),
+      document.getElementById("appointments"),
+      document.getElementById("activity"),
+      document.getElementById("documents")
+    ];
+
+    window.addEventListener("scroll", () => {
+
+      let current = "";
+
+      sections.forEach(section => {
+
+        if (!section) return;
+
+        const top = section.getBoundingClientRect().top;
+
+        if (top <= 150) {
+          current = section.id;
+        }
+
+      });
+
+      navItems.forEach(item => {
+        item.classList.remove("active");
+      });
+
+      const map = {
+        health: 1,
+        appointments: 2,
+        documents: 3
+      };
+
+      if (map[current] !== undefined) {
+        navItems[map[current]].classList.add("active");
+      } else {
+        navItems[0].classList.add("active");
+      }
+
+    });
+
+  </script>
+
+</body>
+</html>
