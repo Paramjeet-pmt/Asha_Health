@@ -1,306 +1,968 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ASHA Healthcare — Doctor Management</title>
-<style>
-:root {
-  --bg:#f8f7ff; --card:#ffffff; --ink:#101426; --muted:#606778;
-  --blue:#006aa6; --blue2:#075f93; --navy:#071a2b; --line:#e9e9f3;
-  --soft:#eef0ff; --teal:#0b8d83; --teal-soft:#c9f5ef;
-  --pending:#e4f2ff; --pending-text:#1672a8; --leave:#eef0f5;
-  --shadow:0 2px 10px rgba(20,24,45,.06);
-  --radius:12px;
-}
-*{box-sizing:border-box}
-html,body{margin:0;min-height:100%;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg)}
-button,input{font:inherit}
-button{cursor:pointer;border:0}
-.app{min-height:100vh;padding-bottom:78px}
-.topbar{height:70px;background:#fff;display:flex;align-items:center;gap:16px;padding:0 18px;border-bottom:1px solid #eeeef5;position:sticky;top:0;z-index:20}
-.icon-btn{width:34px;height:34px;background:transparent;display:grid;place-items:center;border-radius:8px;font-size:22px}
-.brand{display:flex;align-items:center;gap:10px;min-width:0;flex:1}
-.logo{width:30px;height:30px;border-radius:5px;background:#fff;display:grid;place-items:center;border:1px solid #eee;font-size:7px;font-weight:800;letter-spacing:.5px}
-.brand-text{min-width:0}
-.brand-text small{display:block;color:#075d91;font-size:11px;font-weight:700;letter-spacing:1px}
-.brand-text strong{display:block;font-size:17px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:160px}
-.top-actions{display:flex;align-items:center;gap:8px}
-.bell{position:relative}
-.bell::after{content:"";position:absolute;width:7px;height:7px;background:#d7282f;border-radius:50%;right:3px;top:3px;border:1px solid #fff}
-.avatar{width:34px;height:34px;border-radius:50%;background:#05689e;color:#fff;display:grid;place-items:center;font-size:18px}
-.main{max-width:1180px;margin:auto;padding:22px 16px}
-.page-head{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;margin-bottom:16px}
-.heading-wrap{display:flex;gap:10px;align-items:flex-start}
-.med-icon{width:30px;height:30px;border-radius:9px;background:#dff1ff;color:#0070ad;display:grid;place-items:center;font-size:16px;margin-top:4px}
-h1{font-size:23px;line-height:1.05;margin:0 0 6px;font-weight:500}
-.subtitle{margin:0;color:#555d6d;font-size:13px;line-height:1.35;max-width:600px}
-.primary{background:#00679e;color:#fff;padding:10px 14px;border-radius:5px;font-weight:700;white-space:nowrap;box-shadow:0 1px 1px rgba(0,0,0,.1)}
-.primary:hover{background:#075b8c}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:14px}
-.stat{background:#fff;border:1px solid #eeeef5;border-radius:11px;padding:10px 9px;min-height:62px;display:flex;justify-content:space-between;align-items:center;box-shadow:var(--shadow)}
-.stat small{display:block;font-size:10px;font-weight:600;letter-spacing:.8px;color:#252b38;margin-bottom:3px}
-.stat strong{font-size:21px;font-weight:500}
-.stat strong em{font-size:10px;font-style:normal;color:#15968e;margin-left:3px}
-.stat-icon{width:36px;height:36px;border-radius:6px;display:grid;place-items:center;font-size:18px;background:#c7f5ef;color:#087f79}
-.stat:nth-child(2) .stat-icon{background:#cfe6ff;color:#126b9d}
-.stat:nth-child(3) .stat-icon{background:#e1e5ff;color:#283e66}
-.stat:nth-child(4) .stat-icon{background:#f0f2f7;color:#344154}
-.filters{background:#fff;border:1px solid #ececf4;border-radius:10px;padding:9px;margin-bottom:12px;box-shadow:var(--shadow)}
-.search-row{height:38px;background:#f2f2fc;border-radius:5px;display:flex;align-items:center;gap:9px;padding:0 10px}
-.search-row input{border:0;outline:0;background:transparent;flex:1;min-width:0;color:#454b5a}
-.search-row input::placeholder{color:#72788a}
-.filter-icon{font-size:18px}
-.chips{display:flex;gap:7px;overflow:auto;padding-top:7px;scrollbar-width:none}
-.chips::-webkit-scrollbar{display:none}
-.chip{background:#eef0f9;border-radius:15px;padding:5px 9px;font-size:11px;white-space:nowrap;border:1px solid #e6e7ef}
-.chip.active{background:#eef0ff;border-color:#dfe1f1}
-.chip.teal{background:#c9f5ef;border-color:#bdece5;color:#067d76}
-.chip.blue{background:#d9efff;color:#126b9d}
-.doctor-list{display:flex;flex-direction:column;gap:12px}
-.doctor-card{background:#fff;border:1px solid #eeeef5;border-left:6px solid var(--teal);border-radius:10px;padding:12px;box-shadow:var(--shadow)}
-.doctor-card.pending{border-left-color:#1e7eb5}
-.doctor-card.leave{border-left-color:#8b9098}
-.doc-top{display:flex;gap:9px;align-items:flex-start}
-.doc-photo{width:58px;height:58px;border-radius:4px;object-fit:cover;background:#eee;flex:0 0 auto}
-.doc-main{min-width:0;flex:1}
-.doc-title{display:flex;align-items:center;gap:8px;justify-content:space-between}
-.doc-title h2{font-size:17px;margin:0;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.status{font-size:10px;font-weight:700;padding:4px 8px;border-radius:12px;white-space:nowrap}
-.status.active{background:#c9f5ef;color:#087e77}
-.status.pending{background:#d8ecff;color:#126c9e}
-.status.leave{background:#e8ebf1;color:#596170}
-.doc-id{display:inline-block;background:#edf0f7;border-radius:3px;padding:2px 5px;font-size:10px;margin:2px 0 1px}
-.specialty{color:#0066a0;font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.location{color:#626978;font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:3px}
-.details{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;background:#f0f1fc;border-radius:5px;margin-top:9px;padding:7px}
-.detail{text-align:center}
-.detail span{display:block;font-size:10px;color:#4b5260}
-.detail strong{font-size:13px;font-weight:500}
-.rating{color:#333}
-.rating b{color:#0070ad;font-size:15px}
-.rating small{font-size:9px;color:#687080}
-.extra{display:grid;grid-template-columns:1fr 1.35fr;gap:5px;font-size:11px;margin-top:8px}
-.extra div{display:flex;gap:6px;align-items:center}
-.extra div:last-child{justify-content:flex-end}
-.actions{display:grid;grid-template-columns:1fr 1fr 38px 38px;gap:5px;margin-top:9px}
-.action{background:#eef0ff;color:#171d2d;border-radius:4px;padding:8px 7px;font-size:11px;display:flex;align-items:center;justify-content:center;gap:5px}
-.action:hover{background:#e4e6fa}
-.action.icon{font-size:17px}
-.pending-row{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:9px}
-.pending-row span{font-size:11px;color:#596171;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.pending-row .review{background:#00679e;color:#fff;padding:8px 10px;border-radius:4px;font-size:11px;font-weight:700;white-space:nowrap}
-.leave-note{background:#f2f3f8;margin-top:9px;border-radius:4px;padding:8px;font-size:11px;display:flex;justify-content:space-between;gap:8px}
-.footer-panel{background:#fff;border:1px solid #eeeef5;border-radius:9px;padding:10px;margin-top:12px;text-align:center}
-.pagination{display:flex;align-items:center;justify-content:flex-end;gap:9px;font-size:11px;margin-bottom:10px}
-.page-btn{width:34px;height:32px;border-radius:5px;background:#f0f1fc}
-.page-btn.active{background:#eef0ff;color:#005f95}
-.full-btn{width:100%;background:#eef0ff;border-radius:5px;padding:9px;margin-top:7px;font-size:11px}
-.bottom-nav{position:fixed;bottom:0;left:0;right:0;height:68px;background:#fff;border-top:1px solid #e6e6ef;display:grid;grid-template-columns:repeat(5,1fr);z-index:30}
-.bottom-nav button{background:transparent;color:#111827;font-size:10px;display:flex;flex-direction:column;gap:3px;align-items:center;justify-content:center}
-.bottom-nav button span:first-child{font-size:19px}
-.bottom-nav .selected{color:#006aa6;font-weight:700}
-.toast{position:fixed;left:50%;bottom:82px;transform:translateX(-50%) translateY(20px);background:#102233;color:#fff;padding:10px 14px;border-radius:7px;font-size:12px;opacity:0;pointer-events:none;transition:.25s;z-index:50}
-.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ASHA Healthcare — Doctor Management</title>
+  <style>
+    :root {
+      --bg: #f8f7ff;
+      --card: #ffffff;
+      --ink: #101426;
+      --muted: #606778;
+      --blue: #006aa6;
+      --blue2: #075f93;
+      --navy: #071a2b;
+      --line: #e9e9f3;
+      --soft: #eef0ff;
+      --teal: #0b8d83;
+      --teal-soft: #c9f5ef;
+      --pending: #e4f2ff;
+      --pending-text: #1672a8;
+      --leave: #eef0f5;
+      --shadow: 0 2px 10px rgba(20, 24, 45, .06);
+      --radius: 12px;
+    }
 
-@media (min-width:700px){
-  .topbar{padding:0 28px}
-  .main{padding:28px 24px}
-  .doctor-list{display:grid;grid-template-columns:1fr 1fr}
-  .doctor-card.leave{grid-column:span 1}
-  .footer-panel{grid-column:1/-1}
-  .bottom-nav{display:none}
-  .app{padding-bottom:30px}
-}
-@media (min-width:1050px){
-  .doctor-list{grid-template-columns:repeat(2,1fr)}
-  .main{padding-top:34px}
-}
-@media (max-width:520px){
-  .topbar{gap:10px;padding:0 12px}
-  .brand-text strong{max-width:140px}
-  .main{padding:16px 16px 20px}
-  .page-head{gap:10px}
-  .primary{padding:9px 10px;font-size:12px}
-  .stats{grid-template-columns:1fr 1fr}
-  .stat{min-height:65px}
-  .extra{grid-template-columns:1fr}
-  .extra div:last-child{justify-content:flex-start}
-  .actions{grid-template-columns:1fr 1fr 38px 38px}
-}
-</style>
+    * {
+      box-sizing: border-box
+    }
+
+    html,
+    body {
+      margin: 0;
+      min-height: 100%;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      color: var(--ink);
+      background: var(--bg)
+    }
+
+    button,
+    input {
+      font: inherit
+    }
+
+    button {
+      cursor: pointer;
+      border: 0
+    }
+
+    .app {
+      min-height: 100vh;
+      padding-bottom: 78px
+    }
+
+    .topbar {
+      height: 70px;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 0 18px;
+      border-bottom: 1px solid #eeeef5;
+      position: sticky;
+      top: 0;
+      z-index: 20
+    }
+
+    .icon-btn {
+      width: 34px;
+      height: 34px;
+      background: transparent;
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      font-size: 22px
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+      flex: 1
+    }
+
+    .logo {
+      width: 30px;
+      height: 30px;
+      border-radius: 5px;
+      background: #fff;
+      display: grid;
+      place-items: center;
+      border: 1px solid #eee;
+      font-size: 7px;
+      font-weight: 800;
+      letter-spacing: .5px
+    }
+
+    .brand-text {
+      min-width: 0
+    }
+
+    .brand-text small {
+      display: block;
+      color: #075d91;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px
+    }
+
+    .brand-text strong {
+      display: block;
+      font-size: 17px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 160px
+    }
+
+    .top-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px
+    }
+
+    .bell {
+      position: relative
+    }
+
+    .bell::after {
+      content: "";
+      position: absolute;
+      width: 7px;
+      height: 7px;
+      background: #d7282f;
+      border-radius: 50%;
+      right: 3px;
+      top: 3px;
+      border: 1px solid #fff
+    }
+
+    .avatar {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: #05689e;
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-size: 18px
+    }
+
+    .main {
+      max-width: 1180px;
+      margin: auto;
+      padding: 22px 16px
+    }
+
+    .page-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 20px;
+      margin-bottom: 16px
+    }
+
+    .heading-wrap {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start
+    }
+
+    .med-icon {
+      width: 30px;
+      height: 30px;
+      border-radius: 9px;
+      background: #dff1ff;
+      color: #0070ad;
+      display: grid;
+      place-items: center;
+      font-size: 16px;
+      margin-top: 4px
+    }
+
+    h1 {
+      font-size: 23px;
+      line-height: 1.05;
+      margin: 0 0 6px;
+      font-weight: 500
+    }
+
+    .subtitle {
+      margin: 0;
+      color: #555d6d;
+      font-size: 13px;
+      line-height: 1.35;
+      max-width: 600px
+    }
+
+    .primary {
+      background: #00679e;
+      color: #fff;
+      padding: 10px 14px;
+      border-radius: 5px;
+      font-weight: 700;
+      white-space: nowrap;
+      box-shadow: 0 1px 1px rgba(0, 0, 0, .1)
+    }
+
+    .primary:hover {
+      background: #075b8c
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin-bottom: 14px
+    }
+
+    .stat {
+      background: #fff;
+      border: 1px solid #eeeef5;
+      border-radius: 11px;
+      padding: 10px 9px;
+      min-height: 62px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: var(--shadow)
+    }
+
+    .stat small {
+      display: block;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .8px;
+      color: #252b38;
+      margin-bottom: 3px
+    }
+
+    .stat strong {
+      font-size: 21px;
+      font-weight: 500
+    }
+
+    .stat strong em {
+      font-size: 10px;
+      font-style: normal;
+      color: #15968e;
+      margin-left: 3px
+    }
+
+    .stat-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 6px;
+      display: grid;
+      place-items: center;
+      font-size: 18px;
+      background: #c7f5ef;
+      color: #087f79
+    }
+
+    .stat:nth-child(2) .stat-icon {
+      background: #cfe6ff;
+      color: #126b9d
+    }
+
+    .stat:nth-child(3) .stat-icon {
+      background: #e1e5ff;
+      color: #283e66
+    }
+
+    .stat:nth-child(4) .stat-icon {
+      background: #f0f2f7;
+      color: #344154
+    }
+
+    .filters {
+      background: #fff;
+      border: 1px solid #ececf4;
+      border-radius: 10px;
+      padding: 9px;
+      margin-bottom: 12px;
+      box-shadow: var(--shadow)
+    }
+
+    .search-row {
+      height: 38px;
+      background: #f2f2fc;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 0 10px
+    }
+
+    .search-row input {
+      border: 0;
+      outline: 0;
+      background: transparent;
+      flex: 1;
+      min-width: 0;
+      color: #454b5a
+    }
+
+    .search-row input::placeholder {
+      color: #72788a
+    }
+
+    .filter-icon {
+      font-size: 18px
+    }
+
+    .chips {
+      display: flex;
+      gap: 7px;
+      overflow: auto;
+      padding-top: 7px;
+      scrollbar-width: none
+    }
+
+    .chips::-webkit-scrollbar {
+      display: none
+    }
+
+    .chip {
+      background: #eef0f9;
+      border-radius: 15px;
+      padding: 5px 9px;
+      font-size: 11px;
+      white-space: nowrap;
+      border: 1px solid #e6e7ef
+    }
+
+    .chip.active {
+      background: #eef0ff;
+      border-color: #dfe1f1
+    }
+
+    .chip.teal {
+      background: #c9f5ef;
+      border-color: #bdece5;
+      color: #067d76
+    }
+
+    .chip.blue {
+      background: #d9efff;
+      color: #126b9d
+    }
+
+    .doctor-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px
+    }
+
+    .doctor-card {
+      background: #fff;
+      border: 1px solid #eeeef5;
+      border-left: 6px solid var(--teal);
+      border-radius: 10px;
+      padding: 12px;
+      box-shadow: var(--shadow)
+    }
+
+    .doctor-card.pending {
+      border-left-color: #1e7eb5
+    }
+
+    .doctor-card.leave {
+      border-left-color: #8b9098
+    }
+
+    .doc-top {
+      display: flex;
+      gap: 9px;
+      align-items: flex-start
+    }
+
+    .doc-photo {
+      width: 58px;
+      height: 58px;
+      border-radius: 4px;
+      object-fit: cover;
+      background: #eee;
+      flex: 0 0 auto
+    }
+
+    .doc-main {
+      min-width: 0;
+      flex: 1
+    }
+
+    .doc-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      justify-content: space-between
+    }
+
+    .doc-title h2 {
+      font-size: 17px;
+      margin: 0;
+      font-weight: 500;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis
+    }
+
+    .status {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 4px 8px;
+      border-radius: 12px;
+      white-space: nowrap
+    }
+
+    .status.active {
+      background: #c9f5ef;
+      color: #087e77
+    }
+
+    .status.pending {
+      background: #d8ecff;
+      color: #126c9e
+    }
+
+    .status.leave {
+      background: #e8ebf1;
+      color: #596170
+    }
+
+    .doc-id {
+      display: inline-block;
+      background: #edf0f7;
+      border-radius: 3px;
+      padding: 2px 5px;
+      font-size: 10px;
+      margin: 2px 0 1px
+    }
+
+    .specialty {
+      color: #0066a0;
+      font-size: 12px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis
+    }
+
+    .location {
+      color: #626978;
+      font-size: 11px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-top: 3px
+    }
+
+    .details {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4px;
+      background: #f0f1fc;
+      border-radius: 5px;
+      margin-top: 9px;
+      padding: 7px
+    }
+
+    .detail {
+      text-align: center
+    }
+
+    .detail span {
+      display: block;
+      font-size: 10px;
+      color: #4b5260
+    }
+
+    .detail strong {
+      font-size: 13px;
+      font-weight: 500
+    }
+
+    .rating {
+      color: #333
+    }
+
+    .rating b {
+      color: #0070ad;
+      font-size: 15px
+    }
+
+    .rating small {
+      font-size: 9px;
+      color: #687080
+    }
+
+    .extra {
+      display: grid;
+      grid-template-columns: 1fr 1.35fr;
+      gap: 5px;
+      font-size: 11px;
+      margin-top: 8px
+    }
+
+    .extra div {
+      display: flex;
+      gap: 6px;
+      align-items: center
+    }
+
+    .extra div:last-child {
+      justify-content: flex-end
+    }
+
+    .actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr 38px 38px;
+      gap: 5px;
+      margin-top: 9px
+    }
+
+    .action {
+      background: #eef0ff;
+      color: #171d2d;
+      border-radius: 4px;
+      padding: 8px 7px;
+      font-size: 11px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px
+    }
+
+    .action:hover {
+      background: #e4e6fa
+    }
+
+    .action.icon {
+      font-size: 17px
+    }
+
+    .pending-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 9px
+    }
+
+    .pending-row span {
+      font-size: 11px;
+      color: #596171;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis
+    }
+
+    .pending-row .review {
+      background: #00679e;
+      color: #fff;
+      padding: 8px 10px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 700;
+      white-space: nowrap
+    }
+
+    .leave-note {
+      background: #f2f3f8;
+      margin-top: 9px;
+      border-radius: 4px;
+      padding: 8px;
+      font-size: 11px;
+      display: flex;
+      justify-content: space-between;
+      gap: 8px
+    }
+
+    .footer-panel {
+      background: #fff;
+      border: 1px solid #eeeef5;
+      border-radius: 9px;
+      padding: 10px;
+      margin-top: 12px;
+      text-align: center
+    }
+
+    .pagination {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 9px;
+      font-size: 11px;
+      margin-bottom: 10px
+    }
+
+    .page-btn {
+      width: 34px;
+      height: 32px;
+      border-radius: 5px;
+      background: #f0f1fc
+    }
+
+    .page-btn.active {
+      background: #eef0ff;
+      color: #005f95
+    }
+
+    .full-btn {
+      width: 100%;
+      background: #eef0ff;
+      border-radius: 5px;
+      padding: 9px;
+      margin-top: 7px;
+      font-size: 11px
+    }
+
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 68px;
+      background: #fff;
+      border-top: 1px solid #e6e6ef;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      z-index: 30
+    }
+
+    .bottom-nav button {
+      background: transparent;
+      color: #111827;
+      font-size: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      align-items: center;
+      justify-content: center
+    }
+
+    .bottom-nav button span:first-child {
+      font-size: 19px
+    }
+
+    .bottom-nav .selected {
+      color: #006aa6;
+      font-weight: 700
+    }
+
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 82px;
+      transform: translateX(-50%) translateY(20px);
+      background: #102233;
+      color: #fff;
+      padding: 10px 14px;
+      border-radius: 7px;
+      font-size: 12px;
+      opacity: 0;
+      pointer-events: none;
+      transition: .25s;
+      z-index: 50
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0)
+    }
+
+    @media (min-width:700px) {
+      .topbar {
+        padding: 0 28px
+      }
+
+      .main {
+        padding: 28px 24px
+      }
+
+      .doctor-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr
+      }
+
+      .doctor-card.leave {
+        grid-column: span 1
+      }
+
+      .footer-panel {
+        grid-column: 1/-1
+      }
+
+      .bottom-nav {
+        display: none
+      }
+
+      .app {
+        padding-bottom: 30px
+      }
+    }
+
+    @media (min-width:1050px) {
+      .doctor-list {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .main {
+        padding-top: 34px
+      }
+    }
+
+    @media (max-width:520px) {
+      .topbar {
+        gap: 10px;
+        padding: 0 12px
+      }
+
+      .brand-text strong {
+        max-width: 140px
+      }
+
+      .main {
+        padding: 16px 16px 20px
+      }
+
+      .page-head {
+        gap: 10px
+      }
+
+      .primary {
+        padding: 9px 10px;
+        font-size: 12px
+      }
+
+      .stats {
+        grid-template-columns: 1fr 1fr
+      }
+
+      .stat {
+        min-height: 65px
+      }
+
+      .extra {
+        grid-template-columns: 1fr
+      }
+
+      .extra div:last-child {
+        justify-content: flex-start
+      }
+
+      .actions {
+        grid-template-columns: 1fr 1fr 38px 38px
+      }
+    }
+  </style>
 </head>
+
 <body>
-<div class="app">
-  <header class="topbar">
-    <button class="icon-btn" aria-label="Menu" onclick="toast('Menu clicked')">☰</button>
-    <div class="brand">
-      <div class="logo">ASHA</div>
-      <div class="brand-text"><small>ASHA HEALTHCARE</small><strong>Doctors Management</strong></div>
-    </div>
-    <div class="top-actions">
-      <button class="icon-btn" onclick="focusSearch()" aria-label="Search">⌕</button>
-      <button class="icon-btn bell" onclick="toast('No new notifications')" aria-label="Notifications">♧</button>
-      <div class="avatar">♙</div>
-    </div>
-  </header>
-
-  <main class="main">
-    <section class="page-head">
-      <div class="heading-wrap">
-        <div class="med-icon">✚</div>
-        <div>
-          <h1>Doctor<br>Management</h1>
-          <p class="subtitle">Manage 1,248 credentialed specialists, schedules, departments &amp; verification across pan-India clinics.</p>
-        </div>
+  <div class="app">
+    <header class="topbar">
+      <button class="icon-btn" aria-label="Menu" onclick="toast('Menu clicked')">☰</button>
+      <div class="brand">
+        <div class="logo">ASHA</div>
+        <div class="brand-text"><small>ASHA HEALTHCARE</small><strong>Doctors Management</strong></div>
       </div>
-      <button class="primary" onclick="toast('Add Doctor form opened')">♙ + Add Doctor</button>
-    </section>
-
-    <section class="stats">
-      <div class="stat"><div><small>ACTIVE ON DUTY</small><strong>1,180 <em>94.5%</em></strong></div><div class="stat-icon">♨</div></div>
-      <div class="stat"><div><small>IN CONSULT</small><strong>142<span style="color:#005f95">•</span></strong></div><div class="stat-icon">♧</div></div>
-      <div class="stat"><div><small>VERIFICATION</small><strong>28 <span style="font-size:10px;color:#657080">Queue</span></strong></div><div class="stat-icon">▣</div></div>
-      <div class="stat"><div><small>ON LEAVE</small><strong>40 <span style="font-size:10px;color:#657080">Roofed</span></strong></div><div class="stat-icon">□</div></div>
-    </section>
-
-    <section class="filters">
-      <div class="search-row">
-        <span class="filter-icon">⌕</span>
-        <input id="search" placeholder="Search by name, DOC ID (e.g. DOC-1082)" oninput="filterDoctors()">
-        <span>☷</span>
+      <div class="top-actions">
+        <button class="icon-btn" onclick="focusSearch()" aria-label="Search">⌕</button>
+        <button class="icon-btn bell" onclick="toast('No new notifications')" aria-label="Notifications">♧</button>
+        <div class="avatar">♙</div>
       </div>
-      <div class="chips">
-        <button class="chip active">Dept: <b>All (1,248)</b></button>
-        <button class="chip">Cardiology (284)</button>
-        <button class="chip">Neurology (196)</button>
-        <button class="chip">Pediatrics (144)</button>
-        <button class="chip teal">● Active (1,180)</button>
-        <button class="chip blue">● Verification Pending (28)</button>
-      </div>
-    </section>
+    </header>
 
-    <section class="doctor-list" id="doctorList">
-      <article class="doctor-card" data-search="rajesh varma doc-1082 cardiology active">
-        <div class="doc-top">
-          <img class="doc-photo" src="data:image/jpeg;base64,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" alt="Doctor">
-          <div class="doc-main">
-            <div class="doc-title"><h2>Dr. Rajesh K. Varma</h2><span class="status active">● Active</span></div>
-            <span class="doc-id">DOC-1082</span>
-            <div class="specialty">Chief Cardiologist • DM, MD</div>
-            <div class="location">▦ ASHA Central Medical, New Delhi</div>
+    <main class="main">
+      <section class="page-head">
+        <div class="heading-wrap">
+          <div class="med-icon">✚</div>
+          <div>
+            <h1>Doctor<br>Management</h1>
+            <p class="subtitle">Manage 1,248 credentialed specialists, schedules, departments &amp; verification across
+              pan-India clinics.</p>
           </div>
         </div>
-        <div class="details">
-          <div class="detail"><span>Experience</span><strong>16 Yrs</strong></div>
-          <div class="detail"><span>Patients</span><strong>4,280</strong></div>
-          <div class="detail rating"><span>Rating</span><strong><b>☆</b> 4.9 <small>(512)</small></strong></div>
-        </div>
-        <div class="extra">
-          <div>▣ Consultation Fee: <b>₹1,500 / session</b></div>
-          <div>◷ Schedule: <b>Mon-Fri (10:00 AM - 4:00 PM)</b></div>
-        </div>
-        <div class="actions">
-          <button class="action" onclick="toast('Opening profile')">◉ View Profile</button>
-          <button class="action" onclick="toast('Opening schedule')">▣ Schedule</button>
-          <button class="action icon" onclick="toast('Edit doctor')">↗</button>
-          <button class="action icon" onclick="toast('Calling doctor')">♧</button>
-        </div>
-      </article>
+        <button class="primary" onclick="toast('Add Doctor form opened')">♙ + Add Doctor</button>
+      </section>
 
-      <article class="doctor-card" data-search="sunita deshmukh doc-1094 neurology active">
-        <div class="doc-top">
-          <img class="doc-photo" src="data:image/jpeg;base64,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" alt="Doctor">
-          <div class="doc-main">
-            <div class="doc-title"><h2>Dr. Sunita Deshmukh</h2><span class="status active">● Active</span></div>
-            <span class="doc-id">DOC-1094</span>
-            <div class="specialty">Sr. Neurologist • MBBS, MS</div>
-            <div class="location">▦ ASHA City Clinic, Mumbai</div>
+      <section class="stats">
+        <div class="stat">
+          <div><small>ACTIVE ON DUTY</small><strong>1,180 <em>94.5%</em></strong></div>
+          <div class="stat-icon">♨</div>
+        </div>
+        <div class="stat">
+          <div><small>IN CONSULT</small><strong>142<span style="color:#005f95">•</span></strong></div>
+          <div class="stat-icon">♧</div>
+        </div>
+        <div class="stat">
+          <div><small>VERIFICATION</small><strong>28 <span style="font-size:10px;color:#657080">Queue</span></strong>
           </div>
+          <div class="stat-icon">▣</div>
         </div>
-        <div class="details">
-          <div class="detail"><span>Experience</span><strong>12 Yrs</strong></div>
-          <div class="detail"><span>Patients</span><strong>2,940</strong></div>
-          <div class="detail rating"><span>Rating</span><strong><b>☆</b> 4.8 <small>(340)</small></strong></div>
+        <div class="stat">
+          <div><small>ON LEAVE</small><strong>40 <span style="font-size:10px;color:#657080">Roofed</span></strong></div>
+          <div class="stat-icon">□</div>
         </div>
-        <div class="actions">
-          <button class="action" onclick="toast('Opening profile')">◉ View Profile</button>
-          <button class="action" onclick="toast('Opening schedule')">▣ Schedule</button>
-          <button class="action icon" onclick="toast('Email sent')">✉</button>
-        </div>
-      </article>
+      </section>
 
-      <article class="doctor-card pending" data-search="arpan sen doc-1120 pediatrics pending verification">
-        <div class="doc-top">
-          <img class="doc-photo" src="data:image/jpeg;base64,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" alt="Doctor">
-          <div class="doc-main">
-            <div class="doc-title"><h2>Dr. Arpan Sen</h2><span class="status pending">● Pending Verification</span></div>
-            <span class="doc-id">DOC-1120</span>
-            <div class="specialty">Pediatrician &amp; Child Specialist</div>
-            <div class="location">▦ ASHA Children’s Clinic, Bengaluru</div>
+      <section class="filters">
+        <div class="search-row">
+          <span class="filter-icon">⌕</span>
+          <input id="search" placeholder="Search by name, DOC ID (e.g. DOC-1082)" oninput="filterDoctors()">
+          <span>☷</span>
+        </div>
+        <div class="chips">
+          <button class="chip active">Dept: <b>All (1,248)</b></button>
+          <button class="chip">Cardiology (284)</button>
+          <button class="chip">Neurology (196)</button>
+          <button class="chip">Pediatrics (144)</button>
+          <button class="chip teal">● Active (1,180)</button>
+          <button class="chip blue">● Verification Pending (28)</button>
+        </div>
+      </section>
+
+      <section class="doctor-list" id="doctorList">
+        <article class="doctor-card" data-search="rajesh varma doc-1082 cardiology active">
+          <div class="doc-top">
+            <img class="doc-photo"
+              src="data:image/jpeg;base64,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"
+              alt="Doctor">
+            <div class="doc-main">
+              <div class="doc-title">
+                <h2>Dr. Rajesh K. Varma</h2><span class="status active">● Active</span>
+              </div>
+              <span class="doc-id">DOC-1082</span>
+              <div class="specialty">Chief Cardiologist • DM, MD</div>
+              <div class="location">▦ ASHA Central Medical, New Delhi</div>
+            </div>
           </div>
-        </div>
-        <div class="pending-row">
-          <span>▣ Medical Council Registration</span>
-          <button class="review" onclick="toast('Reviewing credentials')">Review Credentials</button>
-        </div>
-      </article>
-
-      <article class="doctor-card leave" data-search="meena sundar doc-1145 orthopedic leave">
-        <div class="doc-top">
-          <img class="doc-photo" src="data:image/jpeg;base64,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" alt="Doctor">
-          <div class="doc-main">
-            <div class="doc-title"><h2>Dr. Meenakshi Sundar</h2><span class="status leave">● On Leave</span></div>
-            <span class="doc-id">DOC-1145</span>
-            <div class="specialty">Orthopedic Surgeon • MS (Ortho)</div>
-            <div class="location">▦ ASHA Care Center, Chennai</div>
+          <div class="details">
+            <div class="detail"><span>Experience</span><strong>16 Yrs</strong></div>
+            <div class="detail"><span>Patients</span><strong>4,280</strong></div>
+            <div class="detail rating"><span>Rating</span><strong><b>☆</b> 4.9 <small>(512)</small></strong></div>
           </div>
+          <div class="extra">
+            <div>▣ Consultation Fee: <b>₹1,500 / session</b></div>
+            <div>◷ Schedule: <b>Mon-Fri (10:00 AM - 4:00 PM)</b></div>
+          </div>
+          <div class="actions">
+            <button class="action" onclick="toast('Opening profile')">◉ View Profile</button>
+            <button class="action" onclick="toast('Opening schedule')">▣ Schedule</button>
+            <button class="action icon" onclick="toast('Edit doctor')">↗</button>
+            <button class="action icon" onclick="toast('Calling doctor')">♧</button>
+          </div>
+        </article>
+
+        <article class="doctor-card" data-search="sunita deshmukh doc-1094 neurology active">
+          <div class="doc-top">
+            <img class="doc-photo"
+              src="data:image/jpeg;base64,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"
+              alt="Doctor">
+            <div class="doc-main">
+              <div class="doc-title">
+                <h2>Dr. Sunita Deshmukh</h2><span class="status active">● Active</span>
+              </div>
+              <span class="doc-id">DOC-1094</span>
+              <div class="specialty">Sr. Neurologist • MBBS, MS</div>
+              <div class="location">▦ ASHA City Clinic, Mumbai</div>
+            </div>
+          </div>
+          <div class="details">
+            <div class="detail"><span>Experience</span><strong>12 Yrs</strong></div>
+            <div class="detail"><span>Patients</span><strong>2,940</strong></div>
+            <div class="detail rating"><span>Rating</span><strong><b>☆</b> 4.8 <small>(340)</small></strong></div>
+          </div>
+          <div class="actions">
+            <button class="action" onclick="toast('Opening profile')">◉ View Profile</button>
+            <button class="action" onclick="toast('Opening schedule')">▣ Schedule</button>
+            <button class="action icon" onclick="toast('Email sent')">✉</button>
+          </div>
+        </article>
+
+        <article class="doctor-card pending" data-search="arpan sen doc-1120 pediatrics pending verification">
+          <div class="doc-top">
+            <img class="doc-photo"
+              src="data:image/jpeg;base64,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"
+              alt="Doctor">
+            <div class="doc-main">
+              <div class="doc-title">
+                <h2>Dr. Arpan Sen</h2><span class="status pending">● Pending Verification</span>
+              </div>
+              <span class="doc-id">DOC-1120</span>
+              <div class="specialty">Pediatrician &amp; Child Specialist</div>
+              <div class="location">▦ ASHA Children’s Clinic, Bengaluru</div>
+            </div>
+          </div>
+          <div class="pending-row">
+            <span>▣ Medical Council Registration</span>
+            <button class="review" onclick="toast('Reviewing credentials')">Review Credentials</button>
+          </div>
+        </article>
+
+        <article class="doctor-card leave" data-search="meena sundar doc-1145 orthopedic leave">
+          <div class="doc-top">
+            <img class="doc-photo"
+              src="data:image/jpeg;base64,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"
+              alt="Doctor">
+            <div class="doc-main">
+              <div class="doc-title">
+                <h2>Dr. Meenakshi Sundar</h2><span class="status leave">● On Leave</span>
+              </div>
+              <span class="doc-id">DOC-1145</span>
+              <div class="specialty">Orthopedic Surgeon • MS (Ortho)</div>
+              <div class="location">▦ ASHA Care Center, Chennai</div>
+            </div>
+          </div>
+          <div class="leave-note"><span>Expected Return:</span><b>Monday, 24 Oct (Locum Covering)</b></div>
+          <div class="actions" style="grid-template-columns:1fr 1fr">
+            <button class="action" onclick="toast('Opening profile')">◉ View Profile</button>
+            <button class="action" onclick="toast('Managing leave')">▣ Manage Leave</button>
+          </div>
+        </article>
+      </section>
+
+      <section class="footer-panel">
+        <div class="pagination">
+          <span style="margin-right:auto">Showing 1-10 of 1,248 Specialists</span>
+          <button class="page-btn">‹</button><b>1</b><button class="page-btn active"
+            onclick="toast('Next page')">›</button>
         </div>
-        <div class="leave-note"><span>Expected Return:</span><b>Monday, 24 Oct (Locum Covering)</b></div>
-        <div class="actions" style="grid-template-columns:1fr 1fr">
-          <button class="action" onclick="toast('Opening profile')">◉ View Profile</button>
-          <button class="action" onclick="toast('Managing leave')">▣ Manage Leave</button>
-        </div>
-      </article>
-    </section>
+        <button class="full-btn" onclick="toast('CSV export started')">⇩ &nbsp; Bulk Export Roster (.CSV)</button>
+        <button class="full-btn" onclick="toast('Opening onboarding guide')">? &nbsp; Onboarding Guide</button>
+      </section>
+    </main>
 
-    <section class="footer-panel">
-      <div class="pagination">
-        <span style="margin-right:auto">Showing 1-10 of 1,248 Specialists</span>
-        <button class="page-btn">‹</button><b>1</b><button class="page-btn active" onclick="toast('Next page')">›</button>
-      </div>
-      <button class="full-btn" onclick="toast('CSV export started')">⇩ &nbsp; Bulk Export Roster (.CSV)</button>
-      <button class="full-btn" onclick="toast('Opening onboarding guide')">? &nbsp; Onboarding Guide</button>
-    </section>
-  </main>
+    <nav class="bottom-nav">
+      <button><span>▦</span>Dashboard</button>
+      <button><span>▣</span>Appts</button>
+      <button><span>♙</span>Patients</button>
+      <button class="selected"><span>♙</span>Doctors</button>
+      <button><span>⌘</span>More</button>
+    </nav>
+    <div class="toast" id="toast"></div>
+  </div>
 
-  <nav class="bottom-nav">
-    <button><span>▦</span>Dashboard</button>
-    <button><span>▣</span>Appts</button>
-    <button><span>♙</span>Patients</button>
-    <button class="selected"><span>♙</span>Doctors</button>
-    <button><span>⌘</span>More</button>
-  </nav>
-  <div class="toast" id="toast"></div>
-</div>
-
-<script>
-function toast(message){
-  const el=document.getElementById('toast');
-  el.textContent=message; el.classList.add('show');
-  clearTimeout(window._toastTimer);
-  window._toastTimer=setTimeout(()=>el.classList.remove('show'),1600);
-}
-function focusSearch(){
-  document.getElementById('search').focus();
-  window.scrollTo({top:230,behavior:'smooth'});
-}
-function filterDoctors(){
-  const q=document.getElementById('search').value.toLowerCase().trim();
-  document.querySelectorAll('.doctor-card').forEach(card=>{
-    card.style.display=card.dataset.search.includes(q)?'':'none';
-  });
-}
-</script>
+  <script>
+    function toast(message) {
+      const el = document.getElementById('toast');
+      el.textContent = message; el.classList.add('show');
+      clearTimeout(window._toastTimer);
+      window._toastTimer = setTimeout(() => el.classList.remove('show'), 1600);
+    }
+    function focusSearch() {
+      document.getElementById('search').focus();
+      window.scrollTo({ top: 230, behavior: 'smooth' });
+    }
+    function filterDoctors() {
+      const q = document.getElementById('search').value.toLowerCase().trim();
+      document.querySelectorAll('.doctor-card').forEach(card => {
+        card.style.display = card.dataset.search.includes(q) ? '' : 'none';
+      });
+    }
+  </script>
 </body>
+
 </html>
