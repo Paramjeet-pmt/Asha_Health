@@ -894,12 +894,12 @@
 
         <nav class="side-nav">
 
-            <button class="side-item">
+            <button class="side-item" onclick="window.location.href='../doctor/dashboard/doctor_dashboard.html'">
                 <i class="fa-solid fa-house"></i>
                 Home
             </button>
 
-            <button class="side-item">
+            <button class="side-item" onclick="window.location.href='../doctor/patient_detail/patient_detail.html'">
                 <i class="fa-solid fa-users"></i>
                 Patients
             </button>
@@ -909,17 +909,17 @@
                 Triage
             </button>
 
-            <button class="side-item">
+            <button class="side-item" onclick="window.location.href='../../patient/appointment/appointment.html'">
                 <i class="fa-solid fa-calendar-days"></i>
                 Visits
             </button>
 
-            <button class="side-item">
+            <button class="side-item" onclick="window.location.href='../../admin/command_center/command-center.html'">
                 <i class="fa-solid fa-chart-line"></i>
                 Reports
             </button>
 
-            <button class="side-item">
+            <button class="side-item" onclick="showToast('Clinic & Triage Settings')">
                 <i class="fa-solid fa-gear"></i>
                 Settings
             </button>
@@ -941,17 +941,21 @@
 
             <div class="brand">
 
-                <img
-                    class="brand-logo"
-                    src="https://via.placeholder.com/100x100.png?text=SH"
-                    alt="Sync Health"
-                >
+                <a href="../doctor/dashboard/doctor_dashboard.html" style="display:flex; align-items:center; gap:10px; text-decoration:none; color:inherit;">
+                    <div style="width:36px; height:36px; border-radius:10px; background:#eef4f8; display:flex; align-items:center; justify-content:center; color:#063f67;">
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </div>
+                    <div>
+                        <strong style="font-size:15px; color:#063f67; display:block;">Doctor Dashboard</strong>
+                        <span style="font-size:11px; color:#6b6b73;">Return to Clinic Overview</span>
+                    </div>
+                </a>
 
             </div>
 
             <div class="sync-area">
 
-                <div class="sync-status" id="syncStatus">
+                <div class="sync-status" id="syncStatus" style="cursor:pointer;" onclick="loadLivePriorityQueue()" title="Click to refresh telemetry">
 
                     <i class="fa-solid fa-arrows-rotate sync-icon"></i>
 
@@ -959,7 +963,7 @@
 
                 </div>
 
-                <div class="profile">
+                <div class="profile" onclick="window.location.href='../doctor/dashboard/doctor_dashboard.html'" style="cursor:pointer;" title="Dr. Ananya Sharma">
 
                     <img
                         src="https://randomuser.me/api/portraits/women/44.jpg"
@@ -1527,7 +1531,7 @@
 
     <nav class="bottom-nav">
 
-        <button class="nav-item">
+        <button class="nav-item" onclick="window.location.href='../doctor/dashboard/doctor_dashboard.html'">
 
             <i class="fa-solid fa-border-all"></i>
 
@@ -1536,7 +1540,7 @@
         </button>
 
 
-        <button class="nav-item">
+        <button class="nav-item" onclick="window.location.href='../../patient/appointment/appointment.html'">
 
             <i class="fa-solid fa-users"></i>
 
@@ -1554,7 +1558,7 @@
         </button>
 
 
-        <button class="nav-item">
+        <button class="nav-item" onclick="loadLivePriorityQueue()">
 
             <i class="fa-solid fa-cloud-arrow-up"></i>
 
@@ -1579,6 +1583,14 @@
 
     <script>
 
+        const API_BASE = (window.location.protocol === 'http:' || window.location.protocol === 'https:')
+            && window.location.port === '5000'
+            ? ''
+            : 'http://localhost:5000';
+
+        let liveQueueData = [];
+        let currentFilter = "all";
+
         /* =========================================================
            TOAST
         ========================================================= */
@@ -1586,6 +1598,7 @@
         function showToast(message) {
 
             const toast = document.getElementById("toast");
+            if (!toast) return;
 
             toast.textContent = message;
 
@@ -1610,51 +1623,37 @@
             document.getElementById("roleMenu");
 
 
-        roleButton.addEventListener("click", function (event) {
-
-            event.stopPropagation();
-
-            roleMenu.classList.toggle("show");
-
-        });
-
-
-        document.addEventListener("click", function () {
-
-            roleMenu.classList.remove("show");
-
-        });
-
-
-        document.querySelectorAll(".role-option")
-            .forEach(option => {
-
-                option.addEventListener("click", function () {
-
-                    showToast(
-                        "Role changed to " + this.textContent.trim()
-                    );
-
-                });
-
+        if (roleButton && roleMenu) {
+            roleButton.addEventListener("click", function (event) {
+                event.stopPropagation();
+                roleMenu.classList.toggle("show");
             });
+
+            document.addEventListener("click", function () {
+                roleMenu.classList.remove("show");
+            });
+
+            document.querySelectorAll(".role-option")
+                .forEach(option => {
+                    option.addEventListener("click", function () {
+                        showToast(
+                            "Role changed to " + this.textContent.trim()
+                        );
+                    });
+                });
+        }
 
 
         /* =========================================================
            VIEW EHR
         ========================================================== */
 
-        function viewEHR(patient) {
-
-            showToast(
-                "Opening EHR for " + patient
-            );
-
-            console.log(
-                "EHR requested for:",
-                patient
-            );
-
+        function viewEHR(patient, patientId) {
+            showToast("Opening EHR for " + patient);
+            const targetId = patientId || 1;
+            setTimeout(() => {
+                window.location.href = `../doctor/patient_detail/patient_detail.html?id=${targetId}&name=${encodeURIComponent(patient)}`;
+            }, 300);
         }
 
 
@@ -1662,29 +1661,31 @@
            ESCALATE PATIENT
         ========================================================== */
 
-        function escalatePatient(patient) {
-
-            const confirmed =
-                confirm(
-                    "Escalate " +
-                    patient +
-                    " to emergency services (108)?"
-                );
+        async function escalatePatient(patient, queueId) {
+            const confirmed = confirm(
+                "CRITICAL ACTION: Escalate " + patient + " to Emergency Ambulance Dispatch (108) & Tertiary Trauma Center?"
+            );
 
             if (confirmed) {
+                showToast("108 Emergency Ambulance Dispatched for " + patient);
 
-                showToast(
-                    "Emergency escalation initiated for " +
-                    patient
-                );
+                if (queueId) {
+                    try {
+                        await fetch(`${API_BASE}/api/doctor/queue/${queueId}`, {
+                            method: 'PATCH',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ status: 'ESCALATED_108' })
+                        });
+                    } catch (e) {}
+                }
 
-                console.log(
-                    "Emergency call initiated for:",
-                    patient
-                );
-
+                if ('speechSynthesis' in window) {
+                    try {
+                        const msg = new SpeechSynthesisUtterance("Emergency alert: 108 trauma escalation initiated for patient " + patient);
+                        window.speechSynthesis.speak(msg);
+                    } catch (e) {}
+                }
             }
-
         }
 
 
@@ -1693,88 +1694,49 @@
         ========================================================== */
 
         function scheduleVisit(patient) {
-
-            showToast(
-                "Scheduling visit for " + patient
-            );
-
-            console.log(
-                "Schedule visit:",
-                patient
-            );
-
+            showToast("Scheduling visit for " + patient);
+            setTimeout(() => {
+                window.location.href = `../../patient/appointment/appointment.html?patient=${encodeURIComponent(patient)}`;
+            }, 350);
         }
 
 
         /* =========================================================
            FILTER
-        ========================================================== */
+        ========================================================= */
 
-        const filterButton =
-            document.getElementById("filterButton");
+        const filterButton = document.getElementById("filterButton");
 
-        let currentFilter = "all";
-
-
-        filterButton.addEventListener("click", function () {
-
-            if (currentFilter === "all") {
-
-                currentFilter = "critical";
-
-            } else if (currentFilter === "critical") {
-
-                currentFilter = "high-risk";
-
-            } else {
-
-                currentFilter = "all";
-
-            }
-
-            filterPatients(currentFilter);
-
-        });
-
+        if (filterButton) {
+            filterButton.addEventListener("click", function () {
+                if (currentFilter === "all") {
+                    currentFilter = "critical";
+                } else if (currentFilter === "critical") {
+                    currentFilter = "high-risk";
+                } else {
+                    currentFilter = "all";
+                }
+                filterPatients(currentFilter);
+            });
+        }
 
         function filterPatients(filter) {
-
-            const patients =
-                document.querySelectorAll(".patient-card");
-
+            currentFilter = filter;
+            const patients = document.querySelectorAll(".patient-card");
 
             patients.forEach(patient => {
-
-                if (
-                    filter === "all" ||
-                    patient.dataset.priority === filter
-                ) {
-
+                if (filter === "all" || patient.dataset.priority === filter) {
                     patient.style.display = "";
-
                 } else {
-
                     patient.style.display = "none";
-
                 }
-
             });
 
-
             if (filter === "all") {
-
                 showToast("Showing all priority patients");
-
             } else {
-
-                showToast(
-                    "Showing " +
-                    filter.replace("-", " ") +
-                    " patients"
-                );
-
+                showToast("Showing " + filter.replace("-", " ") + " patients");
             }
-
         }
 
 
@@ -1782,108 +1744,196 @@
            PRIORITY CARD CLICK
         ========================================================== */
 
-        document
-            .querySelectorAll(".priority-card")
-            .forEach(card => {
-
-                card.addEventListener("click", function () {
-
-                    const filter =
-                        this.dataset.filter;
-
-                    filterPatients(filter);
-
-                });
-
+        document.querySelectorAll(".priority-card").forEach(card => {
+            card.addEventListener("click", function () {
+                const filter = this.dataset.filter;
+                filterPatients(filter);
             });
+        });
 
 
         /* =========================================================
-           BOTTOM NAVIGATION
+           LIVE BACKEND API FETCH & RENDER
         ========================================================== */
 
-        document
-            .querySelectorAll(".nav-item")
-            .forEach(item => {
+        async function loadLivePriorityQueue() {
+            const syncStatus = document.getElementById("syncStatus");
+            if (syncStatus) {
+                syncStatus.innerHTML = `
+                    <i class="fa-solid fa-arrows-rotate fa-spin sync-icon"></i>
+                    <span>Syncing...</span>
+                `;
+                syncStatus.style.background = "#d9fff7";
+                syncStatus.style.color = "#187b70";
+            }
 
-                item.addEventListener("click", function () {
+            try {
+                const res = await fetch(`${API_BASE}/api/doctor/queue`);
+                if (!res.ok) throw new Error("HTTP error " + res.status);
+                const data = await res.json();
+                liveQueueData = data;
+                renderPriorityQueue(data);
 
-                    document
-                        .querySelectorAll(".nav-item")
-                        .forEach(nav => {
-                            nav.classList.remove("active");
-                        });
+                if (syncStatus) {
+                    syncStatus.innerHTML = `
+                        <i class="fa-solid fa-circle-check"></i>
+                        <span>Live Synced</span>
+                    `;
+                    syncStatus.style.background = "#e4f8ed";
+                    syncStatus.style.color = "#197448";
+                }
+            } catch (err) {
+                console.warn("Backend queue offline or fallback:", err);
+                if (syncStatus) {
+                    syncStatus.innerHTML = `
+                        <i class="fa-solid fa-circle-check"></i>
+                        <span>Cached</span>
+                    `;
+                    syncStatus.style.background = "#fff4e5";
+                    syncStatus.style.color = "#b25e00";
+                }
+            }
+        }
 
-                    this.classList.add("active");
+        function renderPriorityQueue(queue) {
+            if (!queue || queue.length === 0) return;
 
-                    const page =
-                        this.querySelector("span")
-                            .textContent;
+            // Update Counts
+            let critCount = 0;
+            let highCount = 0;
+            let followCount = 0;
 
-                    showToast(
-                        page + " selected"
-                    );
-
-                });
-
+            queue.forEach(item => {
+                const p = (item.priority || 'ROUTINE').toUpperCase();
+                if (p === 'EMERGENCY') critCount++;
+                else if (p === 'URGENT') highCount++;
+                else followCount++;
             });
 
+            const critEl = document.getElementById("criticalCount");
+            const highEl = document.getElementById("highRiskCount");
+            const followEl = document.getElementById("followUpCount");
 
-        /* =========================================================
-           DESKTOP SIDEBAR NAVIGATION
-        ========================================================== */
+            if (critEl) critEl.textContent = critCount;
+            if (highEl) highEl.textContent = highCount;
+            if (followEl) followEl.textContent = followCount;
 
-        document
-            .querySelectorAll(".side-item")
-            .forEach(item => {
+            const container = document.getElementById("patients");
+            if (!container) return;
 
-                item.addEventListener("click", function () {
+            let html = '';
 
-                    document
-                        .querySelectorAll(".side-item")
-                        .forEach(nav => {
-                            nav.classList.remove("active");
-                        });
+            queue.forEach((item, idx) => {
+                const p = (item.priority || 'ROUTINE').toUpperCase();
+                let priorityType = 'follow-up';
+                let badgeClass = 'follow';
+                let badgeText = 'FOLLOW-UP';
+                let cardClass = 'follow-card';
+                let pulseColor = '#454553';
 
-                    this.classList.add("active");
+                if (p === 'EMERGENCY') {
+                    priorityType = 'critical';
+                    badgeClass = 'critical';
+                    badgeText = 'CRITICAL';
+                    cardClass = 'critical-card';
+                    pulseColor = '#c1121f';
+                } else if (p === 'URGENT') {
+                    priorityType = 'high-risk';
+                    badgeClass = 'high-risk';
+                    badgeText = 'HIGH RISK';
+                    cardClass = 'risk-card';
+                    pulseColor = '#4c1d95';
+                }
 
-                    showToast(
-                        this.textContent.trim() +
-                        " selected"
-                    );
+                const patientName = item.patient_name || 'Patient';
+                const age = item.age || 32;
+                const gender = item.gender || 'Female';
+                const village = item.village ? ` • ${item.village}` : '';
+                const condition = item.symptoms || 'General Assessment';
+                const bp = item.vitals_bp || '120/80';
+                const pulse = item.vitals_pulse || 76;
+                const spo2 = item.vitals_spo2 || 98;
+                const patientId = item.patient_id || (idx + 1);
+                const queueId = item.queue_id || item.id || 0;
 
-                });
+                html += `
+                    <article class="patient-card ${cardClass}" data-priority="${priorityType}">
+                        <div class="patient-top">
+                            <div class="patient-info">
+                                <div style="width:48px; height:48px; border-radius:50%; background:#063f67; color:#ffffff; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:16px;">
+                                    ${getInitials(patientName)}
+                                </div>
+                                <div>
+                                    <h3 class="patient-name">${patientName}</h3>
+                                    <p class="patient-meta">${age} Y • ${gender}${village}</p>
+                                </div>
+                            </div>
+                            <span class="priority-badge ${badgeClass}">${badgeText}</span>
+                        </div>
 
+                        <div class="condition ${priorityType}">
+                            <i class="fa-solid fa-heart-pulse"></i>
+                            ${condition}
+                        </div>
+
+                        <div class="vitals">
+                            <div class="vital">
+                                <i class="fa-regular fa-heart vital-icon" style="color:${pulseColor}"></i>
+                                <div>
+                                    <span class="vital-value">${pulse}</span>
+                                    <span class="vital-unit">bpm</span>
+                                </div>
+                            </div>
+
+                            <div class="vital">
+                                <i class="fa-solid fa-gauge-high vital-icon" style="color:${pulseColor}"></i>
+                                <div>
+                                    <span class="vital-value">${bp}</span>
+                                    <span class="vital-unit">mmHg</span>
+                                </div>
+                            </div>
+
+                            <div class="vital">
+                                <i class="fa-solid fa-lungs vital-icon" style="color:${pulseColor}"></i>
+                                <div>
+                                    <span class="vital-value">${spo2}%</span>
+                                    <span class="vital-unit">SpO2</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="actions">
+                            <button class="action-btn primary" onclick="viewEHR('${patientName.replace(/'/g, "\\'")}', ${patientId})">
+                                <i class="fa-solid fa-file-medical"></i> View EHR
+                            </button>
+                            ${p === 'EMERGENCY' ? `
+                            <button class="action-btn" style="background:#fff0f0; color:#c1121f;" onclick="escalatePatient('${patientName.replace(/'/g, "\\'")}', ${queueId})">
+                                <i class="fa-solid fa-truck-medical"></i> Escalate 108
+                            </button>
+                            ` : `
+                            <button class="action-btn secondary" onclick="scheduleVisit('${patientName.replace(/'/g, "\\'")}')">
+                                <i class="fa-solid fa-calendar-plus"></i> Schedule Visit
+                            </button>
+                            `}
+                        </div>
+                    </article>
+                `;
             });
 
+            container.innerHTML = html;
+        }
 
-        /* =========================================================
-           SYNC STATUS
-        ========================================================== */
+        function getInitials(name) {
+            if (!name) return 'PT';
+            const p = name.trim().split(' ');
+            if (p.length === 1) return p[0].substring(0, 2).toUpperCase();
+            return (p[0][0] + p[p.length - 1][0]).toUpperCase();
+        }
 
-        const syncStatus =
-            document.getElementById("syncStatus");
-
-        let syncing = true;
-
-
-        setTimeout(() => {
-
-            syncing = false;
-
-            syncStatus.innerHTML = `
-                <i class="fa-solid fa-circle-check"></i>
-                <span>Synced</span>
-            `;
-
-            syncStatus.style.background =
-                "#e4f8ed";
-
-            syncStatus.style.color =
-                "#197448";
-
-        }, 4000);
-
+        document.addEventListener("DOMContentLoaded", loadLivePriorityQueue);
+        if (document.readyState === 'complete' || document.readyState === 'interactive') {
+            loadLivePriorityQueue();
+        }
 
     </script>
 

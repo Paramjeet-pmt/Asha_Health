@@ -16,7 +16,7 @@ html, body {
 .pb-safe { padding-bottom: env(safe-area-inset-bottom, 0px); }
 .pt-safe { padding-top: env(safe-area-inset-top, 0px); }
 ::-webkit-scrollbar { display: none; }
-</style></head><body class="bg-surface text-on-surface font-body-md min-h-screen relative" style="touch-action: pan-y;"><div class="min-h-screen h-auto overflow-visible block w-full bg-surface"><header class="sticky top-0 w-full z-40 bg-surface/90 backdrop-blur-xl pt-safe shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-space-sm flex items-center justify-between gap-space-xs"><div class="flex items-center gap-space-xs"><button aria-label="Open menu" class="w-11 h-11 flex items-center justify-center text-on-surface hover:text-primary active:scale-95 transition-all" onclick="document.getElementById('mobile-drawer').classList.remove('-translate-x-full');document.getElementById('drawer-overlay').classList.remove('opacity-0','pointer-events-none');"><span class="material-symbols-outlined text-[24px]">menu</span></button><img alt="ASHA Healthcare Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwJzhYilh1n-5Ve0OBeWiSmgZaQMn2ErUMeuZcXvDoJE1hVzhXrbdHbvJJAdqPH_wA4KXESOZxhkZsRj7uQHxeVrtMVtYebeLZBETvM4bpFhWJopCnR6-p93df2jyIOpUEtl9uzW7FvZnyXGXEhNCYYEGYhQmaI2VnUi6uAizL7bj2guB5xlK0TzM26apWqQWNY1s4IxErvO4qTxtoYGOnshkcMu2QuoBIZPwMCIK8yqU32KXvLNo_gOEGRAx544ZRPnY"/><div class="flex flex-col"><span class="font-label-md text-label-md text-primary leading-tight">ASHA Healthcare</span><span class="font-label-sm text-label-sm text-tertiary font-bold flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>Doctor Portal</span></div></div><div class="flex items-center gap-space-xs"><div class="hidden sm:flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-container text-tertiary font-label-sm text-label-sm"><span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>Available</div><a aria-label="Notifications" class="w-11 h-11 relative flex items-center justify-center text-on-surface-variant hover:text-primary active:scale-95 transition-all" data-path="notifications" href="#"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-2.5 right-2.5 w-2 h-2 rounded-full bg-error ring-2 ring-surface"></span></a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><div class="fixed inset-0 bg-inverse-surface/40 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-opacity duration-300" id="drawer-overlay" onclick="document.getElementById('mobile-drawer').classList.add('-translate-x-full');this.classList.add('opacity-0','pointer-events-none');"></div><aside class="fixed top-0 left-0 bottom-0 w-[290px] max-w-[85vw] z-50 bg-surface-container-lowest shadow-[0_20px_25px_-5px_rgba(15,23,42,0.1)] -translate-x-full transition-transform duration-300 ease-in-out flex flex-col justify-between pt-safe pb-safe" id="mobile-drawer"><div class="flex flex-col h-full overflow-hidden"><div class="h-16 px-space-md flex items-center justify-between border-b border-surface-variant/40"><div class="flex items-center gap-space-xs"><img alt="ASHA Healthcare Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuARXKXnX1Zlx7ztG_NQBUtK1f0lfW7qW2pI7P1WSijHjc7DsbvuqPAn1ePppmEyoPjf5HU37O_UsLEuMYt3_8UFejaZN0LLpzIL4mFcXwhEuHCYKat57G0zvASEtkL6fDiyP7RT4bMmG2SMbhx-ZEqKGa391u6trmkaAVd8lTb7fnL3d9qaikAGimvOaaxu-XJ0b5L-m481Bp7e7-f0UO1Of9FwKViOlLlzwjBSK-li6JTAmP_LUYpH3WO-k1u4TdAkFoo"/><div class="flex flex-col"><span class="font-label-md text-label-md text-primary font-bold">ASHA</span><span class="font-label-sm text-label-sm text-on-surface-variant">Healthcare</span></div></div><button aria-label="Close menu" class="w-11 h-11 flex items-center justify-center text-on-surface-variant hover:text-on-surface active:scale-95" onclick="document.getElementById('mobile-drawer').classList.add('-translate-x-full');document.getElementById('drawer-overlay').classList.add('opacity-0','pointer-events-none');"><span class="material-symbols-outlined text-[20px]">close</span></button></div><div class="flex-1 overflow-y-auto py-space-xs px-space-xs space-y-0.5"><a class="flex items-center gap-space-sm px-space-sm h-11 rounded-xl bg-surface-container-high text-primary font-label-lg text-label-lg transition-colors" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[20px] text-primary">grid_view</span>Dashboard</a><a class="flex items-center gap-space-sm px-space-sm h-11 rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-label-md text-label-md transition-colors" data-path="patients" href="#"><span class="material-symbols-outlined text-[20px]">patient_list</span>Patients</a><a class="flex items-center gap-space-sm px-space-sm h-11 rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-label-md text-label-md transition-colors" data-path="appointments" href="#"><span class="material-symbols-outlined text-[20px]">calendar_today</span>Appointments</a><a class="flex items-center gap-space-sm px-space-sm h-11 rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-label-md text-label-md transition-colors" data-path="patient-queue" href="#"><span class="material-symbols-outlined text-[20px]">queue</span>Patient Queue</a><a class="flex items-center gap-space-sm px-space-sm h-11 rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-label-md text-label-md transition-colors" data-path="messages" href="#"><span class="material-symbols-outlined text-[20px]">chat_bubble</span>Messages</a><a class="flex items-center gap-space-sm px-space-sm h-11 rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-label-md text-label-md transition-colors" data-path="health-records" href="#"><span class="material-symbols-outlined text-[20px]">clinical_notes</span>Health Records</a><a class="flex items-center gap-space-sm px-space-sm h-11 rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-label-md text-label-md transition-colors" data-path="prescriptions" href="#"><span class="material-symbols-outlined text-[20px]">prescriptions</span>Prescriptions</a><a class="flex items-center gap-space-sm px-space-sm h-11 rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-label-md text-label-md transition-colors" data-path="consultations" href="#"><span class="material-symbols-outlined text-[20px]">video_camera_front</span>Consultations</a><a class="flex items-center gap-space-sm px-space-sm h-11 rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-label-md text-label-md transition-colors" data-path="reports" href="#"><span class="material-symbols-outlined text-[20px]">analytics</span>Reports</a><a class="flex items-center gap-space-sm px-space-sm h-11 rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-label-md text-label-md transition-colors" data-path="notifications" href="#"><span class="material-symbols-outlined text-[20px]">notifications</span>Notifications</a><a class="flex items-center gap-space-sm px-space-sm h-11 rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-label-md text-label-md transition-colors" data-path="settings" href="#"><span class="material-symbols-outlined text-[20px]">settings</span>Settings</a></div><div class="p-space-sm bg-surface-container-low border-t border-surface-variant/40"><div class="flex items-center gap-space-sm"><div class="relative flex-shrink-0"><div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[20px]">person</span></div><span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-tertiary ring-2 ring-surface-container-lowest"></span></div><div class="flex flex-col min-w-0 flex-1"><span class="font-label-md text-label-md text-on-surface font-bold truncate">Dr. Ananya Sharma</span><span class="font-body-sm text-body-sm text-on-surface-variant truncate">General Physician</span></div><div class="flex items-center gap-1 text-tertiary font-label-sm text-label-sm"><span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>Online</div></div></div></div></aside><main class="flex flex-col relative w-full pt-4 pb-32 bg-surface flex-1 overflow-visible"><div class="flex flex-col w-full px-margin-mobile space-y-space-md max-w-xl mx-auto pb-6">
+</style></head><body class="bg-surface text-on-surface font-body-md min-h-screen relative" style="touch-action: pan-y;"><div class="min-h-screen h-auto overflow-visible block w-full bg-surface"><header class="sticky top-0 w-full z-40 bg-surface/90 backdrop-blur-xl pt-safe shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-space-sm flex items-center justify-between gap-space-xs"><div class="flex items-center gap-space-xs"><button aria-label="Open menu" class="w-11 h-11 flex items-center justify-center text-on-surface hover:text-primary active:scale-95 transition-all" onclick="document.getElementById('mobile-drawer').classList.remove('-translate-x-full');document.getElementById('drawer-overlay').classList.remove('opacity-0','pointer-events-none');"><span class="material-symbols-outlined text-[24px]">menu</span></button><img alt="ASHA Healthcare Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwJzhYilh1n-5Ve0OBeWiSmgZaQMn2ErUMeuZcXvDoJE1hVzhXrbdHbvJJAdqPH_wA4KXESOZxhkZsRj7uQHxeVrtMVtYebeLZBETvM4bpFhWJopCnR6-p93df2jyIOpUEtl9uzW7FvZnyXGXEhNCYYEGYhQmaI2VnUi6uAizL7bj2guB5xlK0TzM26apWqQWNY1s4IxErvO4qTxtoYGOnshkcMu2QuoBIZPwMCIK8yqU32KXvLNo_gOEGRAx544ZRPnY"/><div class="flex flex-col"><span class="font-label-md text-label-md text-primary leading-tight">ASHA Healthcare</span><span class="font-label-sm text-label-sm text-tertiary font-bold flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>Doctor Portal</span></div></div><div class="flex items-center gap-space-xs"><div class="hidden sm:flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-container text-tertiary font-label-sm text-label-sm"><span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>Available</div><a aria-label="Notifications" class="w-11 h-11 relative flex items-center justify-center text-on-surface-variant hover:text-primary active:scale-95 transition-all" data-path="notifications" href="#"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-2.5 right-2.5 w-2 h-2 rounded-full bg-error ring-2 ring-surface"></span></a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><div class="fixed inset-0 bg-inverse-surface/40 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-opacity duration-300" id="drawer-overlay" onclick="document.getElementById('mobile-drawer').classList.add('-translate-x-full');this.classList.add('opacity-0','pointer-events-none');"></div><aside class="fixed top-0 left-0 bottom-0 w-[290px] max-w-[85vw] z-50 bg-surface-container-lowest shadow-[0_20px_25px_-5px_rgba(15,23,42,0.1)] -translate-x-full transition-transform duration-300 ease-in-out flex flex-col justify-between pt-safe pb-safe" id="mobile-drawer"><div class="flex flex-col h-full overflow-hidden"><div class="h-16 px-space-md flex items-center justify-between border-b border-surface-variant/40"><div class="flex items-center gap-space-xs"><img alt="ASHA Healthcare Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuARXKXnX1Zlx7ztG_NQBUtK1f0lfW7qW2pI7P1WSijHjc7DsbvuqPAn1ePppmEyoPjf5HU37O_UsLEuMYt3_8UFejaZN0LLpzIL4mFcXwhEuHCYKat57G0zvASEtkL6fDiyP7RT4bMmG2SMbhx-ZEqKGa391u6trmkaAVd8lTb7fnL3d9qaikAGimvOaaxu-XJ0b5L-m481Bp7e7-f0UO1Of9FwKViOlLlzwjBSK-li6JTAmP_LUYpH3WO-k1u4TdAkFoo"/><div class="flex flex-col"><span class="font-label-md text-label-md text-primary font-bold">ASHA</span><span class="font-label-sm text-label-sm text-on-surface-variant">Healthcare</span></div></div><button aria-label="Close menu" class="w-11 h-11 flex items-center justify-center text-on-surface-variant hover:text-on-surface active:scale-95" onclick="document.getElementById('mobile-drawer').classList.add('-translate-x-full');document.getElementById('drawer-overlay').classList.add('opacity-0','pointer-events-none');"><span class="material-symbols-outlined text-[20px]">close</span></button></div><div class="flex-1 overflow-y-auto py-space-xs px-space-xs space-y-0.5"><a class="flex items-center gap-space-sm px-space-sm h-11 rounded-xl bg-surface-container-high text-primary font-label-lg text-label-lg transition-colors" data-path="dashboard" href="doctor_dashboard.html"><span class="material-symbols-outlined text-[20px] text-primary">grid_view</span>Dashboard</a><a class="flex items-center gap-space-sm px-space-sm h-11 rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-label-md text-label-md transition-colors" data-path="patients" href="../../priority%20patient/index.html"><span class="material-symbols-outlined text-[20px]">patient_list</span>Patients</a><a class="flex items-center gap-space-sm px-space-sm h-11 rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-label-md text-label-md transition-colors" data-path="appointments" href="../../../patient/appointment/appointment.html"><span class="material-symbols-outlined text-[20px]">calendar_today</span>Appointments</a><a class="flex items-center gap-space-sm px-space-sm h-11 rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-label-md text-label-md transition-colors" data-path="patient-queue" href="../../priority%20patient/index.html"><span class="material-symbols-outlined text-[20px]">queue</span>Patient Queue</a><a class="flex items-center gap-space-sm px-space-sm h-11 rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-label-md text-label-md transition-colors" data-path="messages" href="../../../patient/Talktodoctor/talk-to-doctor.html"><span class="material-symbols-outlined text-[20px]">chat_bubble</span>Messages</a><a class="flex items-center gap-space-sm px-space-sm h-11 rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-label-md text-label-md transition-colors" data-path="health-records" href="../patient_detail/patient_detail.html"><span class="material-symbols-outlined text-[20px]">clinical_notes</span>Health Records</a><a class="flex items-center gap-space-sm px-space-sm h-11 rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-label-md text-label-md transition-colors" data-path="prescriptions" href="../../../patient/Precautions/index.html"><span class="material-symbols-outlined text-[20px]">prescriptions</span>Prescriptions</a><a class="flex items-center gap-space-sm px-space-sm h-11 rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-label-md text-label-md transition-colors" data-path="consultations" href="../../../patient/Talktodoctor/talk-to-doctor.html"><span class="material-symbols-outlined text-[20px]">video_camera_front</span>Consultations</a><a class="flex items-center gap-space-sm px-space-sm h-11 rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-label-md text-label-md transition-colors" data-path="reports" href="../../../admin/command_center/command-center.html"><span class="material-symbols-outlined text-[20px]">analytics</span>Reports</a><a class="flex items-center gap-space-sm px-space-sm h-11 rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-label-md text-label-md transition-colors" data-path="notifications" href="#" onclick="showQuickFeedback('No new urgent clinical alerts'); return false;"><span class="material-symbols-outlined text-[20px]">notifications</span>Notifications</a><a class="flex items-center gap-space-sm px-space-sm h-11 rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-label-md text-label-md transition-colors" data-path="settings" href="#" onclick="showQuickFeedback('Doctor Profile & Clinic Settings'); return false;"><span class="material-symbols-outlined text-[20px]">settings</span>Settings</a></div><div class="p-space-sm bg-surface-container-low border-t border-surface-variant/40"><div class="flex items-center gap-space-sm"><div class="relative flex-shrink-0"><div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[20px]">person</span></div><span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-tertiary ring-2 ring-surface-container-lowest"></span></div><div class="flex flex-col min-w-0 flex-1"><span class="font-label-md text-label-md text-on-surface font-bold truncate">Dr. Ananya Sharma</span><span class="font-body-sm text-body-sm text-on-surface-variant truncate">General Physician</span></div><div class="flex items-center gap-1 text-tertiary font-label-sm text-label-sm"><span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>Online</div></div></div></div></aside><main class="flex flex-col relative w-full pt-4 pb-32 bg-surface flex-1 overflow-visible"><div class="flex flex-col w-full px-margin-mobile space-y-space-md max-w-xl mx-auto pb-6">
 <!-- Interactive Demo Notification Banner (Toggleable) -->
 <div class="hidden p-space-sm rounded-xl transition-all duration-300" id="status-toast">
 <div class="flex items-center gap-space-xs">
@@ -100,8 +100,8 @@ html, body {
 </div>
 </div>
 <div class="mt-2 flex items-baseline justify-between">
-<span class="font-data-metric text-data-metric text-on-surface font-bold">12</span>
-<span class="font-label-sm text-label-sm text-primary bg-surface-container-high px-1.5 py-0.5 rounded">+2 walk-in</span>
+<span class="font-data-metric text-data-metric text-on-surface font-bold" id="stat-appointments-count">12</span>
+<span class="font-label-sm text-label-sm text-primary bg-surface-container-high px-1.5 py-0.5 rounded">Live Roster</span>
 </div>
 </div>
 <!-- Card 2: Patients Waiting -->
@@ -113,8 +113,8 @@ html, body {
 </div>
 </div>
 <div class="mt-2 flex items-baseline justify-between">
-<span class="font-data-metric text-data-metric text-on-surface font-bold">05</span>
-<span class="font-label-sm text-label-sm text-secondary bg-secondary-container/40 px-1.5 py-0.5 rounded">Avg 11m</span>
+<span class="font-data-metric text-data-metric text-on-surface font-bold" id="stat-waiting-count">04</span>
+<span class="font-label-sm text-label-sm text-secondary bg-secondary-container/40 px-1.5 py-0.5 rounded">Triage Queue</span>
 </div>
 </div>
 <!-- Card 3: Completed Consultations -->
@@ -126,8 +126,8 @@ html, body {
 </div>
 </div>
 <div class="mt-2 flex items-baseline justify-between">
-<span class="font-data-metric text-data-metric text-on-surface font-bold">08</span>
-<span class="font-label-sm text-label-sm text-tertiary bg-tertiary/10 px-1.5 py-0.5 rounded">66% target</span>
+<span class="font-data-metric text-data-metric text-on-surface font-bold" id="stat-completed-count">02</span>
+<span class="font-label-sm text-label-sm text-tertiary bg-tertiary/10 px-1.5 py-0.5 rounded">Completed</span>
 </div>
 </div>
 <!-- Card 4: Upcoming -->
@@ -139,7 +139,7 @@ html, body {
 </div>
 </div>
 <div class="mt-2 flex items-baseline justify-between">
-<span class="font-data-metric text-data-metric text-on-surface font-bold">04</span>
+<span class="font-data-metric text-data-metric text-on-surface font-bold" id="stat-upcoming-count">06</span>
 <span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-low px-1.5 py-0.5 rounded">Till 5 PM</span>
 </div>
 </div>
@@ -150,7 +150,7 @@ html, body {
 <h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold px-1">Quick Clinical Actions</h2>
 <div class="grid grid-cols-2 gap-space-xs">
 <!-- Action 1 -->
-<button class="bg-surface-container-lowest p-space-sm rounded-xl shadow-sm hover:shadow-md active:scale-98 transition-all text-left flex flex-col gap-2 group" onclick="showQuickFeedback('New Patient Registration Form Opened')">
+<button class="bg-surface-container-lowest p-space-sm rounded-xl shadow-sm hover:shadow-md active:scale-98 transition-all text-left flex flex-col gap-2 group" onclick="window.location.href='../../../auth/patient_login_variant_2/patient_login_v2.html'">
 <div class="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-on-primary transition-colors">
 <span class="material-symbols-outlined text-[22px]">person_add</span>
 </div>
@@ -160,7 +160,7 @@ html, body {
 </div>
 </button>
 <!-- Action 2 -->
-<button class="bg-surface-container-lowest p-space-sm rounded-xl shadow-sm hover:shadow-md active:scale-98 transition-all text-left flex flex-col gap-2 group" onclick="showQuickFeedback('Schedule Consultation Slot Modal Opened')">
+<button class="bg-surface-container-lowest p-space-sm rounded-xl shadow-sm hover:shadow-md active:scale-98 transition-all text-left flex flex-col gap-2 group" onclick="window.location.href='../../../patient/appointment/appointment.html'">
 <div class="w-10 h-10 rounded-xl bg-secondary-container/40 text-secondary flex items-center justify-center group-hover:bg-secondary group-hover:text-on-secondary transition-colors">
 <span class="material-symbols-outlined text-[22px]">calendar_add_on</span>
 </div>
@@ -170,17 +170,17 @@ html, body {
 </div>
 </button>
 <!-- Action 3 -->
-<button class="bg-surface-container-lowest p-space-sm rounded-xl shadow-sm hover:shadow-md active:scale-98 transition-all text-left flex flex-col gap-2 group" onclick="showQuickFeedback('Digital Rx Creation Flow Activated')">
+<button class="bg-surface-container-lowest p-space-sm rounded-xl shadow-sm hover:shadow-md active:scale-98 transition-all text-left flex flex-col gap-2 group" onclick="window.location.href='../../../patient/Precautions/index.html'">
 <div class="w-10 h-10 rounded-xl bg-tertiary/10 text-tertiary flex items-center justify-center group-hover:bg-tertiary group-hover:text-on-tertiary transition-colors">
 <span class="material-symbols-outlined text-[22px]">prescriptions</span>
 </div>
 <div>
 <span class="font-label-lg text-label-lg text-on-surface font-bold block">Write Rx</span>
-<span class="font-body-sm text-body-sm text-on-surface-variant">Rx digital creation</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Precautions & Rx</span>
 </div>
 </button>
 <!-- Action 4 -->
-<button class="bg-surface-container-lowest p-space-sm rounded-xl shadow-sm hover:shadow-md active:scale-98 transition-all text-left flex flex-col gap-2 group" onclick="showQuickFeedback('Health Records &amp; EHR Hub Opened')">
+<button class="bg-surface-container-lowest p-space-sm rounded-xl shadow-sm hover:shadow-md active:scale-98 transition-all text-left flex flex-col gap-2 group" onclick="window.location.href='../patient_detail/patient_detail.html'">
 <div class="w-10 h-10 rounded-xl bg-surface-container text-on-surface-variant flex items-center justify-center group-hover:bg-primary group-hover:text-on-primary transition-colors">
 <span class="material-symbols-outlined text-[22px]">folder_managed</span>
 </div>
@@ -198,10 +198,10 @@ html, body {
 <div class="w-2.5 h-2.5 rounded-full bg-secondary animate-pulse"></div>
 <h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">Live OPD Queue</h2>
 </div>
-<span class="px-2.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-bold">3 Patients Waiting</span>
+<span class="px-2.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-bold" id="queue-header-badge">3 Patients Waiting</span>
 </div>
 <!-- Queue List Items -->
-<div class="space-y-2">
+<div class="space-y-2" id="live-queue-list">
 <!-- Item 1: Calling Next -->
 <div class="p-space-sm rounded-xl bg-surface-container-low flex items-center justify-between gap-space-xs transition-colors">
 <div class="flex items-center gap-space-xs min-w-0">
@@ -216,45 +216,39 @@ html, body {
 <p class="font-body-sm text-body-sm text-on-surface-variant truncate">General Consultation • Waiting 08 min</p>
 </div>
 </div>
-<button class="px-3 py-1.5 rounded-lg bg-primary text-on-primary font-label-md text-label-md font-semibold hover:bg-primary-container active:scale-95 transition-all shrink-0 flex items-center gap-1 shadow-sm" onclick="callPatient('Priya Sharma')">
+<div class="flex items-center gap-1.5 shrink-0">
+<button class="px-3 py-1.5 rounded-lg bg-primary text-on-primary font-label-md text-label-md font-semibold hover:bg-primary-container active:scale-95 transition-all flex items-center gap-1 shadow-sm" onclick="callQueuePatient('Priya Sharma', 1)">
 <span class="material-symbols-outlined text-[16px]">campaign</span> Call In
-        </button>
+</button>
+<button class="px-2 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-primary font-label-sm text-label-sm transition-all" onclick="window.location.href='../patient_detail/patient_detail.html?id=1&name=Priya%20Sharma'" title="View EHR">
+<span class="material-symbols-outlined text-[16px]">clinical_notes</span>
+</button>
+</div>
 </div>
 <!-- Item 2: In Queue -->
 <div class="p-space-sm rounded-xl bg-surface-container/40 flex items-center justify-between gap-space-xs">
 <div class="flex items-center gap-space-xs min-w-0">
 <div class="w-10 h-10 rounded-full bg-surface-variant text-on-surface-variant flex items-center justify-center font-bold text-sm shrink-0">
-            AV
+            RK
           </div>
 <div class="min-w-0">
 <div class="flex items-center gap-1.5">
-<span class="font-label-lg text-label-lg text-on-surface font-semibold truncate">Amit Verma</span>
+<span class="font-label-lg text-label-lg text-on-surface font-semibold truncate">Ramesh Kumar</span>
 <span class="font-label-sm text-label-sm bg-surface-container-high text-on-surface-variant px-1.5 py-0.2 rounded">In Queue</span>
 </div>
 <p class="font-body-sm text-body-sm text-on-surface-variant truncate">Follow-up • Waiting 12 min</p>
 </div>
 </div>
-<span class="font-label-sm text-label-sm text-on-surface-variant shrink-0 bg-surface-container-lowest px-2 py-1 rounded">Position #2</span>
+<div class="flex items-center gap-1.5 shrink-0">
+<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-lowest px-2 py-1 rounded">Position #2</span>
+<button class="px-2 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-primary font-label-sm text-label-sm transition-all" onclick="window.location.href='../patient_detail/patient_detail.html?id=2&name=Ramesh%20Kumar'" title="View EHR">
+<span class="material-symbols-outlined text-[16px]">clinical_notes</span>
+</button>
 </div>
-<!-- Item 3: In Queue -->
-<div class="p-space-sm rounded-xl bg-surface-container/40 flex items-center justify-between gap-space-xs">
-<div class="flex items-center gap-space-xs min-w-0">
-<div class="w-10 h-10 rounded-full bg-surface-variant text-on-surface-variant flex items-center justify-center font-bold text-sm shrink-0">
-            NS
-          </div>
-<div class="min-w-0">
-<div class="flex items-center gap-1.5">
-<span class="font-label-lg text-label-lg text-on-surface font-semibold truncate">Neha Singh</span>
-<span class="font-label-sm text-label-sm bg-surface-container-high text-on-surface-variant px-1.5 py-0.2 rounded">In Queue</span>
-</div>
-<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Health Review • Waiting 18 min</p>
-</div>
-</div>
-<span class="font-label-sm text-label-sm text-on-surface-variant shrink-0 bg-surface-container-lowest px-2 py-1 rounded">Position #3</span>
 </div>
 </div>
 <!-- View Live Queue Action -->
-<button class="w-full py-2.5 rounded-xl bg-surface-container-high text-primary hover:bg-surface-variant font-label-md text-label-md font-bold flex items-center justify-center gap-1 transition-colors" onclick="showQuickFeedback('Navigating to Live Patient Queue Management screen...')">
+<button class="w-full py-2.5 rounded-xl bg-surface-container-high text-primary hover:bg-surface-variant font-label-md text-label-md font-bold flex items-center justify-center gap-1 transition-colors" onclick="window.location.href='../../priority%20patient/index.html'">
       View Live Queue <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
 </button>
 </section>
@@ -262,21 +256,21 @@ html, body {
 <section class="space-y-space-xs">
 <div class="flex items-center justify-between px-1">
 <h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">Today's Appointments</h2>
-<span class="font-label-md text-label-md text-primary font-bold">12 Scheduled</span>
+<span class="font-label-md text-label-md text-primary font-bold" id="appointments-header-badge">12 Scheduled</span>
 </div>
 <!-- Filter Tabs (Horizontal Scrollable) -->
 <div class="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar text-nowrap">
-<button class="appt-filter-pill px-3 py-1.5 rounded-full font-label-md text-label-md bg-primary text-on-primary font-semibold shadow-sm transition-all" onclick="filterAppointments('all', this)">
-        All (12)
+<button class="appt-filter-pill px-3 py-1.5 rounded-full font-label-md text-label-md bg-primary text-on-primary font-semibold shadow-sm transition-all" onclick="filterAppointments('all', this)" id="filter-btn-all">
+        All (<span id="filter-all-count">12</span>)
       </button>
-<button class="appt-filter-pill px-3 py-1.5 rounded-full font-label-md text-label-md bg-surface-container text-on-surface-variant hover:text-on-surface transition-all" onclick="filterAppointments('confirmed', this)">
-        Confirmed (7)
+<button class="appt-filter-pill px-3 py-1.5 rounded-full font-label-md text-label-md bg-surface-container text-on-surface-variant hover:text-on-surface transition-all" onclick="filterAppointments('confirmed', this)" id="filter-btn-confirmed">
+        Confirmed (<span id="filter-confirmed-count">7</span>)
       </button>
-<button class="appt-filter-pill px-3 py-1.5 rounded-full font-label-md text-label-md bg-surface-container text-on-surface-variant hover:text-on-surface transition-all" onclick="filterAppointments('inprogress', this)">
-        In Progress (1)
+<button class="appt-filter-pill px-3 py-1.5 rounded-full font-label-md text-label-md bg-surface-container text-on-surface-variant hover:text-on-surface transition-all" onclick="filterAppointments('inprogress', this)" id="filter-btn-inprogress">
+        In Progress (<span id="filter-inprogress-count">1</span>)
       </button>
-<button class="appt-filter-pill px-3 py-1.5 rounded-full font-label-md text-label-md bg-surface-container text-on-surface-variant hover:text-on-surface transition-all" onclick="filterAppointments('completed', this)">
-        Completed (4)
+<button class="appt-filter-pill px-3 py-1.5 rounded-full font-label-md text-label-md bg-surface-container text-on-surface-variant hover:text-on-surface transition-all" onclick="filterAppointments('completed', this)" id="filter-btn-completed">
+        Completed (<span id="filter-completed-count">4</span>)
       </button>
 </div>
 <!-- Appointment Cards Stack -->
@@ -816,5 +810,248 @@ html, body {
       showQuickFeedback('Returned to standard operational view');
     }
   }
-</script><footer class="mt-auto px-space-md py-space-md text-center bg-surface-container-lowest"><p class="font-body-sm text-body-sm text-on-surface-variant">© 2025 ASHA Healthcare. Clinical Systems Division.</p><div class="flex items-center justify-center gap-space-sm mt-space-xs font-label-sm text-label-sm text-primary"><a class="hover:underline" href="#">Help</a><span class="">•</span><a class="hover:underline" href="#">Privacy</a><span class="">•</span><a class="hover:underline" href="#">Terms</a><span class="">•</span><a class="hover:underline" href="#">Support</a></div></footer></main><nav class="fixed bottom-0 left-0 right-0 w-full z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]" data-active-classes="text-primary font-bold"><div class="flex justify-around items-center h-16 px-space-xs"><a aria-current="page" class="flex flex-col items-center justify-center gap-0.5 w-14 h-14 transition-all text-primary font-bold" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[22px]">grid_view</span><span class="font-label-sm text-label-sm">Home</span></a><a class="flex flex-col items-center justify-center gap-0.5 w-14 h-14 text-on-surface-variant hover:text-primary transition-all" data-path="patient-queue" href="#"><span class="material-symbols-outlined text-[22px]">queue</span><span class="font-label-sm text-label-sm">Queue</span></a><a class="flex flex-col items-center justify-center gap-0.5 w-14 h-14 text-on-surface-variant hover:text-primary transition-all" data-path="appointments" href="#"><span class="material-symbols-outlined text-[22px]">calendar_today</span><span class="font-label-sm text-label-sm">Schedule</span></a><a class="flex flex-col items-center justify-center gap-0.5 w-14 h-14 text-on-surface-variant hover:text-primary transition-all" data-path="messages" href="#"><span class="material-symbols-outlined text-[22px]">chat_bubble</span><span class="font-label-sm text-label-sm">Inbox</span></a><a class="flex flex-col items-center justify-center gap-0.5 w-14 h-14 text-on-surface-variant hover:text-primary transition-all" data-path="settings" href="#"><span class="material-symbols-outlined text-[22px]">settings</span><span class="font-label-sm text-label-sm">Settings</span></a></div></nav></div>
+
+  // =========================================================
+  // BACKEND API INTEGRATION
+  // =========================================================
+  const API_BASE = (window.location.protocol === 'http:' || window.location.protocol === 'https:')
+    && window.location.port === '5000'
+    ? ''
+    : 'http://localhost:5000';
+
+  let globalAppointments = [];
+  let globalQueue = [];
+
+  async function loadDoctorDashboardData() {
+    try {
+      // 1. Fetch live triage queue
+      const queueRes = await fetch(`${API_BASE}/api/doctor/queue`).catch(() => null);
+      if (queueRes && queueRes.ok) {
+        globalQueue = await queueRes.json();
+      }
+
+      // 2. Fetch appointments
+      const apptRes = await fetch(`${API_BASE}/api/appointments`).catch(() => null);
+      if (apptRes && apptRes.ok) {
+        globalAppointments = await apptRes.json();
+      }
+
+      renderStats();
+      renderLiveQueue();
+      renderAppointments('all');
+    } catch (err) {
+      console.warn('Offline or fallback mode in doctor dashboard:', err);
+    }
+  }
+
+  function renderStats() {
+    const totalAppts = globalAppointments.length || 9;
+    const waitingCount = globalQueue.filter(q => q.status === 'WAITING' || !q.status).length || 4;
+    const completedCount = globalAppointments.filter(a => a.status === 'COMPLETED').length || 0;
+    const upcomingCount = globalAppointments.filter(a => a.status === 'CONFIRMED').length || totalAppts;
+
+    const statAppts = document.getElementById('stat-appointments-count');
+    const statWaiting = document.getElementById('stat-waiting-count');
+    const statCompleted = document.getElementById('stat-completed-count');
+    const statUpcoming = document.getElementById('stat-upcoming-count');
+
+    if (statAppts) statAppts.textContent = totalAppts < 10 ? '0' + totalAppts : totalAppts;
+    if (statWaiting) statWaiting.textContent = waitingCount < 10 ? '0' + waitingCount : waitingCount;
+    if (statCompleted) statCompleted.textContent = completedCount < 10 ? '0' + completedCount : completedCount;
+    if (statUpcoming) statUpcoming.textContent = upcomingCount < 10 ? '0' + upcomingCount : upcomingCount;
+
+    const queueBadge = document.getElementById('queue-header-badge');
+    if (queueBadge) queueBadge.textContent = `${waitingCount} Patients Waiting`;
+
+    const apptBadge = document.getElementById('appointments-header-badge');
+    if (apptBadge) apptBadge.textContent = `${totalAppts} Scheduled`;
+
+    const fAll = document.getElementById('filter-all-count');
+    const fConf = document.getElementById('filter-confirmed-count');
+    const fProg = document.getElementById('filter-inprogress-count');
+    const fComp = document.getElementById('filter-completed-count');
+
+    const confirmedCount = globalAppointments.filter(a => a.status === 'CONFIRMED' || !a.status).length;
+    const inProgCount = globalAppointments.filter(a => a.status === 'IN_PROGRESS').length;
+
+    if (fAll) fAll.textContent = totalAppts;
+    if (fConf) fConf.textContent = confirmedCount;
+    if (fProg) fProg.textContent = inProgCount;
+    if (fComp) fComp.textContent = completedCount;
+  }
+
+  function getInitials(name) {
+    if (!name) return 'PT';
+    const parts = name.trim().split(' ');
+    if (parts.length === 1) return parts[0].substring(0, 2).toUpperCase();
+    return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+  }
+
+  function renderLiveQueue() {
+    const container = document.getElementById('live-queue-list');
+    if (!container || !globalQueue || globalQueue.length === 0) return;
+
+    const displayQueue = globalQueue.slice(0, 4);
+    let html = '';
+
+    displayQueue.forEach((item, index) => {
+      const isNext = index === 0;
+      const initials = getInitials(item.patient_name);
+      const isEmergency = item.priority === 'EMERGENCY';
+      const badgeText = isNext ? 'Calling Next' : `Position #${index + 1}`;
+      const badgeClass = isEmergency 
+        ? 'bg-error text-on-error'
+        : (isNext ? 'bg-primary text-on-primary' : 'bg-surface-container-high text-on-surface-variant');
+
+      const bgCard = isNext ? 'bg-surface-container-low' : 'bg-surface-container/40';
+      const patientName = item.patient_name || 'Patient';
+      const symptoms = item.symptoms || 'General OPD Consultation';
+      const vitals = (item.vitals_bp ? `BP ${item.vitals_bp}` : '') + (item.vitals_spo2 ? ` • SpO2 ${item.vitals_spo2}%` : '');
+
+      html += `
+        <div class="p-space-sm rounded-xl ${bgCard} flex items-center justify-between gap-space-xs transition-colors">
+          <div class="flex items-center gap-space-xs min-w-0">
+            <div class="w-10 h-10 rounded-full ${isNext ? 'bg-primary text-on-primary' : 'bg-surface-variant text-on-surface-variant'} flex items-center justify-center font-bold text-sm shrink-0">
+              ${initials}
+            </div>
+            <div class="min-w-0">
+              <div class="flex items-center gap-1.5 flex-wrap">
+                <span class="font-label-lg text-label-lg text-on-surface font-bold truncate">${patientName}</span>
+                <span class="font-label-sm text-label-sm ${badgeClass} px-1.5 py-0.2 rounded font-semibold">${badgeText}</span>
+              </div>
+              <p class="font-body-sm text-body-sm text-on-surface-variant truncate">${symptoms}${vitals ? ' (' + vitals + ')' : ''}</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-1.5 shrink-0">
+            <button class="px-3 py-1.5 rounded-lg bg-primary text-on-primary font-label-md text-label-md font-semibold hover:bg-primary-container active:scale-95 transition-all flex items-center gap-1 shadow-sm" onclick="callQueuePatient('${patientName.replace(/'/g, "\\'")}', ${item.queue_id || item.id || 0})">
+              <span class="material-symbols-outlined text-[16px]">campaign</span> ${isNext ? 'Call In' : 'Call'}
+            </button>
+            <button class="px-2 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-primary font-label-sm text-label-sm transition-all" onclick="window.location.href='../patient_detail/patient_detail.html?id=${item.patient_id || 1}&name=${encodeURIComponent(patientName)}'" title="View EHR">
+              <span class="material-symbols-outlined text-[16px]">clinical_notes</span>
+            </button>
+          </div>
+        </div>
+      `;
+    });
+
+    container.innerHTML = html;
+  }
+
+  async function callQueuePatient(patientName, queueId) {
+    showQuickFeedback(`Paging patient ${patientName} to Consultation Chamber 104...`, 'success');
+    if ('speechSynthesis' in window) {
+      try {
+        const utter = new SpeechSynthesisUtterance(`Attention please: Patient ${patientName}, proceed to Consultation Chamber 104.`);
+        utter.rate = 0.95;
+        window.speechSynthesis.speak(utter);
+      } catch (e) {}
+    }
+
+    if (queueId) {
+      try {
+        await fetch(`${API_BASE}/api/doctor/queue/${queueId}`, {
+          method: 'PATCH',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ status: 'CALLED' })
+        });
+      } catch (e) {}
+    }
+  }
+
+  function renderAppointments(statusFilter = 'all') {
+    const container = document.getElementById('appointments-container');
+    if (!container) return;
+
+    if (!globalAppointments || globalAppointments.length === 0) return;
+
+    let filtered = globalAppointments;
+    if (statusFilter !== 'all') {
+      filtered = globalAppointments.filter(a => {
+        const s = (a.status || 'CONFIRMED').toLowerCase().replace('_', '');
+        return s === statusFilter;
+      });
+    }
+
+    if (filtered.length === 0) {
+      container.innerHTML = `
+        <div class="text-center py-8 bg-surface-container-lowest rounded-xl border border-surface-variant/40">
+          <span class="material-symbols-outlined text-[36px] text-on-surface-variant mb-2">event_busy</span>
+          <p class="font-label-md text-on-surface-variant">No appointments found in this category.</p>
+        </div>
+      `;
+      return;
+    }
+
+    let html = '';
+    filtered.forEach(appt => {
+      const initials = getInitials(appt.patient_name);
+      const isVideo = appt.consultation_type === 'video';
+      const status = (appt.status || 'CONFIRMED').toUpperCase();
+      const statusClass = status === 'CONFIRMED'
+        ? 'bg-primary/10 text-primary'
+        : (status === 'IN_PROGRESS' ? 'bg-amber-500/10 text-amber-700' : 'bg-tertiary/10 text-tertiary');
+      
+      const typeIcon = isVideo ? 'videocam' : 'meeting_room';
+      const timeStr = appt.time_slot || '10:00 AM';
+      const reasonStr = appt.reason || 'Routine general medical review & consultation';
+      const ageGender = [appt.patient_age ? `${appt.patient_age} Yrs` : null, appt.patient_gender, appt.village].filter(Boolean).join(' • ');
+
+      html += `
+        <article class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm space-y-3" data-status="${status.toLowerCase().replace('_', '')}">
+          <div class="flex items-start justify-between gap-space-xs">
+            <div class="flex items-center gap-2">
+              <div class="w-11 h-11 rounded-full ${isVideo ? 'bg-primary-fixed text-on-primary-fixed' : 'bg-secondary-fixed text-on-secondary-container'} flex items-center justify-center font-bold text-sm shrink-0">
+                ${initials}
+              </div>
+              <div>
+                <div class="flex items-center gap-2">
+                  <h3 class="font-label-lg text-label-lg text-on-surface font-bold">${appt.patient_name}</h3>
+                  <span class="px-2 py-0.5 rounded font-label-sm text-label-sm font-semibold ${statusClass}">${status}</span>
+                </div>
+                <p class="font-body-sm text-body-sm text-on-surface-variant">${ageGender || 'ASHA Registered Patient'} • ID: #${appt.booking_ref || 'APT-' + appt.id}</p>
+              </div>
+            </div>
+            <span class="font-label-sm text-label-sm bg-surface-container px-2 py-1 rounded text-primary flex items-center gap-1 font-bold">
+              <span class="material-symbols-outlined text-[15px]">${typeIcon}</span> ${timeStr}
+            </span>
+          </div>
+          <div class="bg-surface-container-low p-2.5 rounded-lg">
+            <span class="font-label-sm text-label-sm text-on-surface-variant block font-bold">Reason for Visit</span>
+            <p class="font-body-md text-body-md text-on-surface">${reasonStr}</p>
+          </div>
+          <div class="flex items-center gap-2 pt-1">
+            <button class="flex-1 py-2 rounded-lg bg-primary text-on-primary hover:bg-primary-container font-label-md text-label-md font-bold flex items-center justify-center gap-1 shadow-sm active:scale-98 transition-all" onclick="startAppointmentConsultation(${appt.id}, '${appt.patient_name.replace(/'/g, "\\'")}', '${appt.consultation_type}')">
+              <span class="material-symbols-outlined text-[18px]">${typeIcon}</span> ${isVideo ? 'Start Video Call' : 'Begin Consultation'}
+            </button>
+            <button class="px-3.5 py-2 rounded-lg bg-surface-container text-on-surface font-label-md text-label-md font-semibold hover:bg-surface-variant active:scale-98 transition-all" onclick="window.location.href='../patient_detail/patient_detail.html?id=${appt.patient_id || 1}&name=${encodeURIComponent(appt.patient_name)}'">
+              View Patient EHR
+            </button>
+          </div>
+        </article>
+      `;
+    });
+
+    container.innerHTML = html;
+  }
+
+  async function startAppointmentConsultation(apptId, patientName, type) {
+    showQuickFeedback(`Opening consultation workspace with ${patientName}...`, 'success');
+    try {
+      await fetch(`${API_BASE}/api/appointments/${apptId}/status`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ status: 'IN_PROGRESS' })
+      });
+    } catch (e) {}
+
+    setTimeout(() => {
+      window.location.href = '../../../patient/Talktodoctor/talk-to-doctor.html';
+    }, 700);
+  }
+
+  document.addEventListener('DOMContentLoaded', loadDoctorDashboardData);
+  if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    loadDoctorDashboardData();
+  }
+</script><footer class="mt-auto px-space-md py-space-md text-center bg-surface-container-lowest"><p class="font-body-sm text-body-sm text-on-surface-variant">© 2025 ASHA Healthcare. Clinical Systems Division.</p><div class="flex items-center justify-center gap-space-sm mt-space-xs font-label-sm text-label-sm text-primary"><a class="hover:underline" href="#">Help</a><span class="">•</span><a class="hover:underline" href="#">Privacy</a><span class="">•</span><a class="hover:underline" href="#">Terms</a><span class="">•</span><a class="hover:underline" href="#">Support</a></div></footer></main><nav class="fixed bottom-0 left-0 right-0 w-full z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]" data-active-classes="text-primary font-bold"><div class="flex justify-around items-center h-16 px-space-xs"><a aria-current="page" class="flex flex-col items-center justify-center gap-0.5 w-14 h-14 transition-all text-primary font-bold" data-path="dashboard" href="doctor_dashboard.html"><span class="material-symbols-outlined text-[22px]">grid_view</span><span class="font-label-sm text-label-sm">Home</span></a><a class="flex flex-col items-center justify-center gap-0.5 w-14 h-14 text-on-surface-variant hover:text-primary transition-all" data-path="patient-queue" href="../../priority%20patient/index.html"><span class="material-symbols-outlined text-[22px]">queue</span><span class="font-label-sm text-label-sm">Queue</span></a><a class="flex flex-col items-center justify-center gap-0.5 w-14 h-14 text-on-surface-variant hover:text-primary transition-all" data-path="appointments" href="../../../patient/appointment/appointment.html"><span class="material-symbols-outlined text-[22px]">calendar_today</span><span class="font-label-sm text-label-sm">Schedule</span></a><a class="flex flex-col items-center justify-center gap-0.5 w-14 h-14 text-on-surface-variant hover:text-primary transition-all" data-path="messages" href="../../../patient/Talktodoctor/talk-to-doctor.html"><span class="material-symbols-outlined text-[22px]">chat_bubble</span><span class="font-label-sm text-label-sm">Inbox</span></a><a class="flex flex-col items-center justify-center gap-0.5 w-14 h-14 text-on-surface-variant hover:text-primary transition-all" data-path="settings" href="../patient_detail/patient_detail.html"><span class="material-symbols-outlined text-[22px]">account_circle</span><span class="font-label-sm text-label-sm">EHR</span></a></div></nav></div>
 </body></html>

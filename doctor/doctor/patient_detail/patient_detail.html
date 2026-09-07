@@ -1506,31 +1506,36 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-brand">
+    <div class="sidebar-brand" style="cursor:pointer;" onclick="window.location.href='../dashboard/doctor_dashboard.html'">
       <div class="brand-icon">✚</div>
-      <span style="margin-left:8px;">HealthCare</span>
+      <span style="margin-left:8px;">ASHA Clinical</span>
     </div>
 
     <nav class="sidebar-menu">
 
-      <a href="#" class="side-link active">
+      <a href="../dashboard/doctor_dashboard.html" class="side-link">
         <span>⌂</span>
-        Dashboard
+        Doctor Dashboard
       </a>
 
-      <a href="#health" class="side-link">
+      <a href="../../priority%20patient/index.html" class="side-link">
+        <span>⚠</span>
+        Priority Queue
+      </a>
+
+      <a href="#health" class="side-link active">
         <span>♥</span>
         Health Profile
       </a>
 
-      <a href="#appointments" class="side-link">
+      <a href="../../../patient/appointment/appointment.html" class="side-link">
         <span>▣</span>
         Appointments
       </a>
 
-      <a href="#activity" class="side-link">
-        <span>◷</span>
-        Activity
+      <a href="../../../patient/Precautions/index.html" class="side-link">
+        <span>💊</span>
+        Prescriptions
       </a>
 
       <a href="#documents" class="side-link">
@@ -1542,14 +1547,9 @@
 
     <div class="sidebar-footer">
 
-      <a href="#" class="side-link">
-        <span>⚙</span>
-        Settings
-      </a>
-
-      <a href="#" class="side-link">
-        <span>?</span>
-        Help & Support
+      <a href="../dashboard/doctor_dashboard.html" class="side-link">
+        <span>←</span>
+        Exit Patient EHR
       </a>
 
     </div>
@@ -1566,19 +1566,19 @@
 
     <header class="topbar">
 
-      <div class="brand">
-        <div class="brand-icon">✚</div>
-        <span>HealthCare</span>
+      <div class="brand" style="cursor:pointer; display:flex; align-items:center; gap:8px;" onclick="window.location.href='../dashboard/doctor_dashboard.html'">
+        <div class="brand-icon" style="background:#eef4f8; color:#063f67; font-weight:bold;">←</div>
+        <span style="font-weight:600; color:#063f67;">Back to Doctor Dashboard</span>
       </div>
 
       <div class="top-actions">
 
-        <button class="top-btn" title="Notifications">
-          ♢
+        <button class="top-btn" title="Return to Queue" onclick="window.location.href='../../priority%20patient/index.html'">
+          ⚠
         </button>
 
-        <button class="top-btn" title="Profile">
-          K
+        <button class="top-btn" title="Doctor Profile" onclick="window.location.href='../dashboard/doctor_dashboard.html'">
+          Dr
         </button>
 
       </div>
@@ -1617,40 +1617,40 @@
 
             <div class="profile-name-row">
 
-              <div class="profile-name">
-                Kiran Singh
+              <div class="profile-name" id="profile-name-header">
+                Priya Sharma
               </div>
 
-              <span class="status">
-                ● Active Patient
+              <span class="status" id="profile-status-badge">
+                ● Active EHR Record
               </span>
 
             </div>
 
-            <div class="profile-subtitle">
-              Patient ID: PT-284731
+            <div class="profile-subtitle" id="profile-id-subtitle">
+              ABHA ID: ABHA-9821-4321-0012
             </div>
 
             <div class="profile-meta">
 
               <div>
-                <div class="meta-label">Date of Birth</div>
-                <div class="meta-value">14 May 2007</div>
+                <div class="meta-label">Village / Locality</div>
+                <div class="meta-value" id="profile-village-meta">Kalyanpur</div>
               </div>
 
               <div>
                 <div class="meta-label">Age</div>
-                <div class="meta-value">19 Years</div>
+                <div class="meta-value" id="profile-age-meta">28 Years</div>
               </div>
 
               <div>
                 <div class="meta-label">Gender</div>
-                <div class="meta-value">Male</div>
+                <div class="meta-value" id="profile-gender-meta">Female</div>
               </div>
 
               <div>
-                <div class="meta-label">Blood Group</div>
-                <div class="meta-value">O+</div>
+                <div class="meta-label">Risk Level</div>
+                <div class="meta-value" id="profile-risk-meta" style="color:#0b8d83; font-weight:700;">MEDIUM</div>
               </div>
 
             </div>
@@ -1661,11 +1661,11 @@
 
         <div class="profile-actions">
 
-          <button class="btn btn-outline" onclick="editProfile()">
-            ✎ Edit Profile
+          <button class="btn btn-outline" onclick="window.location.href='../dashboard/doctor_dashboard.html'">
+            ← Back to Dashboard
           </button>
 
-          <button class="btn btn-primary" onclick="bookAppointment()">
+          <button class="btn btn-primary" onclick="window.location.href='../../../patient/appointment/appointment.html'">
             ✚ Book Appointment
           </button>
 
@@ -1693,12 +1693,12 @@
               </div>
 
               <div class="card-subtitle">
-                Basic information about you
+                Verified national health registry details
               </div>
             </div>
 
             <span class="badge badge-blue">
-              Edit Profile
+              ABHA Verified
             </span>
 
           </div>
@@ -1707,44 +1707,42 @@
 
             <div class="info-item">
               <div class="info-label">Full Name</div>
-              <div class="info-value">Kiran Singh</div>
+              <div class="info-value" id="info-fullname">Priya Sharma</div>
             </div>
 
             <div class="info-item">
-              <div class="info-label">Date of Birth</div>
-              <div class="info-value">14 May 2007</div>
+              <div class="info-label">ABHA Number</div>
+              <div class="info-value" id="info-abha">ABHA-9821-4321-0012</div>
             </div>
 
             <div class="info-item">
               <div class="info-label">Age</div>
-              <div class="info-value">19 Years</div>
+              <div class="info-value" id="info-age">28 Years</div>
             </div>
 
             <div class="info-item">
               <div class="info-label">Gender</div>
-              <div class="info-value">Male</div>
+              <div class="info-value" id="info-gender">Female</div>
             </div>
 
             <div class="info-item">
               <div class="info-label">Mobile</div>
-              <div class="info-value">+91 98765 43210</div>
+              <div class="info-value" id="info-mobile">+91 98765 43210</div>
             </div>
 
             <div class="info-item">
-              <div class="info-label">Email</div>
-              <div class="info-value">
-                kiran.singh@email.com
-              </div>
+              <div class="info-label">Village / Center</div>
+              <div class="info-value" id="info-village">Kalyanpur, Ward 3</div>
             </div>
 
             <div class="info-item">
               <div class="info-label">Preferred Language</div>
-              <div class="info-value">English (India)</div>
+              <div class="info-value">Hindi / English</div>
             </div>
 
             <div class="info-item">
               <div class="info-label">Blood Group</div>
-              <div class="info-value">
+              <div class="info-value" id="info-blood">
                 <span class="badge badge-red">O+ Positive</span>
               </div>
             </div>
@@ -1943,8 +1941,8 @@
               Existing Health Conditions
             </div>
 
-            <div class="health-item-text">
-              None reported
+            <div class="health-item-text" id="info-conditions">
+              Maternal Health - 3rd Trimester (Monitoring Vitals)
             </div>
 
           </div>
@@ -1952,11 +1950,11 @@
           <div class="health-item">
 
             <div class="health-item-title">
-              Current Medications
+              Current Medications & Prescriptions
             </div>
 
-            <div class="health-item-text">
-              None reported
+            <div class="health-item-text" id="info-medications">
+              Iron Folic Acid (IFA) 100mg (1 tablet daily after food) • Calcium Carbonate 500mg
             </div>
 
           </div>
@@ -2712,6 +2710,85 @@
 
     });
 
+    // =========================================================
+    // BACKEND EHR DYNAMIC INTEGRATION
+    // =========================================================
+    const API_BASE = (window.location.protocol === 'http:' || window.location.protocol === 'https:')
+      && window.location.port === '5000'
+      ? ''
+      : 'http://localhost:5000';
+
+    async function loadPatientEHR() {
+      const params = new URLSearchParams(window.location.search);
+      const patientId = params.get('id') || '1';
+      const patientNameParam = params.get('name');
+
+      if (patientNameParam) {
+        const nameHeader = document.getElementById('profile-name-header');
+        const fullName = document.getElementById('info-fullname');
+        if (nameHeader) nameHeader.textContent = patientNameParam;
+        if (fullName) fullName.textContent = patientNameParam;
+      }
+
+      try {
+        const res = await fetch(`${API_BASE}/api/patient/${patientId}/records`);
+        if (!res.ok) return;
+        const data = await res.json();
+        const pt = data.patient;
+
+        if (pt) {
+          const nameHeader = document.getElementById('profile-name-header');
+          const idSub = document.getElementById('profile-id-subtitle');
+          const villageMeta = document.getElementById('profile-village-meta');
+          const ageMeta = document.getElementById('profile-age-meta');
+          const genderMeta = document.getElementById('profile-gender-meta');
+          const riskMeta = document.getElementById('profile-risk-meta');
+
+          const infoName = document.getElementById('info-fullname');
+          const infoAbha = document.getElementById('info-abha');
+          const infoAge = document.getElementById('info-age');
+          const infoGender = document.getElementById('info-gender');
+          const infoMobile = document.getElementById('info-mobile');
+          const infoVillage = document.getElementById('info-village');
+          const infoConditions = document.getElementById('info-conditions');
+
+          if (nameHeader) nameHeader.textContent = pt.name;
+          if (idSub) idSub.textContent = `ABHA ID: ${pt.abha_id || 'N/A'}`;
+          if (villageMeta) villageMeta.textContent = pt.village || 'Primary Health Center';
+          if (ageMeta) ageMeta.textContent = pt.age ? `${pt.age} Years` : '28 Years';
+          if (genderMeta) genderMeta.textContent = pt.gender || 'Female';
+          if (riskMeta) {
+            riskMeta.textContent = pt.risk_level || 'MEDIUM';
+            riskMeta.style.color = pt.risk_level === 'CRITICAL' ? '#c1121f' : (pt.risk_level === 'HIGH' ? '#4c1d95' : '#0b8d83');
+          }
+
+          if (infoName) infoName.textContent = pt.name;
+          if (infoAbha) infoAbha.textContent = pt.abha_id || 'ABHA-9821-4321-0012';
+          if (infoAge) infoAge.textContent = pt.age ? `${pt.age} Years` : '28 Years';
+          if (infoGender) infoGender.textContent = pt.gender || 'Female';
+          if (infoMobile) infoMobile.textContent = pt.contact_number || '+91 98765 43210';
+          if (infoVillage) infoVillage.textContent = pt.village ? `${pt.village}, ASHA Sector` : 'Kalyanpur';
+          if (infoConditions) infoConditions.textContent = pt.primary_condition || 'Routine ANC & Vitals Monitoring';
+        }
+
+        // Render Prescriptions
+        if (data.prescriptions && data.prescriptions.length > 0) {
+          const medEl = document.getElementById('info-medications');
+          if (medEl) {
+            medEl.innerHTML = data.prescriptions.map(rx => 
+              `<strong>${rx.medicine_name}</strong> (${rx.dosage}) — ${rx.frequency}, ${rx.duration} [${rx.status}]`
+            ).join('<br>');
+          }
+        }
+      } catch (err) {
+        console.warn('EHR backend offline, showing cached demo view:', err);
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', loadPatientEHR);
+    if (document.readyState === 'complete' || document.readyState === 'interactive') {
+      loadPatientEHR();
+    }
   </script>
 
 </body>
