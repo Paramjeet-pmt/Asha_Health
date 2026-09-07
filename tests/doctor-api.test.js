@@ -140,6 +140,49 @@ async function runTests() {
     if (adminDocRedirect.status !== 302) throw new Error(`/admin/doctors returned ${adminDocRedirect.status}`);
   });
 
+  // 10. POST /api/doctor/admit-patient registers walk-in and enters queue
+  await assert('POST /api/doctor/admit-patient admits walk-in patient into OPD queue', async () => {
+    const res = await makeRequest('/api/doctor/admit-patient', 'POST', {
+      name: 'Pooja Verma',
+      age: 28,
+      gender: 'Female',
+      phone: '9876543210',
+      village: 'Rampur',
+      priority: 'URGENT',
+      risk_level: 'MODERATE',
+      symptoms: 'Persistent fever and acute migraine',
+      vitals_bp: '135/88',
+      vitals_pulse: 94,
+      vitals_spo2: 97
+    });
+    if (res.status !== 201) throw new Error(`Expected status 201, got ${res.status}`);
+    if (!res.data.patientId || !res.data.queueId) throw new Error('Missing patientId or queueId');
+  });
+
+  // 11. POST /api/doctor/schedule-slot creates doctor follow-up appointment
+  await assert('POST /api/doctor/schedule-slot books clinical follow-up without payment gate', async () => {
+    const res = await makeRequest('/api/doctor/schedule-slot', 'POST', {
+      patient_name: 'Pooja Verma',
+      doctor_name: 'Dr. Ananya Sharma',
+      appointment_date: '2026-09-08',
+      time_slot: '11:30 AM',
+      consultation_type: 'clinic',
+      reason: 'Post-migraine review'
+    });
+    if (res.status !== 201) throw new Error(`Expected status 201, got ${res.status}`);
+    if (!res.data.appointmentId || !res.data.booking_reference) throw new Error('Missing appointmentId or booking reference');
+  });
+
+  // 12. Fix CANNOT GET on patient login variant route and doctor quick routes
+  await assert('Patient login variant & doctor action routes return 302 redirect', async () => {
+    const loginRedirect = await makeRequest('/auth/patient_login_variant_2/patient_login_v2.html');
+    if (loginRedirect.status !== 302) throw new Error(`Expected 302 for patient_login_v2.html, got ${loginRedirect.status}`);
+    const addPatientRedirect = await makeRequest('/doctor/add-patient');
+    if (addPatientRedirect.status !== 302) throw new Error(`Expected 302 for /doctor/add-patient, got ${addPatientRedirect.status}`);
+    const scheduleRedirect = await makeRequest('/doctor/schedule');
+    if (scheduleRedirect.status !== 302) throw new Error(`Expected 302 for /doctor/schedule, got ${scheduleRedirect.status}`);
+  });
+
   console.log('\n========================================');
   console.log(`Doctor Suite Results: ${passed} Passed, ${failed} Failed`);
   console.log('========================================\n');
